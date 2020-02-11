@@ -1,0 +1,12 @@
+{
+  "name": "rn2dts",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "eloy.de.enige@gmail.com",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@khanacademy/flow-to-ts": "^0.1.5",
+    "jscodeshift": "^0.7.0"
+  }
+}
