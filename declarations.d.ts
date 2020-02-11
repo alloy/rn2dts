@@ -21,7 +21,8 @@ declare module "jscodeshift/src/Runner" {
             options: {
                 extensions?: string,
                 parser?: 'babel' | 'babylon' | 'flow' | 'ts' | 'tsx',
-                silent?: boolean
+                silent?: boolean,
+                runInBand?: boolean
             }) => void
     }
     export default Runner
