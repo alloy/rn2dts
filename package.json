@@ -5,9 +5,20 @@
   "author": "eloy.de.enige@gmail.com",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "start": "ts-node --files index.ts"
+  },
   "dependencies": {
     "@khanacademy/flow-to-ts": "^0.1.5",
+    "glob": "^7.1.6",
     "jscodeshift": "^0.7.0",
-    "react-native": "^0.61.5"
+    "react-native": "^0.61.5",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/rimraf": "^2.0.3",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
   }
 }
