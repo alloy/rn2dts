@@ -83,7 +83,7 @@ rimraf(WORKBENCH, err => {
             throw err
         }
     }
-
+    
     const tsPaths = inputPaths.map(inputPath => {
         try {
             const flowCode = captureError(inputPath, "readFileSync", () => fs.readFileSync(path.join(SOURCE, inputPath), "utf-8"))
@@ -105,6 +105,7 @@ rimraf(WORKBENCH, err => {
         }
     }).filter(Boolean) as string[]
 
+    console.log("Generating dts files...")
     generateDTS(tsPaths).diagnostics.forEach(diagnostic => {
         const message = typeof diagnostic.messageText === "string" ? diagnostic.messageText : ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n", 2)
         const loc = ts.getLineAndCharacterOfPosition(diagnostic.file!, diagnostic.start!)
