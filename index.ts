@@ -36,7 +36,11 @@ function codemod(transform: Transform, file: string, source: string) {
 rimraf(WORKBENCH, err => {
     if (err) throw new Error(err.message)
 
-    const inputPaths = glob.sync(SOURCE_GLOB, { cwd: SOURCE });
+    let inputPaths = glob.sync(SOURCE_GLOB, { cwd: SOURCE });
+    if (process.argv[2]) {
+        const filterRegExp = new RegExp(process.argv[2])
+        inputPaths = inputPaths.filter(p => filterRegExp.test(p))
+    }
 
     const progressBar = new ProgressBar({
         format: 'Progress |{bar}| {percentage}% || {value}/{total} Files',
