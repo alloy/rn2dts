@@ -1,0 +1,21 @@
+import PropTypes from 'prop-types';
+declare const _default: {
+    style: any;
+    source: PropTypes.Requireable<any>;
+    defaultSource: any;
+    accessible: PropTypes.Requireable<boolean>;
+    accessibilityLabel: PropTypes.Requireable<PropTypes.ReactNodeLike>;
+    blurRadius: PropTypes.Requireable<number>;
+    capInsets: any;
+    resizeMethod: any;
+    resizeMode: any;
+    testID: PropTypes.Requireable<string>;
+    onLayout: PropTypes.Requireable<(...args: {}) => any>;
+    onLoadStart: PropTypes.Requireable<(...args: {}) => any>;
+    onProgress: PropTypes.Requireable<(...args: {}) => any>;
+    onError: PropTypes.Requireable<(...args: {}) => any>;
+    onPartialLoad: PropTypes.Requireable<(...args: {}) => any>;
+    onLoad: PropTypes.Requireable<(...args: {}) => any>;
+    onLoadEnd: PropTypes.Requireable<(...args: {}) => any>;
+};
+export default _default;

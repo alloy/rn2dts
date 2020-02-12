@@ -1,0 +1,2 @@
+declare const AndroidTextInputNativeComponent: string;
+export default AndroidTextInputNativeComponent;
