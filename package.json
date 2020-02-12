@@ -20,8 +20,10 @@
   "devDependencies": {
     "@types/cli-progress": "^3.4.2",
     "@types/glob": "^7.1.1",
+    "@types/invariant": "^2.2.31",
     "@types/jscodeshift": "^0.6.3",
     "@types/promise": "^7.1.30",
+    "@types/react": "^16.9.19",
     "@types/rimraf": "^2.0.3",
     "patch-package": "^6.2.0",
     "ts-node": "^8.6.2",

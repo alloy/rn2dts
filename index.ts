@@ -8,6 +8,7 @@ import convertFlowToTS from "@khanacademy/flow-to-ts/src/convert"
 import detectJSX from "@khanacademy/flow-to-ts/src/detect-jsx"
 import jscodeshift from "jscodeshift/src/core"
 import { Transform } from "jscodeshift"
+import * as ts from "typescript"
 
 import { transformer as importsExportsTransformer } from "./codemods/imports-exports"
 import { transformer as noopsTransformer } from "./codemods/noops"
@@ -16,6 +17,16 @@ const WORKBENCH = "./workbench"
 const SOURCE = "./node_modules/react-native"
 const SOURCE_GLOB = "Libraries/**/!(__mocks__|__flowtests__)/*.js"
 const JSCODESHIFT = jscodeshift.withParser("tsx")
+const DTS_OPTIONS: ts.CompilerOptions = {
+    target: ts.ScriptTarget.ES5,
+    module: ts.ModuleKind.CommonJS,
+    lib: ["ES2015"],
+    jsx: ts.JsxEmit.Preserve,
+    declaration: true,
+    strictNullChecks: true,
+    types: ["invariant", "react", "promise"],
+    esModuleInterop: true,
+}
 
 function codemod(transform: Transform, file: string, source: string) {
     return transform(
@@ -31,6 +42,17 @@ function codemod(transform: Transform, file: string, source: string) {
         },
         {}
     ) as string
+}
+
+function generateDTS(tsPaths: string[]) {
+  const host = ts.createCompilerHost(DTS_OPTIONS)
+  host.writeFile = (fileName, content) => {
+    if (fileName.endsWith(".d.ts")) {
+        fs.writeFileSync(fileName, content)
+    }
+  }
+  const program = ts.createProgram(tsPaths, DTS_OPTIONS, host)
+  return program.emit()
 }
 
 rimraf(WORKBENCH, err => {
@@ -52,17 +74,17 @@ rimraf(WORKBENCH, err => {
     })
     progressBar.start(inputPaths.length, 0)
 
-    const errors = new Map<string, [string, Error]>()
+    const errors = new Map<string, [string, string]>()
     const captureError = <T>(inputPath: string, name: string, task: () => T): T => {
         try {
             return task()
         } catch(err) {
-            errors.set(inputPath, [name, err])
+            errors.set(inputPath, [name, err.message])
             throw err
         }
     }
 
-    inputPaths.forEach(inputPath => {
+    const tsPaths = inputPaths.map(inputPath => {
         try {
             const flowCode = captureError(inputPath, "readFileSync", () => fs.readFileSync(path.join(SOURCE, inputPath), "utf-8"))
             const extension = detectJSX(flowCode) ? ".tsx" : ".ts"
@@ -74,10 +96,19 @@ rimraf(WORKBENCH, err => {
             
             captureError(inputPath, "mkdirSync", () => fs.mkdirSync(path.dirname(tsPath), { recursive: true }))
             captureError(inputPath, "writeFileSync", () => fs.writeFileSync(tsPath, tsCode))
+
+            return tsPath
         } catch {
+            return null
         } finally {
             progressBar.increment()
         }
+    }).filter(Boolean) as string[]
+
+    generateDTS(tsPaths).diagnostics.forEach(diagnostic => {
+        const message = typeof diagnostic.messageText === "string" ? diagnostic.messageText : ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n", 2)
+        const loc = ts.getLineAndCharacterOfPosition(diagnostic.file!, diagnostic.start!)
+        errors.set(`${diagnostic.file!.fileName}:${loc.line+1}:${loc.character+1}`, ["generateDTS", message])
     })
 
     if (errors.size > 0) {
