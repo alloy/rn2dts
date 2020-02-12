@@ -1,21 +1,20 @@
-// @ts-check
-
-const {
+import {
+    ASTPath,
     AssignmentExpression,
     CallExpression,
+    Expression,
     ExpressionStatement,
     Identifier,
     Literal,
     MemberExpression,
     Program,
+    Transform,
     VariableDeclaration,
     VariableDeclarator,
-} = require('jscodeshift');
+    ImportDeclaration,
+} from 'jscodeshift';
 
-/**
- * @param { import("jscodeshift").VariableDeclaration } node
- */
-function getVariableDeclarator(node) {
+function getVariableDeclarator(node: VariableDeclaration) {
     const declarator = node.declarations[0];
     if (VariableDeclarator.check(declarator)) {
         return declarator;
@@ -24,12 +23,7 @@ function getVariableDeclarator(node) {
     }
 }
 
-/**
- * Alas, can't define type guards using js+jsdoc
- *
- * @param { import("jscodeshift").Expression } node
- */
-function getRequireExpression(node) {
+function getRequireExpression(node: Expression) {
     if (CallExpression.check(node)) {
         const callee = node.callee;
         if (Identifier.check(callee) && callee.name === 'require') {
@@ -39,20 +33,13 @@ function getRequireExpression(node) {
     return null;
 }
 
-/**
- * @param { import("jscodeshift").VariableDeclaration } node
- */
-function getRequire(node) {
+function getRequire(node: VariableDeclaration) {
     const declarator = getVariableDeclarator(node);
-    const requireNode = getRequireExpression(declarator.init);
+    const requireNode = declarator.init && getRequireExpression(declarator.init);
     return requireNode;
 }
 
-/**
- * @param { import("jscodeshift").ASTPath<any> } path
- * @returns { null | import("jscodeshift").ASTPath<import("jscodeshift").VariableDeclarator> }
- */
-function findVariableDeclarator(path) {
+function findVariableDeclarator(path: ASTPath<any>): null | ASTPath<VariableDeclarator> {
     const parent = path.parent;
     if (VariableDeclarator.check(parent.node)) {
         return parent;
@@ -67,15 +54,12 @@ function findVariableDeclarator(path) {
     return null;
 }
 
-/**
- * @type { import("jscodeshift").Transform }
- */
-const transformer = (file, api, options) => {
+export const transformer: Transform = (file, api) => {
     const j = api.jscodeshift;
     let i = 0;
 
     const collection = j(file.source);
-    const expressions = [];
+    const expressions: ImportDeclaration[] = [];
 
     /**
      * require
@@ -86,15 +70,11 @@ const transformer = (file, api, options) => {
             const source = requirePath.node.arguments[0];
             if (Literal.check(source)) {
                 const variableDeclarator = findVariableDeclarator(requirePath);
-                // const variableDeclarator = VariableDeclarator.check(requirePath.parent.node)
-                //     ? requirePath.parent
-                //     // : null;
-                //     : (MemberExpression.check(requirePath.parent.node) && VariableDeclarator.check(requirePath.parent.parent) ? )
                 if (variableDeclarator) {
                     const id = variableDeclarator.node.id;
-                    const declaration = variableDeclarator.parent;
+                    const declaration: ASTPath<any> = variableDeclarator.parent;
                     if (Identifier.check(id) && VariableDeclaration.assert(declaration.node) && declaration.node.kind === 'const') {
-                        declaration.replace(null);
+                        declaration.replace(undefined);
                         const specifiers = [j.importDefaultSpecifier(id)];
                         expressions.push(j.importDeclaration(specifiers, source));
                     } else {
@@ -106,7 +86,7 @@ const transformer = (file, api, options) => {
                 } else if (ExpressionStatement.check(requirePath.parent.node)) {
                     // This is the only expression, e.g. `require("foo");`
                     expressions.push(j.importDeclaration([], source));
-                    requirePath.replace(null);
+                    requirePath.replace(undefined);
                 } else {
                     const tmpVar = j.identifier(`_Import${i++}`);
                     expressions.push(j.importDeclaration([j.importDefaultSpecifier(tmpVar)], source));
@@ -142,6 +122,3 @@ const transformer = (file, api, options) => {
 
     return collection.toSource();
 };
-
-module.exports = transformer;
-module.exports.parser = 'tsx';

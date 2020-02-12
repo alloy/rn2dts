@@ -1,40 +1,16 @@
-// @ts-check
-
-const {
+import {
     FunctionDeclaration,
     Identifier,
     ImportDeclaration,
     ObjectMethod,
     Node,
+    Transform,
     TSTypeAnnotation,
-} = require('jscodeshift');
+} from "jscodeshift"
 
-/**
- * @type { import("jscodeshift").Transform }
- */
-const transformer = (file, api, options) => {
+export const transformer: Transform = (file, api) => {
     const j = api.jscodeshift;
     const collection = j(file.source);
-
-    // /**
-    //  * @type { Map<string, [number, import("jscodeshift").ImportDeclaration]> }
-    //  */
-    // const imports = new Map();
-    // collection
-    //     .find(ImportDeclaration)
-    //     .forEach(({ node: importDeclaration }) => {
-    //         importDeclaration.specifiers.forEach(specifier => {
-    //             const id = specifier.local;
-    //             if (Identifier.check(id)) {
-    //                 const count = collection.find(Identifier, node => node.name === id.name).length;
-    //                 if (count) {
-    //                     imports.set(id.name, [count, importDeclaration]);
-    //                 }
-    //             } else {
-    //                 throw new Error(`[!] Unexpected specifier identifier: ${id}`);
-    //             }
-    //         });
-    //     });
 
     collection
         .find(Node, node => {
@@ -79,7 +55,7 @@ const transformer = (file, api, options) => {
                 }
             });
             if (specifiers.length === 0) {
-                importDeclaration.replace(null);
+                importDeclaration.replace(undefined);
             } else if (specifiers.length < importDeclaration.node.specifiers.length) {
                 importDeclaration.replace(j.importDeclaration(specifiers, importDeclaration.node.source));
             }
@@ -87,6 +63,3 @@ const transformer = (file, api, options) => {
 
     return collection.toSource();
 };
-
-module.exports = transformer;
-module.exports.parser = 'tsx';

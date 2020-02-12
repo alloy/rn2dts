@@ -1,3 +1,3 @@
 ## TODO
 
-* Make warnings from flow-to-ts show up.
+* Make warnings from jscodeshift & flow-to-ts show up.

@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@khanacademy/flow-to-ts": "^0.1.5",
+    "cli-progress": "^3.6.0",
     "glob": "^7.1.6",
     "jscodeshift": "^0.7.0",
     "react-native": "^0.61.5",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
+    "@types/cli-progress": "^3.4.2",
     "@types/glob": "^7.1.1",
     "@types/jscodeshift": "^0.6.3",
     "@types/promise": "^7.1.30",
