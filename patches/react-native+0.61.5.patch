@@ -1,0 +1,22 @@
+diff --git a/node_modules/react-native/Libraries/polyfills/error-guard.js b/node_modules/react-native/Libraries/polyfills/error-guard.js
+index 5b968d1..f4818da 100644
+--- a/node_modules/react-native/Libraries/polyfills/error-guard.js
++++ b/node_modules/react-native/Libraries/polyfills/error-guard.js
+@@ -12,7 +12,7 @@
+ let _inGuard = 0;
+ 
+ type ErrorHandler = (error: mixed, isFatal: boolean) => void;
+-type Fn<Args, Return> = (...Args) => Return;
++type Fn<Args: $ReadOnlyArray<mixed>, Return> = (...args: Args) => Return;
+ 
+ /**
+  * This is the error handler that is called when we encounter an exception
+@@ -88,7 +88,7 @@ const ErrorUtils = {
+     fun: Fn<TArgs, TOut>,
+     name?: ?string,
+     context?: ?mixed,
+-  ): ?(...TArgs) => ?TOut {
++  ): ?(...args: TArgs) => ?TOut {
+     // TODO: (moti) T48204753 Make sure this warning is never hit and remove it - types
+     // should be sufficient.
+     if (typeof fun !== 'function') {
