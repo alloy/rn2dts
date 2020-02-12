@@ -15,5 +15,6 @@ yarn start
 
 ## TODO
 
+* Support platform file extensions, at first just by assuming iOS.
 * Feed tsc file contents from memory, instead of having to persist to disk first.
 * Make warnings from jscodeshift & flow-to-ts show up.
