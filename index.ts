@@ -114,5 +114,7 @@ rimraf(WORKBENCH, err => {
 
     if (errors.size > 0) {
         console.log(errors)
+        console.log("")
+        console.log(`${errors.size} errors`)
     }
 })
