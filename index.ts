@@ -51,7 +51,7 @@ function generateDTS(tsPaths: string[]) {
         fs.writeFileSync(fileName, content)
     }
   }
-  const program = ts.createProgram(tsPaths, DTS_OPTIONS, host)
+  const program = ts.createProgram([...tsPaths, "node_modules/typescript/lib/lib.es6.d.ts"], DTS_OPTIONS, host)
   return program.emit()
 }
 
