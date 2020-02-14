@@ -11,7 +11,7 @@ declare class Surface extends React.Component {
 }
 declare class Group extends React.Component {
     static contextTypes: {
-        isInSurface: PropTypes.Validator<any>;
+        isInSurface: PropTypes.Validator<boolean>;
     };
     render(): JSX.Element;
 }

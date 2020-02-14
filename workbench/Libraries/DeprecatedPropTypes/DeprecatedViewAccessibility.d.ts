@@ -1,5 +1,5 @@
 declare const _default: {
-    DeprecatedAccessibilityRoles: {};
-    DeprecatedAccessibilityStates: {};
+    DeprecatedAccessibilityRoles: string[];
+    DeprecatedAccessibilityStates: string[];
 };
 export default _default;

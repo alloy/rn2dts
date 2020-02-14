@@ -23,7 +23,7 @@ declare const ActionSheetIOS: {
     showActionSheetWithOptions(options: {
         readonly title?: string | null | undefined;
         readonly message?: string | null | undefined;
-        readonly options: any;
+        readonly options: string[];
         readonly destructiveButtonIndex?: number | null | undefined;
         readonly cancelButtonIndex?: number | null | undefined;
         readonly anchor?: number | null | undefined;

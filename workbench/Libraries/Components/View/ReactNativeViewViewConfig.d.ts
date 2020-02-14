@@ -3,8 +3,8 @@ declare const ReactNativeViewConfig: {
     uiViewClassName: string;
     baseModuleName: null;
     Manager: string;
-    Commands: any;
-    Constants: any;
+    Commands: {};
+    Constants: {};
     bubblingEventTypes: {
         topBlur: {
             phasedRegistrationNames: {

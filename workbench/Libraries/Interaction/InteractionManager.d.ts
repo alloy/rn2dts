@@ -59,7 +59,7 @@ declare const InteractionManager: {
         run: () => void;
     } | {
         name: string;
-        gen: () => any;
+        gen: () => Promise<any>;
     } | ((...args: any) => any) | null | undefined): {
         then: (...args: any) => any;
         done: (...args: any) => any;

@@ -11,29 +11,29 @@ declare const AccessibilityInfo: {
     /**
      * iOS only
      */
-    isBoldTextEnabled: () => any;
+    isBoldTextEnabled: () => Promise<boolean>;
     /**
      * iOS only
      */
-    isGrayscaleEnabled: () => any;
+    isGrayscaleEnabled: () => Promise<boolean>;
     /**
      * iOS only
      */
-    isInvertColorsEnabled: () => any;
-    isReduceMotionEnabled: () => any;
+    isInvertColorsEnabled: () => Promise<boolean>;
+    isReduceMotionEnabled: () => Promise<boolean>;
     /**
      * iOS only
      */
-    isReduceTransparencyEnabled: () => any;
-    isScreenReaderEnabled: () => any;
+    isReduceTransparencyEnabled: () => Promise<boolean>;
+    isScreenReaderEnabled: () => Promise<boolean>;
     /**
      * Deprecated
      *
      * Same as `isScreenReaderEnabled`
      */
     readonly fetch: any;
-    addEventListener: (eventName: any, handler: (...args: any) => any) => void;
-    removeEventListener: (eventName: any, handler: (...args: any) => any) => void;
+    addEventListener: (eventName: "change" | "reduceMotionChanged" | "screenReaderChanged", handler: (...args: any) => any) => void;
+    removeEventListener: (eventName: "change" | "reduceMotionChanged" | "screenReaderChanged", handler: (...args: any) => any) => void;
     /**
      * Set accessibility focus to a react component.
      *

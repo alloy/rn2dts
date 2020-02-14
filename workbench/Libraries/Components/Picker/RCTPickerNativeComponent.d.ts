@@ -1,2 +1,3 @@
-declare const _default: any;
+import { Class } from "utility-types";
+declare const _default: Class<any>;
 export default _default;

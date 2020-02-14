@@ -20,7 +20,7 @@ declare const LOG_LEVELS: {
     warn: number;
     error: number;
 };
-declare const INSPECTOR_LEVELS: {};
+declare const INSPECTOR_LEVELS: never[];
 declare const INSPECTOR_FRAMES_TO_SKIP: number;
 declare function getNativeLogFunction(level: any): () => void;
 declare function repeat(element: any, n: any): any;
@@ -28,7 +28,7 @@ declare function consoleTablePolyfill(rows: any): void;
 declare const GROUP_PAD = "\u2502";
 declare const GROUP_OPEN = "\u2510";
 declare const GROUP_CLOSE = "\u2518";
-declare const groupStack: {};
+declare const groupStack: never[];
 declare function groupFormat(prefix: any, msg: any): string;
 declare function consoleGroupPolyfill(label: any): void;
 declare function consoleGroupCollapsedPolyfill(label: any): void;

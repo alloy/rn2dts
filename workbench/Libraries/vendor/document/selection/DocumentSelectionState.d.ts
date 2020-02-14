@@ -53,11 +53,11 @@ declare class DocumentSelectionState {
     /**
      * @return {?number}
      */
-    getStartOffset(): any;
+    getStartOffset(): number | null;
     /**
      * @return {?number}
      */
-    getEndOffset(): any;
+    getEndOffset(): number | null;
     /**
      * @param {number} start
      * @param {number} end

@@ -5,7 +5,7 @@
  */
 declare const InteractionMixin: {
     componentWillUnmount: () => void;
-    _interactionMixinHandles: any;
+    _interactionMixinHandles: number[];
     createInteractionHandle: () => number;
     clearInteractionHandle: (clearHandle: number) => void;
     /**

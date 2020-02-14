@@ -7,5 +7,5 @@
  * @param {object} obj An object.
  * @return {array}     The object's values.
  */
-declare function getObjectValues(obj: any): {};
+declare function getObjectValues(obj: any): never[];
 export default getObjectValues;

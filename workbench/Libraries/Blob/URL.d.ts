@@ -24,7 +24,7 @@ import Blob from './Blob';
  * ```
  */
 export declare class URLSearchParams {
-    _searchParams: {};
+    _searchParams: never[];
     constructor(params: any);
     append(key: string, value: string): void;
     delete(name: any): void;
@@ -33,8 +33,8 @@ export declare class URLSearchParams {
     has(name: any): void;
     set(name: any, value: any): void;
     sort(): void;
-    [Symbol.iterator](): any;
-    toString(): any;
+    [Symbol.iterator](): IterableIterator<never>;
+    toString(): string;
 }
 export declare class URL {
     _searchParamsInstance: null;

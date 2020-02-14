@@ -1,4 +1,5 @@
 import { ScrollEvent } from "../Types/CoreEventTypes";
+import { KeyboardEvent } from "./Keyboard/Keyboard";
 import EmitterSubscription from "../vendor/emitter/EmitterSubscription";
 export declare type State = {
     isTouching: boolean;
@@ -267,10 +268,10 @@ declare const ScrollResponder: {
          * relevant to you. (For example, only if you receive these callbacks after
          * you had explicitly focused a node etc).
          */
-        scrollResponderKeyboardWillShow: (e: any) => void;
-        scrollResponderKeyboardWillHide: (e: any) => void;
-        scrollResponderKeyboardDidShow: (e: any) => void;
-        scrollResponderKeyboardDidHide: (e: any) => void;
+        scrollResponderKeyboardWillShow: (e: KeyboardEvent) => void;
+        scrollResponderKeyboardWillHide: (e: KeyboardEvent) => void;
+        scrollResponderKeyboardDidShow: (e: KeyboardEvent) => void;
+        scrollResponderKeyboardDidHide: (e: KeyboardEvent) => void;
     };
 };
 export default ScrollResponder;

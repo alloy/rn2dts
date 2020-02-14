@@ -7,7 +7,7 @@ import NativeEventEmitter from '../EventEmitter/NativeEventEmitter';
  */
 declare class AppState extends NativeEventEmitter {
     _eventHandlers: any;
-    _supportedEvents: {};
+    _supportedEvents: string[];
     currentState: string | null | undefined;
     isAvailable: boolean;
     constructor();

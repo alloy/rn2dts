@@ -24,19 +24,19 @@ declare const _default: {
      *
      * See https://facebook.github.io/react-native/docs/text.html#onlayout
      */
-    onLayout: PropTypes.Requireable<(...args: {}) => any>;
+    onLayout: PropTypes.Requireable<(...args: any[]) => any>;
     /**
      * This function is called on press.
      *
      * See https://facebook.github.io/react-native/docs/text.html#onpress
      */
-    onPress: PropTypes.Requireable<(...args: {}) => any>;
+    onPress: PropTypes.Requireable<(...args: any[]) => any>;
     /**
      * This function is called on long press.
      *
      * See https://facebook.github.io/react-native/docs/text.html#onlongpress
      */
-    onLongPress: PropTypes.Requireable<(...args: {}) => any>;
+    onLongPress: PropTypes.Requireable<(...args: any[]) => any>;
     /**
      * Defines how far your touch may move off of the button, before
      * deactivating the button.

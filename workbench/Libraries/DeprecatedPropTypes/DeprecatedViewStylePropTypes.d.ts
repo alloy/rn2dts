@@ -37,8 +37,8 @@ declare const DeprecatedViewStylePropTypes: {
      */
     elevation: ReactPropTypes.Requireable<number>;
     transform: any;
-    transformMatrix: (props: any, propName: string, componentName: string) => any;
-    decomposedMatrix: (props: any, propName: string, componentName: string) => any;
+    transformMatrix: (props: any, propName: string, componentName: string) => Error | null | undefined;
+    decomposedMatrix: (props: any, propName: string, componentName: string) => Error | null | undefined;
     scaleX: any;
     scaleY: any;
     rotation: any;

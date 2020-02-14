@@ -46,12 +46,76 @@ declare const LayoutAnimation: {
      * Helper for creating a config for `configureNext`.
      */
     create: typeof create;
-    Types: any;
-    Properties: any;
-    checkConfig(...args: any): void;
+    Types: Readonly<{
+        spring: string;
+        linear: string;
+        easeInEaseOut: string;
+        easeIn: string;
+        easeOut: string;
+        keyboard: string;
+    }>;
+    Properties: Readonly<{
+        opacity: string;
+        scaleX: string;
+        scaleY: string;
+        scaleXY: string;
+    }>;
+    checkConfig(...args: unknown[]): void;
     Presets: {
-        easeInEaseOut: any;
-        linear: any;
+        easeInEaseOut: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+            duration: number;
+            create?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+                duration?: any;
+                delay?: any;
+                springDamping?: any;
+                initialVelocity?: any;
+                type?: any;
+                property?: any;
+            }> | undefined;
+            update?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+                duration?: any;
+                delay?: any;
+                springDamping?: any;
+                initialVelocity?: any;
+                type?: any;
+                property?: any;
+            }> | undefined;
+            delete?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+                duration?: any;
+                delay?: any;
+                springDamping?: any;
+                initialVelocity?: any;
+                type?: any;
+                property?: any;
+            }> | undefined;
+        }>;
+        linear: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+            duration: number;
+            create?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+                duration?: any;
+                delay?: any;
+                springDamping?: any;
+                initialVelocity?: any;
+                type?: any;
+                property?: any;
+            }> | undefined;
+            update?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+                duration?: any;
+                delay?: any;
+                springDamping?: any;
+                initialVelocity?: any;
+                type?: any;
+                property?: any;
+            }> | undefined;
+            delete?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+                duration?: any;
+                delay?: any;
+                springDamping?: any;
+                initialVelocity?: any;
+                type?: any;
+                property?: any;
+            }> | undefined;
+        }>;
         spring: {
             duration: number;
             create: {

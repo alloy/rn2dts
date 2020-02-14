@@ -13,7 +13,12 @@ declare const Touchable: {
          * @return {object} State object to be placed inside of
          * `this.state.touchable`.
          */
-        touchableGetInitialState: () => any;
+        touchableGetInitialState: () => {
+            touchable: {
+                responderID: null;
+                touchState: void;
+            };
+        };
         /**
          * Must return true if embedded in a native platform scroll view.
          */
@@ -160,7 +165,7 @@ declare const Touchable: {
         _playTouchSound: () => void;
         _startHighlight: (e: any) => void;
         _endHighlight: (e: any) => void;
-        withoutDefaultFocusAndBlur: any;
+        withoutDefaultFocusAndBlur: {};
     };
     TOUCH_TARGET_DEBUG: boolean;
     /**
@@ -168,7 +173,12 @@ declare const Touchable: {
      */
     renderDebugView: ({ color, hitSlop }: {
         color: string | number;
-        hitSlop: any;
+        hitSlop: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+            top?: number | null | undefined;
+            left?: number | null | undefined;
+            bottom?: number | null | undefined;
+            right?: number | null | undefined;
+        }>;
     }) => React.ReactNode;
 };
 export default Touchable;

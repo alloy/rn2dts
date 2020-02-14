@@ -6,27 +6,27 @@
  * See http://facebook.github.io/react-native/docs/asyncstorage.html
  */
 declare const AsyncStorage: {
-    _getRequests: any;
-    _getKeys: any;
+    _getRequests: any[];
+    _getKeys: string[];
     _immediate: number | null | undefined;
     /**
      * Fetches an item for a `key` and invokes a callback upon completion.
      *
      * See http://facebook.github.io/react-native/docs/asyncstorage.html#getitem
      */
-    getItem: (key: string, callback?: ((error: any, result: string | null | undefined) => void) | null | undefined) => any;
+    getItem: (key: string, callback?: ((error: Error | null | undefined, result: string | null | undefined) => void) | null | undefined) => any;
     /**
      * Sets the value for a `key` and invokes a callback upon completion.
      *
      * See http://facebook.github.io/react-native/docs/asyncstorage.html#setitem
      */
-    setItem: (key: string, value: string, callback?: ((error: any) => void) | null | undefined) => any;
+    setItem: (key: string, value: string, callback?: ((error: Error | null | undefined) => void) | null | undefined) => any;
     /**
      * Removes an item for a `key` and invokes a callback upon completion.
      *
      * See http://facebook.github.io/react-native/docs/asyncstorage.html#removeitem
      */
-    removeItem: (key: string, callback?: ((error: any) => void) | null | undefined) => any;
+    removeItem: (key: string, callback?: ((error: Error | null | undefined) => void) | null | undefined) => any;
     /**
      * Merges an existing `key` value with an input value, assuming both values
      * are stringified JSON.
@@ -35,7 +35,7 @@ declare const AsyncStorage: {
      *
      * See http://facebook.github.io/react-native/docs/asyncstorage.html#mergeitem
      */
-    mergeItem: (key: string, value: string, callback?: ((error: any) => void) | null | undefined) => any;
+    mergeItem: (key: string, value: string, callback?: ((error: Error | null | undefined) => void) | null | undefined) => any;
     /**
      * Erases *all* `AsyncStorage` for all clients, libraries, etc. You probably
      * don't want to call this; use `removeItem` or `multiRemove` to clear only
@@ -43,13 +43,13 @@ declare const AsyncStorage: {
      *
      * See http://facebook.github.io/react-native/docs/asyncstorage.html#clear
      */
-    clear: (callback?: ((error: any) => void) | null | undefined) => any;
+    clear: (callback?: ((error: Error | null | undefined) => void) | null | undefined) => any;
     /**
      * Gets *all* keys known to your app; for all callers, libraries, etc.
      *
      * See http://facebook.github.io/react-native/docs/asyncstorage.html#getallkeys
      */
-    getAllKeys: (callback?: ((error: any, keys: any) => void) | null | undefined) => any;
+    getAllKeys: (callback?: ((error: Error | null | undefined, keys: string[] | null | undefined) => void) | null | undefined) => any;
     /**
      * The following batched functions are useful for executing a lot of
      * operations at once, allowing for native optimizations and provide the
@@ -72,20 +72,20 @@ declare const AsyncStorage: {
      *
      * See http://facebook.github.io/react-native/docs/asyncstorage.html#multiget
      */
-    multiGet: (keys: any, callback?: ((errors: any, result: any) => void) | null | undefined) => any;
+    multiGet: (keys: string[], callback?: ((errors: Error[] | null | undefined, result: string[][] | null | undefined) => void) | null | undefined) => any;
     /**
      * Use this as a batch operation for storing multiple key-value pairs. When
      * the operation completes you'll get a single callback with any errors.
      *
      * See http://facebook.github.io/react-native/docs/asyncstorage.html#multiset
      */
-    multiSet: (keyValuePairs: any, callback?: ((errors: any) => void) | null | undefined) => any;
+    multiSet: (keyValuePairs: string[][], callback?: ((errors: Error[] | null | undefined) => void) | null | undefined) => any;
     /**
      * Call this to batch the deletion of all keys in the `keys` array.
      *
      * See http://facebook.github.io/react-native/docs/asyncstorage.html#multiremove
      */
-    multiRemove: (keys: any, callback?: ((errors: any) => void) | null | undefined) => any;
+    multiRemove: (keys: string[], callback?: ((errors: Error[] | null | undefined) => void) | null | undefined) => any;
     /**
      * Batch operation to merge in existing and new values for a given set of
      * keys. This assumes that the values are stringified JSON.
@@ -94,6 +94,6 @@ declare const AsyncStorage: {
      *
      * See http://facebook.github.io/react-native/docs/asyncstorage.html#multimerge
      */
-    multiMerge: (keyValuePairs: any, callback?: ((errors: any) => void) | null | undefined) => any;
+    multiMerge: (keyValuePairs: string[][], callback?: ((errors: Error[] | null | undefined) => void) | null | undefined) => any;
 };
 export default AsyncStorage;

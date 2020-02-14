@@ -4,7 +4,7 @@ declare const Vibration: {
      *
      * See https://facebook.github.io/react-native/docs/vibration.html#vibrate
      */
-    vibrate: (pattern?: any, repeat?: boolean) => void;
+    vibrate: (pattern?: number | number[], repeat?: boolean) => void;
     /**
      * Stop vibration
      *

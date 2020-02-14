@@ -166,7 +166,7 @@ declare const _default: {
      * array, saving allocations and maintaining reference equality for
      * PureComponent checks.
      */
-    compose<T extends any>(style1: T | null | undefined, style2: T | null | undefined): any;
+    compose<T extends false | void | "" | Partial<any> | readonly (false | void | "" | Partial<any> | readonly (false | void | "" | Partial<any> | readonly (false | void | "" | Partial<any> | readonly (false | void | "" | Partial<any> | readonly (false | void | "" | Partial<any> | readonly (false | void | "" | Partial<any> | readonly (false | void | "" | Partial<any> | readonly (false | void | "" | Partial<any> | readonly (false | void | "" | Partial<any> | readonly (false | void | "" | Partial<any> | readonly (false | void | "" | Partial<any> | any | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null>(style1: T | null | undefined, style2: T | null | undefined): T | readonly T[] | null | undefined;
     /**
      * Flattens an array of style objects, into one aggregated style object.
      * Alternatively, this method can be used to lookup IDs, returned by

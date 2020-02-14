@@ -1,8 +1,14 @@
 declare const ImagePickerIOS: {
     canRecordVideos: (callback: (result: boolean) => void) => void;
     canUseCamera: (callback: (result: boolean) => void) => void;
-    openCameraDialog: (config: any, successCallback: (imageURL: string, height: number, width: number) => void, cancelCallback: () => void) => void;
-    openSelectDialog: (config: any, successCallback: (imageURL: string, height: number, width: number) => void, cancelCallback: () => void) => void;
+    openCameraDialog: (config: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+        unmirrorFrontFacingCamera?: boolean | undefined;
+        videoMode?: boolean | undefined;
+    }>, successCallback: (imageURL: string, height: number, width: number) => void, cancelCallback: () => void) => void;
+    openSelectDialog: (config: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+        showImages?: boolean | undefined;
+        showVideos?: boolean | undefined;
+    }>, successCallback: (imageURL: string, height: number, width: number) => void, cancelCallback: () => void) => void;
     /**
      * In iOS 13, the video URLs returned by the Image Picker are invalidated when
      * the picker is dismissed, unless reference to it is held. This API allows

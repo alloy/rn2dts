@@ -288,7 +288,37 @@ declare const PanResponder: {
      *  accordingly. (numberActiveTouches) may not be totally accurate unless you
      *  are the responder.
      */
-    create(config: any): any;
+    create(config: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+        onMoveShouldSetPanResponder?: ActiveCallback | null | undefined;
+        onMoveShouldSetPanResponderCapture?: ActiveCallback | null | undefined;
+        onStartShouldSetPanResponder?: ActiveCallback | null | undefined;
+        onStartShouldSetPanResponderCapture?: ActiveCallback | null | undefined;
+        onPanResponderGrant?: ActiveCallback | PassiveCallback | null | undefined;
+        onPanResponderReject?: PassiveCallback | null | undefined;
+        onPanResponderStart?: PassiveCallback | null | undefined;
+        onPanResponderEnd?: PassiveCallback | null | undefined;
+        onPanResponderRelease?: PassiveCallback | null | undefined;
+        onPanResponderMove?: PassiveCallback | null | undefined;
+        onPanResponderTerminate?: PassiveCallback | null | undefined;
+        onPanResponderTerminationRequest?: ActiveCallback | null | undefined;
+        onShouldBlockNativeResponder?: ActiveCallback | null | undefined;
+    }>): {
+        getInteractionHandle: () => number | null | undefined;
+        panHandlers: {
+            onMoveShouldSetResponder: (event: any) => boolean;
+            onMoveShouldSetResponderCapture: (event: any) => boolean;
+            onResponderEnd: (event: any) => void;
+            onResponderGrant: (event: any) => boolean;
+            onResponderMove: (event: any) => void;
+            onResponderReject: (event: any) => void;
+            onResponderRelease: (event: any) => void;
+            onResponderStart: (event: any) => void;
+            onResponderTerminate: (event: any) => void;
+            onResponderTerminationRequest: (event: any) => boolean;
+            onStartShouldSetResponder: (event: any) => boolean;
+            onStartShouldSetResponderCapture: (event: any) => boolean;
+        };
+    };
 };
 export declare type PanResponderInstance = $Call<$PropertyType<typeof PanResponder, "create">, PanResponderConfig>;
 export default PanResponder;

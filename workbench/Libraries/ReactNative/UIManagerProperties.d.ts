@@ -1,4 +1,4 @@
-declare const _default: {};
+declare const _default: string[];
 /**
  * The list of non-ViewManager related UIManager properties.
  *

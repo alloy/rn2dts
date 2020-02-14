@@ -7,7 +7,7 @@ declare const _default: {
      * }
      * ```
      */
-    getString(): any;
+    getString(): Promise<string>;
     /**
      * Set content of string type. You can use following code to set clipboard content
      * ```javascript
