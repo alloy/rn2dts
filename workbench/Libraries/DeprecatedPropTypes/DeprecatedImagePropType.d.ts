@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { React$PropType$Primitive } from "flow-builtin-types";
+import { ReactPropsCheckType, React$PropType$Primitive } from "flow-builtin-types";
 declare const _default: {
-    style: any;
+    style: ReactPropsCheckType;
     source: PropTypes.Requireable<number | PropTypes.InferProps<{
         uri: PropTypes.Requireable<string>;
         bundle: PropTypes.Requireable<string>;

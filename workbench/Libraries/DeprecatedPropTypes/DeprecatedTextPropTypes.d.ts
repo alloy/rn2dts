@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { React$PropType$Primitive } from "flow-builtin-types";
+import { ReactPropsCheckType, React$PropType$Primitive } from "flow-builtin-types";
 declare const _default: {
     /**
      * When `numberOfLines` is set, this prop defines how text will be
@@ -68,7 +68,7 @@ declare const _default: {
      * See https://facebook.github.io/react-native/docs/text.html#supperhighlighting
      */
     suppressHighlighting: PropTypes.Requireable<boolean>;
-    style: any;
+    style: ReactPropsCheckType;
     /**
      * Used to locate this view in end-to-end tests.
      *

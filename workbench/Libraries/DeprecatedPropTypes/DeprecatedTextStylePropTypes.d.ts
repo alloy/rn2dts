@@ -83,9 +83,7 @@ declare const DeprecatedTextStylePropTypes: {
     opacity: ReactPropTypes.Requireable<number>;
     elevation: ReactPropTypes.Requireable<number>;
     transform: React$PropType$Primitive<({
-        perspective?: number | undefined; /**
-         * @platform ios
-         */
+        perspective?: number | undefined;
     } | {
         rotate?: string | undefined;
     } | {
@@ -93,12 +91,12 @@ declare const DeprecatedTextStylePropTypes: {
     } | {
         rotateY?: string | undefined;
     } | {
-        rotateZ?: string | undefined;
-    } | {
-        scale?: number | undefined; /**
+        rotateZ?: string | undefined; /**
          * Specifies text alignment. The value 'justify' is only supported on iOS and
          * fallbacks to `left` on Android.
          */
+    } | {
+        scale?: number | undefined;
     } | {
         scaleX?: number | undefined;
     } | {
@@ -114,11 +112,11 @@ declare const DeprecatedTextStylePropTypes: {
     })[]>;
     transformMatrix: (props: any, propName: string, componentName: string) => Error | null | undefined;
     decomposedMatrix: (props: any, propName: string, componentName: string) => Error | null | undefined;
-    scaleX: any;
-    scaleY: any;
-    rotation: any;
-    translateX: any;
-    translateY: any;
+    scaleX: import("flow-builtin-types").ReactPropsCheckType;
+    scaleY: import("flow-builtin-types").ReactPropsCheckType;
+    rotation: import("flow-builtin-types").ReactPropsCheckType;
+    translateX: import("flow-builtin-types").ReactPropsCheckType;
+    translateY: import("flow-builtin-types").ReactPropsCheckType;
     shadowColor: any;
     shadowOffset: React$PropType$Primitive<{
         height?: number | undefined;

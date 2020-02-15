@@ -1,4 +1,4 @@
-import { React$PropType$Primitive } from "flow-builtin-types";
+import { React$PropType$Primitive, ReactPropsCheckType } from "flow-builtin-types";
 declare const DeprecatedTransformPropTypes: {
     transform: React$PropType$Primitive<({
         perspective?: number | undefined;
@@ -27,10 +27,10 @@ declare const DeprecatedTransformPropTypes: {
     })[]>;
     transformMatrix: (props: any, propName: string, componentName: string) => Error | null | undefined;
     decomposedMatrix: (props: any, propName: string, componentName: string) => Error | null | undefined;
-    scaleX: any;
-    scaleY: any;
-    rotation: any;
-    translateX: any;
-    translateY: any;
+    scaleX: ReactPropsCheckType;
+    scaleY: ReactPropsCheckType;
+    rotation: ReactPropsCheckType;
+    translateX: ReactPropsCheckType;
+    translateY: ReactPropsCheckType;
 };
 export default DeprecatedTransformPropTypes;

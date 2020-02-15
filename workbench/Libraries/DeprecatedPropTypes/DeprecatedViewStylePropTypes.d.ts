@@ -64,11 +64,11 @@ declare const DeprecatedViewStylePropTypes: {
     })[]>;
     transformMatrix: (props: any, propName: string, componentName: string) => Error | null | undefined;
     decomposedMatrix: (props: any, propName: string, componentName: string) => Error | null | undefined;
-    scaleX: any;
-    scaleY: any;
-    rotation: any;
-    translateX: any;
-    translateY: any;
+    scaleX: import("flow-builtin-types").ReactPropsCheckType;
+    scaleY: import("flow-builtin-types").ReactPropsCheckType;
+    rotation: import("flow-builtin-types").ReactPropsCheckType;
+    translateX: import("flow-builtin-types").ReactPropsCheckType;
+    translateY: import("flow-builtin-types").ReactPropsCheckType;
     shadowColor: any;
     shadowOffset: React$PropType$Primitive<{
         height?: number | undefined;
