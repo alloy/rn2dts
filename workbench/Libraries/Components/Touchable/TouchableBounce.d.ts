@@ -8,8 +8,8 @@ import React from 'react';
  */
 declare const TouchableBounce: React.ComponentType<import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
     accessible?: boolean | null | undefined;
-    accessibilityLabel?: any;
-    accessibilityHint?: any;
+    accessibilityLabel?: string | null | undefined;
+    accessibilityHint?: string | null | undefined;
     accessibilityIgnoresInvertColors?: boolean | null | undefined;
     accessibilityRole?: "search" | "link" | "none" | "button" | "header" | "menu" | "summary" | "image" | "switch" | "text" | "checkbox" | "radio" | "menubar" | "menuitem" | "progressbar" | "tab" | "toolbar" | "scrollbar" | "keyboardkey" | "adjustable" | "imagebutton" | "alert" | "combobox" | "radiogroup" | "spinbutton" | "tablist" | "timer" | null | undefined;
     accessibilityStates?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"disabled" | "expanded" | "collapsed" | "selected" | "checked" | "unchecked" | "busy" | "hasPopup"> | null | undefined;
