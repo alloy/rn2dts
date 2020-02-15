@@ -154,16 +154,7 @@ declare const defaultProps: {
     initialNumToRender: number;
     keyExtractor: (item: any, index: number) => string;
     maxToRenderPerBatch: number;
-    onEndReachedThreshold: number; /**
-     * Scrolls to the item at the specified `sectionIndex` and `itemIndex` (within the section)
-     * positioned in the viewable area such that `viewPosition` 0 places it at the top (and may be
-     * covered by a sticky header), 1 at the bottom, and 0.5 centered in the middle. `viewOffset` is a
-     * fixed number of pixels to offset the final target position, e.g. to compensate for sticky
-     * headers.
-     *
-     * Note: cannot scroll to locations outside the render window without specifying the
-     * `getItemLayout` prop.
-     */
+    onEndReachedThreshold: number;
     scrollEventThrottle: number;
     updateCellsBatchingPeriod: number;
     windowSize: number;
