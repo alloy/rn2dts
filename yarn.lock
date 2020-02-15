@@ -1135,7 +1135,7 @@
   resolved "https://registry.yarnpkg.com/@types/promise/-/promise-7.1.30.tgz#1b6714b321fdfc54d1527e7a17116a0e1f2ab810"
   integrity sha1-G2cUsyH9/FTRUn56FxFqDh8quBA=
 
-"@types/prop-types@*":
+"@types/prop-types@*", "@types/prop-types@^15.7.3":
   version "15.7.3"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
@@ -2355,7 +2355,9 @@ find-yarn-workspace-root@^1.2.1:
 
 "flow-builtin-types@https://github.com/alloy/flow-builtin-types.git":
   version "1.0.0"
-  resolved "https://github.com/alloy/flow-builtin-types.git#a2d2af0b55d29bb4d296778bece5a76a9902877a"
+  resolved "https://github.com/alloy/flow-builtin-types.git#7313f9dfcbdb1472b0c4fce7443bfebb66304f81"
+  dependencies:
+    "@types/prop-types" "^15.7.3"
 
 flow-parser@0.*:
   version "0.118.0"

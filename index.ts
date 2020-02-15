@@ -24,7 +24,7 @@ const DTS_OPTIONS: ts.CompilerOptions = {
     jsx: ts.JsxEmit.Preserve,
     declaration: true,
     strictNullChecks: true,
-    types: ["invariant", "react", "promise"],
+    types: ["invariant", "react", "promise", "prop-types"],
     esModuleInterop: true,
 }
 
