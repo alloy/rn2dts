@@ -33,7 +33,7 @@ index dc9c67c..098e553 100644
      tsCode += "\n";
    }
 diff --git a/node_modules/@khanacademy/flow-to-ts/src/transform.js b/node_modules/@khanacademy/flow-to-ts/src/transform.js
-index 8ab9470..7605b32 100644
+index 8ab9470..0f7f020 100644
 --- a/node_modules/@khanacademy/flow-to-ts/src/transform.js
 +++ b/node_modules/@khanacademy/flow-to-ts/src/transform.js
 @@ -1,4 +1,3 @@
@@ -41,7 +41,7 @@ index 8ab9470..7605b32 100644
  const t = require("@babel/types");
  
  const computeNewlines = require("./compute-newlines.js");
-@@ -61,6 +60,18 @@ const utilityTypes = {
+@@ -61,6 +60,19 @@ const utilityTypes = {
    $Call: null
  };
  
@@ -53,6 +53,7 @@ index 8ab9470..7605b32 100644
 +  // TODO: This is really a RN internal noop
 +  $FlowFixMeProps: null,
 +  $FlowFixMeState: null,
++  Stringish: null,
 +  // TODO: This is really from prop-types
 +  React$PropType$Primitive: null,
 +}
@@ -60,7 +61,7 @@ index 8ab9470..7605b32 100644
  // Mapping between React types for Flow and those for TypeScript.
  const UnqualifiedReactTypeNameMap = {
    SyntheticEvent: "SyntheticEvent",
-@@ -162,6 +173,21 @@ const transform = {
+@@ -162,6 +174,21 @@ const transform = {
            ...path.node.newlines.slice(1)
          ];
        }
@@ -82,7 +83,7 @@ index 8ab9470..7605b32 100644
      }
    },
    BlockStatement: {
-@@ -221,7 +247,7 @@ const transform = {
+@@ -221,7 +248,7 @@ const transform = {
      path.replaceWith(t.tsNeverKeyword());
    },
    ExistsTypeAnnotation(path) {
@@ -91,7 +92,7 @@ index 8ab9470..7605b32 100644
      path.replaceWith(t.tsAnyKeyword());
    },
  
-@@ -244,25 +270,25 @@ const transform = {
+@@ -244,25 +271,25 @@ const transform = {
    // the processing of other nodes.
    FunctionDeclaration(path) {
      if (path.node.predicate) {
@@ -126,7 +127,7 @@ index 8ab9470..7605b32 100644
        delete path.node.predicate;
      }
    },
-@@ -363,9 +389,9 @@ const transform = {
+@@ -363,9 +390,9 @@ const transform = {
    TypeParameter: {
      exit(path) {
        const { name, variance, bound } = path.node;
@@ -139,7 +140,7 @@ index 8ab9470..7605b32 100644
        const typeParameter = {
          type: "TSTypeParameter",
          constraint: bound && bound.typeAnnotation,
-@@ -401,6 +427,10 @@ const transform = {
+@@ -401,6 +428,10 @@ const transform = {
          }
        }
  
@@ -150,7 +151,7 @@ index 8ab9470..7605b32 100644
        if (typeName.name in UnqualifiedReactTypeNameMap) {
          // TODO: make sure that React was imported in this file
          path.replaceWith(
-@@ -412,6 +442,20 @@ const transform = {
+@@ -412,6 +443,20 @@ const transform = {
              typeParameters
            )
          );
@@ -171,7 +172,7 @@ index 8ab9470..7605b32 100644
        } else {
          path.replaceWith(t.tsTypeReference(typeName, typeParameters));
        }
-@@ -435,6 +479,18 @@ const transform = {
+@@ -435,6 +480,18 @@ const transform = {
        }
      }
    },
@@ -190,7 +191,7 @@ index 8ab9470..7605b32 100644
    ObjectTypeProperty: {
      exit(path) {
        const { key, value, optional, variance, kind, method } = path.node; // TODO: static, kind
-@@ -443,13 +499,13 @@ const transform = {
+@@ -443,13 +500,13 @@ const transform = {
        const computed = false; // TODO: maybe set this to true for indexers
        const readonly = variance && variance.kind === "plus";
  
@@ -211,7 +212,7 @@ index 8ab9470..7605b32 100644
  
        if (method) {
          // TODO: assert value is a FunctionTypeAnnotation
-@@ -486,10 +542,10 @@ const transform = {
+@@ -486,10 +543,10 @@ const transform = {
        const { id, key, value, variance } = path.node;
  
        const readonly = variance && variance.kind === "plus";
@@ -226,7 +227,7 @@ index 8ab9470..7605b32 100644
  
        const identifier = {
          type: "Identifier",
-@@ -532,9 +588,9 @@ const transform = {
+@@ -532,9 +589,9 @@ const transform = {
      exit(path) {
        const { exact, properties, indexers } = path.node; // TODO: callProperties, inexact
  
@@ -239,7 +240,7 @@ index 8ab9470..7605b32 100644
  
        // TODO: create multiple sets of elements so that we can convert
        // {x: number, ...T, y: number} to {x: number} & T & {y: number}
-@@ -566,6 +622,14 @@ const transform = {
+@@ -566,6 +623,14 @@ const transform = {
        }
      }
    },
