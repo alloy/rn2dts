@@ -26,8 +26,4 @@ declare class AnimatedEvent {
     _callListeners(...args: any): void;
     _validateMapping(): void;
 }
-declare const _default: {
-    AnimatedEvent: typeof AnimatedEvent;
-    attachNativeEvent: typeof attachNativeEvent;
-};
-export default _default;
+export { AnimatedEvent, attachNativeEvent };
