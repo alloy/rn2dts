@@ -2355,7 +2355,7 @@ find-yarn-workspace-root@^1.2.1:
 
 "flow-builtin-types@https://github.com/alloy/flow-builtin-types.git":
   version "1.0.0"
-  resolved "https://github.com/alloy/flow-builtin-types.git#cf90fb96e422c5ccb24e9bc25740d9e16e1d4567"
+  resolved "https://github.com/alloy/flow-builtin-types.git#56a488372d61319052a77a446154cd52bd0d2abb"
   dependencies:
     "@types/prop-types" "^15.7.3"
     "@types/react" "^16.9.19"
