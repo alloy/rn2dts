@@ -1,9 +1,10 @@
 import ReactPropTypes from 'prop-types';
+import { React$PropType$Primitive } from "flow-builtin-types";
 /**
  * Warning: Some of these properties may not be supported in all releases.
  */
 declare const DeprecatedViewStylePropTypes: {
-    backfaceVisibility: any;
+    backfaceVisibility: React$PropType$Primitive<VisibilityState>;
     backgroundColor: any;
     borderColor: any;
     borderTopColor: any;
@@ -21,7 +22,7 @@ declare const DeprecatedViewStylePropTypes: {
     borderBottomRightRadius: ReactPropTypes.Requireable<number>;
     borderBottomStartRadius: ReactPropTypes.Requireable<number>;
     borderBottomEndRadius: ReactPropTypes.Requireable<number>;
-    borderStyle: any;
+    borderStyle: React$PropType$Primitive<"solid" | "dotted" | "dashed">;
     borderWidth: ReactPropTypes.Requireable<number>;
     borderTopWidth: ReactPropTypes.Requireable<number>;
     borderRightWidth: ReactPropTypes.Requireable<number>;
@@ -36,7 +37,31 @@ declare const DeprecatedViewStylePropTypes: {
      * @platform android
      */
     elevation: ReactPropTypes.Requireable<number>;
-    transform: any;
+    transform: React$PropType$Primitive<({
+        perspective?: number | undefined;
+    } | {
+        rotate?: string | undefined;
+    } | {
+        rotateX?: string | undefined;
+    } | {
+        rotateY?: string | undefined;
+    } | {
+        rotateZ?: string | undefined;
+    } | {
+        scale?: number | undefined;
+    } | {
+        scaleX?: number | undefined;
+    } | {
+        scaleY?: number | undefined;
+    } | {
+        translateX?: number | undefined;
+    } | {
+        translateY?: number | undefined;
+    } | {
+        skewX?: string | undefined;
+    } | {
+        skewY?: string | undefined;
+    })[]>;
     transformMatrix: (props: any, propName: string, componentName: string) => Error | null | undefined;
     decomposedMatrix: (props: any, propName: string, componentName: string) => Error | null | undefined;
     scaleX: any;
@@ -45,56 +70,59 @@ declare const DeprecatedViewStylePropTypes: {
     translateX: any;
     translateY: any;
     shadowColor: any;
-    shadowOffset: any;
+    shadowOffset: React$PropType$Primitive<{
+        height?: number | undefined;
+        width?: number | undefined;
+    }>;
     shadowOpacity: ReactPropTypes.Requireable<number>;
     shadowRadius: ReactPropTypes.Requireable<number>;
-    display: any;
-    width: any;
-    height: any;
-    start: any;
-    end: any;
-    top: any;
-    left: any;
-    right: any;
-    bottom: any;
-    minWidth: any;
-    maxWidth: any;
-    minHeight: any;
-    maxHeight: any;
-    margin: any;
-    marginVertical: any;
-    marginHorizontal: any;
-    marginTop: any;
-    marginBottom: any;
-    marginLeft: any;
-    marginRight: any;
-    marginStart: any;
-    marginEnd: any;
-    padding: any;
-    paddingVertical: any;
-    paddingHorizontal: any;
-    paddingTop: any;
-    paddingBottom: any;
-    paddingLeft: any;
-    paddingRight: any;
-    paddingStart: any;
-    paddingEnd: any;
+    display: React$PropType$Primitive<"none" | "flex">;
+    width: React$PropType$Primitive<string | number>;
+    height: React$PropType$Primitive<string | number>;
+    start: React$PropType$Primitive<string | number>;
+    end: React$PropType$Primitive<string | number>;
+    top: React$PropType$Primitive<string | number>;
+    left: React$PropType$Primitive<string | number>;
+    right: React$PropType$Primitive<string | number>;
+    bottom: React$PropType$Primitive<string | number>;
+    minWidth: React$PropType$Primitive<string | number>;
+    maxWidth: React$PropType$Primitive<string | number>;
+    minHeight: React$PropType$Primitive<string | number>;
+    maxHeight: React$PropType$Primitive<string | number>;
+    margin: React$PropType$Primitive<string | number>;
+    marginVertical: React$PropType$Primitive<string | number>;
+    marginHorizontal: React$PropType$Primitive<string | number>;
+    marginTop: React$PropType$Primitive<string | number>;
+    marginBottom: React$PropType$Primitive<string | number>;
+    marginLeft: React$PropType$Primitive<string | number>;
+    marginRight: React$PropType$Primitive<string | number>;
+    marginStart: React$PropType$Primitive<string | number>;
+    marginEnd: React$PropType$Primitive<string | number>;
+    padding: React$PropType$Primitive<string | number>;
+    paddingVertical: React$PropType$Primitive<string | number>;
+    paddingHorizontal: React$PropType$Primitive<string | number>;
+    paddingTop: React$PropType$Primitive<string | number>;
+    paddingBottom: React$PropType$Primitive<string | number>;
+    paddingLeft: React$PropType$Primitive<string | number>;
+    paddingRight: React$PropType$Primitive<string | number>;
+    paddingStart: React$PropType$Primitive<string | number>;
+    paddingEnd: React$PropType$Primitive<string | number>;
     borderStartWidth: ReactPropTypes.Requireable<number>;
     borderEndWidth: ReactPropTypes.Requireable<number>;
-    position: any;
-    flexDirection: any;
-    flexWrap: any;
-    justifyContent: any;
-    alignItems: any;
-    alignSelf: any;
-    alignContent: any;
-    overflow: any;
+    position: React$PropType$Primitive<"absolute" | "relative">;
+    flexDirection: React$PropType$Primitive<"row" | "row-reverse" | "column" | "column-reverse">;
+    flexWrap: React$PropType$Primitive<"wrap" | "nowrap" | "wrap-reverse">;
+    justifyContent: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly">;
+    alignItems: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "stretch" | "baseline">;
+    alignSelf: React$PropType$Primitive<"auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline">;
+    alignContent: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch">;
+    overflow: React$PropType$Primitive<"hidden" | "visible" | "scroll">;
     flex: ReactPropTypes.Requireable<number>;
     flexGrow: ReactPropTypes.Requireable<number>;
     flexShrink: ReactPropTypes.Requireable<number>;
-    flexBasis: any;
+    flexBasis: React$PropType$Primitive<string | number>;
     aspectRatio: ReactPropTypes.Requireable<number>;
     zIndex: ReactPropTypes.Requireable<number>;
-    direction: any;
+    direction: React$PropType$Primitive<CanvasDirection>;
 };
 export default DeprecatedViewStylePropTypes;

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { React$PropType$Primitive } from "flow-builtin-types";
 declare const _default: {
     /**
      * When `numberOfLines` is set, this prop defines how text will be
@@ -6,7 +7,7 @@ declare const _default: {
      *
      * See https://facebook.github.io/react-native/docs/text.html#ellipsizemode
      */
-    ellipsizeMode: any;
+    ellipsizeMode: React$PropType$Primitive<"middle" | "head" | "clip" | "tail">;
     /**
      * Used to truncate the text with an ellipsis.
      *
@@ -18,7 +19,7 @@ declare const _default: {
      *
      * See https://facebook.github.io/react-native/docs/text.html#textbreakstrategy
      */
-    textBreakStrategy: any;
+    textBreakStrategy: React$PropType$Primitive<"balanced" | "simple" | "highQuality">;
     /**
      * Invoked on mount and layout changes.
      *
@@ -43,7 +44,12 @@ declare const _default: {
      *
      * See https://facebook.github.io/react-native/docs/text.html#pressretentionoffset
      */
-    pressRetentionOffset: any;
+    pressRetentionOffset: React$PropType$Primitive<{
+        bottom?: number | undefined;
+        left?: number | undefined;
+        right?: number | undefined;
+        top?: number | undefined;
+    }>;
     /**
      * Lets the user select text.
      *
@@ -118,6 +124,6 @@ declare const _default: {
      *
      * See https://facebook.github.io/react-native/docs/text.html#dataDetectorType
      */
-    dataDetectorType: any;
+    dataDetectorType: React$PropType$Primitive<"link" | "all" | "none" | "email" | "phoneNumber">;
 };
 export default _default;
