@@ -59,7 +59,9 @@ export const transformer: Transform = (file, api) => {
     let i = 0;
 
     const collection = j(file.source);
+    // TODO: Perhaps create the import declaratiomns just in time so these two can be combined
     const expressions: ImportDeclaration[] = [];
+    const mappedImports = new Map();
 
     /**
      * require
@@ -75,6 +77,16 @@ export const transformer: Transform = (file, api) => {
                     const declaration: ASTPath<any> = variableDeclarator.parent;
                     if (Identifier.check(id) && VariableDeclaration.assert(declaration.node) && declaration.node.kind === 'const') {
                         declaration.replace(undefined);
+                        const mapping = mappedImports.get(id.name);
+                        if (mapping) {
+                            if (mapping !== source.value) {
+                                throw new Error(`Import with id '${id.name}' already exists with different source '${mapping}' than requested '${source.value}'`);
+                            }
+                            // No need to add a duplicate import
+                            return;
+                        } else {
+                            mappedImports.set(id.name, source.value);
+                        }
                         const specifiers = [j.importDefaultSpecifier(id)];
                         expressions.push(j.importDeclaration(specifiers, source));
                     } else {

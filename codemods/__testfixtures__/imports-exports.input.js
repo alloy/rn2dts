@@ -8,6 +8,7 @@ function someFunction() {
     const ExplicitDefaultUsage = require('explicit-default-usage').default;
     let baz = require('some-other-module');
     baz = require('and-yet-another-module')(foo);
+    baz = require('and-yet-another-module')(foo);
     require('yet-another-module').foo(foo, bar, baz);
     return require('and-yet-another-another-module');
 }
