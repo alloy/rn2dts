@@ -20,7 +20,7 @@ const x = {
 
 Bar();
 
-class Foo {
+class SomeClass {
     render(): string {
         return "foo"
     }

@@ -14,7 +14,7 @@ const x = {
 
 Bar();
 
-class Foo {
+class SomeClass {
     render(): string {
         return null as any;
     }

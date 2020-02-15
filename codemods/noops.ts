@@ -64,3 +64,5 @@ export const transformer: Transform = (file, api) => {
 
     return collection.toSource();
 };
+
+export default transformer;

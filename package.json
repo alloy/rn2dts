@@ -7,6 +7,7 @@
   "private": false,
   "scripts": {
     "start": "ts-node --files index.ts",
+    "test": "jest",
     "postinstall": "patch-package"
   },
   "dependencies": {
@@ -21,12 +22,15 @@
     "@types/cli-progress": "^3.4.2",
     "@types/glob": "^7.1.1",
     "@types/invariant": "^2.2.31",
+    "@types/jest": "^25.1.2",
     "@types/jscodeshift": "^0.6.3",
     "@types/promise": "^7.1.30",
     "@types/react": "^16.9.19",
     "@types/rimraf": "^2.0.3",
     "flow-builtin-types": "https://github.com/alloy/flow-builtin-types.git",
+    "jest": "^25.1.0",
     "patch-package": "^6.2.0",
+    "ts-jest": "^25.2.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5",
     "utility-types": "^3.10.0"

@@ -11,3 +11,17 @@ index d1e74f3..7eb7496 100644
  
      /**
       * Returns a collection containing the paths that create the scope of the
+diff --git a/node_modules/@types/jscodeshift/src/testUtils.d.ts b/node_modules/@types/jscodeshift/src/testUtils.d.ts
+index a384028..bcd622f 100644
+--- a/node_modules/@types/jscodeshift/src/testUtils.d.ts
++++ b/node_modules/@types/jscodeshift/src/testUtils.d.ts
+@@ -4,7 +4,8 @@ export function defineTest(
+   dirName: string,
+   transformName: string,
+   options: Options,
+-  testFilePrefix?: string
++  testFilePrefix?: string,
++  testOptions?: { parser: "ts" }
+ ): () => any;
+ 
+ export function defineInlineTest(
