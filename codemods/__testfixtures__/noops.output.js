@@ -13,3 +13,9 @@ const x = {
 }
 
 Bar();
+
+class Foo {
+    render(): string {
+        return null as any;
+    }
+}

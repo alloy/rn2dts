@@ -1,4 +1,5 @@
 import {
+    ClassMethod,
     FunctionDeclaration,
     Identifier,
     ImportDeclaration,
@@ -14,7 +15,7 @@ export const transformer: Transform = (file, api) => {
 
     collection
         .find(Node, node => {
-            if (FunctionDeclaration.check(node) || ObjectMethod.check(node)) {
+            if (FunctionDeclaration.check(node) || ClassMethod.check(node) || ObjectMethod.check(node)) {
                 if (!node.returnType) {
                     // console.log(`[!] Missing function return type annotation (${node.id.name})`)
                     return false;
@@ -24,7 +25,7 @@ export const transformer: Transform = (file, api) => {
         })
         .replaceWith(path => {
             const node = path.node;
-            if (FunctionDeclaration.check(node) || ObjectMethod.check(node)) {
+            if (FunctionDeclaration.check(node) || ClassMethod.check(node) || ObjectMethod.check(node)) {
                 const statements = [];
                 if (!(TSTypeAnnotation.check(node.returnType) && node.returnType.typeAnnotation.type === 'TSVoidKeyword')) {
                     statements.push(j.returnStatement(j.tsAsExpression.from({

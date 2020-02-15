@@ -19,3 +19,9 @@ const x = {
 }
 
 Bar();
+
+class Foo {
+    render(): string {
+        return "foo"
+    }
+}
