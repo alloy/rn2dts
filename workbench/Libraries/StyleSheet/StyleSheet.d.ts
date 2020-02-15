@@ -220,7 +220,7 @@ declare const _default: {
     /**
      * Creates a StyleSheet style reference from the given object.
      */
-    create<S extends ____Styles_Internal>(obj: S): any;
+    create<S extends ____Styles_Internal>(obj: S): { [K in keyof S]: any; };
 };
 /**
  * A StyleSheet is an abstraction similar to CSS StyleSheets

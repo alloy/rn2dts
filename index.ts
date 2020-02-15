@@ -12,6 +12,7 @@ import * as ts from "typescript"
 
 import { transformer as importsExportsTransformer } from "./codemods/imports-exports"
 import { transformer as noopsTransformer } from "./codemods/noops"
+import { transformer as objmapTransformer } from "./codemods/objmap"
 
 const WORKBENCH = "./workbench"
 const SOURCE = "./node_modules/react-native"
@@ -93,6 +94,7 @@ rimraf(WORKBENCH, err => {
             let tsCode = captureError(inputPath, "convertFlowToTS", () => convertFlowToTS(flowCode))
             tsCode = captureError(inputPath, "importsExportsTransformer", () => codemod(importsExportsTransformer, tsPath, tsCode))
             tsCode = captureError(inputPath, "noopsTransformer", () => codemod(noopsTransformer, tsPath, tsCode))
+            tsCode = captureError(inputPath, "objmapTransformer", () => codemod(objmapTransformer, tsPath, tsCode))
             
             captureError(inputPath, "mkdirSync", () => fs.mkdirSync(path.dirname(tsPath), { recursive: true }))
             captureError(inputPath, "writeFileSync", () => fs.writeFileSync(tsPath, tsCode))
