@@ -1,7 +1,7 @@
 import React from 'react';
-import ScrollView from '../Components/ScrollView/ScrollView';
 import VirtualizedSectionList from './VirtualizedSectionList';
-import { ViewToken } from "./ViewabilityHelper";
+import { $PropertyType, $Diff } from "utility-types";
+import { ScrollResponderType } from "../Components/ScrollView/ScrollView";
 import { SectionBase as _SectionBase, Props as VirtualizedSectionListProps, ScrollToLocationParamsType } from "./VirtualizedSectionList";
 declare type Item = any;
 export declare type SectionBase<SectionItemT> = _SectionBase<SectionItemT>;
@@ -32,37 +32,7 @@ declare type OptionalProps<SectionT extends SectionBase<any>> = {
             unhighlight: (() => void);
             updateProps: ((select: "leading" | "trailing", newProps: any) => void);
         };
-    }) => React.ReactElement<any> | null | undefined);
-    /**
-     * Rendered in between each item, but not at the top or bottom. By default, `highlighted`,
-     * `section`, and `[leading/trailing][Item/Separator]` props are provided. `renderItem` provides
-     * `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also
-     * add custom props with `separators.updateProps`.
-     */
-    ItemSeparatorComponent?: React.ComponentType<any> | null | undefined;
-    /**
-     * Rendered at the very beginning of the list. Can be a React Component Class, a render function, or
-     * a rendered element.
-     */
-    ListHeaderComponent?: (React.ComponentType<any> | React.ReactElement<any>) | null | undefined;
-    /**
-     * Rendered when the list is empty. Can be a React Component Class, a render function, or
-     * a rendered element.
-     */
-    ListEmptyComponent?: (React.ComponentType<any> | React.ReactElement<any>) | null | undefined;
-    /**
-     * Rendered at the very end of the list. Can be a React Component Class, a render function, or
-     * a rendered element.
-     */
-    ListFooterComponent?: (React.ComponentType<any> | React.ReactElement<any>) | null | undefined;
-    /**
-     * Rendered at the top and bottom of each section (note this is different from
-     * `ItemSeparatorComponent` which is only rendered between items). These are intended to separate
-     * sections from the headers above and below and typically have the same highlight response as
-     * `ItemSeparatorComponent`. Also receives `highlighted`, `[leading/trailing][Item/Separator]`,
-     * and any custom props from `separators.updateProps`.
-     */
-    SectionSeparatorComponent?: React.ComponentType<any> | null | undefined;
+    }) => null | React.ReactElement<any>);
     /**
      * A marker property for telling the list to re-render (since it implements `PureComponent`). If
      * any of your `renderItem`, Header, Footer, etc. functions depend on anything outside of the
@@ -94,59 +64,17 @@ declare type OptionalProps<SectionT extends SectionBase<any>> = {
         distanceFromEnd: number;
     }) => void) | null | undefined;
     /**
-     * How far from the end (in units of visible length of the list) the bottom edge of the
-     * list must be from the end of the content to trigger the `onEndReached` callback.
-     * Thus a value of 0.5 will trigger `onEndReached` when the end of the content is
-     * within half the visible length of the list.
-     */
-    onEndReachedThreshold?: number | null | undefined;
-    /**
-     * If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make
-     * sure to also set the `refreshing` prop correctly.
-     */
-    onRefresh?: (() => void) | null | undefined;
-    /**
-     * Called when the viewability of rows changes, as defined by the
-     * `viewabilityConfig` prop.
-     */
-    onViewableItemsChanged?: ((info: {
-        viewableItems: Array<ViewToken>;
-        changed: Array<ViewToken>;
-    }) => void) | null | undefined;
-    /**
-     * Set this true while waiting for new data from a refresh.
-     */
-    refreshing?: boolean | null | undefined;
-    /**
      * Note: may have bugs (missing content) in some circumstances - use at your own risk.
      *
      * This may improve scroll performance for large lists.
      */
     removeClippedSubviews?: boolean;
-    /**
-     * Rendered at the top of each section. These stick to the top of the `ScrollView` by default on
-     * iOS. See `stickySectionHeadersEnabled`.
-     */
-    renderSectionHeader?: ((info: {
-        section: SectionT;
-    }) => React.ReactElement<any> | null | undefined) | null | undefined;
-    /**
-     * Rendered at the bottom of each section.
-     */
-    renderSectionFooter?: ((info: {
-        section: SectionT;
-    }) => React.ReactElement<any> | null | undefined) | null | undefined;
-    /**
-     * Makes section headers stick to the top of the screen until the next one pushes it off. Only
-     * enabled by default on iOS because that is the platform standard there.
-     */
-    stickySectionHeadersEnabled?: boolean;
-    /**
-     * The legacy implementation is no longer supported.
-     */
-    legacyImplementation?: never;
 };
-export declare type Props<SectionT> = RequiredProps<SectionT> & OptionalProps<SectionT> & VirtualizedSectionListProps<SectionT>;
+export declare type Props<SectionT> = $Diff<VirtualizedSectionListProps<SectionT>, {
+    getItem: $PropertyType<VirtualizedSectionListProps<SectionT>, "getItem">;
+    getItemCount: $PropertyType<VirtualizedSectionListProps<SectionT>, "getItemCount">;
+    renderItem: $PropertyType<VirtualizedSectionListProps<SectionT>, "renderItem">;
+}> & RequiredProps<SectionT> & OptionalProps<SectionT>;
 declare const defaultProps: {
     stickySectionHeadersEnabled: boolean;
     disableVirtualization: boolean;
@@ -245,7 +173,7 @@ declare class SectionList<SectionT extends SectionBase<any>> extends React.PureC
     /**
      * Provides a handle to the underlying scroll responder.
      */
-    getScrollResponder(): ScrollView | null | undefined;
+    getScrollResponder(): ScrollResponderType | null | undefined;
     getScrollableNode(): any;
     setNativeProps(props: any): void;
     render(): React.ReactNode;

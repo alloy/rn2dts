@@ -1,11 +1,12 @@
-export declare type PlatformSelectSpec<D, I> = {
+export declare type PlatformSelectSpec<D, N, I> = {
     default?: D;
+    native?: N;
     ios?: I;
 };
 declare const Platform: {
     __constants: null;
     OS: string;
-    readonly Version: any;
+    readonly Version: string;
     readonly constants: {
         forceTouchAvailable: boolean;
         interfaceIdiom: string;
@@ -26,6 +27,6 @@ declare const Platform: {
     readonly isTVOS: boolean;
     readonly isTV: boolean;
     readonly isTesting: boolean;
-    select: <D, I>(spec: PlatformSelectSpec<D, I>) => D | I;
+    select: <D, N, I>(spec: PlatformSelectSpec<D, N, I>) => D | N | I;
 };
 export default Platform;

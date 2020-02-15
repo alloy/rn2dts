@@ -1,7 +1,7 @@
 import AnimatedValue from '../nodes/AnimatedValue';
 import AnimatedValueXY from '../nodes/AnimatedValueXY';
 import Animation from './Animation';
-import { $TEMPORARY$string, $TEMPORARY$object } from "flow-builtin-types";
+import { $TEMPORARY$string } from "flow-builtin-types";
 import { AnimationConfig, EndCallback } from "./Animation";
 export declare type SpringAnimationConfig = AnimationConfig & {
     toValue: number | AnimatedValue | {
@@ -61,7 +61,7 @@ declare class SpringAnimation extends Animation {
     _animationFrame: any;
     _useNativeDriver: boolean;
     constructor(config: SpringAnimationConfigSingle);
-    __getNativeAnimationConfig(): $TEMPORARY$object<{
+    __getNativeAnimationConfig(): {
         damping: number;
         initialVelocity: number;
         iterations: number;
@@ -72,7 +72,7 @@ declare class SpringAnimation extends Animation {
         stiffness: number;
         toValue: any;
         type: $TEMPORARY$string<"spring">;
-    }>;
+    };
     start(fromValue: number, onUpdate: ((value: number) => void), onEnd: EndCallback | null | undefined, previousAnimation: Animation | null | undefined, animatedValue: AnimatedValue): void;
     getInternalState(): any;
     /**

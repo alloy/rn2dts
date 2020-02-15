@@ -1,3 +1,2 @@
-import { NativeMethodsMixinType } from "./ReactNativeTypes";
-declare const _default: NativeMethodsMixinType;
+declare const _default: import("./ReactNativeTypes").NativeMethods;
 export default _default;

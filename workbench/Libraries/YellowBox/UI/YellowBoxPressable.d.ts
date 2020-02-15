@@ -1,5 +1,4 @@
 import React from 'react';
-import { $TEMPORARY$object } from "flow-builtin-types";
 import { $ReadOnly } from "utility-types";
 import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
@@ -18,12 +17,12 @@ declare type State = {
     pressed: boolean;
 };
 declare class YellowBoxPressable extends React.Component<Props, State> {
-    static defaultProps: $TEMPORARY$object<{
-        backgroundColor: $TEMPORARY$object<{
+    static defaultProps: {
+        backgroundColor: {
             default: string;
             pressed: string;
-        }>;
-    }>;
+        };
+    };
     state: State;
     render(): React.ReactNode;
     _handlePressIn: () => void;

@@ -6,8 +6,8 @@ declare const ReactNativeViewAttributes: {
         accessibilityLabel: boolean;
         accessibilityLiveRegion: boolean;
         accessibilityRole: boolean;
-        accessibilityStates: boolean;
         accessibilityState: boolean;
+        accessibilityValue: boolean;
         accessibilityHint: boolean;
         importantForAccessibility: boolean;
         nativeID: boolean;
@@ -21,7 +21,7 @@ declare const ReactNativeViewAttributes: {
         onAccessibilityEscape: boolean;
         collapsable: boolean;
         needsOffscreenAlphaCompositing: boolean;
-        style: {};
+        style: any;
     };
     RCTView: {
         removeClippedSubviews: boolean;
@@ -31,8 +31,8 @@ declare const ReactNativeViewAttributes: {
         accessibilityLabel: boolean;
         accessibilityLiveRegion: boolean;
         accessibilityRole: boolean;
-        accessibilityStates: boolean;
         accessibilityState: boolean;
+        accessibilityValue: boolean;
         accessibilityHint: boolean;
         importantForAccessibility: boolean;
         nativeID: boolean;
@@ -46,7 +46,7 @@ declare const ReactNativeViewAttributes: {
         onAccessibilityEscape: boolean;
         collapsable: boolean;
         needsOffscreenAlphaCompositing: boolean;
-        style: {};
+        style: any;
     };
 };
 export default ReactNativeViewAttributes;

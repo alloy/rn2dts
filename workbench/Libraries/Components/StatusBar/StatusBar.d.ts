@@ -1,5 +1,5 @@
 import React from 'react';
-import { $TEMPORARY$string, $TEMPORARY$object } from "flow-builtin-types";
+import { $TEMPORARY$string } from "flow-builtin-types";
 import { $Keys, $ReadOnly } from "utility-types";
 /**
  * Status bar style
@@ -152,7 +152,7 @@ declare class StatusBar extends React.Component<Props> {
      *
      * @platform android
      */
-    static currentHeight: number;
+    static currentHeight: number | null | undefined;
     /**
      * Show or hide the status bar
      * @param hidden Hide the status bar.
@@ -202,10 +202,10 @@ declare class StatusBar extends React.Component<Props> {
      * @param props Object containing the StatusBar props to use in the replacement stack entry.
      */
     static replaceStackEntry(entry: any, props: any): any;
-    static defaultProps: $TEMPORARY$object<{
+    static defaultProps: {
         animated: boolean;
         showHideTransition: $TEMPORARY$string<"fade">;
-    }>;
+    };
     _stackEntry: null;
     componentDidMount(): void;
     componentWillUnmount(): void;

@@ -14,6 +14,7 @@ export declare type Rationale = {
  */
 declare class PermissionsAndroid {
     PERMISSIONS: {
+        ACCESS_BACKGROUND_LOCATION: string;
         ACCESS_COARSE_LOCATION: string;
         ACCESS_FINE_LOCATION: string;
         ADD_VOICEMAIL: string;
@@ -93,4 +94,5 @@ declare class PermissionsAndroid {
         [permission: PermissionType]: PermissionStatus;
     }>;
 }
-export default PermissionsAndroid;
+declare const PermissionsAndroidInstance: PermissionsAndroid;
+export default PermissionsAndroidInstance;

@@ -3,6 +3,8 @@
  * If no text field is focused it returns null
  */
 declare function currentlyFocusedField(): number | null | undefined;
+declare function focusField(textFieldID: number | null | undefined): void;
+declare function blurField(textFieldID: number | null | undefined): void;
 /**
  * @param {number} TextInputID id of the text field to focus
  * Focuses the specified text field
@@ -20,6 +22,8 @@ declare function unregisterInput(textFieldID: number): void;
 declare function isTextInput(textFieldID: number): boolean;
 declare const _default: {
     currentlyFocusedField: typeof currentlyFocusedField;
+    focusField: typeof focusField;
+    blurField: typeof blurField;
     focusTextInput: typeof focusTextInput;
     blurTextInput: typeof blurTextInput;
     registerInput: typeof registerInput;

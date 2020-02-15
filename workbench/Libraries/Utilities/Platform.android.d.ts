@@ -1,14 +1,30 @@
-export declare type PlatformSelectSpec<A, D> = {
+export declare type PlatformSelectSpec<A, N, D> = {
     android?: A;
+    native?: N;
     default?: D;
 };
 declare const Platform: {
     __constants: null;
     OS: string;
-    readonly Version: any;
-    readonly constants: any;
+    readonly Version: number;
+    readonly constants: {
+        isTesting: boolean;
+        reactNativeVersion: {
+            major: number;
+            minor: number;
+            patch: number;
+            prerelease: number | null | undefined;
+        };
+        Version: number;
+        Release: string;
+        Serial: string;
+        Fingerprint: string;
+        Model: string;
+        ServerHost: string;
+        uiMode: string;
+    };
     readonly isTesting: boolean;
     readonly isTV: boolean;
-    select: <A, D>(spec: PlatformSelectSpec<A, D>) => A | D;
+    select: <A, N, D>(spec: PlatformSelectSpec<A, N, D>) => A | N | D;
 };
 export default Platform;

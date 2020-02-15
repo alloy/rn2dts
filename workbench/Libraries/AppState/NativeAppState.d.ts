@@ -5,7 +5,7 @@ export interface Spec extends TurboModule {
     });
     readonly getCurrentAppState: ((success: ((appState: {
         app_state: string;
-    }) => void), failure: ((error: any) => void)) => void);
+    }) => void), error: ((error: any) => void)) => void);
     readonly addListener: ((eventName: string) => void);
     readonly removeListeners: ((count: number) => void);
 }

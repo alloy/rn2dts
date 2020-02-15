@@ -1,3 +1,4 @@
+import EventEmitter from '../vendor/emitter/EventEmitter';
 import NativeEventEmitter from '../EventEmitter/NativeEventEmitter';
 /**
  * `AppState` can tell you if the app is in the foreground or background,
@@ -25,4 +26,14 @@ declare class AppState extends NativeEventEmitter {
      */
     removeEventListener(type: string, handler: ((...args: any) => any)): void;
 }
-export default AppState;
+declare class MissingNativeAppStateShim extends EventEmitter {
+    isAvailable: boolean;
+    currentState: string | null | undefined;
+    addEventListener(type: string, handler: ((...args: any) => any)): void;
+    removeEventListener(type: string, handler: ((...args: any) => any)): void;
+    addListener(): void;
+    removeAllListeners(): void;
+    removeSubscription(): void;
+}
+declare const AppStateInstance: AppState | MissingNativeAppStateShim;
+export default AppStateInstance;

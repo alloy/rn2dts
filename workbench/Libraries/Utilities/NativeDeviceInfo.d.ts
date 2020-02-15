@@ -1,24 +1,23 @@
-import { $ReadOnly } from "utility-types";
 import { TurboModule } from "../TurboModule/RCTExport";
-declare type DisplayMetricsAndroid = $ReadOnly<{
+declare type DisplayMetricsAndroid = {
     width: number;
     height: number;
     scale: number;
     fontScale: number;
     densityDpi: number;
-}>;
-export declare type DisplayMetrics = $ReadOnly<{
+};
+export declare type DisplayMetrics = {
     width: number;
     height: number;
     scale: number;
     fontScale: number;
-}>;
-export declare type DimensionsPayload = $ReadOnly<{
+};
+export declare type DimensionsPayload = {
     window?: DisplayMetrics;
     screen?: DisplayMetrics;
     windowPhysicalPixels?: DisplayMetricsAndroid;
     screenPhysicalPixels?: DisplayMetricsAndroid;
-}>;
+};
 export interface Spec extends TurboModule {
     readonly getConstants: (() => {
         readonly Dimensions: DimensionsPayload;

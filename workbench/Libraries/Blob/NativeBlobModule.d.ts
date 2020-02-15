@@ -7,8 +7,8 @@ export interface Spec extends TurboModule {
     readonly addNetworkingHandler: (() => void);
     readonly addWebSocketHandler: ((id: number) => void);
     readonly removeWebSocketHandler: ((id: number) => void);
-    readonly sendOverSocket: ((blob: any, id: number) => void);
-    readonly createFromParts: ((parts: Array<any>, blobId: string) => void);
+    readonly sendOverSocket: ((blob: any, socketID: number) => void);
+    readonly createFromParts: ((parts: Array<any>, withId: string) => void);
     readonly release: ((blobId: string) => void);
 }
 declare const _default: Spec | null | undefined;

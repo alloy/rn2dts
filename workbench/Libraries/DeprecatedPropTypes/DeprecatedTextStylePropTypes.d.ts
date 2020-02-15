@@ -11,9 +11,6 @@ declare const DeprecatedTextStylePropTypes: {
      * in that case the closest one is chosen.
      */
     fontWeight: React$PropType$Primitive<"bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900">;
-    /**
-     * @platform ios
-     */
     fontVariant: React$PropType$Primitive<("lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums")[]>;
     textShadowOffset: React$PropType$Primitive<{
         height?: number | undefined;
@@ -75,7 +72,10 @@ declare const DeprecatedTextStylePropTypes: {
     borderBottomStartRadius: ReactPropTypes.Requireable<number>;
     borderBottomEndRadius: ReactPropTypes.Requireable<number>;
     borderStyle: React$PropType$Primitive<"dashed" | "dotted" | "solid">;
-    borderWidth: ReactPropTypes.Requireable<number>;
+    borderWidth: ReactPropTypes.Requireable<number>; /**
+     * Specifies text alignment. The value 'justify' is only supported on iOS and
+     * fallbacks to `left` on Android.
+     */
     borderTopWidth: ReactPropTypes.Requireable<number>;
     borderRightWidth: ReactPropTypes.Requireable<number>;
     borderBottomWidth: ReactPropTypes.Requireable<number>;
@@ -91,10 +91,7 @@ declare const DeprecatedTextStylePropTypes: {
     } | {
         rotateY?: string | undefined;
     } | {
-        rotateZ?: string | undefined; /**
-         * Specifies text alignment. The value 'justify' is only supported on iOS and
-         * fallbacks to `left` on Android.
-         */
+        rotateZ?: string | undefined;
     } | {
         scale?: number | undefined;
     } | {
@@ -131,14 +128,15 @@ declare const DeprecatedTextStylePropTypes: {
     end: React$PropType$Primitive<string | number>;
     top: React$PropType$Primitive<string | number>;
     left: React$PropType$Primitive<string | number>;
-    /**
-     * @platform ios
-     */
     right: React$PropType$Primitive<string | number>;
     bottom: React$PropType$Primitive<string | number>;
     minWidth: React$PropType$Primitive<string | number>;
     maxWidth: React$PropType$Primitive<string | number>;
     minHeight: React$PropType$Primitive<string | number>;
+    /**
+     * Specifies text alignment. The value 'justify' is only supported on iOS and
+     * fallbacks to `left` on Android.
+     */
     maxHeight: React$PropType$Primitive<string | number>;
     margin: React$PropType$Primitive<string | number>;
     marginVertical: React$PropType$Primitive<string | number>;

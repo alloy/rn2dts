@@ -5,7 +5,7 @@ export interface Spec extends TurboModule {
         url: string;
         data: any;
         headers: any;
-        responseType: any;
+        responseType: string;
         incrementalUpdates: boolean;
         timeout: number;
         withCredentials: boolean;

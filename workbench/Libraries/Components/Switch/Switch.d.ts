@@ -1,9 +1,9 @@
-import AndroidSwitchNativeComponent from './AndroidSwitchNativeComponent';
 import React from 'react';
 import { $ReadOnly } from "utility-types";
+import AndroidSwitchNativeComponent from "./AndroidSwitchNativeComponent";
+import SwitchNativeComponent from "./SwitchNativeComponent";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { ViewProps } from "../View/ViewPropTypes";
-import SwitchNativeComponent from "./SwitchNativeComponent";
 declare type SwitchChangeEvent = React.SyntheticEvent<$ReadOnly<{
     value: boolean;
 }>>;
@@ -62,7 +62,9 @@ export declare type Props = $ReadOnly<ViewProps & {
  */
 declare class Switch extends React.Component<Props> {
     _nativeSwitchRef: React.ElementRef<typeof SwitchNativeComponent | typeof AndroidSwitchNativeComponent> | null | undefined;
+    _lastNativeValue: boolean | null | undefined;
     render(): React.ReactNode;
+    componentDidUpdate(): void;
     _handleChange: (event: SwitchChangeEvent) => void;
     _handleSwitchNativeComponentRef: (ref: any) => void;
 }

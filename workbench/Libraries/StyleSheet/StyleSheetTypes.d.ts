@@ -7,6 +7,12 @@ export declare type PointValue = {
     x: number;
     y: number;
 };
+export declare type EdgeInsetsValue = {
+    top: number;
+    left: number;
+    right: number;
+    bottom: number;
+};
 export declare type DimensionValue = null | number | string | AnimatedNode;
 /**
  * React Native's layout system is based on Flexbox and is powered both
@@ -496,12 +502,13 @@ export declare type ____ViewStyle_Internal = $ReadOnly<$Exact<____LayoutStyle_In
     opacity?: number | AnimatedNode;
     elevation?: number;
 }>;
+export declare type ____FontWeight_Internal = "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900";
 export declare type ____TextStyle_Internal = $ReadOnly<$Exact<____ViewStyle_Internal> & {
     color?: ColorValue;
     fontFamily?: string;
     fontSize?: number;
     fontStyle?: "normal" | "italic";
-    fontWeight?: "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900";
+    fontWeight?: ____FontWeight_Internal;
     fontVariant?: ReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums">;
     textShadowOffset?: $ReadOnly<{
         width: number;

@@ -1,12 +1,14 @@
-import DocumentSelectionState from '../../vendor/document/selection/DocumentSelectionState';
 import React from 'react';
-import ReactNative from '../../Renderer/shims/ReactNative';
 import { Stringish } from "flow-builtin-types";
-import { $ReadOnly, $Diff, Class } from "utility-types";
+import { $ReadOnly, $Diff } from "utility-types";
 import { TextStyleProp, ViewStyleProp } from "../../StyleSheet/StyleSheet";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { ViewProps } from "../View/ViewPropTypes";
 import { ScrollEvent } from "../../Types/CoreEventTypes";
+import { HostComponent } from "../../Renderer/shims/ReactNativeTypes";
+declare type ReactRefSetter<T> = {
+    current: null | T;
+} | ((ref: null | T) => unknown);
 export declare type ChangeEvent = React.SyntheticEvent<$ReadOnly<{
     eventCount: number;
     target: number;
@@ -54,7 +56,7 @@ export declare type EditingEvent = React.SyntheticEvent<$ReadOnly<{
 }>>;
 declare type DataDetectorTypesType = "phoneNumber" | "link" | "address" | "calendarEvent" | "none" | "all";
 export declare type KeyboardType = // Cross Platform
-"default" | "email-address" | "numeric" | "phone-pad" | "number-pad" | "decimal-pad" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "twitter" | "web-search" | "visible-password";
+"default" | "email-address" | "numeric" | "phone-pad" | "number-pad" | "decimal-pad" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "twitter" | "web-search" | "ascii-capable-number-pad" | "visible-password";
 export declare type ReturnKeyType = // Cross Platform
 "done" | "go" | "next" | "search" | "send" | "none" | "previous" | "default" | "emergency-call" | "google" | "join" | "route" | "yahoo";
 export declare type AutoCapitalize = "none" | "sentences" | "words" | "characters";
@@ -78,22 +80,6 @@ declare type IOSProps = $ReadOnly<{
      * @platform ios
      */
     enablesReturnKeyAutomatically?: boolean | null | undefined;
-    /**
-     * An instance of `DocumentSelectionState`, this is some state that is responsible for
-     * maintaining selection information for a document.
-     *
-     * Some functionality that can be performed with this instance is:
-     *
-     * - `blur()`
-     * - `focus()`
-     * - `update()`
-     *
-     * > You can reference `DocumentSelectionState` in
-     * > [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
-     *
-     * @platform ios
-     */
-    selectionState?: DocumentSelectionState | null | undefined;
     /**
      * When the clear button should appear on the right side of the text view.
      * This property is supported only for single-line TextInput component.
@@ -138,6 +124,7 @@ declare type IOSProps = $ReadOnly<{
      */
     textContentType?: TextContentType | null | undefined;
     PasswordRules?: PasswordRules | null | undefined;
+    rejectResponderTermination?: boolean | null | undefined;
     /**
      * If `false`, scrolling of the text view will be disabled.
      * The default value is `true`. Does only work with 'multiline={true}'.
@@ -227,7 +214,7 @@ declare type AndroidProps = $ReadOnly<{
      */
     showSoftInputOnFocus?: boolean | null | undefined;
 }>;
-declare type Props = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
+export declare type Props = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
     style: ViewStyleProp | null | undefined;
 }>> & IOSProps & AndroidProps & {
     /**
@@ -363,7 +350,6 @@ declare type Props = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      * Only called for multiline text inputs.
      */
     onContentSizeChange?: ((e: ContentSizeChangeEvent) => unknown) | null | undefined;
-    onTextInput?: ((e: TextInputEvent) => unknown) | null | undefined;
     /**
      * Callback that is called when text input ends.
      */
@@ -470,10 +456,12 @@ declare type Props = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      */
     caretHidden?: boolean | null | undefined;
     contextMenuHidden?: boolean | null | undefined;
+    forwardedRef?: ReactRefSetter<React.ElementRef<HostComponent<unknown>> & ImperativeMethods> | null | undefined;
 }>;
-declare class InternalTextInputType extends ReactNative.NativeComponent<Props> {
-    clear(): void;
-    isFocused(): boolean;
-}
-declare const TypedTextInput: Class<InternalTextInputType>;
-export default TypedTextInput;
+declare type ImperativeMethods = $ReadOnly<{
+    clear: (() => void);
+    isFocused: (() => boolean);
+    getNativeRef: (() => React.ElementRef<HostComponent<unknown>> | null | undefined);
+}>;
+declare const _default: any;
+export default _default;

@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  * @format
- * @flow
+ * @flow strict-local
  */
 import { TurboModule } from "../TurboModule/RCTExport";
 export interface Spec extends TurboModule {

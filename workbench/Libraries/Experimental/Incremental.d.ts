@@ -1,5 +1,5 @@
 import React from 'react';
-import { $TEMPORARY$object, React$PropType$Primitive } from "flow-builtin-types";
+import { React$PropType$Primitive } from "flow-builtin-types";
 /**
  * WARNING: EXPERIMENTAL. Breaking changes will probably happen a lot and will
  * not be reliably announced.  The whole thing might be deleted, who knows? Use
@@ -83,13 +83,13 @@ declare class Incremental extends React.Component<Props, State> {
     _incrementId: number;
     _mounted: boolean;
     _rendered: boolean;
-    static defaultProps: $TEMPORARY$object<{
+    static defaultProps: {
         name: string;
-    }>;
-    static contextTypes: any | $TEMPORARY$object<{
+    };
+    static contextTypes: any | {
         incrementalGroup: React$PropType$Primitive<any>;
         incrementalGroupEnabled: React$PropType$Primitive<boolean>;
-    }>;
+    };
     constructor(props: Props, context: Context);
     getName(): string;
     UNSAFE_componentWillMount(): void;

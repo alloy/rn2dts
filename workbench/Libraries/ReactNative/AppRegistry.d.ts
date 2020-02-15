@@ -1,7 +1,7 @@
 import { React$ComponentType } from "flow-builtin-types";
 import { IPerformanceLogger } from "../Utilities/createPerformanceLogger";
 declare type Task = ((taskData: any) => Promise<void>);
-declare type TaskProvider = (() => Task);
+export declare type TaskProvider = (() => Task);
 declare type TaskCanceller = (() => void);
 declare type TaskCancelProvider = (() => TaskCanceller);
 export declare type ComponentProvider = (() => React$ComponentType<any>);
@@ -31,7 +31,7 @@ export declare type WrapperComponentProvider = ((arg0: any) => React$ComponentTy
  */
 declare const AppRegistry: {
     setWrapperComponentProvider(provider: WrapperComponentProvider): void;
-    enableFabricIndicator(enabled: boolean): void;
+    enableArchitectureIndicator(enabled: boolean): void;
     registerConfig(config: AppConfig[]): void;
     /**
      * Registers an app's root component.

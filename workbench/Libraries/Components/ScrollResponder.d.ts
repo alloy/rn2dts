@@ -189,10 +189,6 @@ declare const ScrollResponder: {
             animated?: boolean | undefined;
         } | undefined) => void;
         /**
-         * Deprecated, do not use.
-         */
-        scrollResponderScrollWithoutAnimationTo: (offsetX: number, offsetY: number) => void;
-        /**
          * A helper function to zoom to a specific rect in the scrollview. The argument has the shape
          * {x: number; y: number; width: number; height: number; animated: boolean = true}
          *
@@ -219,7 +215,7 @@ declare const ScrollResponder: {
          * @param {bool} preventNegativeScrolling Whether to allow pulling the content
          *        down to make it meet the keyboard's top. Default is false.
          */
-        scrollResponderScrollNativeHandleToKeyboard: (nodeHandle: number, additionalOffset?: number | undefined, preventNegativeScrollOffset?: boolean | undefined) => void;
+        scrollResponderScrollNativeHandleToKeyboard: <T>(nodeHandle: any, additionalOffset?: number | undefined, preventNegativeScrollOffset?: boolean | undefined) => void;
         /**
          * The calculations performed here assume the scroll view takes up the entire
          * screen - even if has some content inset. We then measure the offsets of the

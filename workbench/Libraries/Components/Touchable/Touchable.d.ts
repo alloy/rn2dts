@@ -162,7 +162,6 @@ declare const Touchable: {
          * @sideeffects
          */
         _performSideEffectsForTransition: (curState: any, nextState: any, signal: any, e: any) => void;
-        _playTouchSound: () => void;
         _startHighlight: (e: any) => void;
         _endHighlight: (e: any) => void;
         withoutDefaultFocusAndBlur: {};

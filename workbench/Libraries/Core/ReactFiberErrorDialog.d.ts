@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  * @format
- * @flow
+ * @flow strict-local
  */
 export declare type CapturedError = {
     readonly componentName: string | null | undefined;

@@ -1,7 +1,7 @@
-import RCTDatePickerNativeComponent from './RCTDatePickerNativeComponent';
 import React from 'react';
-import { $TEMPORARY$string, $TEMPORARY$object } from "flow-builtin-types";
+import { $TEMPORARY$string } from "flow-builtin-types";
 import { $ReadOnly } from "utility-types";
+import RCTDatePickerNativeComponent from "./RCTDatePickerNativeComponent";
 import { ViewProps } from "../View/ViewPropTypes";
 declare type Event = React.SyntheticEvent<$ReadOnly<{
     timestamp: number;
@@ -77,9 +77,9 @@ declare type Props = $ReadOnly<ViewProps & {
  * source of truth.
  */
 declare class DatePickerIOS extends React.Component<Props> {
-    static DefaultProps: $TEMPORARY$object<{
+    static DefaultProps: {
         mode: $TEMPORARY$string<"datetime">;
-    }>;
+    };
     _picker: React.ElementRef<typeof RCTDatePickerNativeComponent> | null | undefined;
     componentDidUpdate(): void;
     _onChange: (event: Event) => void;

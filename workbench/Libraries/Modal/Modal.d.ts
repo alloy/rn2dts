@@ -1,5 +1,5 @@
 import React from 'react';
-import { $TEMPORARY$object, React$PropType$Primitive } from "flow-builtin-types";
+import { React$PropType$Primitive } from "flow-builtin-types";
 import { $ReadOnly } from "utility-types";
 import { ViewProps } from "../Components/View/ViewPropTypes";
 import { DirectEventHandler } from "../Types/CodegenTypes";
@@ -28,8 +28,17 @@ export declare type Props = $ReadOnly<ViewProps & {
      */
     transparent?: boolean | null | undefined;
     /**
+     * The `statusBarTranslucent` prop determines whether your modal should go under
+     * the system statusbar.
+     *
+     * See https://facebook.github.io/react-native/docs/modal.html#transparent
+     */
+    statusBarTranslucent?: boolean | null | undefined;
+    /**
      * The `hardwareAccelerated` prop controls whether to force hardware
      * acceleration for the underlying window.
+     *
+     * This prop works inly on Android.
      *
      * See https://facebook.github.io/react-native/docs/modal.html#hardwareaccelerated
      */
@@ -42,7 +51,8 @@ export declare type Props = $ReadOnly<ViewProps & {
     visible?: boolean | null | undefined;
     /**
      * The `onRequestClose` callback is called when the user taps the hardware
-     * back button on Android or the menu button on Apple TV.
+     * back button on Android, the menu button on Apple TV, or a modal is dismissed
+     * with a gesture on iOS 13+.
      *
      * This is required on Apple TV and Android.
      *
@@ -81,23 +91,22 @@ export declare type Props = $ReadOnly<ViewProps & {
     onOrientationChange?: DirectEventHandler<OrientationChangeEvent> | null | undefined;
 }>;
 declare class Modal extends React.Component<Props> {
-    static defaultProps: $TEMPORARY$object<{
+    static defaultProps: {
         hardwareAccelerated: boolean;
         visible: boolean;
-    }>;
-    static contextTypes: any | $TEMPORARY$object<{
+    };
+    static contextTypes: any | {
         rootTag: React$PropType$Primitive<number>;
-    }>;
+    };
     _identifier: number;
     _eventSubscription: EmitterSubscription | null | undefined;
     constructor(props: Props);
-    static childContextTypes: any | $TEMPORARY$object<{
+    static childContextTypes: any | {
         virtualizedList: React$PropType$Primitive<any>;
-    }>;
-    getChildContext(): $TEMPORARY$object<{
+    };
+    getChildContext(): {
         virtualizedList: null;
-    }>;
-    componentDidMount(): void;
+    };
     componentWillUnmount(): void;
     UNSAFE_componentWillReceiveProps(nextProps: Props): void;
     static _confirmProps(props: Props): void;

@@ -3,7 +3,7 @@ import { $ReadOnly } from "utility-types";
 import { LayoutEvent, PressEvent, TextLayoutEvent } from "../Types/CoreEventTypes";
 import { Node } from "react";
 import { TextStyleProp } from "../StyleSheet/StyleSheet";
-import { AccessibilityRole, AccessibilityStates, AccessibilityState } from "../Components/View/ViewAccessibility";
+import { AccessibilityRole, AccessibilityState } from "../Components/View/ViewAccessibility";
 export declare type PressRetentionOffset = $ReadOnly<{
     top: number;
     left: number;
@@ -23,7 +23,6 @@ export declare type TextProps = $ReadOnly<{
     accessibilityHint?: Stringish | null | undefined;
     accessibilityLabel?: Stringish | null | undefined;
     accessibilityRole?: AccessibilityRole | null | undefined;
-    accessibilityStates?: AccessibilityStates | null | undefined;
     accessibilityState?: AccessibilityState | null | undefined;
     /**
      * Whether font should be scaled down automatically.

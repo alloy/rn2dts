@@ -2,7 +2,7 @@ import { TurboModule } from "../TurboModule/RCTExport";
 export declare type Args = {
     title?: string;
     message?: string;
-    buttons?: any;
+    buttons?: Array<any>;
     type?: string;
     defaultValue?: string;
     cancelButtonKey?: string;

@@ -6,5 +6,5 @@
  *   const View = requireNativeComponent('RCTView');
  *
  */
-declare const requireNativeComponent: (uiViewClassName: string) => string;
+declare const requireNativeComponent: <T>(uiViewClassName: string) => any;
 export default requireNativeComponent;

@@ -5,9 +5,8 @@ export declare type SymbolicationRequest = $ReadOnly<{
     abort: (() => void);
 }>;
 declare class YellowBoxWarning {
-    static parse({ args, framesToPop }: $ReadOnly<{
+    static parse({ args }: $ReadOnly<{
         args: ReadonlyArray<unknown>;
-        framesToPop: number;
     }>): {
         category: Category;
         message: Message;

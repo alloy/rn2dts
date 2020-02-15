@@ -1,8 +1,7 @@
 import { TurboModule } from "../TurboModule/RCTExport";
 declare type Header = [string, string];
 export interface Spec extends TurboModule {
-    readonly sendRequest: ((method: string, url: string, requestId: number, headers: Array<Header>, data: any, responseType: any, // TODO: Use stricter type.
-    useIncrementalUpdates: boolean, timeout: number, withCredentials: boolean) => void);
+    readonly sendRequest: ((method: string, url: string, requestId: number, headers: Array<Header>, data: any, responseType: string, useIncrementalUpdates: boolean, timeout: number, withCredentials: boolean) => void);
     readonly abortRequest: ((requestId: number) => void);
     readonly clearCookies: ((callback: ((result: boolean) => void)) => void);
     readonly addListener: ((eventName: string) => void);

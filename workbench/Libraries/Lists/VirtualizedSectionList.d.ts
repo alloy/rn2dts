@@ -1,7 +1,7 @@
 import React from 'react';
 import VirtualizedList from './VirtualizedList';
+import { $PropertyType, $Diff } from "utility-types";
 import { ViewToken } from "./ViewabilityHelper";
-import { Props as VirtualizedListProps } from "./VirtualizedList";
 declare type Item = any;
 export declare type SectionBase<SectionItemT> = {
     /**
@@ -22,7 +22,7 @@ export declare type SectionBase<SectionItemT> = {
             unhighlight: (() => void);
             updateProps: ((select: "leading" | "trailing", newProps: any) => void);
         };
-    }) => React.ReactElement<any> | null | undefined) | null | undefined;
+    }) => null | React.ReactElement<any>) | null | undefined;
     ItemSeparatorComponent?: React.ComponentType<any> | null | undefined;
     keyExtractor?: ((item: SectionItemT, index?: number | null | undefined) => string);
 };
@@ -30,14 +30,6 @@ declare type RequiredProps<SectionT extends SectionBase<any>> = {
     sections: ReadonlyArray<SectionT>;
 };
 declare type OptionalProps<SectionT extends SectionBase<any>> = {
-    /**
-     * Rendered after the last item in the last section.
-     */
-    ListFooterComponent?: (React.ComponentType<any> | React.ReactElement<any>) | null | undefined;
-    /**
-     * Rendered at the very beginning of the list.
-     */
-    ListHeaderComponent?: (React.ComponentType<any> | React.ReactElement<any>) | null | undefined;
     /**
      * Default renderer for every item in every section.
      */
@@ -50,57 +42,41 @@ declare type OptionalProps<SectionT extends SectionBase<any>> = {
             unhighlight: (() => void);
             updateProps: ((select: "leading" | "trailing", newProps: any) => void);
         };
-    }) => React.ReactElement<any> | null | undefined);
+    }) => null | React.ReactElement<any>);
     /**
-     * Rendered at the top of each section.
+     * Rendered at the top of each section. These stick to the top of the `ScrollView` by default on
+     * iOS. See `stickySectionHeadersEnabled`.
      */
-    renderSectionHeader?: ((arg0: {
+    renderSectionHeader?: ((info: {
         section: SectionT;
-    }) => React.ReactElement<any> | null | undefined) | null | undefined;
+    }) => null | React.ReactElement<any>) | null | undefined;
     /**
      * Rendered at the bottom of each section.
      */
-    renderSectionFooter?: ((arg0: {
+    renderSectionFooter?: ((info: {
         section: SectionT;
-    }) => React.ReactElement<any> | null | undefined) | null | undefined;
+    }) => null | React.ReactElement<any>) | null | undefined;
     /**
-     * Rendered at the bottom of every Section, except the very last one, in place of the normal
-     * ItemSeparatorComponent.
+     * Rendered at the top and bottom of each section (note this is different from
+     * `ItemSeparatorComponent` which is only rendered between items). These are intended to separate
+     * sections from the headers above and below and typically have the same highlight response as
+     * `ItemSeparatorComponent`. Also receives `highlighted`, `[leading/trailing][Item/Separator]`,
+     * and any custom props from `separators.updateProps`.
      */
     SectionSeparatorComponent?: React.ComponentType<any> | null | undefined;
     /**
-     * Rendered at the bottom of every Item except the very last one in the last section.
+     * Makes section headers stick to the top of the screen until the next one pushes it off. Only
+     * enabled by default on iOS because that is the platform standard there.
      */
-    ItemSeparatorComponent?: React.ComponentType<any> | null | undefined;
-    /**
-     * DEPRECATED: Virtualization provides significant performance and memory optimizations, but fully
-     * unmounts react instances that are outside of the render window. You should only need to disable
-     * this for debugging purposes.
-     */
-    disableVirtualization?: boolean | null | undefined;
-    keyExtractor: ((item: Item, index: number) => string);
+    stickySectionHeadersEnabled?: boolean;
     onEndReached?: ((arg0: {
         distanceFromEnd: number;
     }) => void) | null | undefined;
-    /**
-     * If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make
-     * sure to also set the `refreshing` prop correctly.
-     */
-    onRefresh?: (() => void) | null | undefined;
-    /**
-     * Called when the viewability of rows changes, as defined by the
-     * `viewabilityConfig` prop.
-     */
-    onViewableItemsChanged?: ((arg0: {
-        viewableItems: Array<ViewToken>;
-        changed: Array<ViewToken>;
-    }) => void) | null | undefined;
-    /**
-     * Set this true while waiting for new data from a refresh.
-     */
-    refreshing?: boolean | null | undefined;
 };
-export declare type Props<SectionT> = RequiredProps<SectionT> & OptionalProps<SectionT> & VirtualizedListProps;
+declare type VirtualizedListProps = React.ElementProps<typeof VirtualizedList>;
+export declare type Props<SectionT> = RequiredProps<SectionT> & OptionalProps<SectionT> & $Diff<VirtualizedListProps, {
+    renderItem: $PropertyType<VirtualizedListProps, "renderItem">;
+}>;
 export declare type ScrollToLocationParamsType = {
     animated?: boolean | null | undefined;
     itemIndex: number;
@@ -127,6 +103,7 @@ declare class VirtualizedSectionList<SectionT extends SectionBase<any>> extends 
     UNSAFE_componentWillReceiveProps(nextProps: Props<SectionT>): void;
     _computeState(props: Props<SectionT>): State;
     render(): React.ReactNode;
+    _getItem: (props: Props<SectionT>, sections: readonly any[] | null | undefined, index: number) => any;
     _keyExtractor: (item: any, index: number) => string;
     _subExtractor(index: number): {
         section: SectionT;
@@ -146,7 +123,7 @@ declare class VirtualizedSectionList<SectionT extends SectionBase<any>> extends 
     _renderItem: ({ item, index }: {
         item: any;
         index: number;
-    }) => JSX.Element | null | undefined;
+    }) => JSX.Element | null;
     _onUpdateSeparator: (key: string, newProps: any) => void;
     _getSeparatorComponent(index: number, info?: any | null | undefined): React.ComponentType<any> | null | undefined;
     _cellRefs: {};

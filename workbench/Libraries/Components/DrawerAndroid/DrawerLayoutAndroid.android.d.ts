@@ -114,13 +114,11 @@ declare type State = {
 declare class DrawerLayoutAndroid extends React.Component<Props, State> {
     static get positions(): unknown;
     static defaultProps: {
-        drawerBackgroundColor: string;
+        drawerBackgroundColor: "white";
     };
-    _nativeRef: React.RefObject<unknown>;
-    state: {
-        statusBarBackgroundColor: null;
-    };
-    render(): JSX.Element;
+    _nativeRef: React.RefObject<any>;
+    state: State;
+    render(): React.ReactNode;
     _onDrawerSlide: (event: any) => void;
     _onDrawerOpen: () => void;
     _onDrawerClose: () => void;

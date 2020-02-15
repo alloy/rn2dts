@@ -1,4 +1,3 @@
-import { $TEMPORARY$object } from "flow-builtin-types";
 import { ReactNativeBaseComponentViewConfig } from "../Renderer/shims/ReactNativeTypes";
 /**
  * The purpose of this function is to validate that the view config that
@@ -25,6 +24,6 @@ import { ReactNativeBaseComponentViewConfig } from "../Renderer/shims/ReactNativ
  */
 declare function verifyComponentAttributeEquivalence(componentName: string, config: ReactNativeBaseComponentViewConfig): void;
 export declare function lefthandObjectDiff(leftObj: any, rightObj: any): any;
-export declare function getConfigWithoutViewProps(viewConfig: ReactNativeBaseComponentViewConfig, propName: string): $TEMPORARY$object<{}>;
+export declare function getConfigWithoutViewProps(viewConfig: ReactNativeBaseComponentViewConfig, propName: string): {};
 export declare function stringifyViewConfig(viewConfig: any): string;
 export default verifyComponentAttributeEquivalence;

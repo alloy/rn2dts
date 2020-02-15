@@ -1,9 +1,10 @@
-/// <reference types="react" />
 import { $ReadOnly, $PropertyType } from "utility-types";
+import * as React from "react";
+import { HostComponent } from "../Renderer/shims/ReactNativeTypes";
 export declare type SyntheticEvent<T> = $ReadOnly<{
     bubbles: boolean | null | undefined;
     cancelable: boolean | null | undefined;
-    currentTarget: number;
+    currentTarget: number | React.ElementRef<HostComponent<unknown>>;
     defaultPrevented: boolean | null | undefined;
     dispatchConfig: $ReadOnly<{
         registrationName: string;
@@ -16,7 +17,7 @@ export declare type SyntheticEvent<T> = $ReadOnly<{
     isTrusted: boolean | null | undefined;
     nativeEvent: T;
     persist: (() => void);
-    target: number | null | undefined;
+    target: (number | null | undefined) | React.ElementRef<HostComponent<unknown>>;
     timeStamp: number;
     type: string | null | undefined;
 }>;
@@ -99,4 +100,17 @@ export declare type ScrollEvent = React.SyntheticEvent<$ReadOnly<{
     }>;
     zoomScale?: number;
     responderIgnoreScroll?: boolean;
+}>>;
+export declare type BlurEvent = React.SyntheticEvent<$ReadOnly<{
+    target: number;
+}>>;
+export declare type FocusEvent = React.SyntheticEvent<$ReadOnly<{
+    target: number;
+}>>;
+export declare type MouseEvent = React.SyntheticEvent<$ReadOnly<{
+    clientX: number;
+    clientY: number;
+    pageX: number;
+    pageY: number;
+    timestamp: number;
 }>>;

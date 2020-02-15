@@ -44,7 +44,7 @@ declare class AnimatedNode {
     _onAnimatedValueUpdateReceived(value: number): void;
     __callListeners(value: number): void;
     _stopListeningForNativeValueUpdates(): void;
-    __getNativeTag(): number | null | undefined;
+    __getNativeTag(): number;
     __getNativeConfig(): any;
     toJSON(): any;
 }

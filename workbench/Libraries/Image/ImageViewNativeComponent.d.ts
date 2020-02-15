@@ -1,2 +1,2 @@
-declare const ImageViewNativeComponent: string;
-export default ImageViewNativeComponent;
+declare const _default: any;
+export default _default;

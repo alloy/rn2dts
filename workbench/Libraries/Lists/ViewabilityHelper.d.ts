@@ -66,7 +66,8 @@ declare class ViewabilityHelper {
     computeViewableItems(itemCount: number, scrollOffset: number, viewportHeight: number, getFrameMetrics: ((index: number) => {
         length: number;
         offset: number;
-    } | null | undefined), renderRange?: {
+    } | null | undefined), // Optional optimization to reduce the scan size
+    renderRange?: {
         first: number;
         last: number;
     }): Array<number>;
@@ -80,7 +81,8 @@ declare class ViewabilityHelper {
     } | null | undefined), createViewToken: ((index: number, isViewable: boolean) => ViewToken), onViewableItemsChanged: ((arg0: {
         viewableItems: Array<ViewToken>;
         changed: Array<ViewToken>;
-    }) => void), renderRange?: {
+    }) => void), // Optional optimization to reduce the scan size
+    renderRange?: {
         first: number;
         last: number;
     }): void;

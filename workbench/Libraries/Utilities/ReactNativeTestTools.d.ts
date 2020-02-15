@@ -9,6 +9,7 @@ declare function maximumDepthError(tree: {
 }, maxDepthLimit: number): string | null | undefined;
 declare function expectNoConsoleWarn(): void;
 declare function expectNoConsoleError(): void;
+declare function expectRendersMatchingSnapshot(name: string, ComponentProvider: (() => React.ReactElement<any>), unmockComponent: (() => unknown)): void;
 declare function maximumDepthOfJSON(node: ReactTestRendererNode): number;
 declare function renderAndEnforceStrictMode(element: React.ReactNode): any;
 declare function renderWithStrictMode(element: React.ReactNode): any;
@@ -21,6 +22,7 @@ export { byTextMatching };
 export { enter };
 export { expectNoConsoleWarn };
 export { expectNoConsoleError };
+export { expectRendersMatchingSnapshot };
 export { maximumDepthError };
 export { maximumDepthOfJSON };
 export { renderAndEnforceStrictMode };

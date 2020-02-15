@@ -1,5 +1,4 @@
 import React from 'react';
-import { $TEMPORARY$object } from "flow-builtin-types";
 import { $ReadOnly } from "utility-types";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
 import EmitterSubscription from "../../vendor/emitter/EmitterSubscription";
@@ -32,10 +31,10 @@ declare type State = {
  * adjusting its height, position, or bottom padding.
  */
 declare class KeyboardAvoidingView extends React.Component<Props, State> {
-    static defaultProps: $TEMPORARY$object<{
+    static defaultProps: {
         enabled: boolean;
         keyboardVerticalOffset: number;
-    }>;
+    };
     _frame: ViewLayout | null | undefined;
     _subscriptions: Array<EmitterSubscription>;
     viewRef: {

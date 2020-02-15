@@ -1,27 +1,30 @@
 import { Stringish } from "flow-builtin-types";
 import { $ReadOnly } from "utility-types";
-import { PressEvent, Layout, LayoutEvent } from "../../Types/CoreEventTypes";
+import { BlurEvent, FocusEvent, MouseEvent, PressEvent, Layout, LayoutEvent } from "../../Types/CoreEventTypes";
 import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
 import { Node } from "react";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
-import { TVViewProps } from "../AppleTV/TVViewPropTypes";
-import { AccessibilityRole, AccessibilityStates, AccessibilityState, AccessibilityActionEvent, AccessibilityActionInfo } from "./ViewAccessibility";
+import { AccessibilityRole, AccessibilityState, AccessibilityValue, AccessibilityActionEvent, AccessibilityActionInfo } from "./ViewAccessibility";
 export declare type ViewLayout = Layout;
 export declare type ViewLayoutEvent = LayoutEvent;
+declare type BubblingEventProps = $ReadOnly<{
+    onBlur?: ((event: BlurEvent) => unknown) | null | undefined;
+    onFocus?: ((event: FocusEvent) => unknown) | null | undefined;
+}>;
 declare type DirectEventProps = $ReadOnly<{
     /**
      * When `accessible` is true, the system will try to invoke this function
      * when the user performs an accessibility custom action.
      *
      */
-    onAccessibilityAction?: ((event: AccessibilityActionEvent) => void) | null | undefined;
+    onAccessibilityAction?: ((event: AccessibilityActionEvent) => unknown) | null | undefined;
     /**
      * When `accessible` is true, the system will try to invoke this function
      * when the user performs accessibility tap gesture.
      *
      * See http://facebook.github.io/react-native/docs/view.html#onaccessibilitytap
      */
-    onAccessibilityTap?: (() => void) | null | undefined;
+    onAccessibilityTap?: (() => unknown) | null | undefined;
     /**
      * Invoked on mount and layout changes with:
      *
@@ -40,14 +43,18 @@ declare type DirectEventProps = $ReadOnly<{
      *
      * See http://facebook.github.io/react-native/docs/view.html#onmagictap
      */
-    onMagicTap?: (() => void) | null | undefined;
+    onMagicTap?: (() => unknown) | null | undefined;
     /**
      * When `accessible` is `true`, the system will invoke this function when the
      * user performs the escape gesture.
      *
      * See http://facebook.github.io/react-native/docs/view.html#onaccessibilityescape
      */
-    onAccessibilityEscape?: (() => void) | null | undefined;
+    onAccessibilityEscape?: (() => unknown) | null | undefined;
+}>;
+declare type MouseEventProps = $ReadOnly<{
+    onMouseEnter?: ((event: MouseEvent) => void);
+    onMouseLeave?: ((event: MouseEvent) => void);
 }>;
 declare type TouchEventProps = $ReadOnly<{
     onTouchCancel?: ((e: PressEvent) => void) | null | undefined;
@@ -232,6 +239,12 @@ declare type AndroidViewProps = $ReadOnly<{
      */
     importantForAccessibility?: ("auto" | "yes" | "no" | "no-hide-descendants") | null | undefined;
     /**
+     * Whether to force the Android TV focus engine to move focus to this view.
+     *
+     * @platform android
+     */
+    hasTVPreferredFocus?: boolean | null | undefined;
+    /**
      * TV next focus down (see documentation for the View component).
      *
      * @platform android
@@ -272,7 +285,7 @@ declare type AndroidViewProps = $ReadOnly<{
      *
      * @platform android
      */
-    onClick?: (() => void);
+    onClick?: ((event: PressEvent) => unknown) | null | undefined;
 }>;
 declare type IOSViewProps = $ReadOnly<{
     /**
@@ -309,7 +322,7 @@ declare type IOSViewProps = $ReadOnly<{
      */
     shouldRasterizeIOS?: boolean | null | undefined;
 }>;
-export declare type ViewProps = $ReadOnly<DirectEventProps & GestureResponderEventProps & TouchEventProps & AndroidViewProps & IOSViewProps & TVViewProps & {
+export declare type ViewProps = $ReadOnly<BubblingEventProps & DirectEventProps & GestureResponderEventProps & MouseEventProps & TouchEventProps & AndroidViewProps & IOSViewProps & {
     children?: Node;
     style?: ViewStyleProp | null | undefined;
     /**
@@ -343,8 +356,8 @@ export declare type ViewProps = $ReadOnly<DirectEventProps & GestureResponderEve
     /**
      * Indicates to accessibility services that UI Component is in a specific State.
      */
-    accessibilityStates?: AccessibilityStates | null | undefined;
     accessibilityState?: AccessibilityState | null | undefined;
+    accessibilityValue?: AccessibilityValue | null | undefined;
     /**
      * Provides an array of custom actions available for accessibility.
      *

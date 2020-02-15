@@ -1,16 +1,12 @@
-export declare type NativeImageSource = {
-    readonly deprecated: true;
-    readonly height: number;
-    readonly uri: string;
-    readonly width: number;
-};
-declare type NativeImageSourceSpec = {
-    readonly android?: string;
-    readonly ios?: string;
-    readonly default?: string;
-    readonly height: number;
-    readonly width: number;
-};
+import { $ReadOnly } from "utility-types";
+import { ImageURISource } from "./ImageSource";
+declare type NativeImageSourceSpec = $ReadOnly<{
+    android?: string;
+    ios?: string;
+    default?: string;
+    height: number;
+    width: number;
+}>;
 /**
  * In hybrid apps, use `nativeImageSource` to access images that are already
  * available on the native side, for example in Xcode Asset Catalogs or
@@ -27,5 +23,5 @@ declare type NativeImageSourceSpec = {
  *   http://facebook.github.io/react-native/docs/images.html
  *
  */
-declare function nativeImageSource(spec: NativeImageSourceSpec): any;
+declare function nativeImageSource(spec: NativeImageSourceSpec): ImageURISource;
 export default nativeImageSource;

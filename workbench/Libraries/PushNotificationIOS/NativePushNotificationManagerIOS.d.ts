@@ -37,9 +37,9 @@ export interface Spec extends TurboModule {
     readonly setApplicationIconBadgeNumber: ((num: number) => void);
     readonly getApplicationIconBadgeNumber: ((callback: ((num: number) => void)) => void);
     readonly requestPermissions: ((permission: {
-        readonly alert?: boolean | null | undefined;
-        readonly badge?: boolean | null | undefined;
-        readonly sound?: boolean | null | undefined;
+        readonly alert: boolean;
+        readonly badge: boolean;
+        readonly sound: boolean;
     }) => Promise<Permissions>);
     readonly abandonPermissions: (() => void);
     readonly checkPermissions: ((callback: ((permissions: Permissions) => void)) => void);

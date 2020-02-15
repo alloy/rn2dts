@@ -1,5 +1,5 @@
 import { $ReadOnly } from "utility-types";
-declare type GeneratedViewConfig = {
+export declare type GeneratedViewConfig = {
     uiViewClassName: string;
     bubblingEventTypes?: $ReadOnly<{
         [eventName: string]: $ReadOnly<{

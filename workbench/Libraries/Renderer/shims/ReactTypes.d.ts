@@ -63,7 +63,6 @@ export declare type ReactEventResponderInstance<E, C> = {
     responder: ReactEventResponder<E, C>;
     rootEventTypes: null | Set<string>;
     state: any;
-    target: unknown;
 };
 export declare type ReactEventResponderListener<E, C> = {
     props: any;
@@ -73,13 +72,13 @@ export declare type ReactEventResponder<E, C> = {
     $$typeof: Symbol | number;
     displayName: string;
     targetEventTypes: null | Array<string>;
+    targetPortalPropagation: boolean;
     rootEventTypes: null | Array<string>;
     getInitialState: null | ((props: any) => any);
     onEvent: null | ((event: E, context: C, props: any, state: any) => void);
     onRootEvent: null | ((event: E, context: C, props: any, state: any) => void);
     onMount: null | ((context: C, props: any, state: any) => void);
     onUnmount: null | ((context: C, props: any, state: any) => void);
-    onOwnershipChange: null | ((context: C, props: any, state: any) => void);
 };
 export declare type EventPriority = 0 | 1 | 2;
 export declare const DiscreteEvent: EventPriority;
@@ -110,4 +109,20 @@ export declare type ReactFundamentalImpl<C, H> = {
 export declare type ReactFundamentalComponent<C, H> = {
     $$typeof: Symbol | number;
     impl: ReactFundamentalImpl<C, H>;
+};
+export declare type ReactScope = {
+    $$typeof: Symbol | number;
+};
+export declare type ReactScopeMethods = {
+    getChildren(): null | Array<ReactScopeMethods>;
+    getChildrenFromRoot(): null | Array<ReactScopeMethods>;
+    getParent(): null | ReactScopeMethods;
+    getProps(): any;
+    queryAllNodes(arg0: ((type: string | any, props: any, instance: any) => boolean)): null | Array<any>;
+    queryFirstNode(arg0: ((type: string | any, props: any, instance: any) => boolean)): null | any;
+    containsNode(arg0: any): boolean;
+};
+export declare type ReactScopeInstance = {
+    fiber: any;
+    methods: null | ReactScopeMethods;
 };

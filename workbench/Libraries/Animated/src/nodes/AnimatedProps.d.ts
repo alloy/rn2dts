@@ -13,6 +13,7 @@ declare class AnimatedProps extends AnimatedNode {
     setNativeView(animatedView: any): void;
     __connectAnimatedView(): void;
     __disconnectAnimatedView(): void;
+    __restoreDefaultValues(): void;
     __getNativeConfig(): any;
 }
 export default AnimatedProps;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { $TEMPORARY$string, $TEMPORARY$object } from "flow-builtin-types";
+import { $TEMPORARY$string } from "flow-builtin-types";
 import { $ReadOnly } from "utility-types";
 import { TextStyleProp } from "../../StyleSheet/StyleSheet";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
@@ -26,6 +26,7 @@ declare type PickerItemProps = $ReadOnly<{
 /**
  * Individual selectable item in a Picker.
  */
+export { PickerItem };
 declare class PickerItem extends React.Component<PickerItemProps> {
     render(): void;
 }
@@ -92,9 +93,9 @@ declare class Picker extends React.Component<PickerProps> {
      */
     static MODE_DROPDOWN: $TEMPORARY$string<"dropdown">;
     static Item: typeof PickerItem;
-    static defaultProps: $TEMPORARY$object<{
+    static defaultProps: {
         mode: $TEMPORARY$string<"dialog">;
-    }>;
+    };
     render(): React.ReactNode;
 }
 export default Picker;

@@ -148,6 +148,7 @@ declare const ReactNativeViewConfig: {
         accessibilityRole: boolean;
         accessibilityStates: boolean;
         accessibilityState: boolean;
+        accessibilityValue: boolean;
         accessibilityViewIsModal: boolean;
         accessible: boolean;
         alignContent: boolean;

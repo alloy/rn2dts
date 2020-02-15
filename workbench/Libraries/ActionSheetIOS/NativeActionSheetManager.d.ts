@@ -5,7 +5,7 @@ export interface Spec extends TurboModule {
         readonly title?: string | null | undefined;
         readonly message?: string | null | undefined;
         readonly options: Array<string> | null | undefined;
-        readonly destructiveButtonIndex?: number | null | undefined;
+        readonly destructiveButtonIndices?: Array<number> | null | undefined;
         readonly cancelButtonIndex?: number | null | undefined;
         readonly anchor?: number | null | undefined;
         readonly tintColor?: number | null | undefined;

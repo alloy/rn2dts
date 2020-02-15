@@ -8,5 +8,7 @@ declare const _default: Class<React.Component<import("utility-types/dist/mapped-
     ignoreWarnings(arg0: readonly (string | RegExp)[]): void;
     install(): void;
     uninstall(): void;
+    __unstable_enableLogBox(): void;
+    __unstable_isLogBoxEnabled(): boolean;
 };
 export default _default;

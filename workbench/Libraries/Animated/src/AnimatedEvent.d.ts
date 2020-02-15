@@ -1,15 +1,14 @@
 import AnimatedValue from './nodes/AnimatedValue';
-import { $TEMPORARY$object } from "flow-builtin-types";
 export declare type Mapping = {
     [key: string]: Mapping;
 } | AnimatedValue;
 export declare type EventConfig = {
     listener?: ((...args: any) => any) | null | undefined;
-    useNativeDriver?: boolean;
+    useNativeDriver: boolean;
 };
-declare function attachNativeEvent(viewRef: any, eventName: string, argMapping: Array<Mapping | null | undefined>): $TEMPORARY$object<{
+declare function attachNativeEvent(viewRef: any, eventName: string, argMapping: Array<Mapping | null | undefined>): {
     detach: (() => void);
-}>;
+};
 declare class AnimatedEvent {
     _argMapping: Array<Mapping | null | undefined>;
     _listeners: Array<((...args: any) => any)>;
@@ -18,7 +17,7 @@ declare class AnimatedEvent {
         detach: (() => void);
     } | null | undefined;
     __isNative: boolean;
-    constructor(argMapping: Array<Mapping | null | undefined>, config?: EventConfig);
+    constructor(argMapping: Array<Mapping | null | undefined>, config: EventConfig);
     __addListener(callback: ((...args: any) => any)): void;
     __removeListener(callback: ((...args: any) => any)): void;
     __attach(viewRef: any, eventName: string): void;

@@ -31,7 +31,7 @@ declare const AccessibilityInfo: {
      *
      * Same as `isScreenReaderEnabled`
      */
-    readonly fetch: any;
+    readonly fetch: () => Promise<boolean>;
     addEventListener: (eventName: "change" | "reduceMotionChanged" | "screenReaderChanged", handler: (...args: any) => any) => void;
     removeEventListener: (eventName: "change" | "reduceMotionChanged" | "screenReaderChanged", handler: (...args: any) => any) => void;
     /**

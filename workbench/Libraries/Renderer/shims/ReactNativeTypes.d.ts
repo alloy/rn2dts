@@ -1,5 +1,5 @@
 import { React$Element } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
+import { $ReadOnly, Class } from "utility-types";
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -9,7 +9,7 @@ import { $ReadOnly } from "utility-types";
  * @format
  * @flow
  */
-import React from "react";
+import React, { ElementRef, AbstractComponent } from "react";
 export declare type MeasureOnSuccessCallback = ((x: number, y: number, width: number, height: number, pageX: number, pageY: number) => void);
 export declare type MeasureInWindowOnSuccessCallback = ((x: number, y: number, width: number, height: number) => void);
 export declare type MeasureLayoutOnSuccessCallback = ((left: number, top: number, width: number, height: number) => void);
@@ -56,21 +56,24 @@ declare class ReactNativeComponent<Props> extends React.Component<Props> {
     focus(): void;
     measure(callback: MeasureOnSuccessCallback): void;
     measureInWindow(callback: MeasureInWindowOnSuccessCallback): void;
-    measureLayout(relativeToNativeNode: number | any, onSuccess: MeasureLayoutOnSuccessCallback, onFail?: (() => void)): void;
+    measureLayout(relativeToNativeNode: number | ElementRef<HostComponent<unknown>>, onSuccess: MeasureLayoutOnSuccessCallback, onFail?: (() => void)): void;
     setNativeProps(nativeProps: any): void;
 }
+export declare type _InternalReactNativeComponentClass<Props> = Class<ReactNativeComponent<Props>>;
 /**
  * This type keeps ReactNativeFiberHostComponent and NativeMethodsMixin in sync.
  * It can also provide types for ReactNative applications that use NMM or refs.
  */
-export declare type NativeMethodsMixinType = {
+export declare type NativeMethods = {
     blur(): void;
     focus(): void;
     measure(callback: MeasureOnSuccessCallback): void;
     measureInWindow(callback: MeasureInWindowOnSuccessCallback): void;
-    measureLayout(relativeToNativeNode: number | any, onSuccess: MeasureLayoutOnSuccessCallback, onFail: (() => void)): void;
+    measureLayout(relativeToNativeNode: number | ElementRef<HostComponent<unknown>>, onSuccess: MeasureLayoutOnSuccessCallback, onFail?: (() => void)): void;
     setNativeProps(nativeProps: any): void;
 };
+export declare type NativeMethodsMixinType = NativeMethods;
+export declare type HostComponent<T> = AbstractComponent<T, $ReadOnly<NativeMethods>>;
 declare type SecretInternalsType = {
     NativeMethodsMixin: NativeMethodsMixinType;
     computeComponentStackForErrorReporting(tag: number): string;
@@ -84,9 +87,9 @@ declare type SecretInternalsFabricType = {
  */
 export declare type ReactNativeType = {
     NativeComponent: typeof ReactNativeComponent;
+    findHostInstance_DEPRECATED(componentOrHandle: any): ElementRef<HostComponent<unknown>> | null | undefined;
     findNodeHandle(componentOrHandle: any): number | null | undefined;
     dispatchCommand(handle: any, command: string, args: Array<any>): void;
-    setNativeProps(handle: any, nativeProps: any): void;
     render(element: React$Element<any>, containerTag: any, callback: ((...args: any) => any) | null | undefined): any;
     unmountComponentAtNode(containerTag: number): any;
     unmountComponentAtNodeAndRemoveContainer(containerTag: number): any;
@@ -95,9 +98,9 @@ export declare type ReactNativeType = {
 };
 export declare type ReactFabricType = {
     NativeComponent: typeof ReactNativeComponent;
+    findHostInstance_DEPRECATED(componentOrHandle: any): HostComponent<unknown> | null | undefined;
     findNodeHandle(componentOrHandle: any): number | null | undefined;
     dispatchCommand(handle: any, command: string, args: Array<any>): void;
-    setNativeProps(handle: any, nativeProps: any): void;
     render(element: React$Element<any>, containerTag: any, callback: ((...args: any) => any) | null | undefined): any;
     unmountComponentAtNode(containerTag: number): any;
     __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: SecretInternalsFabricType;
@@ -131,7 +134,6 @@ export declare type ReactFaricEvent = {
 };
 export declare type ReactNativeResponderEvent = {
     nativeEvent: ReactFaricEvent;
-    responderTarget: null | ReactNativeEventTarget;
     target: null | ReactNativeEventTarget;
     type: string;
 };
@@ -146,9 +148,8 @@ export declare type ReactNativeResponderContext = {
     }) => void)): void;
     addRootEventTypes: ((rootEventTypes: Array<string>) => void);
     removeRootEventTypes: ((rootEventTypes: Array<string>) => void);
-    setTimeout: ((func: (() => void), timeout: number) => number);
-    clearTimeout: ((timerId: number) => void);
     getTimeStamp: (() => number);
+    getResponderNode(): ReactNativeEventTarget | null;
 };
 export declare type PointerType = "" | "mouse" | "keyboard" | "pen" | "touch" | "trackpad";
 export declare type EventPriority = 0 | 1 | 2;

@@ -1,5 +1,5 @@
 import Animation from './Animation';
-import { $TEMPORARY$string, $TEMPORARY$object } from "flow-builtin-types";
+import { $TEMPORARY$string } from "flow-builtin-types";
 import AnimatedValue from "../nodes/AnimatedValue";
 import { AnimationConfig, EndCallback } from "./Animation";
 export declare type DecayAnimationConfig = AnimationConfig & {
@@ -23,12 +23,12 @@ declare class DecayAnimation extends Animation {
     _animationFrame: any;
     _useNativeDriver: boolean;
     constructor(config: DecayAnimationConfigSingle);
-    __getNativeAnimationConfig(): $TEMPORARY$object<{
+    __getNativeAnimationConfig(): {
         deceleration: number;
         iterations: number;
         type: $TEMPORARY$string<"decay">;
         velocity: number;
-    }>;
+    };
     start(fromValue: number, onUpdate: ((value: number) => void), onEnd: EndCallback | null | undefined, previousAnimation: Animation | null | undefined, animatedValue: AnimatedValue): void;
     onUpdate(): void;
     stop(): void;

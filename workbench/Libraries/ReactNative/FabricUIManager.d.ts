@@ -17,6 +17,7 @@ declare type Spec = {
     readonly measure: ((node: Node, callback: MeasureOnSuccessCallback) => void);
     readonly measureInWindow: ((node: Node, callback: MeasureInWindowOnSuccessCallback) => void);
     readonly measureLayout: ((node: Node, relativeNode: Node, onFail: (() => void), onSuccess: MeasureLayoutOnSuccessCallback) => void);
+    readonly findShadowNodeByTag_DEPRECATED: ((reactTag: number) => Node | null | undefined);
 };
 declare const FabricUIManager: Spec | null | undefined;
 export default FabricUIManager;

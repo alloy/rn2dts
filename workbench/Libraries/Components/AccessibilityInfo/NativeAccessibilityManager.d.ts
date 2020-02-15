@@ -6,7 +6,7 @@ export interface Spec extends TurboModule {
     readonly getCurrentReduceMotionState: ((onSuccess: ((isReduceMotionEnabled: boolean) => void), onError: ((error: any) => void)) => void);
     readonly getCurrentReduceTransparencyState: ((onSuccess: ((isReduceTransparencyEnabled: boolean) => void), onError: ((error: any) => void)) => void);
     readonly getCurrentVoiceOverState: ((onSuccess: ((isScreenReaderEnabled: boolean) => void), onError: ((error: any) => void)) => void);
-    readonly setAccessibilityContentSizeMultipliers: ((JSMultiipliers: {
+    readonly setAccessibilityContentSizeMultipliers: ((JSMultipliers: {
         readonly extraSmall?: number | null | undefined;
         readonly small?: number | null | undefined;
         readonly medium?: number | null | undefined;
