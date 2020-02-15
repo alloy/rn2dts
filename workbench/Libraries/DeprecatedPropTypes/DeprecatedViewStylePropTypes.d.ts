@@ -22,7 +22,7 @@ declare const DeprecatedViewStylePropTypes: {
     borderBottomRightRadius: ReactPropTypes.Requireable<number>;
     borderBottomStartRadius: ReactPropTypes.Requireable<number>;
     borderBottomEndRadius: ReactPropTypes.Requireable<number>;
-    borderStyle: React$PropType$Primitive<"solid" | "dotted" | "dashed">;
+    borderStyle: React$PropType$Primitive<"dashed" | "dotted" | "solid">;
     borderWidth: ReactPropTypes.Requireable<number>;
     borderTopWidth: ReactPropTypes.Requireable<number>;
     borderRightWidth: ReactPropTypes.Requireable<number>;
@@ -110,12 +110,12 @@ declare const DeprecatedViewStylePropTypes: {
     borderStartWidth: ReactPropTypes.Requireable<number>;
     borderEndWidth: ReactPropTypes.Requireable<number>;
     position: React$PropType$Primitive<"absolute" | "relative">;
-    flexDirection: React$PropType$Primitive<"row" | "row-reverse" | "column" | "column-reverse">;
-    flexWrap: React$PropType$Primitive<"wrap" | "nowrap" | "wrap-reverse">;
-    justifyContent: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly">;
-    alignItems: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "stretch" | "baseline">;
-    alignSelf: React$PropType$Primitive<"auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline">;
-    alignContent: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch">;
+    flexDirection: React$PropType$Primitive<"column" | "column-reverse" | "row" | "row-reverse">;
+    flexWrap: React$PropType$Primitive<"nowrap" | "wrap" | "wrap-reverse">;
+    justifyContent: React$PropType$Primitive<"center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start">;
+    alignItems: React$PropType$Primitive<"center" | "stretch" | "flex-end" | "flex-start" | "baseline">;
+    alignSelf: React$PropType$Primitive<"auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline">;
+    alignContent: React$PropType$Primitive<"center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start">;
     overflow: React$PropType$Primitive<"hidden" | "visible" | "scroll">;
     flex: ReactPropTypes.Requireable<number>;
     flexGrow: ReactPropTypes.Requireable<number>;

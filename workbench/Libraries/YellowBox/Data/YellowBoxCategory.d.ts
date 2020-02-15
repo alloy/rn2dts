@@ -812,12 +812,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -1130,7 +1130,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -1163,7 +1163,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -1175,10 +1175,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | readonly (false | void | "" | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
         display?: "none" | "flex" | undefined;
@@ -1970,12 +1970,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -2288,7 +2288,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -2321,7 +2321,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -2333,10 +2333,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | readonly (false | void | "" | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
         display?: "none" | "flex" | undefined;
@@ -3128,12 +3128,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -3446,7 +3446,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -3479,7 +3479,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -3491,10 +3491,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | readonly (false | void | "" | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
         display?: "none" | "flex" | undefined;
@@ -4286,12 +4286,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -4604,7 +4604,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -4637,7 +4637,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -4649,10 +4649,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | readonly (false | void | "" | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
         display?: "none" | "flex" | undefined;
@@ -5444,12 +5444,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -5762,7 +5762,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -5795,7 +5795,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -5807,10 +5807,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | readonly (false | void | "" | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
         display?: "none" | "flex" | undefined;
@@ -6602,12 +6602,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -6920,7 +6920,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -6953,7 +6953,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -6965,10 +6965,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | readonly (false | void | "" | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
         display?: "none" | "flex" | undefined;
@@ -7760,12 +7760,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -8078,7 +8078,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -8111,7 +8111,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -8123,10 +8123,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | readonly (false | void | "" | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
         display?: "none" | "flex" | undefined;
@@ -8918,12 +8918,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -9236,7 +9236,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -9269,7 +9269,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -9281,10 +9281,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | readonly (false | void | "" | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
         display?: "none" | "flex" | undefined;
@@ -10076,12 +10076,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -10394,7 +10394,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -10427,7 +10427,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -10439,10 +10439,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | readonly (false | void | "" | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
         display?: "none" | "flex" | undefined;
@@ -11234,12 +11234,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -11552,7 +11552,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -11585,7 +11585,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -11597,10 +11597,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | readonly (false | void | "" | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
         display?: "none" | "flex" | undefined;
@@ -12392,12 +12392,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -12710,7 +12710,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -12743,7 +12743,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -12755,10 +12755,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | readonly (false | void | "" | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
         display?: "none" | "flex" | undefined;
@@ -13550,12 +13550,12 @@ declare const YellowBoxCategory: {
         borderStartWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         borderTopWidth?: number | (number & import("../../Animated/src/nodes/AnimatedNode").default) | undefined;
         position?: "absolute" | "relative" | undefined;
-        flexDirection?: "row" | "row-reverse" | "column" | "column-reverse" | undefined;
-        flexWrap?: "wrap" | "nowrap" | "wrap-reverse" | undefined;
-        justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-        alignItems?: "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignSelf?: "auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline" | undefined;
-        alignContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch" | undefined;
+        flexDirection?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
+        flexWrap?: "nowrap" | "wrap" | "wrap-reverse" | undefined;
+        justifyContent?: "center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start" | undefined;
+        alignItems?: "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignSelf?: "auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline" | undefined;
+        alignContent?: "center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start" | undefined;
         overflow?: "hidden" | "visible" | "scroll" | undefined;
         flex?: number | undefined;
         flexGrow?: number | undefined;
@@ -13868,7 +13868,7 @@ declare const YellowBoxCategory: {
             __getNativeConfig: any;
             toJSON: any;
         }> | undefined;
-        borderStyle?: "solid" | "dotted" | "dashed" | undefined;
+        borderStyle?: "dashed" | "dotted" | "solid" | undefined;
         opacity?: number | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             _listeners: any;
             __nativeAnimatedValueListener: any;
@@ -13901,7 +13901,7 @@ declare const YellowBoxCategory: {
         fontSize?: number | undefined;
         fontStyle?: "normal" | "italic" | undefined;
         fontWeight?: "bold" | "normal" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900" | undefined;
-        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums"> | undefined;
+        fontVariant?: import("utility-types/dist/mapped-types")._DeepReadonlyArray<"lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums"> | undefined;
         textShadowOffset?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
             width: any;
             height: any;
@@ -13913,10 +13913,10 @@ declare const YellowBoxCategory: {
         textAlign?: "auto" | "left" | "right" | "center" | "justify" | undefined;
         textAlignVertical?: "auto" | "center" | "top" | "bottom" | undefined;
         includeFontPadding?: boolean | undefined;
-        textDecorationLine?: "none" | "underline" | "line-through" | "underline line-through" | undefined;
-        textDecorationStyle?: "solid" | "dotted" | "dashed" | "double" | undefined;
+        textDecorationLine?: "none" | "line-through" | "underline" | "underline line-through" | undefined;
+        textDecorationStyle?: "dashed" | "dotted" | "double" | "solid" | undefined;
         textDecorationColor?: string | null | undefined;
-        textTransform?: "none" | "capitalize" | "uppercase" | "lowercase" | undefined;
+        textTransform?: "none" | "capitalize" | "lowercase" | "uppercase" | undefined;
         writingDirection?: "auto" | "ltr" | "rtl" | undefined;
     }> | any | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null)[] | null): React.ReactNode;
 };

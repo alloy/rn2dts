@@ -14,7 +14,7 @@ declare const DeprecatedTextStylePropTypes: {
     /**
      * @platform ios
      */
-    fontVariant: React$PropType$Primitive<("small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums")[]>;
+    fontVariant: React$PropType$Primitive<("lining-nums" | "oldstyle-nums" | "proportional-nums" | "small-caps" | "tabular-nums")[]>;
     textShadowOffset: React$PropType$Primitive<{
         height?: number | undefined;
         width?: number | undefined;
@@ -42,16 +42,16 @@ declare const DeprecatedTextStylePropTypes: {
      * @platform android
      */
     includeFontPadding: ReactPropTypes.Requireable<boolean>;
-    textDecorationLine: React$PropType$Primitive<"none" | "underline" | "line-through" | "underline line-through">;
+    textDecorationLine: React$PropType$Primitive<"none" | "line-through" | "underline" | "underline line-through">;
     /**
      * @platform ios
      */
-    textDecorationStyle: React$PropType$Primitive<"solid" | "dotted" | "dashed" | "double">;
+    textDecorationStyle: React$PropType$Primitive<"dashed" | "dotted" | "double" | "solid">;
     /**
      * @platform ios
      */
     textDecorationColor: any;
-    textTransform: React$PropType$Primitive<"none" | "capitalize" | "uppercase" | "lowercase">;
+    textTransform: React$PropType$Primitive<"none" | "capitalize" | "lowercase" | "uppercase">;
     /**
      * @platform ios
      */
@@ -74,7 +74,7 @@ declare const DeprecatedTextStylePropTypes: {
     borderBottomRightRadius: ReactPropTypes.Requireable<number>;
     borderBottomStartRadius: ReactPropTypes.Requireable<number>;
     borderBottomEndRadius: ReactPropTypes.Requireable<number>;
-    borderStyle: React$PropType$Primitive<"solid" | "dotted" | "dashed">;
+    borderStyle: React$PropType$Primitive<"dashed" | "dotted" | "solid">;
     borderWidth: ReactPropTypes.Requireable<number>;
     borderTopWidth: ReactPropTypes.Requireable<number>;
     borderRightWidth: ReactPropTypes.Requireable<number>;
@@ -163,12 +163,12 @@ declare const DeprecatedTextStylePropTypes: {
     borderStartWidth: ReactPropTypes.Requireable<number>;
     borderEndWidth: ReactPropTypes.Requireable<number>;
     position: React$PropType$Primitive<"absolute" | "relative">;
-    flexDirection: React$PropType$Primitive<"row" | "row-reverse" | "column" | "column-reverse">;
-    flexWrap: React$PropType$Primitive<"wrap" | "nowrap" | "wrap-reverse">;
-    justifyContent: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly">;
-    alignItems: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "stretch" | "baseline">;
-    alignSelf: React$PropType$Primitive<"auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline">;
-    alignContent: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch">;
+    flexDirection: React$PropType$Primitive<"column" | "column-reverse" | "row" | "row-reverse">;
+    flexWrap: React$PropType$Primitive<"nowrap" | "wrap" | "wrap-reverse">;
+    justifyContent: React$PropType$Primitive<"center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start">;
+    alignItems: React$PropType$Primitive<"center" | "stretch" | "flex-end" | "flex-start" | "baseline">;
+    alignSelf: React$PropType$Primitive<"auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline">;
+    alignContent: React$PropType$Primitive<"center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start">;
     overflow: React$PropType$Primitive<"hidden" | "visible" | "scroll">;
     flex: ReactPropTypes.Requireable<number>;
     flexGrow: ReactPropTypes.Requireable<number>;

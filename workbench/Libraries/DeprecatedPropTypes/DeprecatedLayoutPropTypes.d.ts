@@ -40,12 +40,12 @@ declare const LayoutPropTypes: {
     borderBottomWidth: ReactPropTypes.Requireable<number>;
     borderLeftWidth: ReactPropTypes.Requireable<number>;
     position: React$PropType$Primitive<"absolute" | "relative">;
-    flexDirection: React$PropType$Primitive<"row" | "row-reverse" | "column" | "column-reverse">;
-    flexWrap: React$PropType$Primitive<"wrap" | "nowrap" | "wrap-reverse">;
-    justifyContent: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly">;
-    alignItems: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "stretch" | "baseline">;
-    alignSelf: React$PropType$Primitive<"auto" | "center" | "flex-start" | "flex-end" | "stretch" | "baseline">;
-    alignContent: React$PropType$Primitive<"center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "stretch">;
+    flexDirection: React$PropType$Primitive<"column" | "column-reverse" | "row" | "row-reverse">;
+    flexWrap: React$PropType$Primitive<"nowrap" | "wrap" | "wrap-reverse">;
+    justifyContent: React$PropType$Primitive<"center" | "space-around" | "space-between" | "space-evenly" | "flex-end" | "flex-start">;
+    alignItems: React$PropType$Primitive<"center" | "stretch" | "flex-end" | "flex-start" | "baseline">;
+    alignSelf: React$PropType$Primitive<"auto" | "center" | "stretch" | "flex-end" | "flex-start" | "baseline">;
+    alignContent: React$PropType$Primitive<"center" | "space-around" | "space-between" | "stretch" | "flex-end" | "flex-start">;
     overflow: React$PropType$Primitive<"hidden" | "visible" | "scroll">;
     flex: ReactPropTypes.Requireable<number>;
     flexGrow: ReactPropTypes.Requireable<number>;
