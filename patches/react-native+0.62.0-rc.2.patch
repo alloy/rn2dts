@@ -1,3 +1,26 @@
+diff --git a/node_modules/react-native/Libraries/Animated/src/AnimatedEvent.js b/node_modules/react-native/Libraries/Animated/src/AnimatedEvent.js
+index e3c0b81..cea04a8 100644
+--- a/node_modules/react-native/Libraries/Animated/src/AnimatedEvent.js
++++ b/node_modules/react-native/Libraries/Animated/src/AnimatedEvent.js
+@@ -201,4 +201,4 @@ class AnimatedEvent {
+   }
+ }
+ 
+-module.exports = {AnimatedEvent, attachNativeEvent};
++export {AnimatedEvent, attachNativeEvent};
+diff --git a/node_modules/react-native/Libraries/Animated/src/AnimatedImplementation.js b/node_modules/react-native/Libraries/Animated/src/AnimatedImplementation.js
+index a1ce333..8560049 100644
+--- a/node_modules/react-native/Libraries/Animated/src/AnimatedImplementation.js
++++ b/node_modules/react-native/Libraries/Animated/src/AnimatedImplementation.js
+@@ -11,7 +11,7 @@
+ 
+ 'use strict';
+ 
+-const {AnimatedEvent, attachNativeEvent} = require('./AnimatedEvent');
++import {AnimatedEvent, attachNativeEvent} from './AnimatedEvent';
+ const AnimatedAddition = require('./nodes/AnimatedAddition');
+ const AnimatedDiffClamp = require('./nodes/AnimatedDiffClamp');
+ const AnimatedDivision = require('./nodes/AnimatedDivision');
 diff --git a/node_modules/react-native/Libraries/polyfills/error-guard.js b/node_modules/react-native/Libraries/polyfills/error-guard.js
 index 5b968d1..f4818da 100644
 --- a/node_modules/react-native/Libraries/polyfills/error-guard.js
