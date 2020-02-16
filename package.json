@@ -8,7 +8,10 @@
   "scripts": {
     "start": "ts-node --files index.ts",
     "test": "jest",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "type-check": "tsc --noEmit --pretty",
+    "type-check:offence-ranking": "yarn -s type-check:offence 'TS\\d+' -o | sort | uniq -c | sort -r",
+    "type-check:offence": "tsc --noEmit --pretty false | grep -v __generated__ | grep -E"
   },
   "dependencies": {
     "@khanacademy/flow-to-ts": "^0.1.5",
