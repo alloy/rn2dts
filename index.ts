@@ -92,7 +92,8 @@ rimraf(WORKBENCH, err => {
         try {
             const flowCode = captureError(inputPath, "readFileSync", () => fs.readFileSync(path.join(SOURCE, inputPath), "utf-8"))
             const extension = detectJSX(flowCode) ? ".tsx" : ".ts"
-            const tsPath = path.join(WORKBENCH, inputPath.replace(/\.js$/, extension))
+            // TODO: For now just rename iOS platform specific modules so they will be picked up.
+            const tsPath = path.join(WORKBENCH, inputPath.replace(/(\.ios)?\.js$/, extension))
             
             let tsCode = captureError(inputPath, "convertFlowToTS", () => convertFlowToTS(flowCode))
             tsCode = captureError(inputPath, "importsExportsTransformer", () => codemod(importsExportsTransformer, tsPath, tsCode))

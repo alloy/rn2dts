@@ -99,7 +99,7 @@ declare const AccessibilityInfo: {
      *
      * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#addeventlistener
      */
-    addEventListener: (eventName: "change" | "reduceMotionChanged" | "screenReaderChanged" | "announcementFinished" | "boldTextChanged" | "grayscaleChanged" | "invertColorsChanged" | "reduceTransparencyChanged", handler: (...args: any) => any) => any;
+    addEventListener: (eventName: "change" | "announcementFinished" | "boldTextChanged" | "grayscaleChanged" | "invertColorsChanged" | "reduceMotionChanged" | "reduceTransparencyChanged" | "screenReaderChanged", handler: (...args: any) => any) => any;
     /**
      * Set accessibility focus to a react component.
      *
@@ -117,6 +117,6 @@ declare const AccessibilityInfo: {
      *
      * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#removeeventlistener
      */
-    removeEventListener: (eventName: "change" | "reduceMotionChanged" | "screenReaderChanged" | "announcementFinished" | "boldTextChanged" | "grayscaleChanged" | "invertColorsChanged" | "reduceTransparencyChanged", handler: (...args: any) => any) => void;
+    removeEventListener: (eventName: "change" | "announcementFinished" | "boldTextChanged" | "grayscaleChanged" | "invertColorsChanged" | "reduceMotionChanged" | "reduceTransparencyChanged" | "screenReaderChanged", handler: (...args: any) => any) => void;
 };
 export default AccessibilityInfo;
