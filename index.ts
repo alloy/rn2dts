@@ -16,7 +16,10 @@ import { transformer as objmapTransformer } from "./codemods/objmap"
 
 const WORKBENCH = "./workbench"
 const SOURCE = "./node_modules/react-native"
+
 const SOURCE_GLOB = "{index.js,interface.js,Libraries/**/!(__mocks__|__flowtests__)/*.js}"
+const IGNORE_GLOB = "Libraries/Renderer/implementations/*.js"
+
 const JSCODESHIFT = jscodeshift.withParser("tsx")
 const DTS_OPTIONS: ts.CompilerOptions = {
     target: ts.ScriptTarget.ES5,
@@ -59,7 +62,7 @@ function generateDTS(tsPaths: string[]) {
 rimraf(WORKBENCH, err => {
     if (err) throw new Error(err.message)
 
-    let inputPaths = glob.sync(SOURCE_GLOB, { cwd: SOURCE });
+    let inputPaths = glob.sync(SOURCE_GLOB, { cwd: SOURCE, ignore: IGNORE_GLOB });
     if (process.argv[2]) {
         const filterRegExp = new RegExp(process.argv[2])
         inputPaths = inputPaths.filter(p => filterRegExp.test(p))
