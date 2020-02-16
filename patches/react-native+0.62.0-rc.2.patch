@@ -87,3 +87,17 @@ index 5b968d1..f4818da 100644
      // TODO: (moti) T48204753 Make sure this warning is never hit and remove it - types
      // should be sufficient.
      if (typeof fun !== 'function') {
+diff --git a/node_modules/react-native/interface.js b/node_modules/react-native/interface.js
+index a5e7987..83bb950 100644
+--- a/node_modules/react-native/interface.js
++++ b/node_modules/react-native/interface.js
+@@ -20,6 +20,6 @@ declare var fetch: any;
+ declare var Headers: any;
+ declare var Request: any;
+ declare var Response: any;
+-declare module requestAnimationFrame {
+-  declare module.exports: (callback: any) => any;
+-}
++// declare module requestAnimationFrame {
++//   declare module.exports: (callback: any) => any;
++// }
