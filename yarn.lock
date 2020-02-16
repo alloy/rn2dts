@@ -1286,7 +1286,7 @@
     "@babel/parser" "^7.1.0"
     "@babel/types" "^7.0.0"
 
-"@types/babel__traverse@*", "@types/babel__traverse@^7.0.6":
+"@types/babel__traverse@*", "@types/babel__traverse@^7.0.6", "@types/babel__traverse@^7.0.8":
   version "7.0.8"
   resolved "https://registry.yarnpkg.com/@types/babel__traverse/-/babel__traverse-7.0.8.tgz#479a4ee3e291a403a1096106013ec22cf9b64012"
   integrity sha512-yGeB2dHEdvxjP0y4UbRtQaSkXJ9649fYCmIdRoul5kfAoGCwxuCbMhag0k3RPfnuh9kPGm8x89btcfDEXdVWGw==
@@ -3065,7 +3065,7 @@ find-yarn-workspace-root@^1.2.1:
 
 "flow-builtin-types@https://github.com/alloy/flow-builtin-types.git":
   version "1.0.0"
-  resolved "https://github.com/alloy/flow-builtin-types.git#6f5adfe37812d12225bf316c60c168a0e2fc9fb1"
+  resolved "https://github.com/alloy/flow-builtin-types.git#c5095d33a0dc57a2d414c8984ce6db19ef4f55ad"
   dependencies:
     "@types/prop-types" "^15.7.3"
     "@types/react" "^16.9.19"

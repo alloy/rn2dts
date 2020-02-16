@@ -12,10 +12,22 @@ index 7383d6d..a2e18ab 100644
      }
  
 diff --git a/node_modules/@khanacademy/flow-to-ts/src/convert.js b/node_modules/@khanacademy/flow-to-ts/src/convert.js
-index dc9c67c..098e553 100644
+index dc9c67c..17db91b 100644
 --- a/node_modules/@khanacademy/flow-to-ts/src/convert.js
 +++ b/node_modules/@khanacademy/flow-to-ts/src/convert.js
-@@ -35,6 +35,7 @@ const convert = (flowCode, options) => {
+@@ -1,4 +1,11 @@
++// @ts-check
+ const { parse } = require("@babel/parser");
++/**
++ * @type {any}
++ */
++/**
++ * @type {typeof import("@babel/traverse").default}
++ */
+ const traverse = require("../babel-traverse/lib/index.js").default;
+ const generate = require("../babel-generator/lib/index.js").default;
+ const prettier = require("prettier/standalone.js");
+@@ -35,6 +42,7 @@ const convert = (flowCode, options) => {
    // apply our transforms, traverse mutates the ast
    const state = {
      usedUtilityTypes: new Set(),
@@ -23,7 +35,7 @@ index dc9c67c..098e553 100644
      options: Object.assign({ inlineUtilityTypes: false }, options),
      comments
    };
-@@ -46,7 +47,7 @@ const convert = (flowCode, options) => {
+@@ -46,7 +54,7 @@ const convert = (flowCode, options) => {
  
    // we pass flowCode so that generate can compute source maps
    // if we ever decide to
@@ -33,7 +45,7 @@ index dc9c67c..098e553 100644
      tsCode += "\n";
    }
 diff --git a/node_modules/@khanacademy/flow-to-ts/src/transform.js b/node_modules/@khanacademy/flow-to-ts/src/transform.js
-index 8ab9470..4f89848 100644
+index 8ab9470..ec9b5cd 100644
 --- a/node_modules/@khanacademy/flow-to-ts/src/transform.js
 +++ b/node_modules/@khanacademy/flow-to-ts/src/transform.js
 @@ -1,4 +1,3 @@
@@ -73,7 +85,17 @@ index 8ab9470..4f89848 100644
  // Mapping between React types for Flow and those for TypeScript.
  const UnqualifiedReactTypeNameMap = {
    SyntheticEvent: "SyntheticEvent",
-@@ -162,6 +186,21 @@ const transform = {
+@@ -95,6 +119,9 @@ const QualifiedReactTypeNameMap = {
+   // TODO: handle ComponentType, ElementConfig, ElementProps, etc.
+ };
+ 
++/**
++ * @type { import("@babel/traverse").Visitor<{ usedUtilityTypes: Set<string>, usedBuiltinTypes: Set<string> }> }
++ */
+ const transform = {
+   Program: {
+     enter(path, state) {
+@@ -162,6 +189,21 @@ const transform = {
            ...path.node.newlines.slice(1)
          ];
        }
@@ -95,7 +117,7 @@ index 8ab9470..4f89848 100644
      }
    },
    BlockStatement: {
-@@ -221,7 +260,7 @@ const transform = {
+@@ -221,7 +263,7 @@ const transform = {
      path.replaceWith(t.tsNeverKeyword());
    },
    ExistsTypeAnnotation(path) {
@@ -104,7 +126,7 @@ index 8ab9470..4f89848 100644
      path.replaceWith(t.tsAnyKeyword());
    },
  
-@@ -244,25 +283,25 @@ const transform = {
+@@ -244,25 +286,25 @@ const transform = {
    // the processing of other nodes.
    FunctionDeclaration(path) {
      if (path.node.predicate) {
@@ -139,7 +161,7 @@ index 8ab9470..4f89848 100644
        delete path.node.predicate;
      }
    },
-@@ -363,9 +402,9 @@ const transform = {
+@@ -363,9 +405,9 @@ const transform = {
    TypeParameter: {
      exit(path) {
        const { name, variance, bound } = path.node;
@@ -152,7 +174,7 @@ index 8ab9470..4f89848 100644
        const typeParameter = {
          type: "TSTypeParameter",
          constraint: bound && bound.typeAnnotation,
-@@ -401,6 +440,10 @@ const transform = {
+@@ -401,6 +443,10 @@ const transform = {
          }
        }
  
@@ -163,7 +185,7 @@ index 8ab9470..4f89848 100644
        if (typeName.name in UnqualifiedReactTypeNameMap) {
          // TODO: make sure that React was imported in this file
          path.replaceWith(
-@@ -412,6 +455,20 @@ const transform = {
+@@ -412,6 +458,20 @@ const transform = {
              typeParameters
            )
          );
@@ -184,7 +206,7 @@ index 8ab9470..4f89848 100644
        } else {
          path.replaceWith(t.tsTypeReference(typeName, typeParameters));
        }
-@@ -435,6 +492,18 @@ const transform = {
+@@ -435,6 +495,18 @@ const transform = {
        }
      }
    },
@@ -203,7 +225,7 @@ index 8ab9470..4f89848 100644
    ObjectTypeProperty: {
      exit(path) {
        const { key, value, optional, variance, kind, method } = path.node; // TODO: static, kind
-@@ -443,13 +512,13 @@ const transform = {
+@@ -443,13 +515,13 @@ const transform = {
        const computed = false; // TODO: maybe set this to true for indexers
        const readonly = variance && variance.kind === "plus";
  
@@ -224,7 +246,7 @@ index 8ab9470..4f89848 100644
  
        if (method) {
          // TODO: assert value is a FunctionTypeAnnotation
-@@ -486,10 +555,10 @@ const transform = {
+@@ -486,10 +558,10 @@ const transform = {
        const { id, key, value, variance } = path.node;
  
        const readonly = variance && variance.kind === "plus";
@@ -239,7 +261,7 @@ index 8ab9470..4f89848 100644
  
        const identifier = {
          type: "Identifier",
-@@ -532,9 +601,9 @@ const transform = {
+@@ -532,9 +604,9 @@ const transform = {
      exit(path) {
        const { exact, properties, indexers } = path.node; // TODO: callProperties, inexact
  
@@ -252,7 +274,7 @@ index 8ab9470..4f89848 100644
  
        // TODO: create multiple sets of elements so that we can convert
        // {x: number, ...T, y: number} to {x: number} & T & {y: number}
-@@ -566,6 +635,14 @@ const transform = {
+@@ -566,6 +638,14 @@ const transform = {
        }
      }
    },
@@ -267,3 +289,30 @@ index 8ab9470..4f89848 100644
    TypeAlias: {
      exit(path) {
        const { id, typeParameters, right } = path.node;
+@@ -647,7 +727,25 @@ const transform = {
+     }
+   },
+   ImportDeclaration: {
+-    exit(path) {
++    exit(path, state) {
++      if (path.node.importKind === "typeof") {
++        /**
++         * @type { string }
++         */
++        const originalName = path.node.specifiers[0].local.name;
++        const tmpName = `_Import_${originalName}`;
++        path.node.specifiers[0].local.name = tmpName;
++        /**
++         * @type { import("@babel/types").Program }
++         */
++        const parent = path.parent;
++        const body = parent.body;
++        const index = body.findIndex(expr => expr === path.node);
++        const typeOf = t.tsTypeQuery(t.identifier(tmpName));
++        const classOrType = t.tsTypeReference(t.identifier("ClassOrType"), t.tsTypeParameterInstantiation([typeOf]));
++        body.splice(index + 1, 0, t.tsTypeAliasDeclaration(t.identifier(originalName), undefined, classOrType));
++        state.usedBuiltinTypes.add("ClassOrType");
++      }
+       path.node.importKind = "value";
+       stripSuffixFromImportSource(path);
+     }

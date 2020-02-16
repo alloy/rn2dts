@@ -1,7 +1,9 @@
+import { ClassOrType } from "flow-builtin-types";
 import { $ReadOnly } from "utility-types";
 import Pressability from "../../Pressability/Pressability.js";
 import TVTouchable from "./TVTouchable";
-import TouchableWithoutFeedback from "./TouchableWithoutFeedback";
+import _Import_TouchableWithoutFeedback from "./TouchableWithoutFeedback";
+declare type TouchableWithoutFeedback = ClassOrType<typeof _Import_TouchableWithoutFeedback>;
 import { PressEvent } from "react-native/Libraries/Types/CoreEventTypes";
 import * as React from "react";
 declare type Props = $ReadOnly<React.ElementConfig<TouchableWithoutFeedback> & {

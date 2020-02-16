@@ -7,6 +7,7 @@
   "private": false,
   "scripts": {
     "start": "ts-node --files index.ts",
+    "debug": "env TS_NODE_FILES=true node --inspect-brk -r ts-node/register index.ts",
     "test": "jest",
     "postinstall": "patch-package",
     "type-check": "tsc --noEmit --pretty",
@@ -22,6 +23,7 @@
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
+    "@types/babel__traverse": "^7.0.8",
     "@types/cli-progress": "^3.4.2",
     "@types/glob": "^7.1.1",
     "@types/invariant": "^2.2.31",
