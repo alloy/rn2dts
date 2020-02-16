@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import Button from "./Libraries/Components/Button";
 import CheckBox from "./Libraries/Components/CheckBox/CheckBox";
 import DatePickerIOS from "./Libraries/Components/DatePicker/DatePickerIOS";
@@ -110,7 +111,14 @@ declare const _default: {
     readonly NativeModules: any;
     readonly Platform: any;
     readonly processColor: any;
-    readonly requireNativeComponent: <T>(uiViewClassName: string) => any;
+    readonly requireNativeComponent: <T>(uiViewClassName: string) => import("react").AbstractComponent<T, import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+        blur: () => void;
+        focus: () => void;
+        measure: (callback: import("./Libraries/Renderer/shims/ReactNativeTypes").MeasureOnSuccessCallback) => void;
+        measureInWindow: (callback: import("./Libraries/Renderer/shims/ReactNativeTypes").MeasureInWindowOnSuccessCallback) => void;
+        measureLayout: (relativeToNativeNode: number | undefined, onSuccess: import("./Libraries/Renderer/shims/ReactNativeTypes").MeasureLayoutOnSuccessCallback, onFail?: (() => void) | undefined) => void;
+        setNativeProps: (nativeProps: any) => void;
+    }>>;
     readonly unstable_RootTagContext: any;
     readonly unstable_enableLogBox: () => void;
     readonly ColorPropType: any;

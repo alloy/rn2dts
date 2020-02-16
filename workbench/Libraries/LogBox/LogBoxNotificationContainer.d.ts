@@ -7,5 +7,5 @@ declare type Props = $ReadOnly<{
     isDisabled?: boolean | null | undefined;
 }>;
 export declare function _LogBoxNotificationContainer(props: Props): React.ReactNode;
-declare const _default: any;
+declare const _default: React.AbstractComponent<{}, unknown>;
 export default _default;

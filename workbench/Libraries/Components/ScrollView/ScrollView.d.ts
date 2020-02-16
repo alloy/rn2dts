@@ -624,9 +624,9 @@ declare class ScrollView extends React.Component<Props, State> {
     _handleLayout: (e: LayoutEvent) => void;
     _handleContentOnLayout: (e: LayoutEvent) => void;
     _scrollViewRef: React.ElementRef<HostComponent<unknown>> | null | undefined;
-    _setScrollViewRef: (ref: any) => void;
+    _setScrollViewRef: (ref: null | undefined) => void;
     _innerViewRef: React.ElementRef<HostComponent<unknown>> | null | undefined;
-    _setInnerViewRef: (ref: any) => void;
+    _setInnerViewRef: (ref: null | undefined) => void;
     render(): React.ReactNode | React.ReactElement<string>;
 }
 export default ScrollView;
