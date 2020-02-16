@@ -47,6 +47,25 @@ index 0bc51bb..ce24b46 100644
    // Will cause sticky headers to stick at the bottom of the ScrollView instead
    // of the top.
    inverted: ?boolean,
+diff --git a/node_modules/react-native/Libraries/Components/TextInput/InputAccessoryView.js b/node_modules/react-native/Libraries/Components/TextInput/InputAccessoryView.js
+index 67d314c..7779b1a 100644
+--- a/node_modules/react-native/Libraries/Components/TextInput/InputAccessoryView.js
++++ b/node_modules/react-native/Libraries/Components/TextInput/InputAccessoryView.js
+@@ -10,13 +10,13 @@
+ 
+ 'use strict';
+ 
+-const DeprecatedColorPropType = require('../../DeprecatedPropTypes/DeprecatedColorPropType');
+ const Platform = require('../../Utilities/Platform');
+ const React = require('react');
+ const StyleSheet = require('../../StyleSheet/StyleSheet');
+ 
+ import RCTInputAccessoryViewNativeComponent from './RCTInputAccessoryViewNativeComponent';
+ 
++import typeof DeprecatedColorPropType from '../../DeprecatedPropTypes/DeprecatedColorPropType';
+ import type {ViewStyleProp} from '../../StyleSheet/StyleSheet';
+ 
+ /**
 diff --git a/node_modules/react-native/Libraries/Components/View/ReactNativeStyleAttributes.js b/node_modules/react-native/Libraries/Components/View/ReactNativeStyleAttributes.js
 index ebd3c63..949b757 100644
 --- a/node_modules/react-native/Libraries/Components/View/ReactNativeStyleAttributes.js
