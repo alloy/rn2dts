@@ -503,7 +503,7 @@ declare class VirtualizedList extends React.PureComponent<Props, State> {
     _createViewToken: (index: number, isViewable: boolean) => {
         index: number;
         item: any;
-        key: any;
+        key: string;
         isViewable: boolean;
     };
     _getFrameMetricsApprox: (index: number) => {

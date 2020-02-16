@@ -1,0 +1,38 @@
+diff --git a/node_modules/@types/react/index.d.ts b/node_modules/@types/react/index.d.ts
+index 7bbee68..03a62e2 100644
+--- a/node_modules/@types/react/index.d.ts
++++ b/node_modules/@types/react/index.d.ts
+@@ -62,6 +62,33 @@ export = React;
+ export as namespace React;
+ 
+ declare namespace React {
++    type ElementRef<C extends React.ComponentClass<any> | React.SFC<any> | keyof HTMLElementTagNameMap> =
++        C extends React.ComponentClass<any>
++        ? InstanceType<C>
++        : C extends React.SFC<any>
++        ? undefined
++        : C extends keyof HTMLElementTagNameMap
++        ? HTMLElementTagNameMap[C]
++        : never;
++    // TESTS:
++    // class ClassBased extends React.Component<{ foo: string }> { }
++    // function FunctionBased(props: { foo: number }) {
++    //     return (<div>foo</div>)
++    // }
++    // type CB = ElementRef<typeof ClassBased>
++    // type FB = ElementRef<typeof FunctionBased>
++    // type JB = ElementRef<'div'>
++
++    // Taken from https://github.com/DefinitelyTyped/DefinitelyTyped/blob/f47f8eeea9e4691ebe5e93db524c3f645de10546/types/react-with-styles/index.d.ts#L43-L50
++    type _ComponentClassProps<C> = C extends new (props: infer P, context?: any) => any ? P : never;
++    type _SFCProps<C> = C extends (props: infer P & { children?: React.ReactNode }, context?: any) => any ? P : never;
++    type ElementProps<C> = C extends React.ComponentClass<any>
++        ? _ComponentClassProps<C>
++        : C extends React.SFC<any>
++        ? _SFCProps<C>
++        : any;
++    type ElementConfig<C> = JSX.LibraryManagedAttributes<C, ElementProps<C>>;
++
+     //
+     // React Elements
+     // ----------------------------------------------------------------------
