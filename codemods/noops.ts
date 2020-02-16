@@ -7,6 +7,7 @@ import {
     Node,
     Transform,
     TSTypeAnnotation,
+    ReturnStatement,
 } from "jscodeshift"
 
 export const transformer: Transform = (file, api) => {
@@ -26,7 +27,7 @@ export const transformer: Transform = (file, api) => {
         .replaceWith(path => {
             const node = path.node;
             if (FunctionDeclaration.check(node) || ClassMethod.check(node) || ObjectMethod.check(node)) {
-                const statements = [];
+                const statements: ReturnStatement[] = [];
                 if (!(TSTypeAnnotation.check(node.returnType) && node.returnType.typeAnnotation.type === 'TSVoidKeyword')) {
                     statements.push(j.returnStatement(j.tsAsExpression.from({
                         expression: j.literal(null),
