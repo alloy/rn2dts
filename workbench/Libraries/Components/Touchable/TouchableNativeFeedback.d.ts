@@ -1,7 +1,7 @@
 import { $ReadOnly } from "utility-types";
 import Pressability from "../../Pressability/Pressability.js";
 import TVTouchable from "./TVTouchable";
-import TouchableWithoutFeedback from "./TouchableWithoutFeedback";
+import type TouchableWithoutFeedback from "./TouchableWithoutFeedback";
 import { PressEvent } from "react-native/Libraries/Types/CoreEventTypes";
 import * as React from "react";
 declare type Props = $ReadOnly<React.ElementConfig<TouchableWithoutFeedback> & {
