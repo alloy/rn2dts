@@ -1,8 +1,8 @@
 import React from 'react';
 import { ClassOrType } from "flow-builtin-types";
 import { $ReadOnly } from "utility-types";
-import _Import_DeprecatedColorPropType from "../../DeprecatedPropTypes/DeprecatedColorPropType";
-declare type DeprecatedColorPropType = ClassOrType<typeof _Import_DeprecatedColorPropType>;
+import _valueof_DeprecatedColorPropType from "../../DeprecatedPropTypes/DeprecatedColorPropType";
+declare type _typeof_DeprecatedColorPropType = typeof _valueof_DeprecatedColorPropType;
 /**
  * Note: iOS only
  *
@@ -60,6 +60,9 @@ declare type DeprecatedColorPropType = ClassOrType<typeof _Import_DeprecatedColo
  * TextInput with the InputAccessoryView component, and don't set a nativeID.
  * For an example, look at InputAccessoryViewExample.js in RNTester.
  */
+interface _named_typeof_DeprecatedColorPropType extends _typeof_DeprecatedColorPropType {
+}
+declare type DeprecatedColorPropType = ClassOrType<_named_typeof_DeprecatedColorPropType>;
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
 declare type Props = $ReadOnly<{
     readonly children: React.ReactNode;
