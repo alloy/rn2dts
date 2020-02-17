@@ -1,21 +1,8 @@
-import DeprecatedImageStylePropTypes from '../../DeprecatedPropTypes/DeprecatedImageStylePropTypes';
-import DeprecatedTextStylePropTypes from '../../DeprecatedPropTypes/DeprecatedTextStylePropTypes';
-import DeprecatedViewStylePropTypes from '../../DeprecatedPropTypes/DeprecatedViewStylePropTypes';
 import processColor from '../../StyleSheet/processColor';
 import processTransform from '../../StyleSheet/processTransform';
 import sizesDiffer from '../../Utilities/differ/sizesDiffer';
 import { $ReadOnly } from "utility-types";
-declare type ReturnBoolType = (<V>(arg0: V) => true);
-declare type BoolifiedDeprecatedViewStylePropTypes = {
-    [K in keyof typeof DeprecatedViewStylePropTypes]: ReturnType<ReturnBoolType>;
-};
-declare type BoolifiedDeprecatedTextStylePropTypes = {
-    [K in keyof typeof DeprecatedTextStylePropTypes]: ReturnType<ReturnBoolType>;
-};
-declare type BoolifiedDeprecatedImageStylePropTypes = {
-    [K in keyof typeof DeprecatedImageStylePropTypes]: ReturnType<ReturnBoolType>;
-};
-declare type StyleAttributesType = BoolifiedDeprecatedViewStylePropTypes & BoolifiedDeprecatedTextStylePropTypes & BoolifiedDeprecatedImageStylePropTypes & {
+declare type StyleAttributesType = {
     transform: $ReadOnly<{
         process: typeof processTransform;
     }> | true;

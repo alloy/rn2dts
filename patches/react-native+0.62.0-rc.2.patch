@@ -48,10 +48,10 @@ index 0bc51bb..ce24b46 100644
    // of the top.
    inverted: ?boolean,
 diff --git a/node_modules/react-native/Libraries/Components/TextInput/InputAccessoryView.js b/node_modules/react-native/Libraries/Components/TextInput/InputAccessoryView.js
-index 67d314c..7779b1a 100644
+index 67d314c..49ecb86 100644
 --- a/node_modules/react-native/Libraries/Components/TextInput/InputAccessoryView.js
 +++ b/node_modules/react-native/Libraries/Components/TextInput/InputAccessoryView.js
-@@ -10,13 +10,13 @@
+@@ -10,7 +10,6 @@
  
  'use strict';
  
@@ -59,31 +59,190 @@ index 67d314c..7779b1a 100644
  const Platform = require('../../Utilities/Platform');
  const React = require('react');
  const StyleSheet = require('../../StyleSheet/StyleSheet');
+@@ -85,7 +84,6 @@ type Props = $ReadOnly<{|
+    */
+   nativeID?: ?string,
+   style?: ?ViewStyleProp,
+-  backgroundColor?: ?DeprecatedColorPropType,
+ |}>;
  
- import RCTInputAccessoryViewNativeComponent from './RCTInputAccessoryViewNativeComponent';
+ class InputAccessoryView extends React.Component<Props> {
+diff --git a/node_modules/react-native/Libraries/Components/TextInput/TextInput.js b/node_modules/react-native/Libraries/Components/TextInput/TextInput.js
+index 02e1db6..1bc4612 100644
+--- a/node_modules/react-native/Libraries/Components/TextInput/TextInput.js
++++ b/node_modules/react-native/Libraries/Components/TextInput/TextInput.js
+@@ -10,7 +10,6 @@
  
-+import typeof DeprecatedColorPropType from '../../DeprecatedPropTypes/DeprecatedColorPropType';
- import type {ViewStyleProp} from '../../StyleSheet/StyleSheet';
+ 'use strict';
  
- /**
+-const DeprecatedTextInputPropTypes = require('../../DeprecatedPropTypes/DeprecatedTextInputPropTypes');
+ const Platform = require('../../Utilities/Platform');
+ const React = require('react');
+ const ReactNative = require('../../Renderer/shims/ReactNative');
+@@ -1130,10 +1129,6 @@ ExportedForwardRef.defaultProps = {
+   underlineColorAndroid: 'transparent',
+ };
+ 
+-// TODO: Deprecate this
+-// $FlowFixMe
+-ExportedForwardRef.propTypes = DeprecatedTextInputPropTypes;
+-
+ // $FlowFixMe
+ ExportedForwardRef.State = {
+   currentlyFocusedField: TextInputState.currentlyFocusedField,
+@@ -1147,7 +1142,6 @@ type TextInputComponentStatics = $ReadOnly<{|
+     focusTextInput: typeof TextInputState.focusTextInput,
+     blurTextInput: typeof TextInputState.blurTextInput,
+   |}>,
+-  propTypes: typeof DeprecatedTextInputPropTypes,
+ |}>;
+ 
+ const styles = StyleSheet.create({
 diff --git a/node_modules/react-native/Libraries/Components/View/ReactNativeStyleAttributes.js b/node_modules/react-native/Libraries/Components/View/ReactNativeStyleAttributes.js
-index ebd3c63..949b757 100644
+index ebd3c63..9931a1d 100644
 --- a/node_modules/react-native/Libraries/Components/View/ReactNativeStyleAttributes.js
 +++ b/node_modules/react-native/Libraries/Components/View/ReactNativeStyleAttributes.js
-@@ -23,11 +23,11 @@ type BoolifiedDeprecatedViewStylePropTypes = $ObjMap<
-   typeof DeprecatedViewStylePropTypes,
-   ReturnBoolType,
- >;
+@@ -10,32 +10,11 @@
+ 
+ 'use strict';
+ 
+-const DeprecatedImageStylePropTypes = require('../../DeprecatedPropTypes/DeprecatedImageStylePropTypes');
+-const DeprecatedTextStylePropTypes = require('../../DeprecatedPropTypes/DeprecatedTextStylePropTypes');
+-const DeprecatedViewStylePropTypes = require('../../DeprecatedPropTypes/DeprecatedViewStylePropTypes');
+-
+ const processColor = require('../../StyleSheet/processColor');
+ const processTransform = require('../../StyleSheet/processTransform');
+ const sizesDiffer = require('../../Utilities/differ/sizesDiffer');
+ 
+-type ReturnBoolType = <V>(V) => true;
+-type BoolifiedDeprecatedViewStylePropTypes = $ObjMap<
+-  typeof DeprecatedViewStylePropTypes,
+-  ReturnBoolType,
+->;
 -type BoolifiedDeprecatedTextStylePropTypes = $ObjMapi<
-+type BoolifiedDeprecatedTextStylePropTypes = $ObjMap<
-   typeof DeprecatedTextStylePropTypes,
-   ReturnBoolType,
- >;
+-  typeof DeprecatedTextStylePropTypes,
+-  ReturnBoolType,
+->;
 -type BoolifiedDeprecatedImageStylePropTypes = $ObjMapi<
-+type BoolifiedDeprecatedImageStylePropTypes = $ObjMap<
-   typeof DeprecatedImageStylePropTypes,
-   ReturnBoolType,
- >;
+-  typeof DeprecatedImageStylePropTypes,
+-  ReturnBoolType,
+->;
+-
+ type StyleAttributesType = {
+-  ...BoolifiedDeprecatedViewStylePropTypes,
+-  ...BoolifiedDeprecatedTextStylePropTypes,
+-  ...BoolifiedDeprecatedImageStylePropTypes,
+   transform: $ReadOnly<{|process: typeof processTransform|}> | true,
+   shadowOffset: $ReadOnly<{|diff: typeof sizesDiffer|}> | true,
+   backgroundColor: typeof colorAttributes | true,
+diff --git a/node_modules/react-native/Libraries/Image/Image.android.js b/node_modules/react-native/Libraries/Image/Image.android.js
+index fec14e0..7337778 100644
+--- a/node_modules/react-native/Libraries/Image/Image.android.js
++++ b/node_modules/react-native/Libraries/Image/Image.android.js
+@@ -10,9 +10,6 @@
+ 
+ 'use strict';
+ 
+-const DeprecatedImageStylePropTypes = require('../DeprecatedPropTypes/DeprecatedImageStylePropTypes');
+-const DeprecatedStyleSheetPropType = require('../DeprecatedPropTypes/DeprecatedStyleSheetPropType');
+-const DeprecatedViewPropTypes = require('../DeprecatedPropTypes/DeprecatedViewPropTypes');
+ const ImageViewNativeComponent = require('./ImageViewNativeComponent');
+ const PropTypes = require('prop-types');
+ const React = require('react');
+@@ -35,10 +32,6 @@ function generateRequestId() {
+ }
+ 
+ const ImageProps = {
+-  ...DeprecatedViewPropTypes,
+-  style: (DeprecatedStyleSheetPropType(
+-    DeprecatedImageStylePropTypes,
+-  ): ReactPropsCheckType),
+   /**
+    * See https://facebook.github.io/react-native/docs/image.html#source
+    */
+diff --git a/node_modules/react-native/Libraries/Image/Image.ios.js b/node_modules/react-native/Libraries/Image/Image.ios.js
+index 5cd7889..7a74e58 100644
+--- a/node_modules/react-native/Libraries/Image/Image.ios.js
++++ b/node_modules/react-native/Libraries/Image/Image.ios.js
+@@ -10,7 +10,6 @@
+ 
+ 'use strict';
+ 
+-const DeprecatedImagePropType = require('../DeprecatedPropTypes/DeprecatedImagePropType');
+ const React = require('react');
+ const ReactNative = require('../Renderer/shims/ReactNative'); // eslint-disable-line no-unused-vars
+ const StyleSheet = require('../StyleSheet/StyleSheet');
+@@ -74,7 +73,6 @@ type ImageComponentStatics = $ReadOnly<{|
+   prefetch: typeof prefetch,
+   queryCache: typeof queryCache,
+   resolveAssetSource: typeof resolveAssetSource,
+-  propTypes: typeof DeprecatedImagePropType,
+ |}>;
+ 
+ /**
+@@ -192,11 +190,6 @@ Image.queryCache = queryCache;
+  * comment and run Flow. */
+ Image.resolveAssetSource = resolveAssetSource;
+ 
+-/* $FlowFixMe(>=0.89.0 site=react_native_ios_fb) This comment suppresses an
+- * error found when Flow v0.89 was deployed. To see the error, delete this
+- * comment and run Flow. */
+-Image.propTypes = DeprecatedImagePropType;
+-
+ const styles = StyleSheet.create({
+   base: {
+     overflow: 'hidden',
+diff --git a/node_modules/react-native/Libraries/StyleSheet/StyleSheetValidation.js b/node_modules/react-native/Libraries/StyleSheet/StyleSheetValidation.js
+index 6871751..5daea40 100644
+--- a/node_modules/react-native/Libraries/StyleSheet/StyleSheetValidation.js
++++ b/node_modules/react-native/Libraries/StyleSheet/StyleSheetValidation.js
+@@ -10,10 +10,6 @@
+ 
+ 'use strict';
+ 
+-const DeprecatedImageStylePropTypes = require('../DeprecatedPropTypes/DeprecatedImageStylePropTypes');
+-const DeprecatedTextStylePropTypes = require('../DeprecatedPropTypes/DeprecatedTextStylePropTypes');
+-const DeprecatedViewStylePropTypes = require('../DeprecatedPropTypes/DeprecatedViewStylePropTypes');
+-
+ const invariant = require('invariant');
+ 
+ // Hardcoded because this is a legit case but we don't want to load it from
+@@ -87,10 +83,4 @@ const styleError = function(message1, style, caller?, message2?) {
+ 
+ const allStylePropTypes = {};
+ 
+-if (__DEV__ && !global.__RCTProfileIsProfiling) {
+-  StyleSheetValidation.addValidStylePropTypes(DeprecatedImageStylePropTypes);
+-  StyleSheetValidation.addValidStylePropTypes(DeprecatedTextStylePropTypes);
+-  StyleSheetValidation.addValidStylePropTypes(DeprecatedViewStylePropTypes);
+-}
+-
+ module.exports = StyleSheetValidation;
+diff --git a/node_modules/react-native/Libraries/Text/Text.js b/node_modules/react-native/Libraries/Text/Text.js
+index 92da79d..1cf1c24 100644
+--- a/node_modules/react-native/Libraries/Text/Text.js
++++ b/node_modules/react-native/Libraries/Text/Text.js
+@@ -10,7 +10,6 @@
+ 
+ 'use strict';
+ 
+-const DeprecatedTextPropTypes = require('../DeprecatedPropTypes/DeprecatedTextPropTypes');
+ const React = require('react');
+ const ReactNativeViewAttributes = require('../Components/View/ReactNativeViewAttributes');
+ const TextAncestor = require('./TextAncestor');
+@@ -285,12 +284,6 @@ const Text = (
+ const TextToExport = React.forwardRef(Text);
+ TextToExport.displayName = 'Text';
+ 
+-// TODO: Deprecate this.
+-/* $FlowFixMe(>=0.89.0 site=react_native_fb) This comment suppresses an error
+- * found when Flow v0.89 was deployed. To see the error, delete this comment
+- * and run Flow. */
+-TextToExport.propTypes = DeprecatedTextPropTypes;
+-
+ module.exports = ((TextToExport: $FlowFixMe): Class<
+   NativeComponent<TextProps>,
+ >);
 diff --git a/node_modules/react-native/Libraries/polyfills/error-guard.js b/node_modules/react-native/Libraries/polyfills/error-guard.js
 index 5b968d1..f4818da 100644
 --- a/node_modules/react-native/Libraries/polyfills/error-guard.js

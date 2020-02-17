@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import resolveAssetSource from './resolveAssetSource';
-import { ReactPropsCheckType, React$PropType$Primitive } from "flow-builtin-types";
+import { React$PropType$Primitive } from "flow-builtin-types";
 import { ImageProps as ImagePropsType } from "./ImageProps";
 /**
  * Retrieve the width and height (in pixels) of an image prior to displaying it
@@ -61991,7 +61991,6 @@ declare const _default: ((new (props: ImagePropsType, context?: any) => import("
     queryCache: typeof queryCache;
     resolveAssetSource: typeof resolveAssetSource;
     propTypes: {
-        style: ReactPropsCheckType;
         /**
          * See https://facebook.github.io/react-native/docs/image.html#source
          */
@@ -62060,45 +62059,6 @@ declare const _default: ((new (props: ImagePropsType, context?: any) => import("
          * See https://facebook.github.io/react-native/docs/image.html#resizemode
          */
         resizeMode: React$PropType$Primitive<"repeat" | "center" | "stretch" | "contain" | "cover">;
-        accessible: PropTypes.Requireable<boolean>;
-        accessibilityLabel: PropTypes.Requireable<PropTypes.ReactNodeLike>;
-        accessibilityHint: PropTypes.Requireable<string>;
-        accessibilityActions: React$PropType$Primitive<string[]>;
-        accessibilityIgnoresInvertColors: PropTypes.Requireable<boolean>;
-        accessibilityRole: React$PropType$Primitive<import("../Components/View/ViewAccessibility").AccessibilityRole>;
-        accessibilityState: PropTypes.Requireable<object>;
-        accessibilityValue: PropTypes.Requireable<object>;
-        accessibilityLiveRegion: React$PropType$Primitive<"none" | "assertive" | "polite">;
-        importantForAccessibility: React$PropType$Primitive<"auto" | "yes" | "no" | "no-hide-descendants">;
-        accessibilityViewIsModal: PropTypes.Requireable<boolean>;
-        accessibilityElementsHidden: PropTypes.Requireable<boolean>;
-        onAccessibilityAction: PropTypes.Requireable<(...args: any[]) => any>;
-        onAccessibilityTap: PropTypes.Requireable<(...args: any[]) => any>;
-        onMagicTap: PropTypes.Requireable<(...args: any[]) => any>;
-        nativeID: PropTypes.Requireable<string>;
-        onResponderGrant: PropTypes.Requireable<(...args: any[]) => any>;
-        onResponderMove: PropTypes.Requireable<(...args: any[]) => any>;
-        onResponderReject: PropTypes.Requireable<(...args: any[]) => any>;
-        onResponderRelease: PropTypes.Requireable<(...args: any[]) => any>;
-        onResponderTerminate: PropTypes.Requireable<(...args: any[]) => any>;
-        onResponderTerminationRequest: PropTypes.Requireable<(...args: any[]) => any>;
-        onStartShouldSetResponder: PropTypes.Requireable<(...args: any[]) => any>;
-        onStartShouldSetResponderCapture: PropTypes.Requireable<(...args: any[]) => any>;
-        onMoveShouldSetResponder: PropTypes.Requireable<(...args: any[]) => any>;
-        onMoveShouldSetResponderCapture: PropTypes.Requireable<(...args: any[]) => any>;
-        hitSlop: React$PropType$Primitive<{
-            bottom?: number | undefined;
-            left?: number | undefined;
-            right?: number | undefined;
-            top?: number | undefined;
-        }>;
-        onLayout: PropTypes.Requireable<(...args: any[]) => any>;
-        pointerEvents: React$PropType$Primitive<"auto" | "none" | "box-none" | "box-only">;
-        removeClippedSubviews: PropTypes.Requireable<boolean>;
-        renderToHardwareTextureAndroid: PropTypes.Requireable<boolean>;
-        shouldRasterizeIOS: PropTypes.Requireable<boolean>;
-        collapsable: PropTypes.Requireable<boolean>;
-        needsOffscreenAlphaCompositing: PropTypes.Requireable<boolean>;
     };
 }>) | (React.FunctionComponent<ImagePropsType> & ((props: React.PropsWithChildren<ImagePropsType>, context?: any) => (import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
     blur: () => void;
@@ -124063,7 +124023,6 @@ declare const _default: ((new (props: ImagePropsType, context?: any) => import("
     queryCache: typeof queryCache;
     resolveAssetSource: typeof resolveAssetSource;
     propTypes: {
-        style: ReactPropsCheckType;
         /**
          * See https://facebook.github.io/react-native/docs/image.html#source
          */
@@ -124132,45 +124091,6 @@ declare const _default: ((new (props: ImagePropsType, context?: any) => import("
          * See https://facebook.github.io/react-native/docs/image.html#resizemode
          */
         resizeMode: React$PropType$Primitive<"repeat" | "center" | "stretch" | "contain" | "cover">;
-        accessible: PropTypes.Requireable<boolean>;
-        accessibilityLabel: PropTypes.Requireable<PropTypes.ReactNodeLike>;
-        accessibilityHint: PropTypes.Requireable<string>;
-        accessibilityActions: React$PropType$Primitive<string[]>;
-        accessibilityIgnoresInvertColors: PropTypes.Requireable<boolean>;
-        accessibilityRole: React$PropType$Primitive<import("../Components/View/ViewAccessibility").AccessibilityRole>;
-        accessibilityState: PropTypes.Requireable<object>;
-        accessibilityValue: PropTypes.Requireable<object>;
-        accessibilityLiveRegion: React$PropType$Primitive<"none" | "assertive" | "polite">;
-        importantForAccessibility: React$PropType$Primitive<"auto" | "yes" | "no" | "no-hide-descendants">;
-        accessibilityViewIsModal: PropTypes.Requireable<boolean>;
-        accessibilityElementsHidden: PropTypes.Requireable<boolean>;
-        onAccessibilityAction: PropTypes.Requireable<(...args: any[]) => any>;
-        onAccessibilityTap: PropTypes.Requireable<(...args: any[]) => any>;
-        onMagicTap: PropTypes.Requireable<(...args: any[]) => any>;
-        nativeID: PropTypes.Requireable<string>;
-        onResponderGrant: PropTypes.Requireable<(...args: any[]) => any>;
-        onResponderMove: PropTypes.Requireable<(...args: any[]) => any>;
-        onResponderReject: PropTypes.Requireable<(...args: any[]) => any>;
-        onResponderRelease: PropTypes.Requireable<(...args: any[]) => any>;
-        onResponderTerminate: PropTypes.Requireable<(...args: any[]) => any>;
-        onResponderTerminationRequest: PropTypes.Requireable<(...args: any[]) => any>;
-        onStartShouldSetResponder: PropTypes.Requireable<(...args: any[]) => any>;
-        onStartShouldSetResponderCapture: PropTypes.Requireable<(...args: any[]) => any>;
-        onMoveShouldSetResponder: PropTypes.Requireable<(...args: any[]) => any>;
-        onMoveShouldSetResponderCapture: PropTypes.Requireable<(...args: any[]) => any>;
-        hitSlop: React$PropType$Primitive<{
-            bottom?: number | undefined;
-            left?: number | undefined;
-            right?: number | undefined;
-            top?: number | undefined;
-        }>;
-        onLayout: PropTypes.Requireable<(...args: any[]) => any>;
-        pointerEvents: React$PropType$Primitive<"auto" | "none" | "box-none" | "box-only">;
-        removeClippedSubviews: PropTypes.Requireable<boolean>;
-        renderToHardwareTextureAndroid: PropTypes.Requireable<boolean>;
-        shouldRasterizeIOS: PropTypes.Requireable<boolean>;
-        collapsable: PropTypes.Requireable<boolean>;
-        needsOffscreenAlphaCompositing: PropTypes.Requireable<boolean>;
     };
 }>);
 export default _default;

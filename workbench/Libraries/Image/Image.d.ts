@@ -61970,59 +61970,6 @@ declare const _default: ((new (props: ImagePropsType, context?: any) => import("
     prefetch: typeof prefetch;
     queryCache: typeof queryCache;
     resolveAssetSource: typeof resolveAssetSource;
-    propTypes: {
-        style: import("flow-builtin-types").ReactPropsCheckType;
-        source: import("prop-types").Requireable<number | import("prop-types").InferProps<{
-            uri: import("prop-types").Requireable<string>;
-            bundle: import("prop-types").Requireable<string>;
-            method: import("prop-types").Requireable<string>;
-            headers: import("prop-types").Requireable<{
-                [x: string]: string | null | undefined;
-            }>;
-            body: import("prop-types").Requireable<string>;
-            cache: import("prop-types").Requireable<string>;
-            width: import("prop-types").Requireable<number>;
-            height: import("prop-types").Requireable<number>;
-            scale: import("prop-types").Requireable<number>;
-        }> | (import("prop-types").InferProps<{
-            uri: import("prop-types").Requireable<string>;
-            bundle: import("prop-types").Requireable<string>;
-            method: import("prop-types").Requireable<string>;
-            headers: import("prop-types").Requireable<{
-                [x: string]: string | null | undefined;
-            }>;
-            body: import("prop-types").Requireable<string>;
-            cache: import("prop-types").Requireable<string>;
-            width: import("prop-types").Requireable<number>;
-            height: import("prop-types").Requireable<number>;
-            scale: import("prop-types").Requireable<number>;
-        }> | null | undefined)[]>;
-        defaultSource: import("flow-builtin-types").React$PropType$Primitive<number | {
-            height?: number | undefined;
-            scale?: number | undefined;
-            uri?: string | undefined;
-            width?: number | undefined;
-        }>;
-        accessible: import("prop-types").Requireable<boolean>;
-        accessibilityLabel: import("prop-types").Requireable<import("prop-types").ReactNodeLike>;
-        blurRadius: import("prop-types").Requireable<number>;
-        capInsets: import("flow-builtin-types").React$PropType$Primitive<{
-            bottom?: number | undefined;
-            left?: number | undefined;
-            right?: number | undefined;
-            top?: number | undefined;
-        }>;
-        resizeMethod: import("flow-builtin-types").React$PropType$Primitive<"auto" | "resize" | "scale">;
-        resizeMode: import("flow-builtin-types").React$PropType$Primitive<"repeat" | "center" | "stretch" | "contain" | "cover">;
-        testID: import("prop-types").Requireable<string>;
-        onLayout: import("prop-types").Requireable<(...args: any[]) => any>;
-        onLoadStart: import("prop-types").Requireable<(...args: any[]) => any>;
-        onProgress: import("prop-types").Requireable<(...args: any[]) => any>;
-        onError: import("prop-types").Requireable<(...args: any[]) => any>;
-        onPartialLoad: import("prop-types").Requireable<(...args: any[]) => any>;
-        onLoad: import("prop-types").Requireable<(...args: any[]) => any>;
-        onLoadEnd: import("prop-types").Requireable<(...args: any[]) => any>;
-    };
 }>) | (React.FunctionComponent<ImagePropsType> & ((props: React.PropsWithChildren<ImagePropsType>, context?: any) => (import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
     blur: () => void;
     focus: () => void;
@@ -123984,58 +123931,5 @@ declare const _default: ((new (props: ImagePropsType, context?: any) => import("
     prefetch: typeof prefetch;
     queryCache: typeof queryCache;
     resolveAssetSource: typeof resolveAssetSource;
-    propTypes: {
-        style: import("flow-builtin-types").ReactPropsCheckType;
-        source: import("prop-types").Requireable<number | import("prop-types").InferProps<{
-            uri: import("prop-types").Requireable<string>;
-            bundle: import("prop-types").Requireable<string>;
-            method: import("prop-types").Requireable<string>;
-            headers: import("prop-types").Requireable<{
-                [x: string]: string | null | undefined;
-            }>;
-            body: import("prop-types").Requireable<string>;
-            cache: import("prop-types").Requireable<string>;
-            width: import("prop-types").Requireable<number>;
-            height: import("prop-types").Requireable<number>;
-            scale: import("prop-types").Requireable<number>;
-        }> | (import("prop-types").InferProps<{
-            uri: import("prop-types").Requireable<string>;
-            bundle: import("prop-types").Requireable<string>;
-            method: import("prop-types").Requireable<string>;
-            headers: import("prop-types").Requireable<{
-                [x: string]: string | null | undefined;
-            }>;
-            body: import("prop-types").Requireable<string>;
-            cache: import("prop-types").Requireable<string>;
-            width: import("prop-types").Requireable<number>;
-            height: import("prop-types").Requireable<number>;
-            scale: import("prop-types").Requireable<number>;
-        }> | null | undefined)[]>;
-        defaultSource: import("flow-builtin-types").React$PropType$Primitive<number | {
-            height?: number | undefined;
-            scale?: number | undefined;
-            uri?: string | undefined;
-            width?: number | undefined;
-        }>;
-        accessible: import("prop-types").Requireable<boolean>;
-        accessibilityLabel: import("prop-types").Requireable<import("prop-types").ReactNodeLike>;
-        blurRadius: import("prop-types").Requireable<number>;
-        capInsets: import("flow-builtin-types").React$PropType$Primitive<{
-            bottom?: number | undefined;
-            left?: number | undefined;
-            right?: number | undefined;
-            top?: number | undefined;
-        }>;
-        resizeMethod: import("flow-builtin-types").React$PropType$Primitive<"auto" | "resize" | "scale">;
-        resizeMode: import("flow-builtin-types").React$PropType$Primitive<"repeat" | "center" | "stretch" | "contain" | "cover">;
-        testID: import("prop-types").Requireable<string>;
-        onLayout: import("prop-types").Requireable<(...args: any[]) => any>;
-        onLoadStart: import("prop-types").Requireable<(...args: any[]) => any>;
-        onProgress: import("prop-types").Requireable<(...args: any[]) => any>;
-        onError: import("prop-types").Requireable<(...args: any[]) => any>;
-        onPartialLoad: import("prop-types").Requireable<(...args: any[]) => any>;
-        onLoad: import("prop-types").Requireable<(...args: any[]) => any>;
-        onLoadEnd: import("prop-types").Requireable<(...args: any[]) => any>;
-    };
 }>);
 export default _default;
