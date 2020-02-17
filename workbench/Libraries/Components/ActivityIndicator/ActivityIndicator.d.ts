@@ -11,7 +11,7 @@ declare type IOSProps = $ReadOnly<{
      */
     hidesWhenStopped?: boolean | null | undefined;
 }>;
-declare type Props = $ReadOnly<ViewProps & IOSProps & {
+declare interface Props extends $ReadOnly<ViewProps & IOSProps & {
     /**
      * Whether to show the indicator (true, the default) or hide it (false).
      *
