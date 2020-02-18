@@ -19,7 +19,7 @@ const WORKBENCH = "./workbench"
 const SOURCE = "./node_modules/react-native"
 
 const SOURCE_GLOB = "{index.js,interface.js,Libraries/*.js,Libraries/**/!(__mocks__|__flowtests__)/*.js}"
-const IGNORE_GLOB = ["Libraries/{Animated/release,DeprecatedPropTypes,ReactPrivate,Renderer/implementations}/*.js", "Libraries/Animated/src/AnimatedWeb.js"]
+const IGNORE_GLOB = ["Libraries/{Animated/release,DeprecatedPropTypes,Inspector,JSInspector,NewAppScreen,ReactPrivate,Renderer/implementations,YellowBox}/*.js", "Libraries/Animated/src/AnimatedWeb.js"]
 
 const JSCODESHIFT = jscodeshift.withParser("tsx")
 const DTS_OPTIONS: ts.CompilerOptions = {

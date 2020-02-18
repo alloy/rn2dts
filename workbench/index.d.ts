@@ -5486,9 +5486,7 @@ declare const _default: {
     readonly useWindowDimensions: _typeof_useWindowDimensions;
     readonly UTFSequence: _typeof_UTFSequence;
     readonly Vibration: _typeof_Vibration;
-    readonly YellowBox: import("react").Component<UniqueBranding & Readonly<{}>, {
-        registry: import("./Libraries/YellowBox/Data/YellowBoxRegistry").Registry | null | undefined;
-    }, any>;
+    readonly YellowBox: any;
     readonly DeviceEventEmitter: _typeof_RCTDeviceEventEmitter;
     readonly NativeAppEventEmitter: _typeof_RCTDeviceEventEmitter;
     readonly NativeModules: _typeof_NativeModules;
