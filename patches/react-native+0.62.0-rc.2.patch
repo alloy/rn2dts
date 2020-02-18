@@ -265,6 +265,42 @@ index 5b968d1..f4818da 100644
      // TODO: (moti) T48204753 Make sure this warning is never hit and remove it - types
      // should be sufficient.
      if (typeof fun !== 'function') {
+diff --git a/node_modules/react-native/index.js b/node_modules/react-native/index.js
+index e9b7b65..5fa1e83 100644
+--- a/node_modules/react-native/index.js
++++ b/node_modules/react-native/index.js
+@@ -93,10 +93,6 @@ import typeof NativeModules from './Libraries/BatchedBridge/NativeModules';
+ import typeof Platform from './Libraries/Utilities/Platform';
+ import typeof processColor from './Libraries/StyleSheet/processColor';
+ import typeof RootTagContext from './Libraries/ReactNative/RootTagContext';
+-import typeof DeprecatedColorPropType from './Libraries/DeprecatedPropTypes/DeprecatedColorPropType';
+-import typeof DeprecatedEdgeInsetsPropType from './Libraries/DeprecatedPropTypes/DeprecatedEdgeInsetsPropType';
+-import typeof DeprecatedPointPropType from './Libraries/DeprecatedPropTypes/DeprecatedPointPropType';
+-import typeof DeprecatedViewPropTypes from './Libraries/DeprecatedPropTypes/DeprecatedViewPropTypes';
+ 
+ import type {HostComponent as _HostComponentInternal} from './Libraries/Renderer/shims/ReactNativeTypes';
+ 
+@@ -441,20 +437,6 @@ module.exports = {
+   get unstable_enableLogBox(): () => void {
+     return require('./Libraries/YellowBox/YellowBox').__unstable_enableLogBox;
+   },
+-
+-  // Prop Types
+-  get ColorPropType(): DeprecatedColorPropType {
+-    return require('./Libraries/DeprecatedPropTypes/DeprecatedColorPropType');
+-  },
+-  get EdgeInsetsPropType(): DeprecatedEdgeInsetsPropType {
+-    return require('./Libraries/DeprecatedPropTypes/DeprecatedEdgeInsetsPropType');
+-  },
+-  get PointPropType(): DeprecatedPointPropType {
+-    return require('./Libraries/DeprecatedPropTypes/DeprecatedPointPropType');
+-  },
+-  get ViewPropTypes(): DeprecatedViewPropTypes {
+-    return require('./Libraries/DeprecatedPropTypes/DeprecatedViewPropTypes');
+-  },
+ };
+ 
+ if (__DEV__) {
 diff --git a/node_modules/react-native/interface.js b/node_modules/react-native/interface.js
 index a5e7987..83bb950 100644
 --- a/node_modules/react-native/interface.js
