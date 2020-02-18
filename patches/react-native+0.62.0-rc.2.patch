@@ -21,6 +21,19 @@ index a1ce333..8560049 100644
  const AnimatedAddition = require('./nodes/AnimatedAddition');
  const AnimatedDiffClamp = require('./nodes/AnimatedDiffClamp');
  const AnimatedDivision = require('./nodes/AnimatedDivision');
+diff --git a/node_modules/react-native/Libraries/Blob/URL.js b/node_modules/react-native/Libraries/Blob/URL.js
+index f2b6f7f..0b1da67 100644
+--- a/node_modules/react-native/Libraries/Blob/URL.js
++++ b/node_modules/react-native/Libraries/Blob/URL.js
+@@ -94,7 +94,7 @@ export class URLSearchParams {
+     return this._searchParams[Symbol.iterator]();
+   }
+ 
+-  toString() {
++  toString(): string {
+     if (this._searchParams.length === 0) {
+       return '';
+     }
 diff --git a/node_modules/react-native/Libraries/Components/ScrollView/ScrollView.js b/node_modules/react-native/Libraries/Components/ScrollView/ScrollView.js
 index 59f5517..c4754b6 100644
 --- a/node_modules/react-native/Libraries/Components/ScrollView/ScrollView.js

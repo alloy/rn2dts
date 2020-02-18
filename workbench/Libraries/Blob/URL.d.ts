@@ -33,7 +33,7 @@ export declare class URLSearchParams {
     set(name: any, value: any): void;
     sort(): void;
     [Symbol.iterator](): any;
-    toString(): any;
+    toString(): string;
 }
 export declare class URL {
     static createObjectURL(blob: Blob): string;
