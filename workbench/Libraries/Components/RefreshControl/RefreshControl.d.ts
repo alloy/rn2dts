@@ -1,9 +1,9 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { ViewProps } from "../View/ViewPropTypes";
 declare let RefreshLayoutConsts: any;
-declare type IOSProps = $ReadOnly<{
+declare type IOSProps = UniqueBranding & Readonly<{
     /**
      * The color of the refresh indicator.
      */
@@ -17,7 +17,7 @@ declare type IOSProps = $ReadOnly<{
      */
     title?: string | null | undefined;
 }>;
-declare type AndroidProps = $ReadOnly<{
+declare type AndroidProps = UniqueBranding & Readonly<{
     /**
      * Whether the pull to refresh functionality is enabled.
      */
@@ -39,7 +39,7 @@ declare type AndroidProps = $ReadOnly<{
      */
     progressViewOffset?: number | null | undefined;
 }>;
-export declare type RefreshControlProps = $ReadOnly<ViewProps & IOSProps & AndroidProps & {
+export declare type RefreshControlProps = UniqueBranding & Readonly<ViewProps & IOSProps & AndroidProps & {
     /**
      * Called when the view starts refreshing.
      */

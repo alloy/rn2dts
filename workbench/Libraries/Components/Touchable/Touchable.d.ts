@@ -1,4 +1,5 @@
 import React from 'react';
+import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
 declare const Touchable: {
     Mixin: {
         componentDidMount: () => void;
@@ -36,19 +37,63 @@ declare const Touchable: {
          * @param {SyntheticEvent} e Synthetic event from event system.
          *
          */
-        touchableHandleResponderGrant: (e: any) => void;
+        touchableHandleResponderGrant: (e: import("../../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         /**
          * Place as callback for a DOM element's `onResponderRelease` event.
          */
-        touchableHandleResponderRelease: (e: any) => void;
+        touchableHandleResponderRelease: (e: import("../../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         /**
          * Place as callback for a DOM element's `onResponderTerminate` event.
          */
-        touchableHandleResponderTerminate: (e: any) => void;
+        touchableHandleResponderTerminate: (e: import("../../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         /**
          * Place as callback for a DOM element's `onResponderMove` event.
          */
-        touchableHandleResponderMove: (e: any) => void;
+        touchableHandleResponderMove: (e: import("../../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         /**
          * Invoked when the item receives focus. Mixers might override this to
          * visually distinguish the `VisualRect` so that the user knows that it
@@ -135,8 +180,30 @@ declare const Touchable: {
          */
         _remeasureMetricsOnActivation: () => void;
         _handleQueryLayout: (l: number, t: number, w: number, h: number, globalX: number, globalY: number) => void;
-        _handleDelay: (e: any) => void;
-        _handleLongDelay: (e: any) => void;
+        _handleDelay: (e: import("../../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
+        _handleLongDelay: (e: import("../../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         /**
          * Receives a state machine signal, performs side effects of the transition
          * and stores the new state. Validates the transition as well.
@@ -145,10 +212,32 @@ declare const Touchable: {
          * @throws Error if invalid state transition or unrecognized signal.
          * @sideeffects
          */
-        _receiveSignal: (signal: any, e: any) => void;
+        _receiveSignal: (signal: any, e: import("../../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         _cancelLongPressDelayTimeout: () => void;
         _isHighlight: (state: any) => boolean;
-        _savePressInLocation: (e: any) => void;
+        _savePressInLocation: (e: import("../../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         _getDistanceBetweenPoints: (aX: number, aY: number, bX: number, bY: number) => number;
         /**
          * Will perform a transition between touchable states, and identify any
@@ -161,9 +250,42 @@ declare const Touchable: {
          * @param {Event} e Native event.
          * @sideeffects
          */
-        _performSideEffectsForTransition: (curState: any, nextState: any, signal: any, e: any) => void;
-        _startHighlight: (e: any) => void;
-        _endHighlight: (e: any) => void;
+        _performSideEffectsForTransition: (curState: any, nextState: any, signal: any, e: import("../../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
+        _startHighlight: (e: import("../../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
+        _endHighlight: (e: import("../../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         withoutDefaultFocusAndBlur: {};
     };
     TOUCH_TARGET_DEBUG: boolean;
@@ -172,12 +294,7 @@ declare const Touchable: {
      */
     renderDebugView: ({ color, hitSlop }: {
         color: string | number;
-        hitSlop: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-            top?: number | null | undefined;
-            left?: number | null | undefined;
-            bottom?: number | null | undefined;
-            right?: number | null | undefined;
-        }>;
+        hitSlop: EdgeInsetsProp;
     }) => React.ReactNode;
 };
 export default Touchable;

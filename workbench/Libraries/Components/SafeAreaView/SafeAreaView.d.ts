@@ -1,8 +1,8 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { HostComponent } from "../../Renderer/shims/ReactNativeTypes";
 import { ViewProps } from "../View/ViewPropTypes";
-declare type Props = $ReadOnly<ViewProps & {
+declare type Props = UniqueBranding & Readonly<ViewProps & {
     emulateUnlessSupported?: boolean;
 }>;
 declare let exported: React.AbstractComponent<Props, React.ElementRef<HostComponent<unknown>>>;

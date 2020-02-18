@@ -1,7 +1,7 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ViewStyleProp } from "../StyleSheet/StyleSheet";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     devtoolsIsOpen: boolean;
     inspecting: boolean;
     setInspecting: ((val: boolean) => void);
@@ -16,19 +16,19 @@ declare type Props = $ReadOnly<{
     }> | null | undefined;
     selection?: number | null | undefined;
     setSelection: ((arg0: number) => unknown);
-    inspected?: $ReadOnly<{
+    inspected?: (UniqueBranding & Readonly<{
         style?: ViewStyleProp | null | undefined;
-        frame?: $ReadOnly<{
+        frame?: (UniqueBranding & Readonly<{
             top?: number | null | undefined;
             left?: number | null | undefined;
             width?: number | null | undefined;
             height: number | null | undefined;
-        }> | null | undefined;
+        }>) | null | undefined;
         source?: {
             fileName?: string;
             lineNumber?: number;
         } | null | undefined;
-    }> | null | undefined;
+    }>) | null | undefined;
 }>;
 declare class InspectorPanel extends React.Component<Props> {
     renderWaiting(): React.ReactNode;

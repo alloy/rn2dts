@@ -44,7 +44,18 @@ declare const ScrollResponder: {
          *   true.
          *
          */
-        scrollResponderHandleStartShouldSetResponder: (e: any) => boolean;
+        scrollResponderHandleStartShouldSetResponder: (e: import("../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => boolean;
         /**
          * There are times when the scroll view wants to become the responder
          * (meaning respond to the next immediate `touchStart/touchEnd`), in a way
@@ -56,7 +67,18 @@ declare const ScrollResponder: {
          *
          * Invoke this from an `onStartShouldSetResponderCapture` event.
          */
-        scrollResponderHandleStartShouldSetResponderCapture: (e: any) => boolean;
+        scrollResponderHandleStartShouldSetResponderCapture: (e: import("../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => boolean;
         /**
          * Invoke this from an `onResponderReject` event.
          *
@@ -89,17 +111,50 @@ declare const ScrollResponder: {
          *
          * @param {PressEvent} e Event.
          */
-        scrollResponderHandleTouchEnd: (e: any) => void;
+        scrollResponderHandleTouchEnd: (e: import("../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         /**
          * Invoke this from an `onTouchCancel` event.
          *
          * @param {PressEvent} e Event.
          */
-        scrollResponderHandleTouchCancel: (e: any) => void;
+        scrollResponderHandleTouchCancel: (e: import("../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         /**
          * Invoke this from an `onResponderRelease` event.
          */
-        scrollResponderHandleResponderRelease: (e: any) => void;
+        scrollResponderHandleResponderRelease: (e: import("../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         scrollResponderHandleScroll: (e: ScrollEvent) => void;
         /**
          * Invoke this from an `onResponderGrant` event.
@@ -136,7 +191,18 @@ declare const ScrollResponder: {
          *
          * @param {PressEvent} e Touch Start event.
          */
-        scrollResponderHandleTouchStart: (e: any) => void;
+        scrollResponderHandleTouchStart: (e: import("../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         /**
          * Invoke this from an `onTouchMove` event.
          *
@@ -148,7 +214,18 @@ declare const ScrollResponder: {
          *
          * @param {PressEvent} e Touch Start event.
          */
-        scrollResponderHandleTouchMove: (e: any) => void;
+        scrollResponderHandleTouchMove: (e: import("../Types/CoreEventTypes").ResponderSyntheticEvent<import("flow-builtin-types").UniqueBranding & Readonly<{
+            changedTouches: readonly Event[];
+            force: number;
+            identifier: number;
+            locationX: number;
+            locationY: number;
+            pageX: number;
+            pageY: number;
+            target: number | null | undefined;
+            timestamp: number;
+            touches: readonly Event[];
+        }>>) => void;
         /**
          * A helper function for this class that lets us quickly determine if the
          * view is currently animating. This is particularly useful to know when

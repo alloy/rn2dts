@@ -1,8 +1,8 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import * as React from "react";
 import { Stack } from "../Data/LogBoxSymbolication";
 import LogBoxLog from "../Data/LogBoxLog";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     log: LogBoxLog;
     onRetry: (() => void);
 }>;

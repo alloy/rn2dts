@@ -1,6 +1,8 @@
 import React from 'react';
-declare const YellowBoxInspectorFooter: (props: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-    onDismiss: () => void;
-    onMinimize: () => void;
-}>) => React.ReactNode;
+import { UniqueBranding } from "flow-builtin-types";
+declare type Props = UniqueBranding & Readonly<{
+    onDismiss: (() => void);
+    onMinimize: (() => void);
+}>;
+declare const YellowBoxInspectorFooter: (props: Props) => React.ReactNode;
 export default YellowBoxInspectorFooter;

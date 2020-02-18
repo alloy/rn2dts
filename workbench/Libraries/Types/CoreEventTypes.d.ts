@@ -1,12 +1,13 @@
-import { $ReadOnly, $PropertyType } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
+import { $PropertyType } from "utility-types";
 import * as React from "react";
 import { HostComponent } from "../Renderer/shims/ReactNativeTypes";
-export declare type SyntheticEvent<T> = $ReadOnly<{
+export declare type SyntheticEvent<T> = UniqueBranding & Readonly<{
     bubbles: boolean | null | undefined;
     cancelable: boolean | null | undefined;
     currentTarget: number | React.ElementRef<HostComponent<unknown>>;
     defaultPrevented: boolean | null | undefined;
-    dispatchConfig: $ReadOnly<{
+    dispatchConfig: UniqueBranding & Readonly<{
         registrationName: string;
     }>;
     eventPhase: number | null | undefined;
@@ -21,12 +22,12 @@ export declare type SyntheticEvent<T> = $ReadOnly<{
     timeStamp: number;
     type: string | null | undefined;
 }>;
-export declare type ResponderSyntheticEvent<T> = $ReadOnly<React.SyntheticEvent<T> & {
-    touchHistory: $ReadOnly<{
+export declare type ResponderSyntheticEvent<T> = UniqueBranding & Readonly<React.SyntheticEvent<T> & {
+    touchHistory: UniqueBranding & Readonly<{
         indexOfSingleActiveTouch: number;
         mostRecentTimeStamp: number;
         numberActiveTouches: number;
-        touchBank: ReadonlyArray<$ReadOnly<{
+        touchBank: ReadonlyArray<UniqueBranding & Readonly<{
             touchActive: boolean;
             startPageX: number;
             startPageY: number;
@@ -40,26 +41,26 @@ export declare type ResponderSyntheticEvent<T> = $ReadOnly<React.SyntheticEvent<
         }>>;
     }>;
 }>;
-export declare type Layout = $ReadOnly<{
+export declare type Layout = UniqueBranding & Readonly<{
     x: number;
     y: number;
     width: number;
     height: number;
 }>;
-export declare type TextLayout = $ReadOnly<Layout & {
+export declare type TextLayout = UniqueBranding & Readonly<Layout & {
     ascender: number;
     capHeight: number;
     descender: number;
     text: string;
     xHeight: number;
 }>;
-export declare type LayoutEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type LayoutEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     layout: Layout;
 }>>;
-export declare type TextLayoutEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type TextLayoutEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     lines: Array<TextLayout>;
 }>>;
-export declare type PressEvent = ResponderSyntheticEvent<$ReadOnly<{
+export declare type PressEvent = ResponderSyntheticEvent<UniqueBranding & Readonly<{
     changedTouches: ReadonlyArray<$PropertyType<PressEvent, "nativeEvent">>;
     force: number;
     identifier: number;
@@ -71,43 +72,43 @@ export declare type PressEvent = ResponderSyntheticEvent<$ReadOnly<{
     timestamp: number;
     touches: ReadonlyArray<$PropertyType<PressEvent, "nativeEvent">>;
 }>>;
-export declare type ScrollEvent = React.SyntheticEvent<$ReadOnly<{
-    contentInset: $ReadOnly<{
+export declare type ScrollEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
+    contentInset: UniqueBranding & Readonly<{
         bottom: number;
         left: number;
         right: number;
         top: number;
     }>;
-    contentOffset: $ReadOnly<{
+    contentOffset: UniqueBranding & Readonly<{
         y: number;
         x: number;
     }>;
-    contentSize: $ReadOnly<{
+    contentSize: UniqueBranding & Readonly<{
         height: number;
         width: number;
     }>;
-    layoutMeasurement: $ReadOnly<{
+    layoutMeasurement: UniqueBranding & Readonly<{
         height: number;
         width: number;
     }>;
-    targetContentOffset?: $ReadOnly<{
+    targetContentOffset?: UniqueBranding & Readonly<{
         y: number;
         x: number;
     }>;
-    velocity?: $ReadOnly<{
+    velocity?: UniqueBranding & Readonly<{
         y: number;
         x: number;
     }>;
     zoomScale?: number;
     responderIgnoreScroll?: boolean;
 }>>;
-export declare type BlurEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type BlurEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     target: number;
 }>>;
-export declare type FocusEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type FocusEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     target: number;
 }>>;
-export declare type MouseEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type MouseEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     clientX: number;
     clientY: number;
     pageX: number;

@@ -1,11 +1,12 @@
+import { UniqueBranding } from "flow-builtin-types";
 declare const ImagePickerIOS: {
     canRecordVideos: (callback: (result: boolean) => void) => void;
     canUseCamera: (callback: (result: boolean) => void) => void;
-    openCameraDialog: (config: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+    openCameraDialog: (config: UniqueBranding & Readonly<{
         unmirrorFrontFacingCamera?: boolean | undefined;
         videoMode?: boolean | undefined;
     }>, successCallback: (imageURL: string, height: number, width: number) => void, cancelCallback: () => void) => void;
-    openSelectDialog: (config: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+    openSelectDialog: (config: UniqueBranding & Readonly<{
         showImages?: boolean | undefined;
         showVideos?: boolean | undefined;
     }>, successCallback: (imageURL: string, height: number, width: number) => void, cancelCallback: () => void) => void;

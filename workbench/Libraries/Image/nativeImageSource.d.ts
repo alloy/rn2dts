@@ -1,6 +1,6 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ImageURISource } from "./ImageSource";
-declare type NativeImageSourceSpec = $ReadOnly<{
+declare type NativeImageSourceSpec = UniqueBranding & Readonly<{
     android?: string;
     ios?: string;
     default?: string;

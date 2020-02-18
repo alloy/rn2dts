@@ -1,6 +1,6 @@
 import React from 'react';
-import { $TEMPORARY$string } from "flow-builtin-types";
-import { $Keys, $ReadOnly } from "utility-types";
+import { UniqueBranding, $TEMPORARY$string } from "flow-builtin-types";
+import { $Keys } from "utility-types";
 /**
  * Status bar style
  */
@@ -35,7 +35,7 @@ export declare type StatusBarAnimation = $Keys<{
      */
     slide: string;
 }>;
-declare type AndroidProps = $ReadOnly<{
+declare type AndroidProps = UniqueBranding & Readonly<{
     /**
      * The background color of the status bar.
      * @platform android
@@ -50,7 +50,7 @@ declare type AndroidProps = $ReadOnly<{
      */
     translucent?: boolean | null | undefined;
 }>;
-declare type IOSProps = $ReadOnly<{
+declare type IOSProps = UniqueBranding & Readonly<{
     /**
      * If the network activity indicator should be visible.
      *
@@ -65,7 +65,7 @@ declare type IOSProps = $ReadOnly<{
      */
     showHideTransition?: ("fade" | "slide") | null | undefined;
 }>;
-declare type Props = $ReadOnly<AndroidProps & IOSProps & {
+declare type Props = UniqueBranding & Readonly<AndroidProps & IOSProps & {
     /**
      * If the status bar is hidden.
      */

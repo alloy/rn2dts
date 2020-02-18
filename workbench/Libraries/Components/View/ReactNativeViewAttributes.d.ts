@@ -22,12 +22,12 @@ declare const ReactNativeViewAttributes: {
         collapsable: boolean;
         needsOffscreenAlphaCompositing: boolean;
         style: {
-            transform: true | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+            transform: true | (import("flow-builtin-types").UniqueBranding & Readonly<{
                 process: typeof import("../../StyleSheet/processTransform").default;
-            }>;
-            shadowOffset: true | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+            }>);
+            shadowOffset: true | (import("flow-builtin-types").UniqueBranding & Readonly<{
                 diff: (one: any, two: any) => boolean;
-            }>;
+            }>);
             backgroundColor: true | {
                 process: typeof import("../../StyleSheet/processColor").default;
             };
@@ -96,12 +96,12 @@ declare const ReactNativeViewAttributes: {
         collapsable: boolean;
         needsOffscreenAlphaCompositing: boolean;
         style: {
-            transform: true | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+            transform: true | (import("flow-builtin-types").UniqueBranding & Readonly<{
                 process: typeof import("../../StyleSheet/processTransform").default;
-            }>;
-            shadowOffset: true | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+            }>);
+            shadowOffset: true | (import("flow-builtin-types").UniqueBranding & Readonly<{
                 diff: (one: any, two: any) => boolean;
-            }>;
+            }>);
             backgroundColor: true | {
                 process: typeof import("../../StyleSheet/processColor").default;
             };

@@ -1,4 +1,4 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 declare class Dimensions {
     /**
      * NOTE: `useWindowDimensions` is the preffered API for React components.
@@ -24,7 +24,7 @@ declare class Dimensions {
      *
      * @param {object} dims Simple string-keyed object of dimensions to set
      */
-    static set(dims: $ReadOnly<{
+    static set(dims: UniqueBranding & Readonly<{
         [key: string]: any;
     }>): void;
     /**

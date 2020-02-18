@@ -1,9 +1,9 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { HostComponent } from "../../Renderer/shims/ReactNativeTypes";
 import { ViewProps } from "../View/ViewPropTypes";
 declare type IndicatorSize = number | "small" | "large";
-declare type IOSProps = $ReadOnly<{
+declare type IOSProps = UniqueBranding & Readonly<{
     /**
      * Whether the indicator should hide when not animating (true by default).
      *
@@ -11,7 +11,7 @@ declare type IOSProps = $ReadOnly<{
      */
     hidesWhenStopped?: boolean | null | undefined;
 }>;
-declare type Props = $ReadOnly<ViewProps & IOSProps & {
+declare type Props = UniqueBranding & Readonly<ViewProps & IOSProps & {
     /**
      * Whether to show the indicator (true, the default) or hide it (false).
      *

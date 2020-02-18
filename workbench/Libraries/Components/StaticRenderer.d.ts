@@ -1,6 +1,6 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
-declare type Props = $ReadOnly<{
+import { UniqueBranding } from "flow-builtin-types";
+declare type Props = UniqueBranding & Readonly<{
     /**
      * Indicates whether the render function needs to be called again
      */

@@ -1,16 +1,16 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ViewProps } from "react-native/Libraries/Components/View/ViewPropTypes";
 import { ColorValue } from "react-native/Libraries/StyleSheet/StyleSheetTypes";
 import { WithDefault, DirectEventHandler, Int32, Float } from "react-native/Libraries/Types/CodegenTypes";
 import { HostComponent } from "react-native/Libraries/Renderer/shims/ReactNativeTypes";
 import * as React from "react";
-declare type DrawerStateEvent = $ReadOnly<{
+declare type DrawerStateEvent = UniqueBranding & Readonly<{
     drawerState: Int32;
 }>;
-declare type DrawerSlideEvent = $ReadOnly<{
+declare type DrawerSlideEvent = UniqueBranding & Readonly<{
     offset: Float;
 }>;
-declare type NativeProps = $ReadOnly<ViewProps & {
+declare type NativeProps = UniqueBranding & Readonly<ViewProps & {
     /**
      * Determines whether the keyboard gets dismissed in response to a drag.
      *   - 'none' (the default), drags do not dismiss the keyboard.

@@ -1,24 +1,24 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 export declare type GeneratedViewConfig = {
     uiViewClassName: string;
-    bubblingEventTypes?: $ReadOnly<{
-        [eventName: string]: $ReadOnly<{
-            phasedRegistrationNames: $ReadOnly<{
+    bubblingEventTypes?: UniqueBranding & Readonly<{
+        [eventName: string]: UniqueBranding & Readonly<{
+            phasedRegistrationNames: UniqueBranding & Readonly<{
                 captured: string;
                 bubbled: string;
             }>;
         }>;
     }>;
-    directEventTypes?: $ReadOnly<{
-        [eventName: string]: $ReadOnly<{
+    directEventTypes?: UniqueBranding & Readonly<{
+        [eventName: string]: UniqueBranding & Readonly<{
             registrationName: string;
         }>;
     }>;
     validAttributes?: {
-        [propName: string]: true | $ReadOnly<{
+        [propName: string]: true | (UniqueBranding & Readonly<{
             diff?: (<T>(arg1: any, arg2: any) => boolean);
             process?: ((arg1: any) => any);
-        }>;
+        }>);
     };
 };
 declare function registerGeneratedViewConfig(componentName: string, viewConfig: GeneratedViewConfig): void;

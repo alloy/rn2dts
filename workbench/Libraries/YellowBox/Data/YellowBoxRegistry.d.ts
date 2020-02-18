@@ -1,27 +1,18 @@
 import YellowBoxWarning from './YellowBoxWarning';
-import { $ReadOnly } from "utility-types";
-import { Category } from "./YellowBoxCategory";
+import { UniqueBranding } from "flow-builtin-types";
+import { Category, Message } from "./YellowBoxCategory";
 import { Stack } from "./YellowBoxSymbolication";
 export declare type Registry = Map<Category, ReadonlyArray<YellowBoxWarning>>;
 export declare type Observer = ((registry: Registry) => void);
 export declare type IgnorePattern = string | RegExp;
-export declare type Subscription = $ReadOnly<{
+export declare type Subscription = UniqueBranding & Readonly<{
     unsubscribe: (() => void);
 }>;
 declare const YellowBoxRegistry: {
-    isWarningIgnored(message: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-        content: string;
-        substitutions: readonly import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-            length: any;
-            offset: any;
-        }>[];
-    }>): boolean;
-    add({ category, message, stack }: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+    isWarningIgnored(message: Message): boolean;
+    add({ category, message, stack }: UniqueBranding & Readonly<{
         category: string;
-        message: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-            content: any;
-            substitutions: any;
-        }>;
+        message: Message;
         stack: Stack;
     }>): void;
     delete(category: string): void;
@@ -29,8 +20,6 @@ declare const YellowBoxRegistry: {
     addIgnorePatterns(patterns: readonly (string | RegExp)[]): void;
     setDisabled(value: boolean): void;
     isDisabled(): boolean;
-    observe(observer: Observer): import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-        unsubscribe: () => void;
-    }>;
+    observe(observer: Observer): Subscription;
 };
 export default YellowBoxRegistry;

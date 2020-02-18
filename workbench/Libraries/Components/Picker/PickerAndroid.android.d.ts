@@ -1,9 +1,8 @@
-import { Stringish } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding, Stringish } from "flow-builtin-types";
 import * as React from "react";
 import { TextStyleProp } from "../../StyleSheet/StyleSheet";
 declare type PickerItemValue = number | string;
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     accessibilityLabel?: Stringish | null | undefined;
     children?: React.ReactNode;
     style?: TextStyleProp | null | undefined;

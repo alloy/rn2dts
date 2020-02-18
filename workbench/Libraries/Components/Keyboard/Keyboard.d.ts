@@ -1,9 +1,9 @@
 import NativeEventEmitter from '../../EventEmitter/NativeEventEmitter';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 declare const KeyboardEventEmitter: NativeEventEmitter;
 export declare type KeyboardEventName = "keyboardWillShow" | "keyboardDidShow" | "keyboardWillHide" | "keyboardDidHide" | "keyboardWillChangeFrame" | "keyboardDidChangeFrame";
 export declare type KeyboardEventEasing = "easeIn" | "easeInEaseOut" | "easeOut" | "linear" | "keyboard";
-export declare type KeyboardEventCoordinates = $ReadOnly<{
+export declare type KeyboardEventCoordinates = UniqueBranding & Readonly<{
     screenX: number;
     screenY: number;
     width: number;
@@ -15,11 +15,11 @@ declare type BaseKeyboardEvent = {
     easing: KeyboardEventEasing;
     endCoordinates: KeyboardEventCoordinates;
 };
-export declare type AndroidKeyboardEvent = $ReadOnly<BaseKeyboardEvent & {
+export declare type AndroidKeyboardEvent = UniqueBranding & Readonly<BaseKeyboardEvent & {
     duration: 0;
     easing: "keyboard";
 }>;
-export declare type IOSKeyboardEvent = $ReadOnly<BaseKeyboardEvent & {
+export declare type IOSKeyboardEvent = UniqueBranding & Readonly<BaseKeyboardEvent & {
     startCoordinates: KeyboardEventCoordinates;
     isEventFromThisApp: boolean;
 }>;

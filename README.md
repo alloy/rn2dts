@@ -19,3 +19,7 @@ yarn start
 * Feed tsc file contents from memory, instead of having to persist to disk first.
 * Make warnings from jscodeshift & flow-to-ts show up.
 * Comments do not take inserted import typeof lines of code into account, see e.g. [this file](./workbench/Libraries/Components/TextInput/InputAccessoryView.d.ts).
+* Make nominal types, in order to not inline all properties in declarations:
+    - Libraries/Components/View/ViewPropTypes.js
+    - Libraries/Components/TextInput/TextInput.js ?
+    - Libraries/StyleSheet/StyleSheetTypes.js

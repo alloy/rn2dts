@@ -1,6 +1,6 @@
 import React from 'react';
-import { Stringish } from "flow-builtin-types";
-import { $ReadOnly, $Diff } from "utility-types";
+import { UniqueBranding, Stringish } from "flow-builtin-types";
+import { $Diff } from "utility-types";
 import { TextStyleProp, ViewStyleProp } from "../../StyleSheet/StyleSheet";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { ViewProps } from "../View/ViewPropTypes";
@@ -9,47 +9,47 @@ import { HostComponent } from "../../Renderer/shims/ReactNativeTypes";
 declare type ReactRefSetter<T> = {
     current: null | T;
 } | ((ref: null | T) => unknown);
-export declare type ChangeEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type ChangeEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     eventCount: number;
     target: number;
     text: string;
 }>>;
-export declare type TextInputEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type TextInputEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     eventCount: number;
     previousText: string;
-    range: $ReadOnly<{
+    range: UniqueBranding & Readonly<{
         start: number;
         end: number;
     }>;
     target: number;
     text: string;
 }>>;
-export declare type ContentSizeChangeEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type ContentSizeChangeEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     target: number;
-    contentSize: $ReadOnly<{
+    contentSize: UniqueBranding & Readonly<{
         width: number;
         height: number;
     }>;
 }>>;
-declare type TargetEvent = React.SyntheticEvent<$ReadOnly<{
+declare type TargetEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     target: number;
 }>>;
 export declare type BlurEvent = TargetEvent;
 export declare type FocusEvent = TargetEvent;
-declare type Selection = $ReadOnly<{
+declare type Selection = UniqueBranding & Readonly<{
     start: number;
     end: number;
 }>;
-export declare type SelectionChangeEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type SelectionChangeEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     selection: Selection;
     target: number;
 }>>;
-export declare type KeyPressEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type KeyPressEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     key: string;
     target?: number | null | undefined;
     eventCount?: number | null | undefined;
 }>>;
-export declare type EditingEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type EditingEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     eventCount: number;
     text: string;
     target: number;
@@ -62,7 +62,7 @@ export declare type ReturnKeyType = // Cross Platform
 export declare type AutoCapitalize = "none" | "sentences" | "words" | "characters";
 export declare type TextContentType = "none" | "URL" | "addressCity" | "addressCityAndState" | "addressState" | "countryName" | "creditCardNumber" | "emailAddress" | "familyName" | "fullStreetAddress" | "givenName" | "jobTitle" | "location" | "middleName" | "name" | "namePrefix" | "nameSuffix" | "nickname" | "organizationName" | "postalCode" | "streetAddressLine1" | "streetAddressLine2" | "sublocality" | "telephoneNumber" | "username" | "password" | "newPassword" | "oneTimeCode";
 declare type PasswordRules = string;
-declare type IOSProps = $ReadOnly<{
+declare type IOSProps = UniqueBranding & Readonly<{
     /**
      * If `false`, disables spell-check style (i.e. red underlines).
      * The default value is inherited from `autoCorrect`.
@@ -132,7 +132,7 @@ declare type IOSProps = $ReadOnly<{
      */
     scrollEnabled?: boolean | null | undefined;
 }>;
-declare type AndroidProps = $ReadOnly<{
+declare type AndroidProps = UniqueBranding & Readonly<{
     /**
      * Determines which content to suggest on auto complete, e.g.`username`.
      * To disable auto complete, use `off`.
@@ -214,7 +214,7 @@ declare type AndroidProps = $ReadOnly<{
      */
     showSoftInputOnFocus?: boolean | null | undefined;
 }>;
-export declare type Props = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
+export declare type Props = UniqueBranding & Readonly<$Diff<ViewProps, UniqueBranding & Readonly<{
     style: ViewStyleProp | null | undefined;
 }>> & IOSProps & AndroidProps & {
     /**
@@ -400,10 +400,10 @@ export declare type Props = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      * The start and end of the text input's selection. Set start and end to
      * the same value to position the cursor.
      */
-    selection?: $ReadOnly<{
+    selection?: (UniqueBranding & Readonly<{
         start: number;
         end?: number | null | undefined;
-    }> | null | undefined;
+    }>) | null | undefined;
     /**
      * The value to show for the text input. `TextInput` is a controlled
      * component, which means the native value will be forced to match this
@@ -458,22 +458,22 @@ export declare type Props = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
     contextMenuHidden?: boolean | null | undefined;
     forwardedRef?: ReactRefSetter<React.ElementRef<HostComponent<unknown>> & ImperativeMethods> | null | undefined;
 }>;
-declare type ImperativeMethods = $ReadOnly<{
+declare type ImperativeMethods = UniqueBranding & Readonly<{
     clear: (() => void);
     isFocused: (() => boolean);
     getNativeRef: (() => React.ElementRef<HostComponent<unknown>> | null | undefined);
 }>;
-declare const _default: ((new (props: any, context?: any) => never) & import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-    State: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-        currentlyFocusedField: any;
-        focusTextInput: any;
-        blurTextInput: any;
+declare const _default: ((new (props: any, context?: any) => never) & UniqueBranding & Readonly<{
+    State: UniqueBranding & Readonly<{
+        currentlyFocusedField: () => number | null | undefined;
+        focusTextInput: (textFieldID: number | null | undefined) => void;
+        blurTextInput: (textFieldID: number | null | undefined) => void;
     }>;
-}>) | (React.FunctionComponent<any> & ((props: any, context?: any) => never) & import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-    State: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-        currentlyFocusedField: any;
-        focusTextInput: any;
-        blurTextInput: any;
+}>) | (React.FunctionComponent<any> & ((props: any, context?: any) => never) & UniqueBranding & Readonly<{
+    State: UniqueBranding & Readonly<{
+        currentlyFocusedField: () => number | null | undefined;
+        focusTextInput: (textFieldID: number | null | undefined) => void;
+        blurTextInput: (textFieldID: number | null | undefined) => void;
     }>;
 }>);
 export default _default;

@@ -1,4 +1,5 @@
-import { $ReadOnly, $Diff } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
+import { $Diff } from "utility-types";
 import { ViewProps } from "../View/ViewPropTypes";
 import { BubblingEventHandler, DirectEventHandler, Double, Float, Int32, WithDefault } from "../../Types/CodegenTypes";
 import { HostComponent } from "../../Renderer/shims/ReactNativeTypes";
@@ -9,7 +10,7 @@ export declare type KeyboardType = // Cross Platform
 "default" | "email-address" | "numeric" | "phone-pad" | "number-pad" | "decimal-pad" | "ascii-capable" | "numbers-and-punctuation" | "url" | "name-phone-pad" | "twitter" | "web-search" | "visible-password";
 export declare type ReturnKeyType = // Cross Platform
 "done" | "go" | "next" | "search" | "send" | "none" | "previous" | "default" | "emergency-call" | "google" | "join" | "route" | "yahoo";
-export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
+export declare type NativeProps = UniqueBranding & Readonly<$Diff<ViewProps, UniqueBranding & Readonly<{
     style: ViewStyleProp | null | undefined;
 }>> & {
     /**
@@ -188,14 +189,14 @@ export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      * Callback that is called when the text input is blurred.
      * `target` is the reactTag of the element
      */
-    onBlur?: BubblingEventHandler<$ReadOnly<{
+    onBlur?: BubblingEventHandler<UniqueBranding & Readonly<{
         target: Int32;
     }>> | null | undefined;
     /**
      * Callback that is called when the text input is focused.
      * `target` is the reactTag of the element
      */
-    onFocus?: BubblingEventHandler<$ReadOnly<{
+    onFocus?: BubblingEventHandler<UniqueBranding & Readonly<{
         target: Int32;
     }>> | null | undefined;
     /**
@@ -203,7 +204,7 @@ export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      * `target` is the reactTag of the element
      * TODO: differentiate between onChange and onChangeText
      */
-    onChange?: BubblingEventHandler<$ReadOnly<{
+    onChange?: BubblingEventHandler<UniqueBranding & Readonly<{
         target: Int32;
         eventCount: Int32;
         text: string;
@@ -213,7 +214,7 @@ export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      * Changed text is passed as an argument to the callback handler.
      * TODO: differentiate between onChange and onChangeText
      */
-    onChangeText?: BubblingEventHandler<$ReadOnly<{
+    onChangeText?: BubblingEventHandler<UniqueBranding & Readonly<{
         target: Int32;
         eventCount: Int32;
         text: string;
@@ -225,18 +226,18 @@ export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      *
      * Only called for multiline text inputs.
      */
-    onContentSizeChange?: DirectEventHandler<$ReadOnly<{
+    onContentSizeChange?: DirectEventHandler<UniqueBranding & Readonly<{
         target: Int32;
-        contentSize: $ReadOnly<{
+        contentSize: UniqueBranding & Readonly<{
             width: Double;
             height: Double;
         }>;
     }>> | null | undefined;
-    onTextInput?: BubblingEventHandler<$ReadOnly<{
+    onTextInput?: BubblingEventHandler<UniqueBranding & Readonly<{
         target: Int32;
         text: string;
         previousText: string;
-        range: $ReadOnly<{
+        range: UniqueBranding & Readonly<{
             start: Double;
             end: Double;
         }>;
@@ -244,7 +245,7 @@ export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
     /**
      * Callback that is called when text input ends.
      */
-    onEndEditing?: BubblingEventHandler<$ReadOnly<{
+    onEndEditing?: BubblingEventHandler<UniqueBranding & Readonly<{
         target: Int32;
         text: string;
     }>> | null | undefined;
@@ -253,9 +254,9 @@ export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      * This will be called with
      * `{ nativeEvent: { selection: { start, end } } }`.
      */
-    onSelectionChange?: DirectEventHandler<$ReadOnly<{
+    onSelectionChange?: DirectEventHandler<UniqueBranding & Readonly<{
         target: Int32;
-        selection: $ReadOnly<{
+        selection: UniqueBranding & Readonly<{
             start: Double;
             end: Double;
         }>;
@@ -264,7 +265,7 @@ export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      * Callback that is called when the text input's submit button is pressed.
      * Invalid if `multiline={true}` is specified.
      */
-    onSubmitEditing?: BubblingEventHandler<$ReadOnly<{
+    onSubmitEditing?: BubblingEventHandler<UniqueBranding & Readonly<{
         target: Int32;
         text: string;
     }>> | null | undefined;
@@ -275,7 +276,7 @@ export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      * the typed-in character otherwise including `' '` for space.
      * Fires before `onChange` callbacks.
      */
-    onKeyPress?: BubblingEventHandler<$ReadOnly<{
+    onKeyPress?: BubblingEventHandler<UniqueBranding & Readonly<{
         target: Int32;
         key: string;
     }>> | null | undefined;
@@ -284,28 +285,28 @@ export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      * May also contain other properties from ScrollEvent but on Android contentSize
      * is not provided for performance reasons.
      */
-    onScroll?: DirectEventHandler<$ReadOnly<{
+    onScroll?: DirectEventHandler<UniqueBranding & Readonly<{
         target: Int32;
         responderIgnoreScroll: boolean;
-        contentInset: $ReadOnly<{
+        contentInset: UniqueBranding & Readonly<{
             top: Double;
             bottom: Double;
             left: Double;
             right: Double;
         }>;
-        contentOffset: $ReadOnly<{
+        contentOffset: UniqueBranding & Readonly<{
             x: Double;
             y: Double;
         }>;
-        contentSize: $ReadOnly<{
+        contentSize: UniqueBranding & Readonly<{
             width: Double;
             height: Double;
         }>;
-        layoutMeasurement: $ReadOnly<{
+        layoutMeasurement: UniqueBranding & Readonly<{
             width: Double;
             height: Double;
         }>;
-        velocity: $ReadOnly<{
+        velocity: UniqueBranding & Readonly<{
             x: Double;
             y: Double;
         }>;
@@ -331,10 +332,10 @@ export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
      * The start and end of the text input's selection. Set start and end to
      * the same value to position the cursor.
      */
-    selection?: $ReadOnly<{
+    selection?: (UniqueBranding & Readonly<{
         start: Int32;
         end?: Int32 | null | undefined;
-    }> | null | undefined;
+    }>) | null | undefined;
     /**
      * The value to show for the text input. `TextInput` is a controlled
      * component, which means the native value will be forced to match this
@@ -395,10 +396,10 @@ export declare type NativeProps = $ReadOnly<$Diff<ViewProps, $ReadOnly<{
     textShadowRadius?: Float | null | undefined;
     textDecorationLine?: string | null | undefined;
     fontStyle?: string | null | undefined;
-    textShadowOffset?: $ReadOnly<{
+    textShadowOffset?: (UniqueBranding & Readonly<{
         width?: Double | null | undefined;
         height?: Double | null | undefined;
-    }> | null | undefined;
+    }>) | null | undefined;
     lineHeight?: Float | null | undefined;
     textTransform?: string | null | undefined;
     color?: Int32 | null | undefined;

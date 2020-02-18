@@ -1,4 +1,4 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 /**
  * Resolve a style property into its component parts.
  *
@@ -9,10 +9,10 @@ import { $ReadOnly } from "utility-types";
  *
  * If no parts exist, this returns null.
  */
-declare function resolveBoxStyle(prefix: string, style: any): $ReadOnly<{
+declare function resolveBoxStyle(prefix: string, style: any): (UniqueBranding & Readonly<{
     bottom: number;
     left: number;
     right: number;
     top: number;
-}> | null | undefined;
+}>) | null | undefined;
 export default resolveBoxStyle;

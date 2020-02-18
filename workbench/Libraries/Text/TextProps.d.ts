@@ -1,10 +1,9 @@
-import { Stringish } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding, Stringish } from "flow-builtin-types";
 import { LayoutEvent, PressEvent, TextLayoutEvent } from "../Types/CoreEventTypes";
 import { Node } from "react";
 import { TextStyleProp } from "../StyleSheet/StyleSheet";
 import { AccessibilityRole, AccessibilityState } from "../Components/View/ViewAccessibility";
-export declare type PressRetentionOffset = $ReadOnly<{
+export declare type PressRetentionOffset = UniqueBranding & Readonly<{
     top: number;
     left: number;
     bottom: number;
@@ -13,7 +12,7 @@ export declare type PressRetentionOffset = $ReadOnly<{
 /**
  * @see https://facebook.github.io/react-native/docs/text.html#reference
  */
-export declare type TextProps = $ReadOnly<{
+export declare type TextProps = UniqueBranding & Readonly<{
     /**
      * Indicates whether the view is an accessibility element.
      *

@@ -1,7 +1,7 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ViewProps } from "../View/ViewPropTypes";
-declare type Props = $ReadOnly<ViewProps & {
+declare type Props = UniqueBranding & Readonly<ViewProps & {
     children: React.ReactNode;
     /**
      * Should be a React element to be rendered and applied as the

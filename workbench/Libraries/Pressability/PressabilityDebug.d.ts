@@ -1,13 +1,13 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import * as React from "react";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     color: string;
-    hitSlop: $ReadOnly<{
+    hitSlop: (UniqueBranding & Readonly<{
         bottom?: number | null | undefined;
         left?: number | null | undefined;
         right?: number | null | undefined;
         top?: number | null | undefined;
-    }> | null | undefined;
+    }>) | null | undefined;
 }>;
 /**
  * Displays a debug overlay to visualize press targets when enabled via the

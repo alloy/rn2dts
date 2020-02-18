@@ -1,7 +1,7 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 declare type Type = "spring" | "linear" | "easeInEaseOut" | "easeIn" | "easeOut" | "keyboard";
 declare type Property = "opacity" | "scaleX" | "scaleY" | "scaleXY";
-declare type AnimationConfig = $ReadOnly<{
+declare type AnimationConfig = UniqueBranding & Readonly<{
     duration?: number;
     delay?: number;
     springDamping?: number;
@@ -9,7 +9,7 @@ declare type AnimationConfig = $ReadOnly<{
     type?: Type;
     property?: Property;
 }>;
-declare type LayoutAnimationConfig = $ReadOnly<{
+declare type LayoutAnimationConfig = UniqueBranding & Readonly<{
     duration: number;
     create?: AnimationConfig;
     update?: AnimationConfig;
@@ -62,60 +62,8 @@ declare const LayoutAnimation: {
     }>;
     checkConfig(...args: unknown[]): void;
     Presets: {
-        easeInEaseOut: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-            duration: number;
-            create?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-                duration?: any;
-                delay?: any;
-                springDamping?: any;
-                initialVelocity?: any;
-                type?: any;
-                property?: any;
-            }> | undefined;
-            update?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-                duration?: any;
-                delay?: any;
-                springDamping?: any;
-                initialVelocity?: any;
-                type?: any;
-                property?: any;
-            }> | undefined;
-            delete?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-                duration?: any;
-                delay?: any;
-                springDamping?: any;
-                initialVelocity?: any;
-                type?: any;
-                property?: any;
-            }> | undefined;
-        }>;
-        linear: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-            duration: number;
-            create?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-                duration?: any;
-                delay?: any;
-                springDamping?: any;
-                initialVelocity?: any;
-                type?: any;
-                property?: any;
-            }> | undefined;
-            update?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-                duration?: any;
-                delay?: any;
-                springDamping?: any;
-                initialVelocity?: any;
-                type?: any;
-                property?: any;
-            }> | undefined;
-            delete?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-                duration?: any;
-                delay?: any;
-                springDamping?: any;
-                initialVelocity?: any;
-                type?: any;
-                property?: any;
-            }> | undefined;
-        }>;
+        easeInEaseOut: LayoutAnimationConfig;
+        linear: LayoutAnimationConfig;
         spring: {
             duration: number;
             create: {

@@ -1,5 +1,5 @@
-import { $ReadOnly } from "utility-types";
-export declare type ImageURISource = $ReadOnly<{
+import { UniqueBranding } from "flow-builtin-types";
+export declare type ImageURISource = UniqueBranding & Readonly<{
     /**
      * `uri` is a string representing the resource identifier for the image, which
      * could be an http address, a local file path, or the name of a static image

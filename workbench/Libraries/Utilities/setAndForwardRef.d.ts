@@ -1,6 +1,6 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ElementRef, Ref } from "react";
-declare type Args = $ReadOnly<{
+declare type Args = UniqueBranding & Readonly<{
     getForwardedRef: (() => Ref<any> | null | undefined);
     setLocalRef: ((ref: ElementRef<any>) => unknown);
 }>;

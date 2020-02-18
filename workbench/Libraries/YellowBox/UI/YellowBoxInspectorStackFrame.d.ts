@@ -1,7 +1,10 @@
 import React from 'react';
+import { UniqueBranding } from "flow-builtin-types";
+import { PressEvent } from "../../Types/CoreEventTypes";
 import { StackFrame } from "../../Core/NativeExceptionsManager";
-declare const YellowBoxInspectorStackFrame: (props: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
+declare type Props = UniqueBranding & Readonly<{
     frame: StackFrame;
-    onPress?: ((event: any) => void) | null | undefined;
-}>) => React.ReactNode;
+    onPress?: ((event: PressEvent) => void) | null | undefined;
+}>;
+declare const YellowBoxInspectorStackFrame: (props: Props) => React.ReactNode;
 export default YellowBoxInspectorStackFrame;

@@ -1,6 +1,5 @@
 import React from 'react';
-import { React$Node } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding, React$Node } from "flow-builtin-types";
 /**
  * Renders static content efficiently by allowing React to short-circuit the
  * reconciliation process. This component should be used when you know that a
@@ -16,7 +15,7 @@ import { $ReadOnly } from "utility-types";
  * Typically, you will not need to use this component and should opt for normal
  * React reconciliation.
  */
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     /**
      * Whether or not this component should update.
      */

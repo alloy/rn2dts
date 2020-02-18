@@ -1,7 +1,7 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { BlurEvent, FocusEvent, PressEvent } from "../../Types/CoreEventTypes";
 import TVEventHandler from "../../Components/AppleTV/TVEventHandler";
-declare type TVTouchableConfig = $ReadOnly<{
+declare type TVTouchableConfig = UniqueBranding & Readonly<{
     getDisabled: (() => boolean);
     onBlur: ((event: BlurEvent) => unknown);
     onFocus: ((event: FocusEvent) => unknown);

@@ -1,5 +1,4 @@
-import { Stringish } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding, Stringish } from "flow-builtin-types";
 import { BlurEvent, FocusEvent, MouseEvent, PressEvent, Layout, LayoutEvent } from "../../Types/CoreEventTypes";
 import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
 import { Node } from "react";
@@ -7,11 +6,11 @@ import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
 import { AccessibilityRole, AccessibilityState, AccessibilityValue, AccessibilityActionEvent, AccessibilityActionInfo } from "./ViewAccessibility";
 export declare type ViewLayout = Layout;
 export declare type ViewLayoutEvent = LayoutEvent;
-declare type BubblingEventProps = $ReadOnly<{
+declare type BubblingEventProps = UniqueBranding & Readonly<{
     onBlur?: ((event: BlurEvent) => unknown) | null | undefined;
     onFocus?: ((event: FocusEvent) => unknown) | null | undefined;
 }>;
-declare type DirectEventProps = $ReadOnly<{
+declare type DirectEventProps = UniqueBranding & Readonly<{
     /**
      * When `accessible` is true, the system will try to invoke this function
      * when the user performs an accessibility custom action.
@@ -52,11 +51,11 @@ declare type DirectEventProps = $ReadOnly<{
      */
     onAccessibilityEscape?: (() => unknown) | null | undefined;
 }>;
-declare type MouseEventProps = $ReadOnly<{
+declare type MouseEventProps = UniqueBranding & Readonly<{
     onMouseEnter?: ((event: MouseEvent) => void);
     onMouseLeave?: ((event: MouseEvent) => void);
 }>;
-declare type TouchEventProps = $ReadOnly<{
+declare type TouchEventProps = UniqueBranding & Readonly<{
     onTouchCancel?: ((e: PressEvent) => void) | null | undefined;
     onTouchCancelCapture?: ((e: PressEvent) => void) | null | undefined;
     onTouchEnd?: ((e: PressEvent) => void) | null | undefined;
@@ -71,7 +70,7 @@ declare type TouchEventProps = $ReadOnly<{
  * `TouchableHighlight` or `TouchableOpacity`. Check out `Touchable.js`,
  * `ScrollResponder.js` and `ResponderEventPlugin.js` for more discussion.
  */
-declare type GestureResponderEventProps = $ReadOnly<{
+declare type GestureResponderEventProps = UniqueBranding & Readonly<{
     /**
      * Does this view want to "claim" touch responsiveness? This is called for
      * every touch move on the `View` when it is not the responder.
@@ -177,17 +176,17 @@ declare type GestureResponderEventProps = $ReadOnly<{
      */
     onStartShouldSetResponderCapture?: ((e: PressEvent) => boolean) | null | undefined;
 }>;
-declare type AndroidDrawableThemeAttr = $ReadOnly<{
+declare type AndroidDrawableThemeAttr = UniqueBranding & Readonly<{
     type: "ThemeAttrAndroid";
     attribute: string;
 }>;
-declare type AndroidDrawableRipple = $ReadOnly<{
+declare type AndroidDrawableRipple = UniqueBranding & Readonly<{
     type: "RippleAndroid";
     color?: number | null | undefined;
     borderless?: boolean | null | undefined;
 }>;
 declare type AndroidDrawable = AndroidDrawableThemeAttr | AndroidDrawableRipple;
-declare type AndroidViewProps = $ReadOnly<{
+declare type AndroidViewProps = UniqueBranding & Readonly<{
     nativeBackgroundAndroid?: AndroidDrawable | null | undefined;
     nativeForegroundAndroid?: AndroidDrawable | null | undefined;
     /**
@@ -287,7 +286,7 @@ declare type AndroidViewProps = $ReadOnly<{
      */
     onClick?: ((event: PressEvent) => unknown) | null | undefined;
 }>;
-declare type IOSViewProps = $ReadOnly<{
+declare type IOSViewProps = UniqueBranding & Readonly<{
     /**
      * Prevents view from being inverted if set to true and color inversion is turned on.
      *
@@ -322,7 +321,7 @@ declare type IOSViewProps = $ReadOnly<{
      */
     shouldRasterizeIOS?: boolean | null | undefined;
 }>;
-export declare type ViewProps = $ReadOnly<BubblingEventProps & DirectEventProps & GestureResponderEventProps & MouseEventProps & TouchEventProps & AndroidViewProps & IOSViewProps & {
+export declare type ViewProps = UniqueBranding & Readonly<BubblingEventProps & DirectEventProps & GestureResponderEventProps & MouseEventProps & TouchEventProps & AndroidViewProps & IOSViewProps & {
     children?: Node;
     style?: ViewStyleProp | null | undefined;
     /**

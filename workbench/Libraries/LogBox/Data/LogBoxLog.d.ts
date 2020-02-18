@@ -1,9 +1,9 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { Category, Message, ComponentStack, CodeFrame } from "./parseLogBoxLog";
 import { Stack } from "./LogBoxSymbolication";
 declare type SymbolicationStatus = "NONE" | "PENDING" | "COMPLETE" | "FAILED";
 export declare type LogLevel = "warn" | "error" | "fatal" | "syntax";
-export declare type LogBoxLogData = $ReadOnly<{
+export declare type LogBoxLogData = UniqueBranding & Readonly<{
     level: LogLevel;
     message: Message;
     stack: Stack;
@@ -21,23 +21,23 @@ declare class LogBoxLog {
     level: LogLevel;
     codeFrame: CodeFrame | null | undefined;
     isComponentError: boolean;
-    symbolicated: $ReadOnly<{
+    symbolicated: (UniqueBranding & Readonly<{
         error: null;
         stack: null;
         status: "NONE";
-    }> | $ReadOnly<{
+    }>) | (UniqueBranding & Readonly<{
         error: null;
         stack: null;
         status: "PENDING";
-    }> | $ReadOnly<{
+    }>) | (UniqueBranding & Readonly<{
         error: null;
         stack: Stack;
         status: "COMPLETE";
-    }> | $ReadOnly<{
+    }>) | (UniqueBranding & Readonly<{
         error: Error;
         stack: null;
         status: "FAILED";
-    }>;
+    }>);
     constructor(data: LogBoxLogData);
     incrementCount(): void;
     getAvailableStack(): Stack;

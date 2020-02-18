@@ -1,11 +1,11 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { Category, Message } from "./YellowBoxCategory";
 import { Stack } from "./YellowBoxSymbolication";
-export declare type SymbolicationRequest = $ReadOnly<{
+export declare type SymbolicationRequest = UniqueBranding & Readonly<{
     abort: (() => void);
 }>;
 declare class YellowBoxWarning {
-    static parse({ args }: $ReadOnly<{
+    static parse({ args }: UniqueBranding & Readonly<{
         args: ReadonlyArray<unknown>;
     }>): {
         category: Category;
@@ -14,23 +14,23 @@ declare class YellowBoxWarning {
     };
     message: Message;
     stack: Stack;
-    symbolicated: $ReadOnly<{
+    symbolicated: (UniqueBranding & Readonly<{
         error: null;
         stack: null;
         status: "NONE";
-    }> | $ReadOnly<{
+    }>) | (UniqueBranding & Readonly<{
         error: null;
         stack: null;
         status: "PENDING";
-    }> | $ReadOnly<{
+    }>) | (UniqueBranding & Readonly<{
         error: null;
         stack: Stack;
         status: "COMPLETE";
-    }> | $ReadOnly<{
+    }>) | (UniqueBranding & Readonly<{
         error: Error;
         stack: null;
         status: "FAILED";
-    }>;
+    }>);
     constructor(message: Message, stack: Stack);
     getAvailableStack(): Stack;
     retrySymbolicate(callback: (() => void)): SymbolicationRequest;

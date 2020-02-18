@@ -1,12 +1,10 @@
 import React from 'react';
-declare const YellowBoxButton: (props: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-    hitSlop?: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-        top?: any;
-        left?: any;
-        bottom?: any;
-        right?: any;
-    }> | null | undefined;
+import { UniqueBranding } from "flow-builtin-types";
+import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
+declare type Props = UniqueBranding & Readonly<{
+    hitSlop?: EdgeInsetsProp | null | undefined;
     label: string;
-    onPress: () => void;
-}>) => React.ReactNode;
+    onPress: (() => void);
+}>;
+declare const YellowBoxButton: (props: Props) => React.ReactNode;
 export default YellowBoxButton;

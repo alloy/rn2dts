@@ -1,4 +1,5 @@
-import { $ReadOnly, $PropertyType, $Call } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
+import { $PropertyType, $Call } from "utility-types";
 import { PressEvent } from "../Types/CoreEventTypes";
 /**
  * `PanResponder` reconciles several touches into a single gesture. It makes
@@ -147,7 +148,7 @@ export declare type GestureState = {
 };
 declare type ActiveCallback = ((event: PressEvent, gestureState: GestureState) => boolean);
 declare type PassiveCallback = ((event: PressEvent, gestureState: GestureState) => unknown);
-declare type PanResponderConfig = $ReadOnly<{
+declare type PanResponderConfig = UniqueBranding & Readonly<{
     onMoveShouldSetPanResponder?: ActiveCallback | null | undefined;
     onMoveShouldSetPanResponderCapture?: ActiveCallback | null | undefined;
     onStartShouldSetPanResponder?: ActiveCallback | null | undefined;
@@ -255,7 +256,23 @@ declare const PanResponder: {
      * typical responder callback pattern (without using `PanResponder`), but
      * avoids more dispatches than necessary.
      */
-    _updateGestureStateOnMove(gestureState: GestureState, touchHistory: any): void;
+    _updateGestureStateOnMove(gestureState: GestureState, touchHistory: UniqueBranding & Readonly<{
+        indexOfSingleActiveTouch: number;
+        mostRecentTimeStamp: number;
+        numberActiveTouches: number;
+        touchBank: readonly (UniqueBranding & Readonly<{
+            touchActive: boolean;
+            startPageX: number;
+            startPageY: number;
+            startTimeStamp: number;
+            currentPageX: number;
+            currentPageY: number;
+            currentTimeStamp: number;
+            previousPageX: number;
+            previousPageY: number;
+            previousTimeStamp: number;
+        }>)[];
+    }>): void;
     /**
      * @param {object} config Enhanced versions of all of the responder callbacks
      * that provide not only the typical `ResponderSyntheticEvent`, but also the
@@ -288,35 +305,153 @@ declare const PanResponder: {
      *  accordingly. (numberActiveTouches) may not be totally accurate unless you
      *  are the responder.
      */
-    create(config: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-        onMoveShouldSetPanResponder?: ActiveCallback | null | undefined;
-        onMoveShouldSetPanResponderCapture?: ActiveCallback | null | undefined;
-        onStartShouldSetPanResponder?: ActiveCallback | null | undefined;
-        onStartShouldSetPanResponderCapture?: ActiveCallback | null | undefined;
-        onPanResponderGrant?: ActiveCallback | PassiveCallback | null | undefined;
-        onPanResponderReject?: PassiveCallback | null | undefined;
-        onPanResponderStart?: PassiveCallback | null | undefined;
-        onPanResponderEnd?: PassiveCallback | null | undefined;
-        onPanResponderRelease?: PassiveCallback | null | undefined;
-        onPanResponderMove?: PassiveCallback | null | undefined;
-        onPanResponderTerminate?: PassiveCallback | null | undefined;
-        onPanResponderTerminationRequest?: ActiveCallback | null | undefined;
-        onShouldBlockNativeResponder?: ActiveCallback | null | undefined;
-    }>): {
+    create(config: PanResponderConfig): {
         getInteractionHandle: () => number | null | undefined;
         panHandlers: {
-            onMoveShouldSetResponder: (event: any) => boolean;
-            onMoveShouldSetResponderCapture: (event: any) => boolean;
-            onResponderEnd: (event: any) => void;
-            onResponderGrant: (event: any) => boolean;
-            onResponderMove: (event: any) => void;
-            onResponderReject: (event: any) => void;
-            onResponderRelease: (event: any) => void;
-            onResponderStart: (event: any) => void;
-            onResponderTerminate: (event: any) => void;
-            onResponderTerminationRequest: (event: any) => boolean;
-            onStartShouldSetResponder: (event: any) => boolean;
-            onStartShouldSetResponderCapture: (event: any) => boolean;
+            onMoveShouldSetResponder: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => boolean;
+            onMoveShouldSetResponderCapture: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => boolean;
+            onResponderEnd: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => void;
+            onResponderGrant: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => boolean;
+            onResponderMove: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => void;
+            onResponderReject: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => void;
+            onResponderRelease: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => void;
+            onResponderStart: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => void;
+            onResponderTerminate: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => void;
+            onResponderTerminationRequest: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => boolean;
+            onStartShouldSetResponder: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => boolean;
+            onStartShouldSetResponderCapture: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
+                changedTouches: readonly Event[];
+                force: number;
+                identifier: number;
+                locationX: number;
+                locationY: number;
+                pageX: number;
+                pageY: number;
+                target: number | null | undefined;
+                timestamp: number;
+                touches: readonly Event[];
+            }>>) => boolean;
         };
     };
 };

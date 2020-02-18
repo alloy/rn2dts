@@ -1,8 +1,8 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { Registry, Subscription } from "./Data/YellowBoxRegistry";
-declare type Props = $ReadOnly<{}>;
-declare type State = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{}>;
+declare type State = UniqueBranding & Readonly<{
     registry: Registry | null | undefined;
 }>;
 declare class YellowBoxContainer extends React.Component<Props, State> {

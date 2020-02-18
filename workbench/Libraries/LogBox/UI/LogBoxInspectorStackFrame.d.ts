@@ -1,8 +1,8 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import * as React from "react";
 import { PressEvent } from "../../Types/CoreEventTypes";
 import { StackFrame } from "../../Core/NativeExceptionsManager";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     frame: StackFrame;
     onPress?: ((event: PressEvent) => void) | null | undefined;
 }>;

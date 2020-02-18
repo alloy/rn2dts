@@ -1,23 +1,23 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import * as React from "react";
 import LogBoxLog from "./LogBoxLog";
 import { LogLevel } from "./LogBoxLog";
 import { Message, Category, ComponentStack, ExtendedExceptionData } from "./parseLogBoxLog";
 import { ExtendedError } from "../../Core/Devtools/parseErrorStack";
 export declare type LogBoxLogs = Set<LogBoxLog>;
-export declare type LogData = $ReadOnly<{
+export declare type LogData = UniqueBranding & Readonly<{
     level: LogLevel;
     message: Message;
     category: Category;
     componentStack: ComponentStack;
 }>;
-export declare type Observer = ((arg0: $ReadOnly<{
+export declare type Observer = ((arg0: UniqueBranding & Readonly<{
     logs: LogBoxLogs;
     isDisabled: boolean;
     selectedLogIndex: number;
 }>) => void);
 export declare type IgnorePattern = string | RegExp;
-export declare type Subscription = $ReadOnly<{
+export declare type Subscription = UniqueBranding & Readonly<{
     unsubscribe: (() => void);
 }>;
 export declare type WarningInfo = {
@@ -30,7 +30,7 @@ export declare type WarningInfo = {
     monitorSampleRate: number;
 };
 export declare type WarningFilter = ((format: string) => WarningInfo);
-declare type AppInfo = $ReadOnly<{
+declare type AppInfo = UniqueBranding & Readonly<{
     appVersion: string;
     engine: string;
 }>;
@@ -55,7 +55,7 @@ export declare function addIgnorePatterns(patterns: ReadonlyArray<IgnorePattern>
 export declare function setDisabled(value: boolean): void;
 export declare function isDisabled(): boolean;
 export declare function observe(observer: Observer): Subscription;
-declare type SubscribedComponent = React.AbstractComponent<$ReadOnly<{
+declare type SubscribedComponent = React.AbstractComponent<UniqueBranding & Readonly<{
     logs: ReadonlyArray<LogBoxLog>;
     isDisabled: boolean;
     selectedLogIndex: number;

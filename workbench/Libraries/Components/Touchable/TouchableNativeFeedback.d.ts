@@ -1,5 +1,4 @@
 import { ClassOrType, UniqueBranding } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
 import Pressability from "../../Pressability/Pressability.js";
 import TVTouchable from "./TVTouchable";
 import _valueof_TouchableWithoutFeedback from "./TouchableWithoutFeedback";
@@ -7,21 +6,21 @@ declare type _typeof_TouchableWithoutFeedback = typeof _valueof_TouchableWithout
 declare type TouchableWithoutFeedback = ClassOrType<_typeof_TouchableWithoutFeedback>;
 import { PressEvent } from "react-native/Libraries/Types/CoreEventTypes";
 import * as React from "react";
-declare type Props = $ReadOnly<React.ElementConfig<TouchableWithoutFeedback> & {
+declare type Props = UniqueBranding & Readonly<React.ElementConfig<TouchableWithoutFeedback> & {
     /**
      * Determines the type of background drawable that's going to be used to
      * display feedback. It takes an object with `type` property and extra data
      * depending on the `type`. It's recommended to use one of the static
      * methods to generate that dictionary.
      */
-    background?: ($ReadOnly<{
+    background?: ((UniqueBranding & Readonly<{
         type: "ThemeAttrAndroid";
         attribute: "selectableItemBackground" | "selectableItemBackgroundBorderless";
-    }> | $ReadOnly<{
+    }>) | (UniqueBranding & Readonly<{
         type: "RippleAndroid";
         color: number | null | undefined;
         borderless: boolean;
-    }>) | null | undefined;
+    }>)) | null | undefined;
     /**
      * TV preferred focus (see documentation for the View component).
      */
@@ -58,7 +57,7 @@ declare type Props = $ReadOnly<React.ElementConfig<TouchableWithoutFeedback> & {
      */
     useForeground?: boolean | null | undefined;
 }>;
-declare type State = $ReadOnly<{
+declare type State = UniqueBranding & Readonly<{
     pressability: Pressability;
 }>;
 declare class TouchableNativeFeedback extends React.Component<Props, State> {
@@ -66,7 +65,7 @@ declare class TouchableNativeFeedback extends React.Component<Props, State> {
      * Creates a value for the `background` prop that uses the Android theme's
      * default background for selectable elements.
      */
-    static SelectableBackground: (() => $ReadOnly<{
+    static SelectableBackground: (() => UniqueBranding & Readonly<{
         attribute: "selectableItemBackground";
         type: "ThemeAttrAndroid";
     }>);
@@ -74,7 +73,7 @@ declare class TouchableNativeFeedback extends React.Component<Props, State> {
      * Creates a value for the `background` prop that uses the Android theme's
      * default background for borderless selectable elements. Requires API 21+.
      */
-    static SelectableBackgroundBorderless: (() => $ReadOnly<{
+    static SelectableBackgroundBorderless: (() => UniqueBranding & Readonly<{
         attribute: "selectableItemBackgroundBorderless";
         type: "ThemeAttrAndroid";
     }>);
@@ -83,7 +82,7 @@ declare class TouchableNativeFeedback extends React.Component<Props, State> {
      * the supplied color. If `borderless` is true, the ripple will render outside
      * of the view bounds. Requires API 21+.
      */
-    static Ripple: ((color: string, borderless: boolean) => $ReadOnly<{
+    static Ripple: ((color: string, borderless: boolean) => UniqueBranding & Readonly<{
         borderless: boolean;
         color: number | null | undefined;
         type: "RippleAndroid";

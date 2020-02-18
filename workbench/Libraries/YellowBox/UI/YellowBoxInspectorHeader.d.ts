@@ -1,8 +1,10 @@
 import React from 'react';
+import { UniqueBranding } from "flow-builtin-types";
 import YellowBoxWarning from "../Data/YellowBoxWarning";
-declare const YellowBoxInspectorHeader: (props: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-    onSelectIndex: (selectedIndex: number) => void;
+declare type Props = UniqueBranding & Readonly<{
+    onSelectIndex: ((selectedIndex: number) => void);
     selectedIndex: number;
-    warnings: readonly YellowBoxWarning[];
-}>) => React.ReactNode;
+    warnings: ReadonlyArray<YellowBoxWarning>;
+}>;
+declare const YellowBoxInspectorHeader: (props: Props) => React.ReactNode;
 export default YellowBoxInspectorHeader;

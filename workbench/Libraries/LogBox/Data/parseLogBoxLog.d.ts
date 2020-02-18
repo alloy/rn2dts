@@ -1,11 +1,11 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ExceptionData } from "../../Core/NativeExceptionsManager";
 import { LogBoxLogData } from "./LogBoxLog";
 export declare type ExtendedExceptionData = ExceptionData & {
     isComponentError: boolean;
 };
 export declare type Category = string;
-export declare type CodeFrame = $ReadOnly<{
+export declare type CodeFrame = UniqueBranding & Readonly<{
     content: string;
     location: {
         row: number;
@@ -13,15 +13,15 @@ export declare type CodeFrame = $ReadOnly<{
     } | null | undefined;
     fileName: string;
 }>;
-export declare type Message = $ReadOnly<{
+export declare type Message = UniqueBranding & Readonly<{
     content: string;
-    substitutions: ReadonlyArray<$ReadOnly<{
+    substitutions: ReadonlyArray<UniqueBranding & Readonly<{
         length: number;
         offset: number;
     }>>;
 }>;
 export declare type ComponentStack = ReadonlyArray<CodeFrame>;
-export declare function parseCategory(args: ReadonlyArray<unknown>): $ReadOnly<{
+export declare function parseCategory(args: ReadonlyArray<unknown>): UniqueBranding & Readonly<{
     category: Category;
     message: Message;
 }>;

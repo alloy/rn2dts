@@ -1,12 +1,11 @@
 import EmitterSubscription from '../vendor/emitter/EmitterSubscription';
 import React from 'react';
 import View from '../Components/View/View';
-import { React$PropType$Primitive } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding, React$PropType$Primitive } from "flow-builtin-types";
 declare type Context = {
     rootTag: number;
 };
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     children?: React.ReactNode;
     fabric?: boolean;
     rootTag: number;

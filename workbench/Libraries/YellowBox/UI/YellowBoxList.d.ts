@@ -1,8 +1,8 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { Category } from "../Data/YellowBoxCategory";
 import { Registry } from "../Data/YellowBoxRegistry";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     onDismiss: ((category: Category) => void);
     onDismissAll: (() => void);
     registry: Registry;

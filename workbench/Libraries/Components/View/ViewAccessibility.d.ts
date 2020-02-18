@@ -1,11 +1,11 @@
 /// <reference types="react" />
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 export declare type AccessibilityRole = "none" | "button" | "link" | "search" | "image" | "keyboardkey" | "text" | "adjustable" | "imagebutton" | "header" | "summary" | "alert" | "checkbox" | "combobox" | "menu" | "menubar" | "menuitem" | "progressbar" | "radio" | "radiogroup" | "scrollbar" | "spinbutton" | "switch" | "tab" | "tablist" | "timer" | "toolbar";
-export declare type AccessibilityActionInfo = $ReadOnly<{
+export declare type AccessibilityActionInfo = UniqueBranding & Readonly<{
     name: string;
     label?: string;
 }>;
-export declare type AccessibilityActionEvent = React.SyntheticEvent<$ReadOnly<{
+export declare type AccessibilityActionEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     actionName: string;
 }>>;
 export declare type AccessibilityState = {
@@ -15,7 +15,7 @@ export declare type AccessibilityState = {
     busy?: boolean;
     expanded?: boolean;
 };
-export declare type AccessibilityValue = $ReadOnly<{
+export declare type AccessibilityValue = UniqueBranding & Readonly<{
     /**
      * The minimum value of this component's range. (should be an integer)
      */

@@ -1,5 +1,5 @@
-import { React$Element } from "flow-builtin-types";
-import { $ReadOnly, Class } from "utility-types";
+import { UniqueBranding, React$Element } from "flow-builtin-types";
+import { Class } from "utility-types";
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -13,35 +13,35 @@ import React, { ElementRef, AbstractComponent } from "react";
 export declare type MeasureOnSuccessCallback = ((x: number, y: number, width: number, height: number, pageX: number, pageY: number) => void);
 export declare type MeasureInWindowOnSuccessCallback = ((x: number, y: number, width: number, height: number) => void);
 export declare type MeasureLayoutOnSuccessCallback = ((left: number, top: number, width: number, height: number) => void);
-declare type AttributeType = true | $ReadOnly<{
+declare type AttributeType = true | (UniqueBranding & Readonly<{
     diff?: (<T>(arg1: T, arg2: T) => boolean);
     process?: ((arg1: any) => any);
-}>;
-export declare type AttributeConfiguration<TProps = string, TStyleProps = string> = $ReadOnly<{
-    style: $ReadOnly<{
+}>);
+export declare type AttributeConfiguration<TProps = string, TStyleProps = string> = UniqueBranding & Readonly<{
+    style: UniqueBranding & Readonly<{
         [propName: TStyleProps]: AttributeType;
     }>;
     [propName: TProps]: AttributeType;
 }>;
-export declare type ReactNativeBaseComponentViewConfig<TProps = string, TStyleProps = string> = $ReadOnly<{
+export declare type ReactNativeBaseComponentViewConfig<TProps = string, TStyleProps = string> = UniqueBranding & Readonly<{
     baseModuleName?: string;
-    bubblingEventTypes?: $ReadOnly<{
-        [eventName: string]: $ReadOnly<{
-            phasedRegistrationNames: $ReadOnly<{
+    bubblingEventTypes?: UniqueBranding & Readonly<{
+        [eventName: string]: UniqueBranding & Readonly<{
+            phasedRegistrationNames: UniqueBranding & Readonly<{
                 captured: string;
                 bubbled: string;
             }>;
         }>;
     }>;
-    Commands?: $ReadOnly<{
+    Commands?: UniqueBranding & Readonly<{
         [commandName: string]: number;
     }>;
-    directEventTypes?: $ReadOnly<{
-        [eventName: string]: $ReadOnly<{
+    directEventTypes?: UniqueBranding & Readonly<{
+        [eventName: string]: UniqueBranding & Readonly<{
             registrationName: string;
         }>;
     }>;
-    NativeProps?: $ReadOnly<{
+    NativeProps?: UniqueBranding & Readonly<{
         [propName: string]: string;
     }>;
     uiViewClassName: string;
@@ -73,7 +73,7 @@ export declare type NativeMethods = {
     setNativeProps(nativeProps: any): void;
 };
 export declare type NativeMethodsMixinType = NativeMethods;
-export declare type HostComponent<T> = AbstractComponent<T, $ReadOnly<NativeMethods>>;
+export declare type HostComponent<T> = AbstractComponent<T, UniqueBranding & Readonly<NativeMethods>>;
 declare type SecretInternalsType = {
     NativeMethodsMixin: NativeMethodsMixinType;
     computeComponentStackForErrorReporting(tag: number): string;

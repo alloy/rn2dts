@@ -1,7 +1,7 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ViewStyleProp } from "../StyleSheet/StyleSheet";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     hierarchy: Array<{
         name: string;
     }>;

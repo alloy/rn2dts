@@ -1,12 +1,12 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ViewStyleProp } from "../StyleSheet/StyleSheet";
 import { PressEvent } from "../Types/CoreEventTypes";
-declare type Inspected = $ReadOnly<{
+declare type Inspected = UniqueBranding & Readonly<{
     frame?: any;
     style?: ViewStyleProp;
 }>;
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     inspected?: Inspected;
     inspectedViewTag?: number | null | undefined;
     onTouchViewTag: ((tag: number, frame: any, pointerY: number) => unknown);

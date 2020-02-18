@@ -1,9 +1,9 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { TurboModule } from "../TurboModule/RCTExport";
 export interface Spec extends TurboModule {
     readonly abortRequest: ((requestId: number) => void);
     readonly getConstants: (() => {});
-    readonly getSize: ((uri: string) => Promise<$ReadOnly<{
+    readonly getSize: ((uri: string) => Promise<UniqueBranding & Readonly<{
         width: number;
         height: number;
     }>>);

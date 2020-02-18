@@ -1,9 +1,9 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { CompositeAnimation } from "../../Animated/src/AnimatedImplementation";
 import AnimatedInterpolation from "../../Animated/src/nodes/AnimatedInterpolation";
 import { PressEvent } from "../../Types/CoreEventTypes";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     onPress?: ((event: PressEvent) => void) | null | undefined;
     status: "COMPLETE" | "FAILED" | "NONE" | "PENDING";
 }>;

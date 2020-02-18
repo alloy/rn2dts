@@ -45,7 +45,7 @@ index dc9c67c..17db91b 100644
      tsCode += "\n";
    }
 diff --git a/node_modules/@khanacademy/flow-to-ts/src/transform.js b/node_modules/@khanacademy/flow-to-ts/src/transform.js
-index 8ab9470..67355fb 100644
+index 8ab9470..f3619de 100644
 --- a/node_modules/@khanacademy/flow-to-ts/src/transform.js
 +++ b/node_modules/@khanacademy/flow-to-ts/src/transform.js
 @@ -1,4 +1,3 @@
@@ -174,7 +174,23 @@ index 8ab9470..67355fb 100644
        const typeParameter = {
          type: "TSTypeParameter",
          constraint: bound && bound.typeAnnotation,
-@@ -401,6 +443,10 @@ const transform = {
+@@ -387,6 +429,15 @@ const transform = {
+       if (typeName.name === "$ReadOnlyArray") {
+         typeName.name = "ReadonlyArray";
+       }
++      if (typeName.name === "$ReadOnly") {
++        // utility-types' $ReadOnly is recursive, which isn't what Flow does, so always use `Readonly`
++        path.replaceWith(t.tsIntersectionType([
++          t.tsTypeReference(t.identifier("UniqueBranding")),
++          t.tsTypeReference(t.identifier("Readonly"), typeParameters)
++        ]));
++        state.usedBuiltinTypes.add("UniqueBranding");
++        return;
++      }
+ 
+       if (typeName.name in utilityTypes) {
+         if (
+@@ -401,6 +452,10 @@ const transform = {
          }
        }
  
@@ -185,7 +201,7 @@ index 8ab9470..67355fb 100644
        if (typeName.name in UnqualifiedReactTypeNameMap) {
          // TODO: make sure that React was imported in this file
          path.replaceWith(
-@@ -412,6 +458,20 @@ const transform = {
+@@ -412,6 +467,20 @@ const transform = {
              typeParameters
            )
          );
@@ -206,7 +222,7 @@ index 8ab9470..67355fb 100644
        } else {
          path.replaceWith(t.tsTypeReference(typeName, typeParameters));
        }
-@@ -435,6 +495,18 @@ const transform = {
+@@ -435,6 +504,18 @@ const transform = {
        }
      }
    },
@@ -225,7 +241,7 @@ index 8ab9470..67355fb 100644
    ObjectTypeProperty: {
      exit(path) {
        const { key, value, optional, variance, kind, method } = path.node; // TODO: static, kind
-@@ -443,13 +515,13 @@ const transform = {
+@@ -443,13 +524,13 @@ const transform = {
        const computed = false; // TODO: maybe set this to true for indexers
        const readonly = variance && variance.kind === "plus";
  
@@ -246,7 +262,7 @@ index 8ab9470..67355fb 100644
  
        if (method) {
          // TODO: assert value is a FunctionTypeAnnotation
-@@ -486,10 +558,10 @@ const transform = {
+@@ -486,10 +567,10 @@ const transform = {
        const { id, key, value, variance } = path.node;
  
        const readonly = variance && variance.kind === "plus";
@@ -261,7 +277,7 @@ index 8ab9470..67355fb 100644
  
        const identifier = {
          type: "Identifier",
-@@ -532,9 +604,9 @@ const transform = {
+@@ -532,9 +613,9 @@ const transform = {
      exit(path) {
        const { exact, properties, indexers } = path.node; // TODO: callProperties, inexact
  
@@ -274,7 +290,7 @@ index 8ab9470..67355fb 100644
  
        // TODO: create multiple sets of elements so that we can convert
        // {x: number, ...T, y: number} to {x: number} & T & {y: number}
-@@ -566,6 +638,14 @@ const transform = {
+@@ -566,6 +647,14 @@ const transform = {
        }
      }
    },
@@ -289,7 +305,7 @@ index 8ab9470..67355fb 100644
    TypeAlias: {
      exit(path) {
        const { id, typeParameters, right } = path.node;
-@@ -647,7 +727,49 @@ const transform = {
+@@ -647,7 +736,49 @@ const transform = {
      }
    },
    ImportDeclaration: {

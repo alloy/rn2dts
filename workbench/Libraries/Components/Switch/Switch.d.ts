@@ -1,13 +1,13 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import AndroidSwitchNativeComponent from "./AndroidSwitchNativeComponent";
 import SwitchNativeComponent from "./SwitchNativeComponent";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { ViewProps } from "../View/ViewPropTypes";
-declare type SwitchChangeEvent = React.SyntheticEvent<$ReadOnly<{
+declare type SwitchChangeEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
     value: boolean;
 }>>;
-export declare type Props = $ReadOnly<ViewProps & {
+export declare type Props = UniqueBranding & Readonly<ViewProps & {
     /**
      * Whether the switch is disabled. Defaults to false.
      */
@@ -27,10 +27,10 @@ export declare type Props = $ReadOnly<ViewProps & {
      * border. If you want to change the color of the background exposed by the
      * shrunken track, use `ios_backgroundColor`.
      */
-    trackColor?: $ReadOnly<{
+    trackColor?: (UniqueBranding & Readonly<{
         false?: ColorValue | null | undefined;
         true?: ColorValue | null | undefined;
-    }> | null | undefined;
+    }>) | null | undefined;
     /**
      * On iOS, custom color for the background. This background color can be seen
      * either when the switch value is false or when the switch is disabled (and

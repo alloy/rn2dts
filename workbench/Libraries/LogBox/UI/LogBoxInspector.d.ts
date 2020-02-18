@@ -1,7 +1,7 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import * as React from "react";
 import LogBoxLog, { LogLevel } from "../Data/LogBoxLog";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     onDismiss: (() => void);
     onChangeSelectedIndex: ((index: number) => void);
     onMinimize: (() => void);

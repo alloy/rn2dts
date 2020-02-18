@@ -1,8 +1,8 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import YellowBoxWarning from "../Data/YellowBoxWarning";
 import { SymbolicationRequest } from "../Data/YellowBoxWarning";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     onDismiss: (() => void);
     onMinimize: (() => void);
     warnings: ReadonlyArray<YellowBoxWarning>;

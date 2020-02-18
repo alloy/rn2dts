@@ -1,14 +1,14 @@
 import processColor from '../../StyleSheet/processColor';
 import processTransform from '../../StyleSheet/processTransform';
 import sizesDiffer from '../../Utilities/differ/sizesDiffer';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 declare type StyleAttributesType = {
-    transform: $ReadOnly<{
+    transform: (UniqueBranding & Readonly<{
         process: typeof processTransform;
-    }> | true;
-    shadowOffset: $ReadOnly<{
+    }>) | true;
+    shadowOffset: (UniqueBranding & Readonly<{
         diff: typeof sizesDiffer;
-    }> | true;
+    }>) | true;
     backgroundColor: typeof colorAttributes | true;
     borderBottomColor: typeof colorAttributes | true;
     borderColor: typeof colorAttributes | true;

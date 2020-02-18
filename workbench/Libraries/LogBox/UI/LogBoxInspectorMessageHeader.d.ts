@@ -1,8 +1,8 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import * as React from "react";
 import { LogLevel } from "../Data/LogBoxLog";
 import { Message } from "../Data/parseLogBoxLog";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     collapsed: boolean;
     message: Message;
     level: LogLevel;

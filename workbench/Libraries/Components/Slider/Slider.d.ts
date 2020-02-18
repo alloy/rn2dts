@@ -1,11 +1,11 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import SliderNativeComponent from "./SliderNativeComponent";
 import { ImageSource } from "../../Image/ImageSource";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { ViewProps } from "../View/ViewPropTypes";
-declare type IOSProps = $ReadOnly<{
+declare type IOSProps = UniqueBranding & Readonly<{
     /**
      * Assigns a single image for the track. Only static images are supported.
      * The center pixel of the image will be stretched to fill the track.
@@ -26,7 +26,7 @@ declare type IOSProps = $ReadOnly<{
      */
     thumbImage?: ImageSource | null | undefined;
 }>;
-declare type Props = $ReadOnly<ViewProps & IOSProps & {
+declare type Props = UniqueBranding & Readonly<ViewProps & IOSProps & {
     /**
      * Used to style and layout the `Slider`.  See `StyleSheet.js` and
      * `DeprecatedViewStylePropTypes.js` for more info.

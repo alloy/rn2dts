@@ -1,10 +1,10 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import * as React from "react";
 import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
 import { PressEvent } from "../../Types/CoreEventTypes";
-declare type Props = $ReadOnly<{
-    backgroundColor: $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
+    backgroundColor: UniqueBranding & Readonly<{
         default: string;
         pressed: string;
     }>;

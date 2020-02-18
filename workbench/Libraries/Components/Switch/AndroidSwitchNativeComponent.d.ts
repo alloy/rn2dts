@@ -1,13 +1,13 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import * as React from "react";
 import { WithDefault, BubblingEventHandler } from "react-native/Libraries/Types/CodegenTypes";
 import { HostComponent } from "react-native/Libraries/Renderer/shims/ReactNativeTypes";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { ViewProps } from "../View/ViewPropTypes";
-declare type SwitchChangeEvent = $ReadOnly<{
+declare type SwitchChangeEvent = UniqueBranding & Readonly<{
     value: boolean;
 }>;
-declare type NativeProps = $ReadOnly<ViewProps & {
+declare type NativeProps = UniqueBranding & Readonly<ViewProps & {
     disabled?: WithDefault<boolean, false>;
     enabled?: WithDefault<boolean, true>;
     thumbColor?: ColorValue | null | undefined;

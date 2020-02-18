@@ -1,6 +1,6 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { HostComponent } from "../../Libraries/Renderer/shims/ReactNativeTypes";
-declare type Options = $ReadOnly<{
+declare type Options = UniqueBranding & Readonly<{
     interfaceOnly?: boolean;
     paperComponentName?: string;
     paperComponentNameDeprecated?: string;

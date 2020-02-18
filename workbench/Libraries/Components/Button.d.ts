@@ -1,7 +1,7 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { PressEvent } from "../Types/CoreEventTypes";
-declare type ButtonProps = $ReadOnly<{
+declare type ButtonProps = UniqueBranding & Readonly<{
     /**
      * Text to display inside the button
      */

@@ -4,8 +4,7 @@ import React from 'react';
 import ScrollView from '../Components/ScrollView/ScrollView';
 import View from '../Components/View/View';
 import ViewabilityHelper from './ViewabilityHelper';
-import { React$PropType$Primitive } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
+import { React$PropType$Primitive, UniqueBranding } from "flow-builtin-types";
 import { ScrollResponderType } from "../Components/ScrollView/ScrollView";
 import { ViewStyleProp } from "../StyleSheet/StyleSheet";
 import { ViewabilityConfig, ViewToken, ViewabilityConfigCallbackPair } from "./ViewabilityHelper";
@@ -475,11 +474,11 @@ declare class VirtualizedList extends React.PureComponent<Props, State> {
     _onLayoutFooter: (e: any) => void;
     _onLayoutHeader: (e: any) => void;
     _renderDebugOverlay(): JSX.Element;
-    _selectLength(metrics: $ReadOnly<{
+    _selectLength(metrics: UniqueBranding & Readonly<{
         height: number;
         width: number;
     }>): number;
-    _selectOffset(metrics: $ReadOnly<{
+    _selectOffset(metrics: UniqueBranding & Readonly<{
         x: number;
         y: number;
     }>): number;

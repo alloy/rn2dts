@@ -1,4 +1,4 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 /**
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
@@ -8,7 +8,7 @@ import { $ReadOnly } from "utility-types";
  * @format
  * @flow strict-local
  */
-export declare type Options = $ReadOnly<{
+export declare type Options = UniqueBranding & Readonly<{
     date?: (Date | number) | null | undefined;
     minDate?: (Date | number) | null | undefined;
     maxDate?: (Date | number) | null | undefined;

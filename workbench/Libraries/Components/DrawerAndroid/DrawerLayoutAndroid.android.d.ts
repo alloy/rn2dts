@@ -1,14 +1,14 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { DirectEventHandler } from "../../Types/CodegenTypes";
 import { MeasureOnSuccessCallback, MeasureInWindowOnSuccessCallback, MeasureLayoutOnSuccessCallback } from "../../Renderer/shims/ReactNativeTypes";
 declare type DrawerStates = "Idle" | "Dragging" | "Settling";
-declare type DrawerSlideEvent = $ReadOnly<{
+declare type DrawerSlideEvent = UniqueBranding & Readonly<{
     offset: number;
 }>;
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     /**
      * Determines whether the keyboard gets dismissed in response to a drag.
      *   - 'none' (the default), drags do not dismiss the keyboard.

@@ -1,13 +1,12 @@
 import React from 'react';
-import { React$PropType$Primitive } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding, React$PropType$Primitive } from "flow-builtin-types";
 import { ViewProps } from "../Components/View/ViewPropTypes";
 import { DirectEventHandler } from "../Types/CodegenTypes";
 import EmitterSubscription from "../vendor/emitter/EmitterSubscription";
-declare type OrientationChangeEvent = $ReadOnly<{
+declare type OrientationChangeEvent = UniqueBranding & Readonly<{
     orientation: "portrait" | "landscape";
 }>;
-export declare type Props = $ReadOnly<ViewProps & {
+export declare type Props = UniqueBranding & Readonly<ViewProps & {
     /**
      * The `animationType` prop controls how the modal animates.
      *

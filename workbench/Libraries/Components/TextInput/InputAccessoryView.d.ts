@@ -1,5 +1,5 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
 /**
  * Note: iOS only
@@ -58,7 +58,7 @@ import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
  * TextInput with the InputAccessoryView component, and don't set a nativeID.
  * For an example, look at InputAccessoryViewExample.js in RNTester.
  */
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     readonly children: React.ReactNode;
     /**
      * An ID which is used to associate this `InputAccessoryView` to

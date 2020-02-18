@@ -1,9 +1,8 @@
 import React from 'react';
-import { $TEMPORARY$string } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding, $TEMPORARY$string } from "flow-builtin-types";
 import { TextStyleProp } from "../../StyleSheet/StyleSheet";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
-declare type PickerItemProps = $ReadOnly<{
+declare type PickerItemProps = UniqueBranding & Readonly<{
     /**
      * Text to display for this item.
      */
@@ -30,7 +29,7 @@ export { PickerItem };
 declare class PickerItem extends React.Component<PickerItemProps> {
     render(): void;
 }
-declare type PickerProps = $ReadOnly<{
+declare type PickerProps = UniqueBranding & Readonly<{
     children?: React.ReactNode;
     style?: TextStyleProp | null | undefined;
     /**

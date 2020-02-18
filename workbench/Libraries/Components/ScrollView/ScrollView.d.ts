@@ -1,8 +1,8 @@
 import AnimatedImplementation from '../../Animated/src/AnimatedImplementation';
 import React from 'react';
 import ScrollResponder from '../ScrollResponder';
-import { React$Context } from "flow-builtin-types";
-import { $PropertyType, $ReadOnly } from "utility-types";
+import { UniqueBranding, React$Context } from "flow-builtin-types";
+import { $PropertyType } from "utility-types";
 import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
 import { PointProp } from "../../StyleSheet/PointPropType";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
@@ -21,7 +21,7 @@ export declare type ScrollResponderType = typeof ScrollResponder.Mixin & {
     scrollTo: $PropertyType<ScrollView, "scrollTo">;
     flashScrollIndicators: $PropertyType<ScrollView, "flashScrollIndicators">;
 };
-declare type IOSProps = $ReadOnly<{
+declare type IOSProps = UniqueBranding & Readonly<{
     /**
      * Controls whether iOS should automatically adjust the content inset
      * for scroll views that are placed behind a navigation bar or
@@ -131,10 +131,10 @@ declare type IOSProps = $ReadOnly<{
      *
      * @platform ios
      */
-    maintainVisibleContentPosition?: $ReadOnly<{
+    maintainVisibleContentPosition?: (UniqueBranding & Readonly<{
         minIndexForVisible: number;
         autoscrollToTopThreshold?: number | null | undefined;
-    }> | null | undefined;
+    }>) | null | undefined;
     /**
      * The maximum allowed zoom scale. The default value is 1.0.
      * @platform ios
@@ -231,7 +231,7 @@ declare type IOSProps = $ReadOnly<{
      */
     DEPRECATED_sendUpdatedChildFrames?: boolean | null | undefined;
 }>;
-declare type AndroidProps = $ReadOnly<{
+declare type AndroidProps = UniqueBranding & Readonly<{
     /**
      * Enables nested scrolling for Android API level 21+.
      * Nested scrolling is supported by default on iOS
@@ -287,7 +287,7 @@ declare type AndroidProps = $ReadOnly<{
      */
     fadingEdgeLength?: number | null | undefined;
 }>;
-declare type VRProps = $ReadOnly<{
+declare type VRProps = UniqueBranding & Readonly<{
     /**
      * Optionally an image can be used for the scroll bar thumb. This will
      * override the color. While the image is loading or the image fails to
@@ -300,12 +300,12 @@ declare type VRProps = $ReadOnly<{
      * `import IMAGE from './image.jpg'`.
      * @platform vr
      */
-    scrollBarThumbImage?: ($ReadOnly<{}> | number) | null | undefined;
+    scrollBarThumbImage?: ((UniqueBranding & Readonly<{}>) | number) | null | undefined;
 }>;
-declare type StickyHeaderComponentType = React.AbstractComponent<ScrollViewStickyHeaderProps, $ReadOnly<{
+declare type StickyHeaderComponentType = React.AbstractComponent<ScrollViewStickyHeaderProps, UniqueBranding & Readonly<{
     setNextHeaderY: ((arg0: number) => void);
 }>>;
-export declare type Props = $ReadOnly<ViewProps & IOSProps & AndroidProps & VRProps & {
+export declare type Props = UniqueBranding & Readonly<ViewProps & IOSProps & AndroidProps & VRProps & {
     /**
      * These styles will be applied to the scroll view content container which
      * wraps all of the child views. Example:

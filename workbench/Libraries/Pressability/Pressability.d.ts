@@ -1,10 +1,10 @@
-import { TimeoutID } from "flow-builtin-types";
-import { $ReadOnly, $PropertyType } from "utility-types";
+import { UniqueBranding, TimeoutID } from "flow-builtin-types";
+import { $PropertyType } from "utility-types";
 import { EdgeInsetsProp } from "../StyleSheet/EdgeInsetsPropType.js";
 import { BlurEvent, FocusEvent, PressEvent, MouseEvent } from "../Types/CoreEventTypes.js";
 import { HostComponent } from "../Renderer/shims/ReactNativeTypes";
 import * as React from "react";
-export declare type PressabilityConfig = $ReadOnly<{
+export declare type PressabilityConfig = UniqueBranding & Readonly<{
     /**
      * Returns the amount to extend the `VisualRect` by to create `HitRect`.
      */
@@ -89,7 +89,7 @@ export declare type PressabilityConfig = $ReadOnly<{
      */
     onStartShouldSetResponder?: (() => boolean) | null | undefined;
 }>;
-declare type EventHandlers = $ReadOnly<{
+declare type EventHandlers = UniqueBranding & Readonly<{
     onBlur: ((event: BlurEvent) => void);
     onClick: ((event: PressEvent) => void);
     onFocus: ((event: FocusEvent) => void);
@@ -207,16 +207,16 @@ export default class Pressability {
     _pressDelayTimeout: TimeoutID | null | undefined;
     _pressOutDelayTimeout: TimeoutID | null | undefined;
     _responderID: (number | null | undefined) | React.ElementRef<HostComponent<unknown>>;
-    _responderRegion: $ReadOnly<{
+    _responderRegion: (UniqueBranding & Readonly<{
         bottom: number;
         left: number;
         right: number;
         top: number;
-    }> | null | undefined;
-    _touchActivatePosition: $ReadOnly<{
+    }>) | null | undefined;
+    _touchActivatePosition: (UniqueBranding & Readonly<{
         pageX: number;
         pageY: number;
-    }> | null | undefined;
+    }>) | null | undefined;
     _touchState: TouchState;
     constructor(config: PressabilityConfig);
     /**
@@ -242,7 +242,7 @@ export default class Pressability {
     _deactivate(event: PressEvent): void;
     _measureResponderRegion(): void;
     _measureCallback: (left: any, top: any, width: any, height: any, pageX: any, pageY: any) => void;
-    _isTouchWithinResponderRegion(touch: $PropertyType<PressEvent, "nativeEvent">, responderRegion: $ReadOnly<{
+    _isTouchWithinResponderRegion(touch: $PropertyType<PressEvent, "nativeEvent">, responderRegion: UniqueBranding & Readonly<{
         bottom: number;
         left: number;
         right: number;

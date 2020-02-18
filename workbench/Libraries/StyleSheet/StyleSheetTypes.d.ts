@@ -1,6 +1,6 @@
 import AnimatedNode from '../Animated/src/nodes/AnimatedNode';
-import { $Exact } from "flow-builtin-types";
-import { $ReadOnly, $Shape } from "utility-types";
+import { UniqueBranding, $Exact } from "flow-builtin-types";
+import { $Shape } from "utility-types";
 export declare type ColorValue = null | string;
 export declare type ColorArrayValue = null | ReadonlyArray<ColorValue>;
 export declare type PointValue = {
@@ -27,7 +27,7 @@ export declare type DimensionValue = null | number | string | AnimatedNode;
  * These properties are a subset of our styles that are consumed by the layout
  * algorithm and affect the positioning and sizing of views.
  */
-declare type ____LayoutStyle_Internal = $ReadOnly<{
+declare type ____LayoutStyle_Internal = UniqueBranding & Readonly<{
     /** `display` sets the display type of this component.
      *
      *  It works similarly to `display` in CSS, but only support 'flex' and 'none'.
@@ -391,7 +391,7 @@ declare type ____LayoutStyle_Internal = $ReadOnly<{
      */
     direction?: "inherit" | "ltr" | "rtl";
 }>;
-declare type ____TransformStyle_Internal = $ReadOnly<{
+declare type ____TransformStyle_Internal = UniqueBranding & Readonly<{
     /**
      * `transform` accepts an array of transformation objects. Each object specifies
      * the property that will be transformed as the key, and the value to use in the
@@ -447,7 +447,7 @@ declare type ____TransformStyle_Internal = $ReadOnly<{
  * These properties are iOS only - for similar functionality on Android, use the [`elevation`
  * property](docs/viewstyleproptypes.html#elevation).
  */
-export declare type ____ShadowStyle_Internal = $ReadOnly<{
+export declare type ____ShadowStyle_Internal = UniqueBranding & Readonly<{
     /**
      * Sets the drop shadow color
      * @platform ios
@@ -457,7 +457,7 @@ export declare type ____ShadowStyle_Internal = $ReadOnly<{
      * Sets the drop shadow offset
      * @platform ios
      */
-    shadowOffset?: $ReadOnly<{
+    shadowOffset?: UniqueBranding & Readonly<{
         width?: number;
         height?: number;
     }>;
@@ -472,7 +472,7 @@ export declare type ____ShadowStyle_Internal = $ReadOnly<{
      */
     shadowRadius?: number;
 }>;
-export declare type ____ViewStyle_Internal = $ReadOnly<$Exact<____LayoutStyle_Internal> & $Exact<____ShadowStyle_Internal> & $Exact<____TransformStyle_Internal> & {
+export declare type ____ViewStyle_Internal = UniqueBranding & Readonly<$Exact<____LayoutStyle_Internal> & $Exact<____ShadowStyle_Internal> & $Exact<____TransformStyle_Internal> & {
     backfaceVisibility?: "visible" | "hidden";
     backgroundColor?: ColorValue;
     borderColor?: ColorValue;
@@ -503,14 +503,14 @@ export declare type ____ViewStyle_Internal = $ReadOnly<$Exact<____LayoutStyle_In
     elevation?: number;
 }>;
 export declare type ____FontWeight_Internal = "normal" | "bold" | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900";
-export declare type ____TextStyle_Internal = $ReadOnly<$Exact<____ViewStyle_Internal> & {
+export declare type ____TextStyle_Internal = UniqueBranding & Readonly<$Exact<____ViewStyle_Internal> & {
     color?: ColorValue;
     fontFamily?: string;
     fontSize?: number;
     fontStyle?: "normal" | "italic";
     fontWeight?: ____FontWeight_Internal;
     fontVariant?: ReadonlyArray<"small-caps" | "oldstyle-nums" | "lining-nums" | "tabular-nums" | "proportional-nums">;
-    textShadowOffset?: $ReadOnly<{
+    textShadowOffset?: UniqueBranding & Readonly<{
         width: number;
         height: number;
     }>;
@@ -527,7 +527,7 @@ export declare type ____TextStyle_Internal = $ReadOnly<$Exact<____ViewStyle_Inte
     textTransform?: "none" | "capitalize" | "uppercase" | "lowercase";
     writingDirection?: "auto" | "ltr" | "rtl";
 }>;
-export declare type ____ImageStyle_Internal = $ReadOnly<$Exact<____ViewStyle_Internal> & {
+export declare type ____ImageStyle_Internal = UniqueBranding & Readonly<$Exact<____ViewStyle_Internal> & {
     resizeMode?: "contain" | "cover" | "stretch" | "center" | "repeat";
     tintColor?: ColorValue;
     overlayColor?: string;
@@ -539,9 +539,9 @@ export declare type ____DangerouslyImpreciseStyle_Internal = $Exact<____TextStyl
 };
 declare type GenericStyleProp<T> = null | void | T | false | "" | ReadonlyArray<GenericStyleProp<T>>;
 export declare type ____DangerouslyImpreciseStyleProp_Internal = GenericStyleProp<$Shape<____DangerouslyImpreciseStyle_Internal>>;
-export declare type ____ViewStyleProp_Internal = GenericStyleProp<$ReadOnly<$Shape<____ViewStyle_Internal>>>;
-export declare type ____TextStyleProp_Internal = GenericStyleProp<$ReadOnly<$Shape<____TextStyle_Internal>>>;
-export declare type ____ImageStyleProp_Internal = GenericStyleProp<$ReadOnly<$Shape<____ImageStyle_Internal>>>;
+export declare type ____ViewStyleProp_Internal = GenericStyleProp<UniqueBranding & Readonly<$Shape<____ViewStyle_Internal>>>;
+export declare type ____TextStyleProp_Internal = GenericStyleProp<UniqueBranding & Readonly<$Shape<____TextStyle_Internal>>>;
+export declare type ____ImageStyleProp_Internal = GenericStyleProp<UniqueBranding & Readonly<$Shape<____ImageStyle_Internal>>>;
 export declare type ____Styles_Internal = {
     readonly [key: string]: $Shape<____DangerouslyImpreciseStyle_Internal>;
 };

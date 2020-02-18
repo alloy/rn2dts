@@ -1,9 +1,9 @@
 import React from 'react';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
 import EmitterSubscription from "../../vendor/emitter/EmitterSubscription";
 import { ViewProps, ViewLayout } from "../View/ViewPropTypes";
-declare type Props = $ReadOnly<ViewProps & {
+declare type Props = UniqueBranding & Readonly<ViewProps & {
     /**
      * Specify how to react to the presence of the keyboard.
      */
@@ -43,32 +43,7 @@ declare class KeyboardAvoidingView extends React.Component<Props, State> {
     _initialFrameHeight: number;
     constructor(props: Props);
     _relativeKeyboardHeight(keyboardFrame: any): number;
-    _onKeyboardChange: (event: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-        duration: 0;
-        easing: "keyboard";
-        endCoordinates: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-            screenX: any;
-            screenY: any;
-            width: any;
-            height: any;
-        }>;
-    }> | import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-        duration: number;
-        easing: import("./Keyboard").KeyboardEventEasing;
-        endCoordinates: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-            screenX: any;
-            screenY: any;
-            width: any;
-            height: any;
-        }>;
-        startCoordinates: import("utility-types/dist/mapped-types")._DeepReadonlyObject<{
-            screenX: any;
-            screenY: any;
-            width: any;
-            height: any;
-        }>;
-        isEventFromThisApp: boolean;
-    }> | null | undefined) => void;
+    _onKeyboardChange: (event: import("./Keyboard").AndroidKeyboardEvent | import("./Keyboard").IOSKeyboardEvent | null | undefined) => void;
     _onLayout: (event: import("../../Types/CoreEventTypes").LayoutEvent) => void;
     componentDidMount(): void;
     componentWillUnmount(): void;

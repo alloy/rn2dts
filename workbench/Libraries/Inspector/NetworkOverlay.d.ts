@@ -1,7 +1,7 @@
 import FlatList from '../Lists/FlatList';
 import React from 'react';
 import ScrollView from '../Components/ScrollView/ScrollView';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 declare type NetworkRequestInfo = {
     id: number;
     type?: string;
@@ -22,7 +22,7 @@ declare type NetworkRequestInfo = {
     serverClose?: any;
     serverError?: any;
 };
-declare type Props = $ReadOnly<{}>;
+declare type Props = UniqueBranding & Readonly<{}>;
 declare type State = {
     detailRowId: number | null | undefined;
     requests: Array<NetworkRequestInfo>;

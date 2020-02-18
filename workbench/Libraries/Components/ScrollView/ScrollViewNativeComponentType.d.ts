@@ -1,4 +1,4 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { HostComponent } from "../../Renderer/shims/ReactNativeTypes";
 import { ViewProps } from "../View/ViewPropTypes";
 import { ViewStyleProp, DangerouslyImpreciseStyle } from "../../StyleSheet/StyleSheet";
@@ -6,7 +6,7 @@ import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
 import { ScrollEvent } from "../../Types/CoreEventTypes";
 import { PointProp } from "../../StyleSheet/PointPropType";
-export declare type ScrollViewNativeProps = $ReadOnly<ViewProps & {
+export declare type ScrollViewNativeProps = UniqueBranding & Readonly<ViewProps & {
     alwaysBounceHorizontal?: boolean | null | undefined;
     alwaysBounceVertical?: boolean | null | undefined;
     automaticallyAdjustContentInsets?: boolean | null | undefined;
@@ -24,10 +24,10 @@ export declare type ScrollViewNativeProps = $ReadOnly<ViewProps & {
     fadingEdgeLength?: number | null | undefined;
     indicatorStyle?: ("default" | "black" | "white") | null | undefined;
     keyboardDismissMode?: ("none" | "on-drag" | "interactive") | null | undefined;
-    maintainVisibleContentPosition?: $ReadOnly<{
+    maintainVisibleContentPosition?: (UniqueBranding & Readonly<{
         minIndexForVisible: number;
         autoscrollToTopThreshold?: number | null | undefined;
-    }> | null | undefined;
+    }>) | null | undefined;
     maximumZoomScale?: number | null | undefined;
     minimumZoomScale?: number | null | undefined;
     nestedScrollEnabled?: boolean | null | undefined;

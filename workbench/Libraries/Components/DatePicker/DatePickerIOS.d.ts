@@ -1,12 +1,11 @@
 import React from 'react';
-import { $TEMPORARY$string } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding, $TEMPORARY$string } from "flow-builtin-types";
 import RCTDatePickerNativeComponent from "./RCTDatePickerNativeComponent";
 import { ViewProps } from "../View/ViewPropTypes";
-declare type Event = React.SyntheticEvent<$ReadOnly<{
+declare type Event = React.SyntheticEvent<UniqueBranding & Readonly<{
     timestamp: number;
 }>>;
-declare type Props = $ReadOnly<ViewProps & {
+declare type Props = UniqueBranding & Readonly<ViewProps & {
     /**
      * The currently selected date.
      */

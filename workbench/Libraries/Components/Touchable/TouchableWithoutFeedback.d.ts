@@ -1,12 +1,11 @@
-import { Stringish } from "flow-builtin-types";
-import { $ReadOnly } from "utility-types";
+import { Stringish, UniqueBranding } from "flow-builtin-types";
 import Pressability from "../../Pressability/Pressability.js";
 import TVTouchable from "./TVTouchable";
 import { AccessibilityActionEvent, AccessibilityActionInfo, AccessibilityRole, AccessibilityState, AccessibilityValue } from "../../Components/View/ViewAccessibility";
 import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
 import { BlurEvent, FocusEvent, LayoutEvent, PressEvent } from "../../Types/CoreEventTypes";
 import * as React from "react";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     accessibilityActions?: ReadonlyArray<AccessibilityActionInfo> | null | undefined;
     accessibilityElementsHidden?: boolean | null | undefined;
     accessibilityHint?: Stringish | null | undefined;
@@ -40,7 +39,7 @@ declare type Props = $ReadOnly<{
     testID?: string | null | undefined;
     touchSoundDisabled?: boolean | null | undefined;
 }>;
-declare type State = $ReadOnly<{
+declare type State = UniqueBranding & Readonly<{
     pressability: Pressability;
 }>;
 declare class TouchableWithoutFeedback extends React.Component<Props, State> {

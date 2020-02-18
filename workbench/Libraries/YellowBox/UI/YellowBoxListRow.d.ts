@@ -1,8 +1,8 @@
 import React from 'react';
 import YellowBoxWarning from '../Data/YellowBoxWarning';
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { Category } from "../Data/YellowBoxCategory";
-declare type Props = $ReadOnly<{
+declare type Props = UniqueBranding & Readonly<{
     category: Category;
     warnings: ReadonlyArray<YellowBoxWarning>;
     onPress: ((category: Category) => void);

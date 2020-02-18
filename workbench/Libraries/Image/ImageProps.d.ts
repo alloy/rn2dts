@@ -1,21 +1,21 @@
 /// <reference types="react" />
-import { Stringish } from "flow-builtin-types";
-import { $ReadOnly, $Diff } from "utility-types";
+import { UniqueBranding, Stringish } from "flow-builtin-types";
+import { $Diff } from "utility-types";
 import { LayoutEvent } from "../Types/CoreEventTypes";
 import { EdgeInsetsProp } from "../StyleSheet/EdgeInsetsPropType";
 import { ImageSource } from "./ImageSource";
 import { ViewStyleProp, ImageStyleProp } from "../StyleSheet/StyleSheet";
 import { DimensionValue } from "../StyleSheet/StyleSheetTypes";
 import { ViewProps } from "../Components/View/ViewPropTypes";
-export declare type ImageLoadEvent = React.SyntheticEvent<$ReadOnly<{
-    source: $ReadOnly<{
+export declare type ImageLoadEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
+    source: UniqueBranding & Readonly<{
         width: number;
         height: number;
         url: string;
     }>;
     uri?: string;
 }>>;
-declare type IOSImageProps = $ReadOnly<{
+declare type IOSImageProps = UniqueBranding & Readonly<{
     /**
      * A static image to display while loading the image source.
      *
@@ -33,19 +33,19 @@ declare type IOSImageProps = $ReadOnly<{
      *
      * See https://facebook.github.io/react-native/docs/image.html#onprogress
      */
-    onProgress?: ((event: React.SyntheticEvent<$ReadOnly<{
+    onProgress?: ((event: React.SyntheticEvent<UniqueBranding & Readonly<{
         loaded: number;
         total: number;
     }>>) => void) | null | undefined;
 }>;
-declare type AndroidImageProps = $ReadOnly<{
-    loadingIndicatorSource?: (number | $ReadOnly<{
+declare type AndroidImageProps = UniqueBranding & Readonly<{
+    loadingIndicatorSource?: (number | (UniqueBranding & Readonly<{
         uri: string;
-    }>) | null | undefined;
+    }>)) | null | undefined;
     progressiveRenderingEnabled?: boolean | null | undefined;
     fadeDuration?: number | null | undefined;
 }>;
-export declare type ImageProps = $Diff<ViewProps, $ReadOnly<{
+export declare type ImageProps = $Diff<ViewProps, UniqueBranding & Readonly<{
     style: ViewStyleProp | null | undefined;
 }>> & IOSImageProps & AndroidImageProps & {
     /**
@@ -76,7 +76,7 @@ export declare type ImageProps = $Diff<ViewProps, $ReadOnly<{
      *
      * See https://facebook.github.io/react-native/docs/image.html#onerror
      */
-    onError?: ((event: React.SyntheticEvent<$ReadOnly<{
+    onError?: ((event: React.SyntheticEvent<UniqueBranding & Readonly<{
         error: string;
     }>>) => void) | null | undefined;
     /**

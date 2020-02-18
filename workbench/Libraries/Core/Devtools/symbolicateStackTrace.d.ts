@@ -1,6 +1,6 @@
-import { $ReadOnly } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { StackFrame } from "../NativeExceptionsManager";
-export declare type CodeFrame = $ReadOnly<{
+export declare type CodeFrame = UniqueBranding & Readonly<{
     content: string;
     location: {
         row: number;
@@ -8,7 +8,7 @@ export declare type CodeFrame = $ReadOnly<{
     } | null | undefined;
     fileName: string;
 }>;
-export declare type SymbolicatedStackTrace = $ReadOnly<{
+export declare type SymbolicatedStackTrace = UniqueBranding & Readonly<{
     stack: Array<StackFrame>;
     codeFrame: CodeFrame | null | undefined;
 }>;
