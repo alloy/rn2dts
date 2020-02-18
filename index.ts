@@ -17,7 +17,7 @@ import { transformer as objmapTransformer } from "./codemods/objmap"
 const WORKBENCH = "./workbench"
 const SOURCE = "./node_modules/react-native"
 
-const SOURCE_GLOB = "{index.js,interface.js,Libraries/**/!(__mocks__|__flowtests__)/*.js}"
+const SOURCE_GLOB = "{index.js,interface.js,Libraries/*.js,Libraries/**/!(__mocks__|__flowtests__)/*.js}"
 const IGNORE_GLOB = "Libraries/{Animated/release,DeprecatedPropTypes,ReactPrivate,Renderer/implementations}/*.js"
 
 const JSCODESHIFT = jscodeshift.withParser("tsx")

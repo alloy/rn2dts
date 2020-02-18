@@ -89,6 +89,8 @@ import _valueof_useColorScheme from "./Libraries/Utilities/useColorScheme";
 declare type _typeof_useColorScheme = typeof _valueof_useColorScheme & UniqueBranding;
 import _valueof_useWindowDimensions from "./Libraries/Utilities/useWindowDimensions";
 declare type _typeof_useWindowDimensions = typeof _valueof_useWindowDimensions & UniqueBranding;
+import _valueof_UTFSequence from "./Libraries/UTFSequence";
+declare type _typeof_UTFSequence = typeof _valueof_UTFSequence & UniqueBranding;
 import _valueof_Vibration from "./Libraries/Vibration/Vibration";
 declare type _typeof_Vibration = typeof _valueof_Vibration & UniqueBranding;
 import _valueof_RCTDeviceEventEmitter from "./Libraries/EventEmitter/RCTDeviceEventEmitter";
@@ -5482,6 +5484,7 @@ declare const _default: {
     readonly unstable_batchedUpdates: any;
     readonly useColorScheme: _typeof_useColorScheme;
     readonly useWindowDimensions: _typeof_useWindowDimensions;
+    readonly UTFSequence: _typeof_UTFSequence;
     readonly Vibration: _typeof_Vibration;
     readonly YellowBox: import("react").Component<UniqueBranding & Readonly<{}>, {
         registry: import("./Libraries/YellowBox/Data/YellowBoxRegistry").Registry | null | undefined;
