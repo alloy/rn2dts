@@ -5,8 +5,7 @@ import { $PropertyType, $Diff } from "utility-types";
 import { ScrollResponderType } from "../Components/ScrollView/ScrollView";
 import { ScrollViewNativeComponentType } from "../Components/ScrollView/ScrollViewNativeComponentType.js";
 import { ViewStyleProp } from "../StyleSheet/StyleSheet";
-import { ViewToken, ViewabilityConfigCallbackPair } from "./ViewabilityHelper";
-import { RenderItemType, RenderItemProps } from "./VirtualizedList";
+import { RenderItemType } from "./VirtualizedList";
 declare type RequiredProps<ItemT> = {
     /**
      * For simplicity, data is just a plain array. If you want to use something else, like an
@@ -312,24 +311,6 @@ declare class FlatList<ItemT> extends React.PureComponent<Props<ItemT>, void> {
     }): void;
     constructor(props: Props<ItemT>);
     componentDidUpdate(prevProps: Props<ItemT>): void;
-    _listRef: React.ElementRef<typeof VirtualizedList> | null | undefined;
-    _virtualizedListPairs: Array<ViewabilityConfigCallbackPair>;
-    _captureRef: (ref: any) => void;
-    _checkProps(props: Props<ItemT>): void;
-    _getItem: (data: ItemT[], index: number) => never[] | ItemT;
-    _getItemCount: (data: ItemT[] | null | undefined) => number;
-    _keyExtractor: (items: ItemT | ItemT[], index: number) => any;
-    _pushMultiColumnViewable(arr: Array<ViewToken>, v: ViewToken): void;
-    _createOnViewableItemsChanged(onViewableItemsChanged: ((info: {
-        viewableItems: Array<ViewToken>;
-        changed: Array<ViewToken>;
-    }) => void) | null | undefined): (info: {
-        viewableItems: ViewToken[];
-        changed: ViewToken[];
-    }) => void;
-    _renderer: () => {
-        [x: string]: (info: RenderItemProps<ItemT>) => {} | null | undefined;
-    };
     render(): React.ReactNode;
 }
 export default FlatList;

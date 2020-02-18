@@ -1,7 +1,5 @@
 import React from 'react';
 import { UniqueBranding } from "flow-builtin-types";
-import AndroidSwitchNativeComponent from "./AndroidSwitchNativeComponent";
-import SwitchNativeComponent from "./SwitchNativeComponent";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { ViewProps } from "../View/ViewPropTypes";
 declare type SwitchChangeEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
@@ -61,11 +59,7 @@ export declare type Props = UniqueBranding & Readonly<ViewProps & {
  * supplied `value` prop instead of the expected result of any user actions.
  */
 declare class Switch extends React.Component<Props> {
-    _nativeSwitchRef: React.ElementRef<typeof SwitchNativeComponent | typeof AndroidSwitchNativeComponent> | null | undefined;
-    _lastNativeValue: boolean | null | undefined;
     render(): React.ReactNode;
     componentDidUpdate(): void;
-    _handleChange: (event: SwitchChangeEvent) => void;
-    _handleSwitchNativeComponentRef: (ref: any) => void;
 }
 export default Switch;

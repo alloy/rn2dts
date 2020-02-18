@@ -1,5 +1,4 @@
 import React from 'react';
-import VirtualizedSectionList from './VirtualizedSectionList';
 import { $PropertyType, $Diff } from "utility-types";
 import { ScrollResponderType } from "../Components/ScrollView/ScrollView";
 import { SectionBase as _SectionBase, Props as VirtualizedSectionListProps, ScrollToLocationParamsType } from "./VirtualizedSectionList";
@@ -177,7 +176,5 @@ declare class SectionList<SectionT extends SectionBase<any>> extends React.PureC
     getScrollableNode(): any;
     setNativeProps(props: any): void;
     render(): React.ReactNode;
-    _wrapperListRef: React.ElementRef<typeof VirtualizedSectionList> | null | undefined;
-    _captureRef: (ref: any) => void;
 }
 export default SectionList;

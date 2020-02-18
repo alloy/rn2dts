@@ -49,7 +49,6 @@ declare class Linking extends NativeEventEmitter {
         key: string;
         value: string | number | boolean;
     }>): Promise<void>;
-    _validateURL(url: string): void;
 }
 declare const _default: Linking;
 export default _default;

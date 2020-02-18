@@ -12,14 +12,7 @@ import AnimatedTracking from "./AnimatedTracking";
  * See http://facebook.github.io/react-native/docs/animatedvalue.html
  */
 declare class AnimatedValue extends AnimatedWithChildren {
-    _value: number;
-    _startingValue: number;
-    _offset: number;
-    _animation: Animation | null | undefined;
-    _tracking: AnimatedTracking | null | undefined;
     constructor(value: number);
-    __detach(): void;
-    __getValue(): number;
     /**
      * Directly set the value.  This will stop any animations running on the value
      * and update all the bound properties.
@@ -63,7 +56,6 @@ declare class AnimatedValue extends AnimatedWithChildren {
      * See http://facebook.github.io/react-native/docs/animatedvalue.html#resetanimation
      */
     resetAnimation(callback?: ((value: number) => void) | null | undefined): void;
-    _onAnimatedValueUpdateReceived(value: number): void;
     /**
      * Interpolates the value before updating the property, e.g. mapping 0-1 to
      * 0-10.
@@ -84,7 +76,5 @@ declare class AnimatedValue extends AnimatedWithChildren {
      * Typically only used internally.
      */
     track(tracking: AnimatedTracking): void;
-    _updateValue(value: number, flush: boolean): void;
-    __getNativeConfig(): any;
 }
 export default AnimatedValue;

@@ -25,12 +25,6 @@ declare type FrameMetrics = {
  * `SceneTracker.getActiveScene` to determine the context of the events.
  */
 declare class FillRateHelper {
-    _anyBlankStartTime: number | null | undefined;
-    _enabled: boolean;
-    _getFrameMetrics: ((index: number) => FrameMetrics | null | undefined);
-    _info: Info;
-    _mostlyBlankStartTime: number | null | undefined;
-    _samplesStartTime: number | null | undefined;
     static addListener(callback: ((arg0: FillRateInfo) => void)): {
         remove: (() => void);
     };
@@ -53,6 +47,5 @@ declare class FillRateHelper {
         visibleLength: number;
     }): number;
     enabled(): boolean;
-    _resetData(): void;
 }
 export default FillRateHelper;

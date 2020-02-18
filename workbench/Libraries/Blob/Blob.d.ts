@@ -37,7 +37,6 @@ import { BlobData, BlobOptions } from "./BlobTypes";
  * Reference: https://developer.mozilla.org/en-US/docs/Web/API/Blob
  */
 declare class Blob {
-    _data: BlobData | null | undefined;
     /**
      * Constructor for JS consumers.
      * Currently we only support creating Blobs from other Blobs.

@@ -8,9 +8,6 @@ declare type Props = UniqueBranding & Readonly<{
 }>;
 export declare class _LogBoxInspectorContainer extends React.Component<Props> {
     render(): React.ReactNode;
-    _handleDismiss: () => void;
-    _handleMinimize: () => void;
-    _handleSetSelectedLog: (index: number) => void;
 }
 declare const _default: React.AbstractComponent<{}, unknown>;
 export default _default;

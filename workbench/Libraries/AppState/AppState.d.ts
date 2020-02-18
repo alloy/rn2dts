@@ -7,8 +7,6 @@ import NativeEventEmitter from '../EventEmitter/NativeEventEmitter';
  * See http://facebook.github.io/react-native/docs/appstate.html
  */
 declare class AppState extends NativeEventEmitter {
-    _eventHandlers: any;
-    _supportedEvents: string[];
     currentState: string | null | undefined;
     isAvailable: boolean;
     constructor();

@@ -13,6 +13,7 @@ import * as ts from "typescript"
 import { transformer as importsExportsTransformer } from "./codemods/imports-exports"
 import { transformer as noopsTransformer } from "./codemods/noops"
 import { transformer as objmapTransformer } from "./codemods/objmap"
+import { transformer as privateTransformer } from "./codemods/private"
 
 const WORKBENCH = "./workbench"
 const SOURCE = "./node_modules/react-native"
@@ -97,6 +98,7 @@ rimraf(WORKBENCH, err => {
             
             let tsCode = captureError(inputPath, "convertFlowToTS", () => convertFlowToTS(flowCode))
             tsCode = captureError(inputPath, "importsExportsTransformer", () => codemod(importsExportsTransformer, tsPath, tsCode))
+            tsCode = captureError(inputPath, "privateTransformer", () => codemod(privateTransformer, tsPath, tsCode))
             tsCode = captureError(inputPath, "noopsTransformer", () => codemod(noopsTransformer, tsPath, tsCode))
             tsCode = captureError(inputPath, "objmapTransformer", () => codemod(objmapTransformer, tsPath, tsCode))
             

@@ -9,15 +9,7 @@ declare class FileReader extends FileReader_base {
     EMPTY: number;
     LOADING: number;
     DONE: number;
-    _readyState: ReadyState;
-    _error: Error | null | undefined;
-    _result: ReaderResult | null | undefined;
-    _aborted: boolean;
-    _subscriptions: Array<any>;
     constructor();
-    _reset(): void;
-    _clearSubscriptions(): void;
-    _setReadyState(newState: ReadyState): void;
     readAsArrayBuffer(): void;
     readAsDataURL(blob: Blob): void;
     readAsText(blob: Blob, encoding?: string): void;

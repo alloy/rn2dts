@@ -50,11 +50,6 @@ export declare type ViewabilityConfig = {
  * - Entirely visible on screen
  */
 declare class ViewabilityHelper {
-    _config: ViewabilityConfig;
-    _hasInteracted: boolean;
-    _timers: Set<number>;
-    _viewableIndices: Array<number>;
-    _viewableItems: Map<string, ViewToken>;
     constructor(config?: ViewabilityConfig);
     /**
      * Cleanup, e.g. on unmount. Clears any pending timers.
@@ -94,6 +89,5 @@ declare class ViewabilityHelper {
      * Records that an interaction has happened even if there has been no scroll.
      */
     recordInteraction(): void;
-    _onUpdateSync(viewableIndicesToCheck: any, onViewableItemsChanged: any, createViewToken: any): void;
 }
 export default ViewabilityHelper;

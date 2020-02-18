@@ -18,18 +18,7 @@ export declare type TimingAnimationConfigSingle = AnimationConfig & {
     delay?: number;
 };
 declare class TimingAnimation extends Animation {
-    _startTime: number;
-    _fromValue: number;
-    _toValue: any;
-    _duration: number;
-    _delay: number;
-    _easing: ((value: number) => number);
-    _onUpdate: ((value: number) => void);
-    _animationFrame: any;
-    _timeout: any;
-    _useNativeDriver: boolean;
     constructor(config: TimingAnimationConfigSingle);
-    __getNativeAnimationConfig(): any;
     start(fromValue: number, onUpdate: ((value: number) => void), onEnd: EndCallback | null | undefined, previousAnimation: Animation | null | undefined, animatedValue: AnimatedValue): void;
     onUpdate(): void;
     stop(): void;

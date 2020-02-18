@@ -1,5 +1,4 @@
 declare type FormDataValue = any;
-declare type FormDataNameValuePair = [string, FormDataValue];
 declare type Headers = {
     [name: string]: string;
 };
@@ -33,7 +32,6 @@ declare type FormDataPart = {
  *   xhr.send(body);
  */
 declare class FormData {
-    _parts: Array<FormDataNameValuePair>;
     constructor();
     append(key: string, value: FormDataValue): void;
     getParts(): Array<FormDataPart>;

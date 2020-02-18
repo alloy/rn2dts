@@ -1,23 +1,5 @@
-declare type ValueListenerCallback = ((state: {
-    value: number;
-}) => unknown);
 declare class AnimatedNode {
-    _listeners: {
-        [key: string]: ValueListenerCallback;
-    };
-    __nativeAnimatedValueListener: any | null | undefined;
-    __attach(): void;
-    __detach(): void;
-    __getValue(): any;
-    __getAnimatedValue(): any;
-    __addChild(child: AnimatedNode): void;
-    __removeChild(child: AnimatedNode): void;
-    __getChildren(): Array<AnimatedNode>;
-    __isNative: boolean;
-    __nativeTag: number | null | undefined;
-    __shouldUpdateListenersForNewNativeTag: boolean;
     constructor();
-    __makeNative(): void;
     /**
      * Adds an asynchronous listener to the value so you can observe updates from
      * animations.  This is useful because there is no way to
@@ -40,12 +22,6 @@ declare class AnimatedNode {
      */
     removeAllListeners(): void;
     hasListeners(): boolean;
-    _startListeningToNativeValueUpdates(): void;
-    _onAnimatedValueUpdateReceived(value: number): void;
-    __callListeners(value: number): void;
-    _stopListeningForNativeValueUpdates(): void;
-    __getNativeTag(): number;
-    __getNativeConfig(): any;
     toJSON(): any;
 }
 export default AnimatedNode;

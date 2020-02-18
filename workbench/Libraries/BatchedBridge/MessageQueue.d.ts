@@ -6,26 +6,6 @@ export declare type SpyData = {
     args: any[];
 };
 declare class MessageQueue {
-    _lazyCallableModules: {
-        [key: string]: ((arg0: void) => any);
-    };
-    _queue: [number[], number[], any[], number];
-    _successCallbacks: Map<number, ((...args: any) => any) | null | undefined>;
-    _failureCallbacks: Map<number, ((...args: any) => any) | null | undefined>;
-    _callID: number;
-    _lastFlush: number;
-    _eventLoopStartTime: number;
-    _immediatesCallback: (() => void) | null | undefined;
-    _debugInfo: {
-        [key: number]: [number, number];
-    };
-    _remoteModuleTable: {
-        [key: number]: string;
-    };
-    _remoteMethodTable: {
-        [key: number]: ReadonlyArray<string>;
-    };
-    __spy: ((data: SpyData) => void) | null | undefined;
     constructor();
     /**
      * Public APIs
@@ -44,13 +24,5 @@ declare class MessageQueue {
     enqueueNativeCall(moduleID: number, methodID: number, params: any[], onFail: ((...args: any) => any) | null | undefined, onSucc: ((...args: any) => any) | null | undefined): void;
     createDebugLookup(moduleID: number, name: string, methods: ReadonlyArray<string> | null | undefined): void;
     setImmediatesCallback(fn: (() => void)): void;
-    /**
-     * Private methods
-     */
-    __guard(fn: (() => void)): void;
-    __shouldPauseOnThrow(): boolean;
-    __callImmediates(): void;
-    __callFunction(module: string, method: string, args: any[]): any;
-    __invokeCallback(cbID: number, args: any[]): void;
 }
 export default MessageQueue;

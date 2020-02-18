@@ -1,6 +1,4 @@
-import EmitterSubscription from '../vendor/emitter/EmitterSubscription';
 import React from 'react';
-import View from '../Components/View/View';
 import { UniqueBranding, React$PropType$Primitive } from "flow-builtin-types";
 declare type Context = {
     rootTag: number;
@@ -20,8 +18,6 @@ declare type State = {
 };
 declare class AppContainer extends React.Component<Props, State> {
     state: State;
-    _mainRef: React.ElementRef<typeof View> | null | undefined;
-    _subscription: EmitterSubscription | null | undefined;
     static getDerivedStateFromError: any;
     static childContextTypes: any | {
         rootTag: React$PropType$Primitive<number>;

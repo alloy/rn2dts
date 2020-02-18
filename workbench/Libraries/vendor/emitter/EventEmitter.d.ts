@@ -14,8 +14,6 @@ import EventSubscriptionVendor from './EventSubscriptionVendor';
  * more advanced emitter may use an EventHolder and EventFactory.
  */
 declare class EventEmitter {
-    _subscriber: EventSubscriptionVendor;
-    _currentSubscription: EmitterSubscription | null | undefined;
     /**
      * @constructor
      *

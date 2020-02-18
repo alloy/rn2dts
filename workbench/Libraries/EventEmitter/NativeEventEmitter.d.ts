@@ -9,7 +9,6 @@ declare type NativeModule = {
  * a subset of the standard EventEmitter node module API.
  */
 declare class NativeEventEmitter extends EventEmitter {
-    _nativeModule: NativeModule | null | undefined;
     constructor(nativeModule: NativeModule | null | undefined);
     addListener(eventType: string, listener: ((...args: any) => any), context: any | null | undefined): EmitterSubscription;
     removeAllListeners(eventType: string): void;

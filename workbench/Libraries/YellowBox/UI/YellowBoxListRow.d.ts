@@ -12,6 +12,5 @@ declare class YellowBoxListRow extends React.Component<Props> {
     static HEIGHT: number;
     shouldComponentUpdate(nextProps: Props): boolean;
     render(): React.ReactNode;
-    _handlePress: () => void;
 }
 export default YellowBoxListRow;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { UniqueBranding, Stringish } from "flow-builtin-types";
-import RCTPickerNativeComponent from "./RCTPickerNativeComponent";
 import { TextStyleProp } from "../../StyleSheet/StyleSheet";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { ViewProps } from "../View/ViewPropTypes";
@@ -32,13 +31,10 @@ declare type ItemProps = UniqueBranding & Readonly<{
 }>;
 declare const PickerIOSItem: (props: ItemProps) => null;
 declare class PickerIOS extends React.Component<Props, State> {
-    _picker: React.ElementRef<typeof RCTPickerNativeComponent> | null | undefined;
-    _lastNativeValue: number | null | undefined;
     state: State;
     static Item: ((props: ItemProps) => null);
     static getDerivedStateFromProps(props: Props): State;
     render(): React.ReactNode;
     componentDidUpdate(): void;
-    _onChange: (event: any) => void;
 }
 export default PickerIOS;

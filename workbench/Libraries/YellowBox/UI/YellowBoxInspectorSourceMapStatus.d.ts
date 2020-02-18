@@ -17,6 +17,5 @@ declare class YellowBoxInspectorSourceMapStatus extends React.Component<Props, S
     componentDidMount(): void;
     componentDidUpdate(): void;
     componentWillUnmount(): void;
-    _updateAnimation(): void;
 }
 export default YellowBoxInspectorSourceMapStatus;

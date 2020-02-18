@@ -25,7 +25,5 @@ declare class YellowBoxPressable extends React.Component<Props, State> {
     };
     state: State;
     render(): React.ReactNode;
-    _handlePressIn: () => void;
-    _handlePressOut: () => void;
 }
 export default YellowBoxPressable;

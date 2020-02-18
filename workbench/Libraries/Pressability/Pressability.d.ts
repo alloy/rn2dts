@@ -1,9 +1,6 @@
-import { UniqueBranding, TimeoutID } from "flow-builtin-types";
-import { $PropertyType } from "utility-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { EdgeInsetsProp } from "../StyleSheet/EdgeInsetsPropType.js";
 import { BlurEvent, FocusEvent, PressEvent, MouseEvent } from "../Types/CoreEventTypes.js";
-import { HostComponent } from "../Renderer/shims/ReactNativeTypes";
-import * as React from "react";
 export declare type PressabilityConfig = UniqueBranding & Readonly<{
     /**
      * Returns the amount to extend the `VisualRect` by to create `HitRect`.
@@ -102,8 +99,6 @@ declare type EventHandlers = UniqueBranding & Readonly<{
     onResponderTerminationRequest: (() => boolean);
     onStartShouldSetResponder: (() => boolean);
 }>;
-declare type TouchState = "NOT_RESPONDER" | "RESPONDER_INACTIVE_PRESS_IN" | "RESPONDER_INACTIVE_PRESS_OUT" | "RESPONDER_ACTIVE_PRESS_IN" | "RESPONDER_ACTIVE_PRESS_OUT" | "RESPONDER_ACTIVE_LONG_PRESS_IN" | "RESPONDER_ACTIVE_LONG_PRESS_OUT" | "ERROR";
-declare type TouchSignal = "DELAY" | "RESPONDER_GRANT" | "RESPONDER_RELEASE" | "RESPONDER_TERMINATED" | "ENTER_PRESS_RECT" | "LEAVE_PRESS_RECT" | "LONG_PRESS_DETECTED";
 /**
  * Pressability implements press handling capabilities.
  *
@@ -198,26 +193,6 @@ declare type TouchSignal = "DELAY" | "RESPONDER_GRANT" | "RESPONDER_RELEASE" | "
  * responder is release while in the "press in" states.
  */
 export default class Pressability {
-    _config: PressabilityConfig;
-    _eventHandlers: EventHandlers | null | undefined;
-    _hoverInDelayTimeout: TimeoutID | null | undefined;
-    _hoverOutDelayTimeout: TimeoutID | null | undefined;
-    _isHovered: boolean;
-    _longPressDelayTimeout: TimeoutID | null | undefined;
-    _pressDelayTimeout: TimeoutID | null | undefined;
-    _pressOutDelayTimeout: TimeoutID | null | undefined;
-    _responderID: (number | null | undefined) | React.ElementRef<HostComponent<unknown>>;
-    _responderRegion: (UniqueBranding & Readonly<{
-        bottom: number;
-        left: number;
-        right: number;
-        top: number;
-    }>) | null | undefined;
-    _touchActivatePosition: (UniqueBranding & Readonly<{
-        pageX: number;
-        pageY: number;
-    }>) | null | undefined;
-    _touchState: TouchState;
     constructor(config: PressabilityConfig);
     /**
      * Resets any pending timers. This should be called on unmount.
@@ -227,33 +202,5 @@ export default class Pressability {
      * Returns a set of props to spread into the interactive element.
      */
     getEventHandlers(): EventHandlers;
-    _createEventHandlers(): EventHandlers;
-    /**
-     * Receives a state machine signal, performs side effects of the transition
-     * and stores the new state. Validates the transition as well.
-     */
-    _receiveSignal(signal: TouchSignal, event: PressEvent): void;
-    /**
-     * Performs a transition between touchable states and identify any activations
-     * or deactivations (and callback invocations).
-     */
-    _performTransitionSideEffects(prevState: TouchState, nextState: TouchState, signal: TouchSignal, event: PressEvent): void;
-    _activate(event: PressEvent): void;
-    _deactivate(event: PressEvent): void;
-    _measureResponderRegion(): void;
-    _measureCallback: (left: any, top: any, width: any, height: any, pageX: any, pageY: any) => void;
-    _isTouchWithinResponderRegion(touch: $PropertyType<PressEvent, "nativeEvent">, responderRegion: UniqueBranding & Readonly<{
-        bottom: number;
-        left: number;
-        right: number;
-        top: number;
-    }>): boolean;
-    _handleLongPress(event: PressEvent): void;
-    _shouldLongPressCancelPress(): boolean;
-    _cancelHoverInDelayTimeout(): void;
-    _cancelHoverOutDelayTimeout(): void;
-    _cancelLongPressDelayTimeout(): void;
-    _cancelPressDelayTimeout(): void;
-    _cancelPressOutDelayTimeout(): void;
 }
 export {};

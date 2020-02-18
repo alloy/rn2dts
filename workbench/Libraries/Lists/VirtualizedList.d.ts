@@ -1,10 +1,7 @@
-import Batchinator from '../Interaction/Batchinator';
-import FillRateHelper from './FillRateHelper';
 import React from 'react';
 import ScrollView from '../Components/ScrollView/ScrollView';
 import View from '../Components/View/View';
-import ViewabilityHelper from './ViewabilityHelper';
-import { React$PropType$Primitive, UniqueBranding } from "flow-builtin-types";
+import { React$PropType$Primitive } from "flow-builtin-types";
 import { ScrollResponderType } from "../Components/ScrollView/ScrollView";
 import { ViewStyleProp } from "../StyleSheet/StyleSheet";
 import { ViewabilityConfig, ViewToken, ViewabilityConfigCallbackPair } from "./ViewabilityHelper";
@@ -20,13 +17,6 @@ export declare type RenderItemProps<ItemT> = {
     separators: Separators;
 };
 export declare type RenderItemType<ItemT> = ((info: RenderItemProps<ItemT>) => React.ReactNode);
-declare type ViewabilityHelperCallbackTuple = {
-    viewabilityHelper: ViewabilityHelper;
-    onViewableItemsChanged: ((info: {
-        viewableItems: Array<ViewToken>;
-        changed: Array<ViewToken>;
-    }) => void);
-};
 declare type RequiredProps = {
     /**
      * The default accessor functions assume this is an Array<{key: string} | {id: string}> but you can override
@@ -394,127 +384,14 @@ declare class VirtualizedList extends React.PureComponent<Props, State> {
             }) => void);
         };
     };
-    _getCellKey(): string;
-    _getScrollMetrics: () => {
-        contentLength: number;
-        dOffset: number;
-        dt: number;
-        offset: number;
-        timestamp: number;
-        velocity: number;
-        visibleLength: number;
-    };
     hasMore(): boolean;
-    _getOutermostParentListRef: () => any;
-    _getNestedChildState: (key: string) => ChildListState | null | undefined;
-    _registerAsNestedChild: (childList: {
-        cellKey: string;
-        key: string;
-        ref: VirtualizedList;
-    }) => ChildListState | null | undefined;
-    _unregisterAsNestedChild: (childList: {
-        key: string;
-        state: ChildListState;
-    }) => void;
     state: State;
     constructor(props: Props, context: any);
     componentDidMount(): void;
     componentWillUnmount(): void;
     static getDerivedStateFromProps(newProps: Props, prevState: State): State;
-    _pushCells(cells: Array<any>, stickyHeaderIndices: Array<number>, stickyIndicesFromProps: Set<number>, first: number, last: number, inversionStyle: ViewStyleProp): void;
-    _onUpdateSeparators: (keys: (string | null | undefined)[], newProps: any) => void;
-    _isVirtualizationDisabled(): boolean;
-    _isNestedWithSameOrientation(): boolean;
     render(): React.ReactNode;
     componentDidUpdate(prevProps: Props): void;
-    _averageCellLength: number;
-    _cellKeysToChildListKeys: Map<string, Set<string>>;
-    _cellRefs: {};
-    _fillRateHelper: FillRateHelper;
-    _frames: {};
-    _footerLength: number;
-    _hasDataChangedSinceEndReached: boolean;
-    _hasDoneInitialScroll: boolean;
-    _hasInteracted: boolean;
-    _hasMore: boolean;
-    _hasWarned: {};
-    _headerLength: number;
-    _hiPriInProgress: boolean;
-    _highestMeasuredFrameIndex: number;
-    _indicesToKeys: Map<number, string>;
-    _nestedChildLists: Map<string, {
-        ref: VirtualizedList | null | undefined;
-        state: ChildListState | null | undefined;
-    }>;
-    _offsetFromParentVirtualizedList: number;
-    _prevParentOffset: number;
-    _scrollMetrics: {
-        contentLength: number;
-        dOffset: number;
-        dt: number;
-        offset: number;
-        timestamp: number;
-        velocity: number;
-        visibleLength: number;
-    };
-    _scrollRef: React.ElementRef<any> | null | undefined;
-    _sentEndForContentLength: number;
-    _totalCellLength: number;
-    _totalCellsMeasured: number;
-    _updateCellsToRenderBatcher: Batchinator;
-    _viewabilityTuples: Array<ViewabilityHelperCallbackTuple>;
-    _captureScrollRef: (ref: any) => void;
-    _computeBlankness(): void;
-    _defaultRenderScrollComponent: (props: any) => JSX.Element;
-    _onCellLayout(e: any, cellKey: any, index: any): void;
-    _onCellUnmount: (cellKey: string) => void;
     measureLayoutRelativeToContainingList(): void;
-    _onLayout: (e: any) => void;
-    _onLayoutEmpty: (e: any) => void;
-    _onLayoutFooter: (e: any) => void;
-    _onLayoutHeader: (e: any) => void;
-    _renderDebugOverlay(): JSX.Element;
-    _selectLength(metrics: UniqueBranding & Readonly<{
-        height: number;
-        width: number;
-    }>): number;
-    _selectOffset(metrics: UniqueBranding & Readonly<{
-        x: number;
-        y: number;
-    }>): number;
-    _maybeCallOnEndReached(): void;
-    _onContentSizeChange: (width: number, height: number) => void;
-    _convertParentScrollMetrics: (metrics: {
-        visibleLength: number;
-        offset: number;
-    }) => {
-        visibleLength: number;
-        contentLength: number;
-        offset: number;
-        dOffset: number;
-    };
-    _onScroll: (e: any) => void;
-    _scheduleCellsToRenderUpdate(): void;
-    _onScrollBeginDrag: (e: any) => void;
-    _onScrollEndDrag: (e: any) => void;
-    _onMomentumScrollEnd: (e: any) => void;
-    _updateCellsToRender: () => void;
-    _createViewToken: (index: number, isViewable: boolean) => {
-        index: number;
-        item: any;
-        key: string;
-        isViewable: boolean;
-    };
-    _getFrameMetricsApprox: (index: number) => {
-        length: number;
-        offset: number;
-    };
-    _getFrameMetrics: (index: number) => {
-        length: number;
-        offset: number;
-        index: number;
-        inLayout?: boolean | undefined;
-    } | null | undefined;
-    _updateViewableItems(data: any): void;
 }
 export default VirtualizedList;

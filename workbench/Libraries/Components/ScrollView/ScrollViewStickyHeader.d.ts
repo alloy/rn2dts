@@ -18,7 +18,6 @@ declare type State = {
 declare class ScrollViewStickyHeader extends React.Component<Props, State> {
     state: State;
     setNextHeaderY(y: number): void;
-    _onLayout: (event: any) => void;
     render(): React.ReactNode;
 }
 export default ScrollViewStickyHeader;

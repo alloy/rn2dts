@@ -1,8 +1,7 @@
 import React from 'react';
 import { UniqueBranding } from "flow-builtin-types";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
-import EmitterSubscription from "../../vendor/emitter/EmitterSubscription";
-import { ViewProps, ViewLayout } from "../View/ViewPropTypes";
+import { ViewProps } from "../View/ViewPropTypes";
 declare type Props = UniqueBranding & Readonly<ViewProps & {
     /**
      * Specify how to react to the presence of the keyboard.
@@ -35,16 +34,10 @@ declare class KeyboardAvoidingView extends React.Component<Props, State> {
         enabled: boolean;
         keyboardVerticalOffset: number;
     };
-    _frame: ViewLayout | null | undefined;
-    _subscriptions: Array<EmitterSubscription>;
     viewRef: {
         current: React.ElementRef<any> | null;
     };
-    _initialFrameHeight: number;
     constructor(props: Props);
-    _relativeKeyboardHeight(keyboardFrame: any): number;
-    _onKeyboardChange: (event: import("./Keyboard").AndroidKeyboardEvent | import("./Keyboard").IOSKeyboardEvent | null | undefined) => void;
-    _onLayout: (event: import("../../Types/CoreEventTypes").LayoutEvent) => void;
     componentDidMount(): void;
     componentWillUnmount(): void;
     render(): React.ReactNode;

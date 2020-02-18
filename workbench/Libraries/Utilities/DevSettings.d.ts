@@ -8,7 +8,6 @@
  */
 import NativeEventEmitter from "../EventEmitter/NativeEventEmitter";
 declare class DevSettings extends NativeEventEmitter {
-    _menuItems: Map<string, (() => unknown)>;
     constructor();
     addMenuItem(title: string, handler: (() => unknown)): void;
     reload(reason: string): void;

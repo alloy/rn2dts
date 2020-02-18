@@ -1,5 +1,4 @@
 import React from 'react';
-import { TimeoutID } from "flow-builtin-types";
 export declare type ReactRenderer = {
     getInspectorDataForViewTag: ((viewTag: number) => any);
 };
@@ -17,16 +16,10 @@ declare class Inspector extends React.Component<{
     inspectedViewTag: any;
     networking: boolean;
 }> {
-    _hideTimeoutID: TimeoutID | null;
-    _subs: Array<(() => void)> | null | undefined;
     constructor(props: any);
     componentDidMount(): void;
     componentWillUnmount(): void;
     UNSAFE_componentWillReceiveProps(newProps: any): void;
-    _attachToDevtools: (agent: any) => void;
-    _onAgentHideNativeHighlight: () => void;
-    _onAgentShowNativeHighlight: (node: any) => void;
-    _onAgentShutdown: () => void;
     setSelection(i: number): void;
     onTouchViewTag(touchedViewTag: number, frame: any, pointerY: number): void;
     setPerfing(val: boolean): void;

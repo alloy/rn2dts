@@ -57,12 +57,5 @@ declare class TaskQueue {
      * Executes the next task in the queue.
      */
     processNext(): void;
-    _queueStack: Array<{
-        tasks: Array<Task>;
-        popable: boolean;
-    }>;
-    _onMoreTasks: (() => void);
-    _getCurrentQueue(): Array<Task>;
-    _genPromise(task: PromiseTask): void;
 }
 export default TaskQueue;

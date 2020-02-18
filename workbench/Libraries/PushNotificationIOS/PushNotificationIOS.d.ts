@@ -39,16 +39,6 @@ export declare type PushNotificationEventName = $Keys<{
  * See https://facebook.github.io/react-native/docs/pushnotificationios.html
  */
 declare class PushNotificationIOS {
-    _data: any;
-    _alert: string | any;
-    _sound: string;
-    _category: string;
-    _contentAvailable: ContentAvailable;
-    _badgeCount: number;
-    _notificationId: string;
-    _isRemote: boolean;
-    _remoteNotificationCompleteCallbackCalled: boolean;
-    _threadID: string;
     static FetchResult: FetchResult;
     /**
      * Schedules the localNotification for immediate presentation.

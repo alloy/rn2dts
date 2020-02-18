@@ -116,13 +116,8 @@ declare class DrawerLayoutAndroid extends React.Component<Props, State> {
     static defaultProps: {
         drawerBackgroundColor: "white";
     };
-    _nativeRef: React.RefObject<any>;
     state: State;
     render(): React.ReactNode;
-    _onDrawerSlide: (event: any) => void;
-    _onDrawerOpen: () => void;
-    _onDrawerClose: () => void;
-    _onDrawerStateChanged: (event: any) => void;
     /**
      * Opens the drawer.
      */

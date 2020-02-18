@@ -2,7 +2,6 @@ import React from 'react';
 import { UniqueBranding, React$PropType$Primitive } from "flow-builtin-types";
 import { ViewProps } from "../Components/View/ViewPropTypes";
 import { DirectEventHandler } from "../Types/CodegenTypes";
-import EmitterSubscription from "../vendor/emitter/EmitterSubscription";
 declare type OrientationChangeEvent = UniqueBranding & Readonly<{
     orientation: "portrait" | "landscape";
 }>;
@@ -97,8 +96,6 @@ declare class Modal extends React.Component<Props> {
     static contextTypes: any | {
         rootTag: React$PropType$Primitive<number>;
     };
-    _identifier: number;
-    _eventSubscription: EmitterSubscription | null | undefined;
     constructor(props: Props);
     static childContextTypes: any | {
         virtualizedList: React$PropType$Primitive<any>;
@@ -108,8 +105,6 @@ declare class Modal extends React.Component<Props> {
     };
     componentWillUnmount(): void;
     UNSAFE_componentWillReceiveProps(nextProps: Props): void;
-    static _confirmProps(props: Props): void;
     render(): React.ReactNode;
-    _shouldSetResponder(): boolean;
 }
 export default Modal;

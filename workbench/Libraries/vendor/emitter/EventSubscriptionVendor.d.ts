@@ -4,8 +4,6 @@ import EventSubscription from "./EventSubscription";
  * subscribed to a particular event type.
  */
 declare class EventSubscriptionVendor {
-    _subscriptionsForType: any;
-    _currentSubscription: EventSubscription | null | undefined;
     constructor();
     /**
      * Adds a subscription keyed by an event type.

@@ -21,11 +21,6 @@
  *   }
  */
 declare class Batchinator {
-    _callback: (() => void);
-    _delay: number;
-    _taskHandle: {
-        cancel: (() => void);
-    } | null | undefined;
     constructor(callback: (() => void), delayMS: number);
     dispose(options?: {
         abort: boolean;

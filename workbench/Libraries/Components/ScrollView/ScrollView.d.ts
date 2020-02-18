@@ -1,4 +1,3 @@
-import AnimatedImplementation from '../../Animated/src/AnimatedImplementation';
 import React from 'react';
 import ScrollResponder from '../ScrollResponder';
 import { UniqueBranding, React$Context } from "flow-builtin-types";
@@ -7,7 +6,7 @@ import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
 import { PointProp } from "../../StyleSheet/PointPropType";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
-import { PressEvent, ScrollEvent, LayoutEvent } from "../../Types/CoreEventTypes";
+import { PressEvent, ScrollEvent } from "../../Types/CoreEventTypes";
 import { HostComponent } from "../../Renderer/shims/ReactNativeTypes";
 import { State as ScrollResponderState } from "../ScrollResponder";
 import { ViewProps } from "../View/ViewPropTypes";
@@ -543,26 +542,7 @@ declare type ContextType = {
  */
 declare class ScrollView extends React.Component<Props, State> {
     static Context: React$Context<ContextType>;
-    /**
-     * Part 1: Removing ScrollResponder.Mixin:
-     *
-     * 1. Mixin methods should be flow typed. That's why we create a
-     *    copy of ScrollResponder.Mixin and attach it to this._scrollResponder.
-     *    Otherwise, we'd have to manually declare each method on the component
-     *    class and assign it a flow type.
-     * 2. Mixin methods can call component methods, and access the component's
-     *    props and state. So, we need to bind all mixin methods to the
-     *    component instance.
-     * 3. Continued...
-     */
-    _scrollResponder: typeof ScrollResponder.Mixin;
     constructor(props: Props);
-    _scrollAnimatedValue: typeof AnimatedImplementation.Value;
-    _scrollAnimatedValueAttachment: {
-        detach: (() => void);
-    } | null | undefined;
-    _stickyHeaderRefs: Map<string, React.ElementRef<StickyHeaderComponentType>>;
-    _headerLayoutYs: Map<string, number>;
     state: State;
     UNSAFE_componentWillMount(): void;
     UNSAFE_componentWillReceiveProps(nextProps: Props): void;
@@ -616,17 +596,6 @@ declare class ScrollView extends React.Component<Props, State> {
      * @platform ios
      */
     flashScrollIndicators(): void;
-    _getKeyForIndex(index: any, childArray: any): any;
-    _updateAnimatedNodeAttachment(): void;
-    _setStickyHeaderRef(key: string, ref: React.ElementRef<StickyHeaderComponentType> | null | undefined): void;
-    _onStickyHeaderLayout(index: any, event: any, key: any): void;
-    _handleScroll: (e: ScrollEvent) => void;
-    _handleLayout: (e: LayoutEvent) => void;
-    _handleContentOnLayout: (e: LayoutEvent) => void;
-    _scrollViewRef: React.ElementRef<HostComponent<unknown>> | null | undefined;
-    _setScrollViewRef: (ref: null | undefined) => void;
-    _innerViewRef: React.ElementRef<HostComponent<unknown>> | null | undefined;
-    _setInnerViewRef: (ref: null | undefined) => void;
     render(): React.ReactNode | React.ReactElement<string>;
 }
 export default ScrollView;

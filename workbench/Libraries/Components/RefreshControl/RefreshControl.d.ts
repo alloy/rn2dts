@@ -96,13 +96,8 @@ export declare type RefreshControlProps = UniqueBranding & Readonly<ViewProps & 
  */
 declare class RefreshControl extends React.Component<RefreshControlProps> {
     static SIZE: any;
-    _setNativePropsOnRef: ((arg0: {
-        refreshing: boolean;
-    }) => void) | null | undefined;
-    _lastNativeRefreshing: boolean;
     componentDidMount(): void;
     componentDidUpdate(prevProps: RefreshControlProps): void;
     render(): React.ReactNode;
-    _onRefresh: () => void;
 }
 export default RefreshControl;

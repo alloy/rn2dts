@@ -1,4 +1,3 @@
-import EmitterSubscription from "../vendor/emitter/EmitterSubscription";
 declare type ExtraData = {
     [key: string]: string;
 };
@@ -14,11 +13,6 @@ declare type DebugData = {
  * returned by `addSource` when they are unmounted.
  */
 declare class BugReporting {
-    static _extraSources: Map<string, SourceCallback>;
-    static _fileSources: Map<string, SourceCallback>;
-    static _subscription: EmitterSubscription | null | undefined;
-    static _redboxSubscription: EmitterSubscription | null | undefined;
-    static _maybeInit(): void;
     /**
      * Maps a string key to a simple callback that should return a string payload to be attached
      * to a bug report. Source callbacks are called when `collectExtraData` is called.
@@ -39,9 +33,6 @@ declare class BugReporting {
      * Conflicts trample with a warning.
      */
     static addFileSource(key: string, callback: SourceCallback): {
-        remove: (() => void);
-    };
-    static _addSource(key: string, callback: SourceCallback, source: Map<string, SourceCallback>): {
         remove: (() => void);
     };
     /**

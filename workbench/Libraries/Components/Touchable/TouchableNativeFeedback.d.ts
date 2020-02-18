@@ -1,10 +1,8 @@
 import { ClassOrType, UniqueBranding } from "flow-builtin-types";
 import Pressability from "../../Pressability/Pressability.js";
-import TVTouchable from "./TVTouchable";
 import _valueof_TouchableWithoutFeedback from "./TouchableWithoutFeedback";
 declare type _typeof_TouchableWithoutFeedback = typeof _valueof_TouchableWithoutFeedback & UniqueBranding;
 declare type TouchableWithoutFeedback = ClassOrType<_typeof_TouchableWithoutFeedback>;
-import { PressEvent } from "react-native/Libraries/Types/CoreEventTypes";
 import * as React from "react";
 declare type Props = UniqueBranding & Readonly<React.ElementConfig<TouchableWithoutFeedback> & {
     /**
@@ -91,10 +89,7 @@ declare class TouchableNativeFeedback extends React.Component<Props, State> {
      * Whether `useForeground` is supported.
      */
     static canUseNativeForeground: (() => boolean);
-    _tvTouchable: TVTouchable | null | undefined;
     state: State;
-    _dispatchPressedStateChange(pressed: boolean): void;
-    _dispatchHotspotUpdate(event: PressEvent): void;
     render(): React.ReactNode;
     componentDidMount(): void;
     componentWillUnmount(): void;

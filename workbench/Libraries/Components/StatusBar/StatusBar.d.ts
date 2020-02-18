@@ -143,10 +143,6 @@ declare type Props = UniqueBranding & Readonly<AndroidProps & IOSProps & {
  * `currentHeight` (Android only) The height of the status bar.
  */
 declare class StatusBar extends React.Component<Props> {
-    static _propsStack: never[];
-    static _defaultProps: any;
-    static _updateImmediate: null;
-    static _currentValues: null;
     /**
      * The current height of the status bar on the device.
      *
@@ -206,14 +202,9 @@ declare class StatusBar extends React.Component<Props> {
         animated: boolean;
         showHideTransition: $TEMPORARY$string<"fade">;
     };
-    _stackEntry: null;
     componentDidMount(): void;
     componentWillUnmount(): void;
     componentDidUpdate(): void;
-    /**
-     * Updates the native status bar with the props from the stack.
-     */
-    static _updatePropsStack: () => void;
     render(): React.ReactNode;
 }
 export default StatusBar;

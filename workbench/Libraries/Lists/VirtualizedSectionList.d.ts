@@ -1,7 +1,6 @@
 import React from 'react';
 import VirtualizedList from './VirtualizedList';
 import { $PropertyType, $Diff } from "utility-types";
-import { ViewToken } from "./ViewabilityHelper";
 declare type Item = any;
 export declare type SectionBase<SectionItemT> = {
     /**
@@ -101,33 +100,6 @@ declare class VirtualizedSectionList<SectionT extends SectionBase<any>> extends 
     getListRef(): VirtualizedList;
     constructor(props: Props<SectionT>, context: any);
     UNSAFE_componentWillReceiveProps(nextProps: Props<SectionT>): void;
-    _computeState(props: Props<SectionT>): State;
     render(): React.ReactNode;
-    _getItem: (props: Props<SectionT>, sections: readonly any[] | null | undefined, index: number) => any;
-    _keyExtractor: (item: any, index: number) => string;
-    _subExtractor(index: number): {
-        section: SectionT;
-        key: string;
-        index: number | null | undefined;
-        header?: boolean | null | undefined;
-        leadingItem?: Item | null | undefined;
-        leadingSection?: SectionT | null | undefined;
-        trailingItem?: Item | null | undefined;
-        trailingSection?: SectionT | null | undefined;
-    } | null | undefined;
-    _convertViewable: (viewable: ViewToken) => ViewToken | null | undefined;
-    _onViewableItemsChanged: ({ viewableItems, changed }: {
-        viewableItems: ViewToken[];
-        changed: ViewToken[];
-    }) => void;
-    _renderItem: ({ item, index }: {
-        item: any;
-        index: number;
-    }) => JSX.Element | null;
-    _onUpdateSeparator: (key: string, newProps: any) => void;
-    _getSeparatorComponent(index: number, info?: any | null | undefined): React.ComponentType<any> | null | undefined;
-    _cellRefs: {};
-    _listRef: VirtualizedList;
-    _captureRef: (ref: any) => void;
 }
 export default VirtualizedSectionList;

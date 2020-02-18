@@ -80,9 +80,6 @@ declare class Incremental extends React.Component<Props, State> {
     props: Props;
     state: State;
     context: Context;
-    _incrementId: number;
-    _mounted: boolean;
-    _rendered: boolean;
     static defaultProps: {
         name: string;
     };

@@ -13,12 +13,6 @@ declare type ValueXYListenerCallback = ((value: {
 declare class AnimatedValueXY extends AnimatedWithChildren {
     x: AnimatedValue;
     y: AnimatedValue;
-    _listeners: {
-        [key: string]: {
-            x: string;
-            y: string;
-        };
-    };
     constructor(valueIn?: {
         readonly x: number | AnimatedValue;
         readonly y: number | AnimatedValue;
@@ -58,10 +52,6 @@ declare class AnimatedValueXY extends AnimatedWithChildren {
      * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#extractoffset
      */
     extractOffset(): void;
-    __getValue(): {
-        x: number;
-        y: number;
-    };
     /**
      * Stops any animation and resets the value to its original.
      *

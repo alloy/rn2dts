@@ -1,6 +1,4 @@
 import Blob from '../Blob/Blob';
-import NativeEventEmitter from '../EventEmitter/NativeEventEmitter';
-import EventSubscription from "../vendor/emitter/EventSubscription";
 declare type ArrayBufferView = Int8Array | Uint8Array | Uint8ClampedArray | Int16Array | Uint16Array | Int32Array | Uint32Array | Float32Array | Float64Array | DataView;
 declare type BinaryType = "blob" | "arraybuffer";
 declare const WebSocket_base: any;
@@ -19,10 +17,6 @@ declare class WebSocket extends WebSocket_base {
     OPEN: number;
     CLOSING: number;
     CLOSED: number;
-    _socketId: number;
-    _eventEmitter: NativeEventEmitter;
-    _subscriptions: Array<EventSubscription>;
-    _binaryType: BinaryType | null | undefined;
     onclose: ((...args: any) => any) | null | undefined;
     onerror: ((...args: any) => any) | null | undefined;
     onmessage: ((...args: any) => any) | null | undefined;
@@ -42,8 +36,5 @@ declare class WebSocket extends WebSocket_base {
     close(code?: number, reason?: string): void;
     send(data: string | ArrayBuffer | ArrayBufferView | Blob): void;
     ping(): void;
-    _close(code?: number, reason?: string): void;
-    _unregisterEvents(): void;
-    _registerEvents(): void;
 }
 export default WebSocket;

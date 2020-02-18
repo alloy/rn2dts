@@ -13,8 +13,5 @@ declare type State = {
 declare class YellowBoxList extends React.Component<Props, State> {
     state: State;
     render(): React.ReactNode;
-    _handleInspectorDismiss: () => void;
-    _handleInspectorMinimize: () => void;
-    _handleRowPress: (category: string) => void;
 }
 export default YellowBoxList;
