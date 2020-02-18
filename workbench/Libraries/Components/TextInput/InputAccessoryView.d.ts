@@ -68,6 +68,5 @@ declare type Props = UniqueBranding & Readonly<{
     style?: ViewStyleProp | null | undefined;
 }>;
 declare class InputAccessoryView extends React.Component<Props> {
-    render(): React.ReactNode;
 }
 export default InputAccessoryView;

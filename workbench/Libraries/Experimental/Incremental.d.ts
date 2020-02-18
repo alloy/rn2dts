@@ -1,5 +1,4 @@
 import React from 'react';
-import { React$PropType$Primitive } from "flow-builtin-types";
 /**
  * WARNING: EXPERIMENTAL. Breaking changes will probably happen a lot and will
  * not be reliably announced.  The whole thing might be deleted, who knows? Use
@@ -73,26 +72,12 @@ export declare type Props = {
     name: string;
     children: React.ReactNode;
 };
-declare type State = {
-    doIncrementalRender: boolean;
-};
-declare class Incremental extends React.Component<Props, State> {
-    props: Props;
-    state: State;
+declare class Incremental extends React.Component<Props> {
     context: Context;
     static defaultProps: {
         name: string;
     };
-    static contextTypes: any | {
-        incrementalGroup: React$PropType$Primitive<any>;
-        incrementalGroupEnabled: React$PropType$Primitive<boolean>;
-    };
-    constructor(props: Props, context: Context);
     getName(): string;
-    UNSAFE_componentWillMount(): void;
-    render(): React.ReactNode;
-    componentDidMount(): void;
-    componentWillUnmount(): void;
 }
 export declare type Context = {
     incrementalGroupEnabled: boolean;

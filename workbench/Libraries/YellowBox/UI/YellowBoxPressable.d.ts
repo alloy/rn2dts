@@ -13,17 +13,12 @@ declare type Props = UniqueBranding & Readonly<{
     onPress?: ((event: PressEvent) => void) | null | undefined;
     style?: ViewStyleProp;
 }>;
-declare type State = {
-    pressed: boolean;
-};
-declare class YellowBoxPressable extends React.Component<Props, State> {
+declare class YellowBoxPressable extends React.Component<Props> {
     static defaultProps: {
         backgroundColor: {
             default: string;
             pressed: string;
         };
     };
-    state: State;
-    render(): React.ReactNode;
 }
 export default YellowBoxPressable;

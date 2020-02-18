@@ -27,7 +27,6 @@ declare type PickerItemProps = UniqueBranding & Readonly<{
  */
 export { PickerItem };
 declare class PickerItem extends React.Component<PickerItemProps> {
-    render(): void;
 }
 declare type PickerProps = UniqueBranding & Readonly<{
     children?: React.ReactNode;
@@ -95,6 +94,5 @@ declare class Picker extends React.Component<PickerProps> {
     static defaultProps: {
         mode: $TEMPORARY$string<"dialog">;
     };
-    render(): React.ReactNode;
 }
 export default Picker;

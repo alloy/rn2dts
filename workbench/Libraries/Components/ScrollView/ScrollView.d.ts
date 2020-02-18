@@ -8,7 +8,6 @@ import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
 import { PressEvent, ScrollEvent } from "../../Types/CoreEventTypes";
 import { HostComponent } from "../../Renderer/shims/ReactNativeTypes";
-import { State as ScrollResponderState } from "../ScrollResponder";
 import { ViewProps } from "../View/ViewPropTypes";
 import { Props as ScrollViewStickyHeaderProps } from "./ScrollViewStickyHeader";
 export declare type ScrollResponderType = typeof ScrollResponder.Mixin & {
@@ -499,9 +498,6 @@ export declare type Props = UniqueBranding & Readonly<ViewProps & IOSProps & And
     refreshControl?: React.ReactElement<any> | null | undefined;
     children?: React.ReactNode;
 }>;
-declare type State = ScrollResponderState & {
-    layoutHeight: number | null | undefined;
-};
 declare type ContextType = {
     horizontal: boolean;
 } | null;
@@ -540,18 +536,8 @@ declare type ContextType = {
  * multiple columns, infinite scroll loading, or any number of other features it
  * supports out of the box.
  */
-declare class ScrollView extends React.Component<Props, State> {
+declare class ScrollView extends React.Component<Props> {
     static Context: React$Context<ContextType>;
-    constructor(props: Props);
-    state: State;
-    UNSAFE_componentWillMount(): void;
-    UNSAFE_componentWillReceiveProps(nextProps: Props): void;
-    componentDidMount(): void;
-    componentDidUpdate(): void;
-    componentWillUnmount(): void;
-    setNativeProps(props: {
-        [key: string]: unknown;
-    }): void;
     /**
      * Returns a reference to the underlying scroll responder, which supports
      * operations like `scrollTo`. All ScrollView-like components should
@@ -596,6 +582,5 @@ declare class ScrollView extends React.Component<Props, State> {
      * @platform ios
      */
     flashScrollIndicators(): void;
-    render(): React.ReactNode | React.ReactElement<string>;
 }
 export default ScrollView;

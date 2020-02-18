@@ -11,7 +11,6 @@ declare type DoNotCommitUsageOfPureComponentDebug = {};
  * Should only be used for local testing, and will trigger a flow failure if you try to
  * commit any usages.
  */
-declare class PureComponentDebug<P extends DoNotCommitUsageOfPureComponentDebug, S extends any | null | undefined = void> extends React.Component<P, S> {
-    shouldComponentUpdate(nextProps: P, nextState: S): boolean;
+declare class PureComponentDebug<P extends DoNotCommitUsageOfPureComponentDebug, S extends any | null | undefined = void> extends React.Component<P> {
 }
 export default PureComponentDebug;

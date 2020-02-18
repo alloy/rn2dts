@@ -25,7 +25,5 @@ import { $FlowFixMeProps } from "flow-builtin-types";
  * ```
  */
 declare class ImageBackground extends React.Component<$FlowFixMeProps> {
-    setNativeProps(props: any): void;
-    render(): React.ReactNode;
 }
 export default ImageBackground;

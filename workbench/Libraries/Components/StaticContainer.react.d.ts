@@ -1,5 +1,5 @@
 import React from 'react';
-import { UniqueBranding, React$Node } from "flow-builtin-types";
+import { UniqueBranding } from "flow-builtin-types";
 /**
  * Renders static content efficiently by allowing React to short-circuit the
  * reconciliation process. This component should be used when you know that a
@@ -26,7 +26,5 @@ declare type Props = UniqueBranding & Readonly<{
     children: React.ReactNode;
 }>;
 declare class StaticContainer extends React.Component<Props> {
-    shouldComponentUpdate(nextProps: Props): boolean;
-    render(): null | React$Node;
 }
 export default StaticContainer;

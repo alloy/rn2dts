@@ -7,11 +7,6 @@ declare type Props = UniqueBranding & Readonly<{
     onDismissAll: (() => void);
     registry: Registry;
 }>;
-declare type State = {
-    selectedCategory: Category | null | undefined;
-};
-declare class YellowBoxList extends React.Component<Props, State> {
-    state: State;
-    render(): React.ReactNode;
+declare class YellowBoxList extends React.Component<Props> {
 }
 export default YellowBoxList;

@@ -5,6 +5,5 @@ import { $FlowFixMeProps } from "flow-builtin-types";
  * View component and renders its children.
  */
 declare class UnimplementedView extends React.Component<$FlowFixMeProps> {
-    render(): React.ReactNode;
 }
 export default UnimplementedView;

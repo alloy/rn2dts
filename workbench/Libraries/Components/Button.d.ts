@@ -93,6 +93,5 @@ declare type ButtonProps = UniqueBranding & Readonly<{
  *
  */
 declare class Button extends React.Component<ButtonProps> {
-    render(): React.ReactNode;
 }
 export default Button;

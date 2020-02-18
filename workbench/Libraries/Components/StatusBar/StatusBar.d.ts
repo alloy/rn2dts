@@ -202,9 +202,5 @@ declare class StatusBar extends React.Component<Props> {
         animated: boolean;
         showHideTransition: $TEMPORARY$string<"fade">;
     };
-    componentDidMount(): void;
-    componentWillUnmount(): void;
-    componentDidUpdate(): void;
-    render(): React.ReactNode;
 }
 export default StatusBar;

@@ -59,7 +59,5 @@ export declare type Props = UniqueBranding & Readonly<ViewProps & {
  * supplied `value` prop instead of the expected result of any user actions.
  */
 declare class Switch extends React.Component<Props> {
-    render(): React.ReactNode;
-    componentDidUpdate(): void;
 }
 export default Switch;

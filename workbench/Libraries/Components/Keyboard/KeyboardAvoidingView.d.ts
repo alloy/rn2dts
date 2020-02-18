@@ -22,14 +22,11 @@ declare type Props = UniqueBranding & Readonly<ViewProps & {
      */
     keyboardVerticalOffset: number;
 }>;
-declare type State = {
-    bottom: number;
-};
 /**
  * View that moves out of the way when the keyboard appears by automatically
  * adjusting its height, position, or bottom padding.
  */
-declare class KeyboardAvoidingView extends React.Component<Props, State> {
+declare class KeyboardAvoidingView extends React.Component<Props> {
     static defaultProps: {
         enabled: boolean;
         keyboardVerticalOffset: number;
@@ -37,9 +34,5 @@ declare class KeyboardAvoidingView extends React.Component<Props, State> {
     viewRef: {
         current: React.ElementRef<any> | null;
     };
-    constructor(props: Props);
-    componentDidMount(): void;
-    componentWillUnmount(): void;
-    render(): React.ReactNode;
 }
 export default KeyboardAvoidingView;

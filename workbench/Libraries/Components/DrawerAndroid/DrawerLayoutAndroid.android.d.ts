@@ -77,9 +77,6 @@ declare type Props = UniqueBranding & Readonly<{
     children?: React.ReactNode;
     style?: ViewStyleProp | null | undefined;
 }>;
-declare type State = {
-    statusBarBackgroundColor: ColorValue;
-};
 /**
  * React component that wraps the platform `DrawerLayout` (Android only). The
  * Drawer (typically used for navigation) is rendered with `renderNavigationView`
@@ -111,13 +108,11 @@ declare type State = {
  * },
  * ```
  */
-declare class DrawerLayoutAndroid extends React.Component<Props, State> {
+declare class DrawerLayoutAndroid extends React.Component<Props> {
     static get positions(): unknown;
     static defaultProps: {
         drawerBackgroundColor: "white";
     };
-    state: State;
-    render(): React.ReactNode;
     /**
      * Opens the drawer.
      */
@@ -169,6 +164,5 @@ declare class DrawerLayoutAndroid extends React.Component<Props, State> {
     measure(callback: MeasureOnSuccessCallback): void;
     measureInWindow(callback: MeasureInWindowOnSuccessCallback): void;
     measureLayout(relativeToNativeNode: number, onSuccess: MeasureLayoutOnSuccessCallback, onFail?: (() => void)): void;
-    setNativeProps(nativeProps: any): void;
 }
 export default DrawerLayoutAndroid;

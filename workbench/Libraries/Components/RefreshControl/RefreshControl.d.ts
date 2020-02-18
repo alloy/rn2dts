@@ -96,8 +96,5 @@ export declare type RefreshControlProps = UniqueBranding & Readonly<ViewProps & 
  */
 declare class RefreshControl extends React.Component<RefreshControlProps> {
     static SIZE: any;
-    componentDidMount(): void;
-    componentDidUpdate(prevProps: RefreshControlProps): void;
-    render(): React.ReactNode;
 }
 export default RefreshControl;

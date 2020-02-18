@@ -9,15 +9,7 @@ export declare type Props = {
     inverted: boolean | null | undefined;
     scrollViewHeight: number | null | undefined;
 };
-declare type State = {
-    measured: boolean;
-    layoutY: number;
-    layoutHeight: number;
-    nextHeaderLayoutY: number | null | undefined;
-};
-declare class ScrollViewStickyHeader extends React.Component<Props, State> {
-    state: State;
+declare class ScrollViewStickyHeader extends React.Component<Props> {
     setNextHeaderY(y: number): void;
-    render(): React.ReactNode;
 }
 export default ScrollViewStickyHeader;

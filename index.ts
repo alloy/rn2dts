@@ -14,6 +14,7 @@ import { transformer as importsExportsTransformer } from "./codemods/imports-exp
 import { transformer as noopsTransformer } from "./codemods/noops"
 import { transformer as objmapTransformer } from "./codemods/objmap"
 import { transformer as privateTransformer } from "./codemods/private"
+import { transformer as reactTransformer } from "./codemods/react"
 
 const WORKBENCH = "./workbench"
 const SOURCE = "./node_modules/react-native"
@@ -101,6 +102,7 @@ rimraf(WORKBENCH, err => {
             tsCode = captureError(inputPath, "privateTransformer", () => codemod(privateTransformer, tsPath, tsCode))
             tsCode = captureError(inputPath, "noopsTransformer", () => codemod(noopsTransformer, tsPath, tsCode))
             tsCode = captureError(inputPath, "objmapTransformer", () => codemod(objmapTransformer, tsPath, tsCode))
+            tsCode = captureError(inputPath, "reactTransformer", () => codemod(reactTransformer, tsPath, tsCode))
             
             captureError(inputPath, "mkdirSync", () => fs.mkdirSync(path.dirname(tsPath), { recursive: true }))
             captureError(inputPath, "writeFileSync", () => fs.writeFileSync(tsPath, tsCode))

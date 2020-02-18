@@ -57,7 +57,6 @@ declare class ReactNativeComponent<Props> extends React.Component<Props> {
     measure(callback: MeasureOnSuccessCallback): void;
     measureInWindow(callback: MeasureInWindowOnSuccessCallback): void;
     measureLayout(relativeToNativeNode: number | ElementRef<HostComponent<unknown>>, onSuccess: MeasureLayoutOnSuccessCallback, onFail?: (() => void)): void;
-    setNativeProps(nativeProps: any): void;
 }
 export declare type _InternalReactNativeComponentClass<Props> = Class<ReactNativeComponent<Props>>;
 /**

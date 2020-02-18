@@ -1,5 +1,4 @@
 import { Stringish, UniqueBranding } from "flow-builtin-types";
-import Pressability from "../../Pressability/Pressability.js";
 import { AccessibilityActionEvent, AccessibilityActionInfo, AccessibilityRole, AccessibilityState, AccessibilityValue } from "../../Components/View/ViewAccessibility";
 import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
 import { BlurEvent, FocusEvent, LayoutEvent, PressEvent } from "../../Types/CoreEventTypes";
@@ -38,13 +37,6 @@ declare type Props = UniqueBranding & Readonly<{
     testID?: string | null | undefined;
     touchSoundDisabled?: boolean | null | undefined;
 }>;
-declare type State = UniqueBranding & Readonly<{
-    pressability: Pressability;
-}>;
-declare class TouchableWithoutFeedback extends React.Component<Props, State> {
-    state: State;
-    render(): React.ReactNode;
-    componentDidMount(): void;
-    componentWillUnmount(): void;
+declare class TouchableWithoutFeedback extends React.Component<Props> {
 }
 export default TouchableWithoutFeedback;

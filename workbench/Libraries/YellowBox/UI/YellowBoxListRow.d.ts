@@ -10,7 +10,5 @@ declare type Props = UniqueBranding & Readonly<{
 declare class YellowBoxListRow extends React.Component<Props> {
     static GUTTER: number;
     static HEIGHT: number;
-    shouldComponentUpdate(nextProps: Props): boolean;
-    render(): React.ReactNode;
 }
 export default YellowBoxListRow;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { UniqueBranding, React$PropType$Primitive } from "flow-builtin-types";
+import { UniqueBranding } from "flow-builtin-types";
 import { ViewProps } from "../Components/View/ViewPropTypes";
 import { DirectEventHandler } from "../Types/CodegenTypes";
 declare type OrientationChangeEvent = UniqueBranding & Readonly<{
@@ -93,18 +93,5 @@ declare class Modal extends React.Component<Props> {
         hardwareAccelerated: boolean;
         visible: boolean;
     };
-    static contextTypes: any | {
-        rootTag: React$PropType$Primitive<number>;
-    };
-    constructor(props: Props);
-    static childContextTypes: any | {
-        virtualizedList: React$PropType$Primitive<any>;
-    };
-    getChildContext(): {
-        virtualizedList: null;
-    };
-    componentWillUnmount(): void;
-    UNSAFE_componentWillReceiveProps(nextProps: Props): void;
-    render(): React.ReactNode;
 }
 export default Modal;

@@ -1,5 +1,4 @@
 import { ClassOrType, UniqueBranding } from "flow-builtin-types";
-import Pressability from "../../Pressability/Pressability.js";
 import _valueof_TouchableWithoutFeedback from "./TouchableWithoutFeedback";
 declare type _typeof_TouchableWithoutFeedback = typeof _valueof_TouchableWithoutFeedback & UniqueBranding;
 declare type TouchableWithoutFeedback = ClassOrType<_typeof_TouchableWithoutFeedback>;
@@ -55,10 +54,7 @@ declare type Props = UniqueBranding & Readonly<React.ElementConfig<TouchableWith
      */
     useForeground?: boolean | null | undefined;
 }>;
-declare type State = UniqueBranding & Readonly<{
-    pressability: Pressability;
-}>;
-declare class TouchableNativeFeedback extends React.Component<Props, State> {
+declare class TouchableNativeFeedback extends React.Component<Props> {
     /**
      * Creates a value for the `background` prop that uses the Android theme's
      * default background for selectable elements.
@@ -89,9 +85,5 @@ declare class TouchableNativeFeedback extends React.Component<Props, State> {
      * Whether `useForeground` is supported.
      */
     static canUseNativeForeground: (() => boolean);
-    state: State;
-    render(): React.ReactNode;
-    componentDidMount(): void;
-    componentWillUnmount(): void;
 }
 export default TouchableNativeFeedback;

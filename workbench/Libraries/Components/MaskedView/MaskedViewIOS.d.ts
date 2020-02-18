@@ -46,6 +46,5 @@ declare type Props = UniqueBranding & Readonly<ViewProps & {
  *
  */
 declare class MaskedViewIOS extends React.Component<Props> {
-    render(): React.ReactNode;
 }
 export default MaskedViewIOS;

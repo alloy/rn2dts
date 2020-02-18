@@ -78,7 +78,5 @@ declare class DatePickerIOS extends React.Component<Props> {
     static DefaultProps: {
         mode: $TEMPORARY$string<"datetime">;
     };
-    componentDidUpdate(): void;
-    render(): React.ReactNode;
 }
 export default DatePickerIOS;

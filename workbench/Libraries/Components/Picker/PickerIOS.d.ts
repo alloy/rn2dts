@@ -7,11 +7,6 @@ declare type PickerIOSChangeEvent = React.SyntheticEvent<UniqueBranding & Readon
     newValue: number | string;
     newIndex: number;
 }>>;
-declare type RCTPickerIOSItemType = UniqueBranding & Readonly<{
-    label: Label | null | undefined;
-    value: (number | string) | null | undefined;
-    textColor: number | null | undefined;
-}>;
 declare type Label = Stringish | number;
 declare type Props = UniqueBranding & Readonly<ViewProps & {
     children: React.ChildrenArray<React.ReactElement<typeof PickerIOSItem>>;
@@ -20,21 +15,13 @@ declare type Props = UniqueBranding & Readonly<ViewProps & {
     onValueChange?: ((itemValue: string | number, itemIndex: number) => unknown) | null | undefined;
     selectedValue: (number | string) | null | undefined;
 }>;
-declare type State = {
-    selectedIndex: number;
-    items: ReadonlyArray<RCTPickerIOSItemType>;
-};
 declare type ItemProps = UniqueBranding & Readonly<{
     label: Label | null | undefined;
     value?: (number | string) | null | undefined;
     color?: ColorValue | null | undefined;
 }>;
 declare const PickerIOSItem: (props: ItemProps) => null;
-declare class PickerIOS extends React.Component<Props, State> {
-    state: State;
+declare class PickerIOS extends React.Component<Props> {
     static Item: ((props: ItemProps) => null);
-    static getDerivedStateFromProps(props: Props): State;
-    render(): React.ReactNode;
-    componentDidUpdate(): void;
 }
 export default PickerIOS;

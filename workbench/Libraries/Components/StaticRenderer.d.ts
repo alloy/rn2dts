@@ -12,7 +12,5 @@ declare type Props = UniqueBranding & Readonly<{
     render: (() => React.ReactNode);
 }>;
 declare class StaticRenderer extends React.Component<Props> {
-    shouldComponentUpdate(nextProps: Props): boolean;
-    render(): React.ReactNode;
 }
 export default StaticRenderer;
