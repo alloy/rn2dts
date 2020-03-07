@@ -1,2 +1,5 @@
-declare const Header: () => any;
-export default Header;
+import { Node } from "react";
+
+declare var Header: (() => Node);
+
+export default typeof Header;

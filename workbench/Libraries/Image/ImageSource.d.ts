@@ -1,34 +1,40 @@
 import { UniqueBranding } from "flow-builtin-types";
-export declare type ImageURISource = UniqueBranding & Readonly<{
-    /**
+type ImageURISource = UniqueBranding & Readonly<{
+
+  /**
      * `uri` is a string representing the resource identifier for the image, which
      * could be an http address, a local file path, or the name of a static image
      * resource (which should be wrapped in the `require('./path/to/image.png')`
      * function).
      */
-    uri?: string | null | undefined;
-    /**
+  uri?: string | null | undefined;
+
+  /**
      * `bundle` is the iOS asset bundle which the image is included in. This
      * will default to [NSBundle mainBundle] if not set.
      * @platform ios
      */
-    bundle?: string | null | undefined;
-    /**
+  bundle?: string | null | undefined;
+
+  /**
      * `method` is the HTTP Method to use. Defaults to GET if not specified.
      */
-    method?: string | null | undefined;
-    /**
+  method?: string | null | undefined;
+
+  /**
      * `headers` is an object representing the HTTP headers to send along with the
      * request for a remote image.
      */
-    headers?: any | null | undefined;
-    /**
+  headers?: any | null | undefined;
+
+  /**
      * `body` is the HTTP body to send with the request. This must be a valid
      * UTF-8 string, and will be sent exactly as specified, with no
      * additional encoding (e.g. URL-escaping or base64) applied.
      */
-    body?: string | null | undefined;
-    /**
+  body?: string | null | undefined;
+
+  /**
      * `cache` determines how the requests handles potentially cached
      * responses.
      *
@@ -48,17 +54,24 @@ export declare type ImageURISource = UniqueBranding & Readonly<{
      *
      * @platform ios
      */
-    cache?: ("default" | "reload" | "force-cache" | "only-if-cached") | null | undefined;
-    /**
+  cache?: ("default" | "reload" | "force-cache" | "only-if-cached") | null | undefined;
+
+  /**
      * `width` and `height` can be specified if known at build time, in which case
      * these will be used to set the default `<Image/>` component dimensions.
      */
-    width?: number | null | undefined;
-    height?: number | null | undefined;
-    /**
+  width?: number | null | undefined;
+  height?: number | null | undefined;
+
+  /**
      * `scale` is used to indicate the scale factor of the image. Defaults to 1.0 if
      * unspecified, meaning that one image pixel equates to one display point / DIP.
      */
-    scale?: number | null | undefined;
+  scale?: number | null | undefined;
+
 }>;
-export declare type ImageSource = ImageURISource | number | Array<ImageURISource>;
+
+type ImageSource = ImageURISource | number | Array<ImageURISource>;
+export { ImageURISource };
+
+export { ImageSource };

@@ -1,2 +1,3 @@
 declare function openFileInEditor(file: string, lineNumber: number): void;
-export default openFileInEditor;
+
+declare module.exports: typeof openFileInEditor

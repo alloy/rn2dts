@@ -1,431 +1,321 @@
-import _Import0 from '../../StyleSheet/processColor';
-declare const ReactNativeViewConfig: {
-    uiViewClassName: string;
-    baseModuleName: null;
-    Manager: string;
-    Commands: {};
-    Constants: {};
-    bubblingEventTypes: {
-        topBlur: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
-        topChange: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
-        topEndEditing: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
-        topFocus: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
-        topKeyPress: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
-        topPress: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
-        topSubmitEditing: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
-        topTouchCancel: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
-        topTouchEnd: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
-        topTouchMove: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
-        topTouchStart: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
-        topSelect: {
-            phasedRegistrationNames: {
-                bubbled: string;
-                captured: string;
-            };
-        };
+import ReactNativeViewViewConfigAndroid from "./ReactNativeViewViewConfigAndroid";
+
+declare var ReactNativeViewConfig: {
+  uiViewClassName: string;
+  baseModuleName: null;
+  Manager: string;
+  Commands: {};
+  Constants: {};
+  bubblingEventTypes: typeof ReactNativeViewViewConfigAndroid.bubblingEventTypes & {
+    topBlur: {phasedRegistrationNames: {bubbled: string;captured: string;};};
+    topChange: {
+      phasedRegistrationNames: {bubbled: string;captured: string;};
     };
-    directEventTypes: {
-        topAccessibilityAction: {
-            registrationName: string;
-        };
-        topAccessibilityEscape: {
-            registrationName: string;
-        };
-        topAccessibilityTap: {
-            registrationName: string;
-        };
-        topLayout: {
-            registrationName: string;
-        };
-        topMagicTap: {
-            registrationName: string;
-        };
-        onGestureHandlerEvent: {
-            registrationName: string;
-        };
-        onGestureHandlerStateChange: {
-            registrationName: string;
-        };
-        topClick: {
-            registrationName: string;
-        };
-        topContentSizeChange: {
-            registrationName: string;
-        };
-        topLoadingError: {
-            registrationName: string;
-        };
-        topLoadingFinish: {
-            registrationName: string;
-        };
-        topLoadingStart: {
-            registrationName: string;
-        };
-        topMessage: {
-            registrationName: string;
-        };
-        topMomentumScrollBegin: {
-            registrationName: string;
-        };
-        topMomentumScrollEnd: {
-            registrationName: string;
-        };
-        topScroll: {
-            registrationName: string;
-        };
-        topScrollBeginDrag: {
-            registrationName: string;
-        };
-        topScrollEndDrag: {
-            registrationName: string;
-        };
-        topSelectionChange: {
-            registrationName: string;
-        };
+    topEndEditing: {
+      phasedRegistrationNames: {bubbled: string;captured: string;};
     };
-    validAttributes: {
-        accessibilityActions: boolean;
-        accessibilityElementsHidden: boolean;
-        accessibilityHint: boolean;
-        accessibilityIgnoresInvertColors: boolean;
-        accessibilityLabel: boolean;
-        accessibilityLiveRegion: boolean;
-        accessibilityRole: boolean;
-        accessibilityStates: boolean;
-        accessibilityState: boolean;
-        accessibilityValue: boolean;
-        accessibilityViewIsModal: boolean;
-        accessible: boolean;
-        alignContent: boolean;
-        alignItems: boolean;
-        alignSelf: boolean;
-        aspectRatio: boolean;
-        backfaceVisibility: boolean;
-        backgroundColor: {
-            process: typeof _Import0;
-        };
-        borderBottomColor: {
-            process: typeof _Import0;
-        };
-        borderBottomEndRadius: boolean;
-        borderBottomLeftRadius: boolean;
-        borderBottomRightRadius: boolean;
-        borderBottomStartRadius: boolean;
-        borderBottomWidth: boolean;
-        borderColor: {
-            process: typeof _Import0;
-        };
-        borderEndColor: {
-            process: typeof _Import0;
-        };
-        borderEndWidth: boolean;
-        borderLeftColor: {
-            process: typeof _Import0;
-        };
-        borderLeftWidth: boolean;
-        borderRadius: boolean;
-        borderRightColor: {
-            process: typeof _Import0;
-        };
-        borderRightWidth: boolean;
-        borderStartColor: {
-            process: typeof _Import0;
-        };
-        borderStartWidth: boolean;
-        borderStyle: boolean;
-        borderTopColor: {
-            process: typeof _Import0;
-        };
-        borderTopEndRadius: boolean;
-        borderTopLeftRadius: boolean;
-        borderTopRightRadius: boolean;
-        borderTopStartRadius: boolean;
-        borderTopWidth: boolean;
-        borderWidth: boolean;
-        bottom: boolean;
-        clickable: boolean;
-        collapsable: boolean;
-        direction: boolean;
-        display: boolean;
-        elevation: boolean;
-        end: boolean;
-        flex: boolean;
-        flexBasis: boolean;
-        flexDirection: boolean;
-        flexGrow: boolean;
-        flexShrink: boolean;
-        flexWrap: boolean;
-        height: boolean;
-        hitSlop: {
-            diff: any;
-        };
-        importantForAccessibility: boolean;
-        justifyContent: boolean;
-        left: boolean;
-        margin: boolean;
-        marginBottom: boolean;
-        marginEnd: boolean;
-        marginHorizontal: boolean;
-        marginLeft: boolean;
-        marginRight: boolean;
-        marginStart: boolean;
-        marginTop: boolean;
-        marginVertical: boolean;
-        maxHeight: boolean;
-        maxWidth: boolean;
-        minHeight: boolean;
-        minWidth: boolean;
-        nativeID: boolean;
-        needsOffscreenAlphaCompositing: boolean;
-        onAccessibilityAction: boolean;
-        onAccessibilityEscape: boolean;
-        onAccessibilityTap: boolean;
-        onLayout: boolean;
-        onMagicTap: boolean;
-        opacity: boolean;
-        overflow: boolean;
-        padding: boolean;
-        paddingBottom: boolean;
-        paddingEnd: boolean;
-        paddingHorizontal: boolean;
-        paddingLeft: boolean;
-        paddingRight: boolean;
-        paddingStart: boolean;
-        paddingTop: boolean;
-        paddingVertical: boolean;
-        pointerEvents: boolean;
-        position: boolean;
-        removeClippedSubviews: boolean;
-        renderToHardwareTextureAndroid: boolean;
-        right: boolean;
-        rotation: boolean;
-        scaleX: boolean;
-        scaleY: boolean;
-        shadowColor: {
-            process: typeof _Import0;
-        };
-        shadowOffset: {
-            diff: (one: any, two: any) => boolean;
-        };
-        shadowOpacity: boolean;
-        shadowRadius: boolean;
-        shouldRasterizeIOS: boolean;
-        start: boolean;
-        style: {
-            alignContent: boolean;
-            alignItems: boolean;
-            alignSelf: boolean;
-            aspectRatio: boolean;
-            backfaceVisibility: boolean;
-            backgroundColor: {
-                process: typeof _Import0;
-            };
-            borderBottomColor: {
-                process: typeof _Import0;
-            };
-            borderBottomEndRadius: boolean;
-            borderBottomLeftRadius: boolean;
-            borderBottomRightRadius: boolean;
-            borderBottomStartRadius: boolean;
-            borderBottomWidth: boolean;
-            borderColor: {
-                process: typeof _Import0;
-            };
-            borderEndColor: {
-                process: typeof _Import0;
-            };
-            borderEndWidth: boolean;
-            borderLeftColor: {
-                process: typeof _Import0;
-            };
-            borderLeftWidth: boolean;
-            borderRadius: boolean;
-            borderRightColor: {
-                process: typeof _Import0;
-            };
-            borderRightWidth: boolean;
-            borderStartColor: {
-                process: typeof _Import0;
-            };
-            borderStartWidth: boolean;
-            borderStyle: boolean;
-            borderTopColor: {
-                process: typeof _Import0;
-            };
-            borderTopEndRadius: boolean;
-            borderTopLeftRadius: boolean;
-            borderTopRightRadius: boolean;
-            borderTopStartRadius: boolean;
-            borderTopWidth: boolean;
-            borderWidth: boolean;
-            bottom: boolean;
-            color: {
-                process: typeof _Import0;
-            };
-            decomposedMatrix: boolean;
-            direction: boolean;
-            display: boolean;
-            elevation: boolean;
-            end: boolean;
-            flex: boolean;
-            flexBasis: boolean;
-            flexDirection: boolean;
-            flexGrow: boolean;
-            flexShrink: boolean;
-            flexWrap: boolean;
-            fontFamily: boolean;
-            fontSize: boolean;
-            fontStyle: boolean;
-            fontVariant: boolean;
-            fontWeight: boolean;
-            height: boolean;
-            includeFontPadding: boolean;
-            justifyContent: boolean;
-            left: boolean;
-            letterSpacing: boolean;
-            lineHeight: boolean;
-            margin: boolean;
-            marginBottom: boolean;
-            marginEnd: boolean;
-            marginHorizontal: boolean;
-            marginLeft: boolean;
-            marginRight: boolean;
-            marginStart: boolean;
-            marginTop: boolean;
-            marginVertical: boolean;
-            maxHeight: boolean;
-            maxWidth: boolean;
-            minHeight: boolean;
-            minWidth: boolean;
-            opacity: boolean;
-            overflow: boolean;
-            overlayColor: {
-                process: typeof _Import0;
-            };
-            padding: boolean;
-            paddingBottom: boolean;
-            paddingEnd: boolean;
-            paddingHorizontal: boolean;
-            paddingLeft: boolean;
-            paddingRight: boolean;
-            paddingStart: boolean;
-            paddingTop: boolean;
-            paddingVertical: boolean;
-            position: boolean;
-            resizeMode: boolean;
-            right: boolean;
-            rotation: boolean;
-            scaleX: boolean;
-            scaleY: boolean;
-            shadowColor: {
-                process: typeof _Import0;
-            };
-            shadowOffset: {
-                diff: (one: any, two: any) => boolean;
-            };
-            shadowOpacity: boolean;
-            shadowRadius: boolean;
-            start: boolean;
-            textAlign: boolean;
-            textAlignVertical: boolean;
-            textDecorationColor: {
-                process: typeof _Import0;
-            };
-            textDecorationLine: boolean;
-            textDecorationStyle: boolean;
-            textShadowColor: {
-                process: typeof _Import0;
-            };
-            textShadowOffset: boolean;
-            textShadowRadius: boolean;
-            textTransform: boolean;
-            tintColor: {
-                process: typeof _Import0;
-            };
-            top: boolean;
-            transform: {
-                diff: (one: any, two: any) => boolean;
-            };
-            transformMatrix: boolean;
-            translateX: boolean;
-            translateY: boolean;
-            width: boolean;
-            writingDirection: boolean;
-            zIndex: boolean;
-        };
-        testID: boolean;
-        top: boolean;
-        transform: {
-            diff: (one: any, two: any) => boolean;
-        };
-        translateX: boolean;
-        translateY: boolean;
-        width: boolean;
-        zIndex: boolean;
-        hasTVPreferredFocus: boolean;
-        focusable: boolean;
-        nativeBackgroundAndroid: boolean;
-        nativeForegroundAndroid: boolean;
-        nextFocusDown: boolean;
-        nextFocusForward: boolean;
-        nextFocusLeft: boolean;
-        nextFocusRight: boolean;
-        nextFocusUp: boolean;
+    topFocus: {phasedRegistrationNames: {bubbled: string;captured: string;};};
+    topKeyPress: {
+      phasedRegistrationNames: {bubbled: string;captured: string;};
     };
+    topPress: {phasedRegistrationNames: {bubbled: string;captured: string;};};
+    topSubmitEditing: {
+      phasedRegistrationNames: {bubbled: string;captured: string;};
+    };
+    topTouchCancel: {
+      phasedRegistrationNames: {bubbled: string;captured: string;};
+    };
+    topTouchEnd: {
+      phasedRegistrationNames: {bubbled: string;captured: string;};
+    };
+    topTouchMove: {
+      phasedRegistrationNames: {bubbled: string;captured: string;};
+    };
+    topTouchStart: {
+      phasedRegistrationNames: {bubbled: string;captured: string;};
+    };
+  };
+  directEventTypes: typeof ReactNativeViewViewConfigAndroid.directEventTypes & {
+    topAccessibilityAction: {registrationName: string;};
+    topAccessibilityEscape: {registrationName: string;};
+    topAccessibilityTap: {registrationName: string;};
+    topLayout: {registrationName: string;};
+    topMagicTap: {registrationName: string;};
+    // Events for react-native-gesture-handler (T45765076)
+    // Remove once this library can handle JS View Configs
+    onGestureHandlerEvent: {
+      registrationName: string;
+    };
+    onGestureHandlerStateChange: {registrationName: string;};
+  };
+  validAttributes: typeof ReactNativeViewViewConfigAndroid.validAttributes & {
+    accessibilityActions: boolean;
+    accessibilityElementsHidden: boolean;
+    accessibilityHint: boolean;
+    accessibilityIgnoresInvertColors: boolean;
+    accessibilityLabel: boolean;
+    accessibilityLiveRegion: boolean;
+    accessibilityRole: boolean;
+    accessibilityStates: boolean;
+    // TODO: Can be removed after next release
+    accessibilityState: boolean;
+    accessibilityValue: boolean;
+    accessibilityViewIsModal: boolean;
+    accessible: boolean;
+    alignContent: boolean;
+    alignItems: boolean;
+    alignSelf: boolean;
+    aspectRatio: boolean;
+    backfaceVisibility: boolean;
+    backgroundColor: {process: typeof $1;};
+    borderBottomColor: {process: typeof $2;};
+    borderBottomEndRadius: boolean;
+    borderBottomLeftRadius: boolean;
+    borderBottomRightRadius: boolean;
+    borderBottomStartRadius: boolean;
+    borderBottomWidth: boolean;
+    borderColor: {process: typeof $3;};
+    borderEndColor: {process: typeof $4;};
+    borderEndWidth: boolean;
+    borderLeftColor: {process: typeof $5;};
+    borderLeftWidth: boolean;
+    borderRadius: boolean;
+    borderRightColor: {process: typeof $6;};
+    borderRightWidth: boolean;
+    borderStartColor: {process: typeof $7;};
+    borderStartWidth: boolean;
+    borderStyle: boolean;
+    borderTopColor: {process: typeof $8;};
+    borderTopEndRadius: boolean;
+    borderTopLeftRadius: boolean;
+    borderTopRightRadius: boolean;
+    borderTopStartRadius: boolean;
+    borderTopWidth: boolean;
+    borderWidth: boolean;
+    bottom: boolean;
+    clickable: boolean;
+    collapsable: boolean;
+    direction: boolean;
+    display: boolean;
+    elevation: boolean;
+    end: boolean;
+    flex: boolean;
+    flexBasis: boolean;
+    flexDirection: boolean;
+    flexGrow: boolean;
+    flexShrink: boolean;
+    flexWrap: boolean;
+    height: boolean;
+    hitSlop: {diff: any;};
+    importantForAccessibility: boolean;
+    justifyContent: boolean;
+    left: boolean;
+    margin: boolean;
+    marginBottom: boolean;
+    marginEnd: boolean;
+    marginHorizontal: boolean;
+    marginLeft: boolean;
+    marginRight: boolean;
+    marginStart: boolean;
+    marginTop: boolean;
+    marginVertical: boolean;
+    maxHeight: boolean;
+    maxWidth: boolean;
+    minHeight: boolean;
+    minWidth: boolean;
+    nativeID: boolean;
+    needsOffscreenAlphaCompositing: boolean;
+    onAccessibilityAction: boolean;
+    onAccessibilityEscape: boolean;
+    onAccessibilityTap: boolean;
+    onLayout: boolean;
+    onMagicTap: boolean;
+    opacity: boolean;
+    overflow: boolean;
+    padding: boolean;
+    paddingBottom: boolean;
+    paddingEnd: boolean;
+    paddingHorizontal: boolean;
+    paddingLeft: boolean;
+    paddingRight: boolean;
+    paddingStart: boolean;
+    paddingTop: boolean;
+    paddingVertical: boolean;
+    pointerEvents: boolean;
+    position: boolean;
+    removeClippedSubviews: boolean;
+    renderToHardwareTextureAndroid: boolean;
+    right: boolean;
+    rotation: boolean;
+    scaleX: boolean;
+    scaleY: boolean;
+    shadowColor: {process: typeof $9;};
+    shadowOffset: {diff: typeof $10;};
+    shadowOpacity: boolean;
+    shadowRadius: boolean;
+    shouldRasterizeIOS: boolean;
+    start: boolean;
+    style: {
+      alignContent: boolean;
+      alignItems: boolean;
+      alignSelf: boolean;
+      aspectRatio: boolean;
+      backfaceVisibility: boolean;
+      backgroundColor: {process: typeof $11;};
+      borderBottomColor: {process: typeof $12;};
+      borderBottomEndRadius: boolean;
+      borderBottomLeftRadius: boolean;
+      borderBottomRightRadius: boolean;
+      borderBottomStartRadius: boolean;
+      borderBottomWidth: boolean;
+      borderColor: {process: typeof $13;};
+      borderEndColor: {process: typeof $14;};
+      borderEndWidth: boolean;
+      borderLeftColor: {process: typeof $15;};
+      borderLeftWidth: boolean;
+      borderRadius: boolean;
+      borderRightColor: {process: typeof $16;};
+      borderRightWidth: boolean;
+      borderStartColor: {process: typeof $17;};
+      borderStartWidth: boolean;
+      borderStyle: boolean;
+      borderTopColor: {process: typeof $18;};
+      borderTopEndRadius: boolean;
+      borderTopLeftRadius: boolean;
+      borderTopRightRadius: boolean;
+      borderTopStartRadius: boolean;
+      borderTopWidth: boolean;
+      borderWidth: boolean;
+      bottom: boolean;
+      color: {process: typeof $19;};
+      decomposedMatrix: boolean;
+      direction: boolean;
+      display: boolean;
+      elevation: boolean;
+      end: boolean;
+      flex: boolean;
+      flexBasis: boolean;
+      flexDirection: boolean;
+      flexGrow: boolean;
+      flexShrink: boolean;
+      flexWrap: boolean;
+      fontFamily: boolean;
+      fontSize: boolean;
+      fontStyle: boolean;
+      fontVariant: boolean;
+      fontWeight: boolean;
+      height: boolean;
+      includeFontPadding: boolean;
+      justifyContent: boolean;
+      left: boolean;
+      letterSpacing: boolean;
+      lineHeight: boolean;
+      margin: boolean;
+      marginBottom: boolean;
+      marginEnd: boolean;
+      marginHorizontal: boolean;
+      marginLeft: boolean;
+      marginRight: boolean;
+      marginStart: boolean;
+      marginTop: boolean;
+      marginVertical: boolean;
+      maxHeight: boolean;
+      maxWidth: boolean;
+      minHeight: boolean;
+      minWidth: boolean;
+      opacity: boolean;
+      overflow: boolean;
+      overlayColor: {process: typeof $20;};
+      padding: boolean;
+      paddingBottom: boolean;
+      paddingEnd: boolean;
+      paddingHorizontal: boolean;
+      paddingLeft: boolean;
+      paddingRight: boolean;
+      paddingStart: boolean;
+      paddingTop: boolean;
+      paddingVertical: boolean;
+      position: boolean;
+      resizeMode: boolean;
+      right: boolean;
+      rotation: boolean;
+      scaleX: boolean;
+      scaleY: boolean;
+      shadowColor: {process: typeof $21;};
+      shadowOffset: {diff: typeof $22;};
+      shadowOpacity: boolean;
+      shadowRadius: boolean;
+      start: boolean;
+      textAlign: boolean;
+      textAlignVertical: boolean;
+      textDecorationColor: {process: typeof $23;};
+      textDecorationLine: boolean;
+      textDecorationStyle: boolean;
+      textShadowColor: {process: typeof $24;};
+      textShadowOffset: boolean;
+      textShadowRadius: boolean;
+      textTransform: boolean;
+      tintColor: {process: typeof $25;};
+      top: boolean;
+      transform: any;
+      transformMatrix: boolean;
+      translateX: boolean;
+      translateY: boolean;
+      width: boolean;
+      writingDirection: boolean;
+      zIndex: boolean;
+    };
+    testID: boolean;
+    top: boolean;
+    transform: any;
+    translateX: boolean;
+    translateY: boolean;
+    width: boolean;
+    zIndex: boolean;
+  };
 };
-export default ReactNativeViewConfig;
+const $1 = require("../../StyleSheet/processColor");
+const $2 = require("../../StyleSheet/processColor");
+
+const $3 = require("../../StyleSheet/processColor");
+const $4 = require("../../StyleSheet/processColor");
+
+const $5 = require("../../StyleSheet/processColor");
+
+const $6 = require("../../StyleSheet/processColor");
+
+const $7 = require("../../StyleSheet/processColor");
+
+const $8 = require("../../StyleSheet/processColor");
+
+const $9 = require("../../StyleSheet/processColor");
+const $10 = require("../../Utilities/differ/sizesDiffer");
+
+const $11 = require("../../StyleSheet/processColor");
+const $12 = require("../../StyleSheet/processColor");
+
+const $13 = require("../../StyleSheet/processColor");
+const $14 = require("../../StyleSheet/processColor");
+
+const $15 = require("../../StyleSheet/processColor");
+
+const $16 = require("../../StyleSheet/processColor");
+
+const $17 = require("../../StyleSheet/processColor");
+
+const $18 = require("../../StyleSheet/processColor");
+
+const $19 = require("../../StyleSheet/processColor");
+
+const $20 = require("../../StyleSheet/processColor");
+
+const $21 = require("../../StyleSheet/processColor");
+const $22 = require("../../Utilities/differ/sizesDiffer");
+
+const $23 = require("../../StyleSheet/processColor");
+
+const $24 = require("../../StyleSheet/processColor");
+
+const $25 = require("../../StyleSheet/processColor");
+
+declare module.exports: typeof ReactNativeViewConfig

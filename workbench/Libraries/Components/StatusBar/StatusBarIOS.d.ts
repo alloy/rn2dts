@@ -1,8 +1,5 @@
-import NativeEventEmitter from '../../EventEmitter/NativeEventEmitter';
-/**
- * Use `StatusBar` for mutating the status bar.
- */
-declare class StatusBarIOS extends NativeEventEmitter {
-}
-declare const _default: StatusBarIOS;
-export default _default;
+const NativeEventEmitter = require("../../EventEmitter/NativeEventEmitter");
+
+declare class StatusBarIOS extends NativeEventEmitter {}
+
+declare module.exports: StatusBarIOS

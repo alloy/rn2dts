@@ -1,4 +1,3 @@
-declare const HeapCapture: {
-    captureHeap: (path: string) => void;
-};
-export default HeapCapture;
+declare var HeapCapture: {captureHeap: ((path: string) => void);};
+
+declare module.exports: typeof HeapCapture

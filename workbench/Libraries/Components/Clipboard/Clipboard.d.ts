@@ -1,5 +1,6 @@
-declare const _default: {
-    /**
+declare module.exports: {
+
+  /**
      * Get content of string type, this method returns a `Promise`, so you can use following code to get clipboard content
      * ```javascript
      * async _getContent() {
@@ -7,8 +8,9 @@ declare const _default: {
      * }
      * ```
      */
-    getString(): Promise<string>;
-    /**
+  getString(): Promise<string>;
+
+  /**
      * Set content of string type. You can use following code to set clipboard content
      * ```javascript
      * _setContent() {
@@ -17,9 +19,5 @@ declare const _default: {
      * ```
      * @param the content to be stored in the clipboard.
      */
-    setString(content: string): void;
-};
-/**
- * `Clipboard` gives you an interface for setting and getting content from Clipboard on both iOS and Android
- */
-export default _default;
+  setString(content: string): void;
+}

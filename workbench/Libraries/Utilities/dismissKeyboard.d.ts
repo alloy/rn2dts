@@ -1,2 +1,3 @@
 declare function dismissKeyboard(): void;
-export default dismissKeyboard;
+
+declare module.exports: typeof dismissKeyboard

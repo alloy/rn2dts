@@ -1,2 +1,2 @@
-import _Import0 from '../UnimplementedViews/UnimplementedView';
-export default _Import0;
+const $1 = require("../UnimplementedViews/UnimplementedView");
+declare module.exports: typeof $1

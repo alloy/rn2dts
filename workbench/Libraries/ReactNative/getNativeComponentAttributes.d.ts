@@ -1,2 +1,3 @@
 declare function getNativeComponentAttributes(uiViewClassName: string): any;
-export default getNativeComponentAttributes;
+
+declare module.exports: typeof getNativeComponentAttributes

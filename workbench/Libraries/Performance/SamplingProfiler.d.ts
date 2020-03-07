@@ -1,4 +1,3 @@
-declare const SamplingProfiler: {
-    poke: (token: number) => void;
-};
-export default SamplingProfiler;
+declare var SamplingProfiler: {poke: ((token: number) => void);};
+
+declare module.exports: typeof SamplingProfiler

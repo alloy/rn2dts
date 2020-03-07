@@ -1,175 +1,96 @@
 import { UniqueBranding } from "flow-builtin-types";
 import { $PropertyType, $Call } from "utility-types";
 import { PressEvent } from "../Types/CoreEventTypes";
-/**
- * `PanResponder` reconciles several touches into a single gesture. It makes
- * single-touch gestures resilient to extra touches, and can be used to
- * recognize simple multi-touch gestures.
- *
- * By default, `PanResponder` holds an `InteractionManager` handle to block
- * long-running JS events from interrupting active gestures.
- *
- * It provides a predictable wrapper of the responder handlers provided by the
- * [gesture responder system](docs/gesture-responder-system.html).
- * For each handler, it provides a new `gestureState` object alongside the
- * native event object:
- *
- * ```
- * onPanResponderMove: (event, gestureState) => {}
- * ```
- *
- * A native event is a synthetic touch event with the following form:
- *
- *  - `nativeEvent`
- *      + `changedTouches` - Array of all touch events that have changed since the last event
- *      + `identifier` - The ID of the touch
- *      + `locationX` - The X position of the touch, relative to the element
- *      + `locationY` - The Y position of the touch, relative to the element
- *      + `pageX` - The X position of the touch, relative to the root element
- *      + `pageY` - The Y position of the touch, relative to the root element
- *      + `target` - The node id of the element receiving the touch event
- *      + `timestamp` - A time identifier for the touch, useful for velocity calculation
- *      + `touches` - Array of all current touches on the screen
- *
- * A `gestureState` object has the following:
- *
- *  - `stateID` - ID of the gestureState- persisted as long as there at least
- *     one touch on screen
- *  - `moveX` - the latest screen coordinates of the recently-moved touch
- *  - `moveY` - the latest screen coordinates of the recently-moved touch
- *  - `x0` - the screen coordinates of the responder grant
- *  - `y0` - the screen coordinates of the responder grant
- *  - `dx` - accumulated distance of the gesture since the touch started
- *  - `dy` - accumulated distance of the gesture since the touch started
- *  - `vx` - current velocity of the gesture
- *  - `vy` - current velocity of the gesture
- *  - `numberActiveTouches` - Number of touches currently on screen
- *
- * ### Basic Usage
- *
- * ```
- *   componentWillMount: function() {
- *     this._panResponder = PanResponder.create({
- *       // Ask to be the responder:
- *       onStartShouldSetPanResponder: (evt, gestureState) => true,
- *       onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
- *       onMoveShouldSetPanResponder: (evt, gestureState) => true,
- *       onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
- *
- *       onPanResponderGrant: (evt, gestureState) => {
- *         // The gesture has started. Show visual feedback so the user knows
- *         // what is happening!
- *
- *         // gestureState.d{x,y} will be set to zero now
- *       },
- *       onPanResponderMove: (evt, gestureState) => {
- *         // The most recent move distance is gestureState.move{X,Y}
- *
- *         // The accumulated gesture distance since becoming responder is
- *         // gestureState.d{x,y}
- *       },
- *       onPanResponderTerminationRequest: (evt, gestureState) => true,
- *       onPanResponderRelease: (evt, gestureState) => {
- *         // The user has released all touches while this view is the
- *         // responder. This typically means a gesture has succeeded
- *       },
- *       onPanResponderTerminate: (evt, gestureState) => {
- *         // Another component has become the responder, so this gesture
- *         // should be cancelled
- *       },
- *       onShouldBlockNativeResponder: (evt, gestureState) => {
- *         // Returns whether this component should block native components from becoming the JS
- *         // responder. Returns true by default. Is currently only supported on android.
- *         return true;
- *       },
- *     });
- *   },
- *
- *   render: function() {
- *     return (
- *       <View {...this._panResponder.panHandlers} />
- *     );
- *   },
- *
- * ```
- *
- * ### Working Example
- *
- * To see it in action, try the
- * [PanResponder example in RNTester](https://github.com/facebook/react-native/blob/master/RNTester/js/PanResponderExample.js)
- */
-export declare type GestureState = {
-    /**
+
+type GestureState = {
+
+  /**
      * ID of the gestureState - persisted as long as there at least one touch on screen
      */
-    stateID: number;
-    /**
+  stateID: number;
+
+  /**
      * The latest screen coordinates of the recently-moved touch
      */
-    moveX: number;
-    /**
+  moveX: number;
+
+  /**
      * The latest screen coordinates of the recently-moved touch
      */
-    moveY: number;
-    /**
+  moveY: number;
+
+  /**
      * The screen coordinates of the responder grant
      */
-    x0: number;
-    /**
+  x0: number;
+
+  /**
      * The screen coordinates of the responder grant
      */
-    y0: number;
-    /**
+  y0: number;
+
+  /**
      * Accumulated distance of the gesture since the touch started
      */
-    dx: number;
-    /**
+  dx: number;
+
+  /**
      * Accumulated distance of the gesture since the touch started
      */
-    dy: number;
-    /**
+  dy: number;
+
+  /**
      * Current velocity of the gesture
      */
-    vx: number;
-    /**
+  vx: number;
+
+  /**
      * Current velocity of the gesture
      */
-    vy: number;
-    /**
+  vy: number;
+
+  /**
      * Number of touches currently on screen
      */
-    numberActiveTouches: number;
-    /**
+  numberActiveTouches: number;
+
+  /**
      * All `gestureState` accounts for timeStamps up until this value
      *
      * @private
      */
-    _accountsForMovesUpTo: number;
+  _accountsForMovesUpTo: number;
 };
-declare type ActiveCallback = ((event: PressEvent, gestureState: GestureState) => boolean);
-declare type PassiveCallback = ((event: PressEvent, gestureState: GestureState) => unknown);
-declare type PanResponderConfig = UniqueBranding & Readonly<{
-    onMoveShouldSetPanResponder?: ActiveCallback | null | undefined;
-    onMoveShouldSetPanResponderCapture?: ActiveCallback | null | undefined;
-    onStartShouldSetPanResponder?: ActiveCallback | null | undefined;
-    onStartShouldSetPanResponderCapture?: ActiveCallback | null | undefined;
-    /**
+
+type ActiveCallback = ((event: PressEvent, gestureState: GestureState) => boolean);
+
+type PassiveCallback = ((event: PressEvent, gestureState: GestureState) => unknown);
+
+type PanResponderConfig = UniqueBranding & Readonly<{
+  onMoveShouldSetPanResponder?: ActiveCallback | null | undefined;
+  onMoveShouldSetPanResponderCapture?: ActiveCallback | null | undefined;
+  onStartShouldSetPanResponder?: ActiveCallback | null | undefined;
+  onStartShouldSetPanResponderCapture?: ActiveCallback | null | undefined;
+
+  /**
      * The body of `onResponderGrant` returns a bool, but the vast majority of
      * callsites return void and this TODO notice is found in it:
      *   TODO: t7467124 investigate if this can be removed
      */
-    onPanResponderGrant?: (PassiveCallback | ActiveCallback) | null | undefined;
-    onPanResponderReject?: PassiveCallback | null | undefined;
-    onPanResponderStart?: PassiveCallback | null | undefined;
-    onPanResponderEnd?: PassiveCallback | null | undefined;
-    onPanResponderRelease?: PassiveCallback | null | undefined;
-    onPanResponderMove?: PassiveCallback | null | undefined;
-    onPanResponderTerminate?: PassiveCallback | null | undefined;
-    onPanResponderTerminationRequest?: ActiveCallback | null | undefined;
-    onShouldBlockNativeResponder?: ActiveCallback | null | undefined;
+  onPanResponderGrant?: (PassiveCallback | ActiveCallback) | null | undefined;
+  onPanResponderReject?: PassiveCallback | null | undefined;
+  onPanResponderStart?: PassiveCallback | null | undefined;
+  onPanResponderEnd?: PassiveCallback | null | undefined;
+  onPanResponderRelease?: PassiveCallback | null | undefined;
+  onPanResponderMove?: PassiveCallback | null | undefined;
+  onPanResponderTerminate?: PassiveCallback | null | undefined;
+  onPanResponderTerminationRequest?: ActiveCallback | null | undefined;
+  onShouldBlockNativeResponder?: ActiveCallback | null | undefined;
 }>;
-declare const PanResponder: {
-    /**
+
+declare var PanResponder: {
+
+  /**
      *
      * A graphical explanation of the touch data flow:
      *
@@ -231,8 +152,9 @@ declare const PanResponder: {
      *   it only represents the drag distance below the threshold).
      * - vx/vy: Velocity.
      */
-    _initializeGestureState(gestureState: GestureState): void;
-    /**
+  _initializeGestureState(gestureState: GestureState): void;
+
+  /**
      * This is nuanced and is necessary. It is incorrect to continuously take all
      * active *and* recently moved touches, find the centroid, and track how that
      * result changes over time. Instead, we must take all recently moved
@@ -256,24 +178,9 @@ declare const PanResponder: {
      * typical responder callback pattern (without using `PanResponder`), but
      * avoids more dispatches than necessary.
      */
-    _updateGestureStateOnMove(gestureState: GestureState, touchHistory: UniqueBranding & Readonly<{
-        indexOfSingleActiveTouch: number;
-        mostRecentTimeStamp: number;
-        numberActiveTouches: number;
-        touchBank: readonly (UniqueBranding & Readonly<{
-            touchActive: boolean;
-            startPageX: number;
-            startPageY: number;
-            startTimeStamp: number;
-            currentPageX: number;
-            currentPageY: number;
-            currentTimeStamp: number;
-            previousPageX: number;
-            previousPageY: number;
-            previousTimeStamp: number;
-        }>)[];
-    }>): void;
-    /**
+  _updateGestureStateOnMove(gestureState: GestureState, touchHistory: $PropertyType<PressEvent, "touchHistory">): void;
+
+  /**
      * @param {object} config Enhanced versions of all of the responder callbacks
      * that provide not only the typical `ResponderSyntheticEvent`, but also the
      * `PanResponder` gesture state.  Simply replace the word `Responder` with
@@ -305,155 +212,28 @@ declare const PanResponder: {
      *  accordingly. (numberActiveTouches) may not be totally accurate unless you
      *  are the responder.
      */
-    create(config: PanResponderConfig): {
-        getInteractionHandle: () => number | null | undefined;
-        panHandlers: {
-            onMoveShouldSetResponder: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => boolean;
-            onMoveShouldSetResponderCapture: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => boolean;
-            onResponderEnd: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => void;
-            onResponderGrant: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => boolean;
-            onResponderMove: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => void;
-            onResponderReject: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => void;
-            onResponderRelease: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => void;
-            onResponderStart: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => void;
-            onResponderTerminate: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => void;
-            onResponderTerminationRequest: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => boolean;
-            onStartShouldSetResponder: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => boolean;
-            onStartShouldSetResponderCapture: (event: import("../Types/CoreEventTypes").ResponderSyntheticEvent<UniqueBranding & Readonly<{
-                changedTouches: readonly Event[];
-                force: number;
-                identifier: number;
-                locationX: number;
-                locationY: number;
-                pageX: number;
-                pageY: number;
-                target: number | null | undefined;
-                timestamp: number;
-                touches: readonly Event[];
-            }>>) => boolean;
-        };
+  create(config: PanResponderConfig): {
+    getInteractionHandle: (() => number | null | undefined);
+    panHandlers: {
+      onMoveShouldSetResponder: ((event: PressEvent) => boolean);
+      onMoveShouldSetResponderCapture: ((event: PressEvent) => boolean);
+      onResponderEnd: ((event: PressEvent) => void);
+      onResponderGrant: ((event: PressEvent) => boolean);
+      onResponderMove: ((event: PressEvent) => void);
+      onResponderReject: ((event: PressEvent) => void);
+      onResponderRelease: ((event: PressEvent) => void);
+      onResponderStart: ((event: PressEvent) => void);
+      onResponderTerminate: ((event: PressEvent) => void);
+      onResponderTerminationRequest: ((event: PressEvent) => boolean);
+      onStartShouldSetResponder: ((event: PressEvent) => boolean);
+      onStartShouldSetResponderCapture: ((event: PressEvent) => boolean);
     };
+  };
 };
-export declare type PanResponderInstance = $Call<$PropertyType<typeof PanResponder, "create">, PanResponderConfig>;
-export default PanResponder;
+
+type PanResponderInstance = $Call<$PropertyType<typeof PanResponder, "create">, PanResponderConfig>;
+export { GestureState };
+
+export { PanResponderInstance };
+
+declare module.exports: typeof PanResponder

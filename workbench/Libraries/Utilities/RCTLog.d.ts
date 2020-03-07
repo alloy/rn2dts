@@ -1,6 +1,11 @@
-declare const RCTLog: {
-    logIfNoNativeHook(level: string, ...args: any[]): void;
-    logToConsole(level: string, ...args: any[]): void;
-    setWarningHandler(handler: ((arg0: any[]) => void) | null | undefined): void;
+declare var warningHandler: ((arg0: Array<any>) => void) | null | undefined;
+
+declare var RCTLog: {
+  // level one of log, info, warn, error, mustfix
+  logIfNoNativeHook(level: string, ...args: Array<any>): void;
+  // Log to console regardless of nativeLoggingHook
+  logToConsole(level: string, ...args: Array<any>): void;
+  setWarningHandler(handler: typeof warningHandler): void;
 };
-export default RCTLog;
+
+declare module.exports: typeof RCTLog

@@ -1,3 +1,5 @@
-import MessageQueue from './MessageQueue';
-declare const BatchedBridge: MessageQueue;
-export default BatchedBridge;
+const MessageQueue = require("./MessageQueue");
+
+declare var BatchedBridge: MessageQueue;
+
+declare module.exports: typeof BatchedBridge

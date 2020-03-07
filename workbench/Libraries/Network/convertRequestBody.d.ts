@@ -1,8 +1,10 @@
-import Blob from '../Blob/Blob';
-import FormData from './FormData';
 import { $ArrayBufferView } from "flow-builtin-types";
-export declare type RequestBody = string | Blob | FormData | {
-    uri: string;
-} | ArrayBuffer | $ArrayBufferView;
+const Blob = require("../Blob/Blob");
+const FormData = require("./FormData");
+
+type RequestBody = string | Blob | FormData | {uri: string;} | ArrayBuffer | $ArrayBufferView;
+
 declare function convertRequestBody(body: RequestBody): any;
-export default convertRequestBody;
+export { RequestBody };
+
+declare module.exports: typeof convertRequestBody

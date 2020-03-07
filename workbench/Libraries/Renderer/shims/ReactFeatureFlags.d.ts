@@ -1,5 +1,6 @@
-declare const ReactFeatureFlags: {
-    debugRenderPhaseSideEffects: boolean;
-    enableNativeTargetAsInstance: boolean;
+declare var ReactFeatureFlags: {
+  debugRenderPhaseSideEffects: boolean;
+  enableNativeTargetAsInstance: boolean;
 };
-export default ReactFeatureFlags;
+
+declare module.exports: typeof ReactFeatureFlags

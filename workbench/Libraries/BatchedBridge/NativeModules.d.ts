@@ -1,6 +1,14 @@
-export declare type ModuleConfig = [string, any | null | undefined, ReadonlyArray<string> | null | undefined, ReadonlyArray<number> | null | undefined, ReadonlyArray<number> | null | undefined];
-export declare type MethodType = "async" | "promise" | "sync";
-declare let NativeModules: {
-    [moduleName: string]: any;
+type ModuleConfig = [string, any | null | undefined
+/* constants */
+, ReadonlyArray<string> | null | undefined, ReadonlyArray<number> | null | undefined, ReadonlyArray<number> | null | undefined];
+
+type MethodType = "async" | "promise" | "sync";
+
+declare var NativeModules: {
+  [moduleName: string]: any;
 };
-export default NativeModules;
+export { ModuleConfig };
+
+export { MethodType };
+
+declare module.exports: typeof NativeModules

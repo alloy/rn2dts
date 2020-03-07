@@ -1,2 +1,2 @@
-export default class HeadlessJsTaskError extends Error {
-}
+declare class HeadlessJsTaskError extends Error {}
+export { HeadlessJsTaskError as default };

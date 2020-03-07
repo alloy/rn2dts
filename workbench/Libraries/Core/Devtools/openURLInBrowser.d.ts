@@ -1,2 +1,3 @@
 declare function openURLInBrowser(url: string): void;
-export default openURLInBrowser;
+
+declare module.exports: typeof openURLInBrowser

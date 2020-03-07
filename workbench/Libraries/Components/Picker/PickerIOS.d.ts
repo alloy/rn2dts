@@ -1,27 +1,41 @@
-import React from 'react';
 import { UniqueBranding, Stringish } from "flow-builtin-types";
+const React = require("react");
+
 import { TextStyleProp } from "../../StyleSheet/StyleSheet";
 import { ColorValue } from "../../StyleSheet/StyleSheetTypes";
+import { SyntheticEvent } from "../../Types/CoreEventTypes";
 import { ViewProps } from "../View/ViewPropTypes";
-declare type PickerIOSChangeEvent = React.SyntheticEvent<UniqueBranding & Readonly<{
-    newValue: number | string;
-    newIndex: number;
-}>>;
-declare type Label = Stringish | number;
-declare type Props = UniqueBranding & Readonly<ViewProps & {
-    children: React.ChildrenArray<React.ReactElement<typeof PickerIOSItem>>;
-    itemStyle?: TextStyleProp | null | undefined;
-    onChange?: ((event: PickerIOSChangeEvent) => unknown) | null | undefined;
-    onValueChange?: ((itemValue: string | number, itemIndex: number) => unknown) | null | undefined;
-    selectedValue: (number | string) | null | undefined;
+
+type PickerIOSChangeEvent = React.SyntheticEvent<UniqueBranding & Readonly<{newValue: number | string;newIndex: number;}>>;
+
+type RCTPickerIOSItemType = UniqueBranding & Readonly<{label: Label | null | undefined;value: (number | string) | null | undefined;textColor: number | null | undefined;}>;
+
+type Label = Stringish | number;
+
+type Props = UniqueBranding & Readonly<ViewProps & {
+  children: React.ChildrenArray<React.ReactElement<typeof PickerIOSItem>>;
+  itemStyle?: TextStyleProp | null | undefined;
+  onChange?: ((event: PickerIOSChangeEvent) => unknown) | null | undefined;
+  onValueChange?: ((itemValue: string | number, itemIndex: number) => unknown) | null | undefined;
+  selectedValue: (number | string) | null | undefined;
+  accessibilityLabel?: string | null | undefined;
 }>;
-declare type ItemProps = UniqueBranding & Readonly<{
-    label: Label | null | undefined;
-    value?: (number | string) | null | undefined;
-    color?: ColorValue | null | undefined;
-}>;
-declare const PickerIOSItem: (props: ItemProps) => null;
-declare class PickerIOS extends React.Component<Props> {
-    static Item: ((props: ItemProps) => null);
+
+type State = {
+  selectedIndex: number;
+  items: ReadonlyArray<RCTPickerIOSItemType>;
+};
+
+type ItemProps = UniqueBranding & Readonly<{label: Label | null | undefined;value?: (number | string) | null | undefined;color?: ColorValue | null | undefined;}>;
+
+declare var PickerIOSItem: ((props: ItemProps) => null);
+
+declare class PickerIOS extends React.Component<Props, State> {
+  state: State;
+  Item: ((props: ItemProps) => null);
+  getDerivedStateFromProps(props: Props): State;
+  render(): React.ReactNode;
+  componentDidUpdate(): void;
 }
-export default PickerIOS;
+
+declare module.exports: typeof PickerIOS

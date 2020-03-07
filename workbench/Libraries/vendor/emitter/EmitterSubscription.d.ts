@@ -1,14 +1,14 @@
-import EventSubscription from './EventSubscription';
+const EventSubscription = require("./EventSubscription");
+
 import EventEmitter from "./EventEmitter";
 import EventSubscriptionVendor from "./EventSubscriptionVendor";
-/**
- * EmitterSubscription represents a subscription with listener and context data.
- */
+
 declare class EmitterSubscription extends EventSubscription {
-    emitter: EventEmitter;
-    listener: ((...args: any) => any);
-    context: any | null | undefined;
-    /**
+  emitter: EventEmitter;
+  listener: ((...args: any) => any);
+  context: any | null | undefined;
+
+  /**
      * @param {EventEmitter} emitter - The event emitter that registered this
      *   subscription
      * @param {EventSubscriptionVendor} subscriber - The subscriber that controls
@@ -18,13 +18,15 @@ declare class EmitterSubscription extends EventSubscription {
      * @param {*} context - Optional context object to use when invoking the
      *   listener
      */
-    constructor(emitter: EventEmitter, subscriber: EventSubscriptionVendor, listener: ((...args: any) => any), context: any | null | undefined);
-    /**
+  constructor(emitter: EventEmitter, subscriber: EventSubscriptionVendor, listener: ((...args: any) => any), context: any | null | undefined): void;
+
+  /**
      * Removes this subscription from the emitter that registered it.
      * Note: we're overriding the `remove()` method of EventSubscription here
      * but deliberately not calling `super.remove()` as the responsibility
      * for removing the subscription lies with the EventEmitter.
      */
-    remove(): void;
+  remove(): void;
 }
-export default EmitterSubscription;
+
+declare module.exports: typeof EmitterSubscription

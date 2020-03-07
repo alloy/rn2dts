@@ -1,6 +1,5 @@
-declare const InteractionStallDebugger: {
-    install(options: {
-        thresholdMS: number;
-    }): void;
+declare var InteractionStallDebugger: {
+  install(options: {thresholdMS: number;}): void;
 };
-export default InteractionStallDebugger;
+
+declare module.exports: typeof InteractionStallDebugger

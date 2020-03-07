@@ -1,4 +1,3 @@
-declare const SoundManager: {
-    playTouchSound: () => void;
-};
-export default SoundManager;
+declare var SoundManager: {playTouchSound: (() => void);};
+
+declare module.exports: typeof SoundManager

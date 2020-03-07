@@ -1,3 +1,6 @@
-import { DangerouslyImpreciseStyle, DangerouslyImpreciseStyleProp } from "./StyleSheet";
+import { DangerouslyImpreciseStyle } from "./StyleSheet";
+import { DangerouslyImpreciseStyleProp } from "./StyleSheet";
+
 declare function flattenStyle(style: DangerouslyImpreciseStyleProp | null | undefined): DangerouslyImpreciseStyle | null | undefined;
-export default flattenStyle;
+
+declare module.exports: typeof flattenStyle

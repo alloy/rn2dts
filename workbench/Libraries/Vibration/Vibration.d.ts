@@ -1,15 +1,18 @@
-declare const Vibration: {
-    /**
+declare var Vibration: {
+
+  /**
      * Trigger a vibration with specified `pattern`.
      *
-     * See https://facebook.github.io/react-native/docs/vibration.html#vibrate
+     * See https://reactnative.dev/docs/vibration.html#vibrate
      */
-    vibrate: (pattern?: number | number[], repeat?: boolean) => void;
-    /**
+  vibrate: ((pattern?: number | Array<number>, repeat?: boolean) => void);
+
+  /**
      * Stop vibration
      *
-     * See https://facebook.github.io/react-native/docs/vibration.html#cancel
+     * See https://reactnative.dev/docs/vibration.html#cancel
      */
-    cancel: () => void;
+  cancel: (() => void);
 };
-export default Vibration;
+
+declare module.exports: typeof Vibration

@@ -1,7 +1,9 @@
-declare const _default: {
-    ignoreWarnings(arg0: readonly (string | RegExp)[]): void;
-    ignoreLogs(arg0: readonly (string | RegExp)[]): void;
-    install(): void;
-    uninstall(): void;
-};
-export default _default;
+import { IgnorePattern } from "./Data/LogBoxData";
+
+declare module.exports: {
+  ignoreLogs(arg0: ReadonlyArray<IgnorePattern>): void;
+  ignoreAllLogs(arg0: boolean | null | undefined): void;
+  install(): void;
+  uninstall(): void;
+
+}

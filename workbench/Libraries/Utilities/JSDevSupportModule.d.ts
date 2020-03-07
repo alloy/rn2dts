@@ -1,4 +1,3 @@
-declare const JSDevSupportModule: {
-    getJSHierarchy: (tag: number) => void;
-};
-export default JSDevSupportModule;
+declare var JSDevSupportModule: {getJSHierarchy: ((tag: number) => void);};
+
+declare module.exports: typeof JSDevSupportModule

@@ -1,3 +1,5 @@
 import { HMRClientNativeInterface } from "./HMRClient";
-declare const HMRClientProdShim: HMRClientNativeInterface;
-export default HMRClientProdShim;
+
+declare var HMRClientProdShim: HMRClientNativeInterface;
+
+declare module.exports: typeof HMRClientProdShim

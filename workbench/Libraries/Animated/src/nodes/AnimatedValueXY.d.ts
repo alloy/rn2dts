@@ -1,115 +1,106 @@
-import AnimatedValue from './AnimatedValue';
-import AnimatedWithChildren from './AnimatedWithChildren';
-declare type ValueXYListenerCallback = ((value: {
-    x: number;
-    y: number;
-}) => unknown);
-/**
- * 2D Value for driving 2D animations, such as pan gestures. Almost identical
- * API to normal `Animated.Value`, but multiplexed.
- *
- * See http://facebook.github.io/react-native/docs/animatedvaluexy.html
- */
+const AnimatedValue = require("./AnimatedValue");
+const AnimatedWithChildren = require("./AnimatedWithChildren");
+
+type ValueXYListenerCallback = ((value: {x: number;y: number;}) => unknown);
+
 declare class AnimatedValueXY extends AnimatedWithChildren {
-    x: AnimatedValue;
-    y: AnimatedValue;
-    constructor(valueIn?: {
-        readonly x: number | AnimatedValue;
-        readonly y: number | AnimatedValue;
-    } | null | undefined);
-    /**
+  x: AnimatedValue;
+  y: AnimatedValue;
+  constructor(valueIn?: {readonly x: number | AnimatedValue;readonly y: number | AnimatedValue;} | null | undefined): void;
+
+  /**
      * Directly set the value. This will stop any animations running on the value
      * and update all the bound properties.
      *
-     * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#setvalue
+     * See https://reactnative.dev/docs/animatedvaluexy.html#setvalue
      */
-    setValue(value: {
-        x: number;
-        y: number;
-    }): void;
-    /**
+  setValue(value: {x: number;y: number;}): void;
+
+  /**
      * Sets an offset that is applied on top of whatever value is set, whether
      * via `setValue`, an animation, or `Animated.event`. Useful for compensating
      * things like the start of a pan gesture.
      *
-     * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#setoffset
+     * See https://reactnative.dev/docs/animatedvaluexy.html#setoffset
      */
-    setOffset(offset: {
-        x: number;
-        y: number;
-    }): void;
-    /**
+  setOffset(offset: {x: number;y: number;}): void;
+
+  /**
      * Merges the offset value into the base value and resets the offset to zero.
      * The final output of the value is unchanged.
      *
-     * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#flattenoffset
+     * See https://reactnative.dev/docs/animatedvaluexy.html#flattenoffset
      */
-    flattenOffset(): void;
-    /**
+  flattenOffset(): void;
+
+  /**
      * Sets the offset value to the base value, and resets the base value to
      * zero. The final output of the value is unchanged.
      *
-     * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#extractoffset
+     * See https://reactnative.dev/docs/animatedvaluexy.html#extractoffset
      */
-    extractOffset(): void;
-    /**
+  extractOffset(): void;
+  __getValue(): {x: number;y: number;};
+
+  /**
      * Stops any animation and resets the value to its original.
      *
-     * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#resetanimation
+     * See https://reactnative.dev/docs/animatedvaluexy.html#resetanimation
      */
-    resetAnimation(callback?: ((value: {
-        x: number;
-        y: number;
-    }) => void)): void;
-    /**
+  resetAnimation(callback?: ((value: {x: number;y: number;}) => void)): void;
+
+  /**
      * Stops any running animation or tracking. `callback` is invoked with the
      * final value after stopping the animation, which is useful for updating
      * state to match the animation position with layout.
      *
-     * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#stopanimation
+     * See https://reactnative.dev/docs/animatedvaluexy.html#stopanimation
      */
-    stopAnimation(callback?: ((value: {
-        x: number;
-        y: number;
-    }) => void)): void;
-    /**
+  stopAnimation(callback?: ((value: {x: number;y: number;}) => void)): void;
+
+  /**
      * Adds an asynchronous listener to the value so you can observe updates from
      * animations.  This is useful because there is no way to synchronously read
      * the value because it might be driven natively.
      *
      * Returns a string that serves as an identifier for the listener.
      *
-     * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#addlistener
+     * See https://reactnative.dev/docs/animatedvaluexy.html#addlistener
      */
-    addListener(callback: ValueXYListenerCallback): string;
-    /**
+  addListener(callback: ValueXYListenerCallback): string;
+
+  /**
      * Unregister a listener. The `id` param shall match the identifier
      * previously returned by `addListener()`.
      *
-     * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#removelistener
+     * See https://reactnative.dev/docs/animatedvaluexy.html#removelistener
      */
-    removeListener(id: string): void;
-    /**
+  removeListener(id: string): void;
+
+  /**
      * Remove all registered listeners.
      *
-     * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#removealllisteners
+     * See https://reactnative.dev/docs/animatedvaluexy.html#removealllisteners
      */
-    removeAllListeners(): void;
-    /**
+  removeAllListeners(): void;
+
+  /**
      * Converts `{x, y}` into `{left, top}` for use in style.
      *
-     * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#getlayout
+     * See https://reactnative.dev/docs/animatedvaluexy.html#getlayout
      */
-    getLayout(): {
-        [key: string]: AnimatedValue;
-    };
-    /**
+  getLayout(): {
+    [key: string]: AnimatedValue;
+  };
+
+  /**
      * Converts `{x, y}` into a useable translation transform.
      *
-     * See http://facebook.github.io/react-native/docs/animatedvaluexy.html#gettranslatetransform
+     * See https://reactnative.dev/docs/animatedvaluexy.html#gettranslatetransform
      */
-    getTranslateTransform(): Array<{
-        [key: string]: AnimatedValue;
-    }>;
+  getTranslateTransform(): Array<{
+    [key: string]: AnimatedValue;
+  }>;
 }
-export default AnimatedValueXY;
+
+declare module.exports: typeof AnimatedValueXY

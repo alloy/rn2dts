@@ -1,2 +1,3 @@
 import NativeDeviceInfo from "./NativeDeviceInfo";
-export default NativeDeviceInfo;
+
+declare module.exports: typeof NativeDeviceInfo

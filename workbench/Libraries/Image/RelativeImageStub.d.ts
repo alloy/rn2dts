@@ -1,2 +1,1 @@
-declare const _default: number;
-export default _default;
+declare module.exports: number

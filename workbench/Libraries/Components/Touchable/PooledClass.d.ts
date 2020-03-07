@@ -1,12 +1,20 @@
 import { Class } from "utility-types";
-declare const PooledClass: {
-    addPoolingTo: <T>(CopyConstructor: Class<T>, pooler: any) => Class<T> & {
-        getPooled(...args: readonly unknown[]): T;
-        release(instance: unknown): void;
-    };
-    oneArgumentPooler: any;
-    twoArgumentPooler: any;
-    threeArgumentPooler: any;
-    fourArgumentPooler: any;
+type Pooler = any;
+
+declare var addPoolingTo: (<T>(CopyConstructor: Class<T>, pooler: Pooler) => Class<T> & {
+  getPooled(...args: ReadonlyArray<unknown>):
+  /* arguments of the constructor */
+  T;
+  release(instance: unknown): void;
+
+});
+
+declare var PooledClass: {
+  addPoolingTo: typeof addPoolingTo;
+  oneArgumentPooler: Pooler;
+  twoArgumentPooler: Pooler;
+  threeArgumentPooler: Pooler;
+  fourArgumentPooler: Pooler;
 };
-export default PooledClass;
+
+declare module.exports: typeof PooledClass

@@ -1,15 +1,25 @@
-import AnimatedValue from './nodes/AnimatedValue';
-export declare type Mapping = {
-    [key: string]: Mapping;
+const AnimatedValue = require("./nodes/AnimatedValue");
+
+type Mapping = {
+  [key: string]: Mapping;
 } | AnimatedValue;
-export declare type EventConfig = {
-    listener?: ((...args: any) => any) | null | undefined;
-    useNativeDriver: boolean;
-};
-declare function attachNativeEvent(viewRef: any, eventName: string, argMapping: Array<Mapping | null | undefined>): {
-    detach: (() => void);
-};
+type EventConfig = {listener?: ((...args: any) => any) | null | undefined;useNativeDriver: boolean;};
+
+declare function attachNativeEvent(viewRef: any, eventName: string, argMapping: ReadonlyArray<Mapping | null | undefined>): {detach: (() => void);};
+
 declare class AnimatedEvent {
-    constructor(argMapping: Array<Mapping | null | undefined>, config: EventConfig);
+  __isNative: boolean;
+  constructor(argMapping: ReadonlyArray<Mapping | null | undefined>, config: EventConfig): void;
+  __addListener(callback: ((...args: any) => any)): void;
+  __removeListener(callback: ((...args: any) => any)): void;
+  __attach(viewRef: any, eventName: string): void;
+  __detach(viewTag: any, eventName: string): void;
+  __getHandler(): any | ((...args: any) => void);
 }
-export { AnimatedEvent, attachNativeEvent };
+export { Mapping };
+export { EventConfig };
+
+declare module.exports: {
+  AnimatedEvent: typeof AnimatedEvent;
+  attachNativeEvent: typeof attachNativeEvent;
+}

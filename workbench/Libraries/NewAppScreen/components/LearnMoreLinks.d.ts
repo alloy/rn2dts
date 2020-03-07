@@ -1,2 +1,5 @@
-declare const LinkList: () => any;
-export default LinkList;
+import { Node } from "react";
+
+declare var LinkList: (() => Node);
+
+export default typeof LinkList;

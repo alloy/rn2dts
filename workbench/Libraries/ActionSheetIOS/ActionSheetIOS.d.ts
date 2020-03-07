@@ -1,10 +1,6 @@
-/**
- * Display action sheets and share sheets on iOS.
- *
- * See http://facebook.github.io/react-native/docs/actionsheetios.html
- */
-declare const ActionSheetIOS: {
-    /**
+declare var ActionSheetIOS: {
+
+  /**
      * Display an iOS action sheet.
      *
      * The `options` object must contain one or more of:
@@ -18,18 +14,19 @@ declare const ActionSheetIOS: {
      * The 'callback' function takes one parameter, the zero-based index
      * of the selected item.
      *
-     * See http://facebook.github.io/react-native/docs/actionsheetios.html#showactionsheetwithoptions
+     * See https://reactnative.dev/docs/actionsheetios.html#showactionsheetwithoptions
      */
-    showActionSheetWithOptions(options: {
-        readonly title?: string | null | undefined;
-        readonly message?: string | null | undefined;
-        readonly options: string[];
-        readonly destructiveButtonIndex?: number | number[] | null | undefined;
-        readonly cancelButtonIndex?: number | null | undefined;
-        readonly anchor?: number | null | undefined;
-        readonly tintColor?: string | number | undefined;
-    }, callback: (buttonIndex: number) => void): void;
-    /**
+  showActionSheetWithOptions(options: {
+    readonly title?: string | null | undefined;
+    readonly message?: string | null | undefined;
+    readonly options: Array<string>;
+    readonly destructiveButtonIndex?: (number | null | undefined) | (Array<number> | null | undefined);
+    readonly cancelButtonIndex?: number | null | undefined;
+    readonly anchor?: number | null | undefined;
+    readonly tintColor?: number | string;
+  }, callback: ((buttonIndex: number) => void)): void;
+
+  /**
      * Display the iOS share sheet. The `options` object should contain
      * one or both of `message` and `url` and can additionally have
      * a `subject` or `excludedActivityTypes`:
@@ -50,8 +47,9 @@ declare const ActionSheetIOS: {
      * - a boolean value signifying success or failure
      * - a string that, in the case of success, indicates the method of sharing
      *
-     * See http://facebook.github.io/react-native/docs/actionsheetios.html#showshareactionsheetwithoptions
+     * See https://reactnative.dev/docs/actionsheetios.html#showshareactionsheetwithoptions
      */
-    showShareActionSheetWithOptions(options: any, failureCallback: (...args: any) => any, successCallback: (...args: any) => any): void;
+  showShareActionSheetWithOptions(options: any, failureCallback: ((...args: any) => any), successCallback: ((...args: any) => any)): void;
 };
-export default ActionSheetIOS;
+
+declare module.exports: typeof ActionSheetIOS

@@ -1,2 +1,3 @@
 declare function processDecelerationRate(decelerationRate: number | "normal" | "fast"): number;
-export default processDecelerationRate;
+
+declare module.exports: typeof processDecelerationRate

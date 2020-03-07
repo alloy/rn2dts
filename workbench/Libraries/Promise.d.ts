@@ -1,2 +1,3 @@
-import Promise from 'promise/setimmediate/es6-extensions';
-export default Promise;
+const Promise = require("promise/setimmediate/es6-extensions");
+
+declare module.exports: typeof Promise

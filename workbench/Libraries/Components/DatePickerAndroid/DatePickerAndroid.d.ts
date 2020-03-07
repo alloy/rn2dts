@@ -1,13 +1,10 @@
-import { Options, DatePickerOpenAction } from "./DatePickerAndroidTypes";
+import { Options } from "./DatePickerAndroidTypes";
+import { DatePickerOpenAction } from "./DatePickerAndroidTypes";
+
 declare class DatePickerAndroid {
-    static open(options: Options | null | undefined): Promise<DatePickerOpenAction>;
-    /**
-     * A date has been selected.
-     */
-    static readonly dateSetAction: "dateSetAction";
-    /**
-     * The dialog has been dismissed.
-     */
-    static readonly dismissedAction: "dismissedAction";
+  open(options: Options | null | undefined): Promise<DatePickerOpenAction>;
+  readonly dateSetAction: "dateSetAction";
+  readonly dismissedAction: "dismissedAction";
 }
-export default DatePickerAndroid;
+
+declare module.exports: typeof DatePickerAndroid

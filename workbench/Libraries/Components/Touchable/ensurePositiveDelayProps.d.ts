@@ -1,2 +1,3 @@
-declare const ensurePositiveDelayProps: (props: any) => void;
-export default ensurePositiveDelayProps;
+declare var ensurePositiveDelayProps: ((props: any) => void);
+
+declare module.exports: typeof ensurePositiveDelayProps

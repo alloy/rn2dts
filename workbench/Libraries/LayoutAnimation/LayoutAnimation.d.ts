@@ -1,34 +1,42 @@
 import { UniqueBranding } from "flow-builtin-types";
-declare type Type = "spring" | "linear" | "easeInEaseOut" | "easeIn" | "easeOut" | "keyboard";
-declare type Property = "opacity" | "scaleX" | "scaleY" | "scaleXY";
-declare type AnimationConfig = UniqueBranding & Readonly<{
-    duration?: number;
-    delay?: number;
-    springDamping?: number;
-    initialVelocity?: number;
-    type?: Type;
-    property?: Property;
+type Type = "spring" | "linear" | "easeInEaseOut" | "easeIn" | "easeOut" | "keyboard";
+
+type Property = "opacity" | "scaleX" | "scaleY" | "scaleXY";
+
+type AnimationConfig = UniqueBranding & Readonly<{
+  duration?: number;
+  delay?: number;
+  springDamping?: number;
+  initialVelocity?: number;
+  type?: Type;
+  property?: Property;
 }>;
-declare type LayoutAnimationConfig = UniqueBranding & Readonly<{
-    duration: number;
-    create?: AnimationConfig;
-    update?: AnimationConfig;
-    delete?: AnimationConfig;
+
+type LayoutAnimationConfig = UniqueBranding & Readonly<{
+  duration: number;
+  create?: AnimationConfig;
+  update?: AnimationConfig;
+  delete?: AnimationConfig;
 }>;
+
 declare function configureNext(config: LayoutAnimationConfig, onAnimationDidEnd?: ((...args: any) => any)): void;
+
 declare function create(duration: number, type: Type, property: Property): LayoutAnimationConfig;
-/**
- * Automatically animates views to their new positions when the
- * next layout happens.
- *
- * A common way to use this API is to call it before calling `setState`.
- *
- * Note that in order to get this to work on **Android** you need to set the following flags via `UIManager`:
- *
- *     UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
- */
-declare const LayoutAnimation: {
-    /**
+
+declare var Presets: {
+  easeInEaseOut: LayoutAnimationConfig;
+  linear: LayoutAnimationConfig;
+  spring: {
+    duration: number;
+    create: {type: string;property: string;};
+    update: {type: string;springDamping: number;};
+    delete: {type: string;property: string;};
+  };
+};
+
+declare var LayoutAnimation: {
+
+  /**
      * Schedules an animation to happen on the next layout.
      *
      * @param config Specifies animation properties:
@@ -41,47 +49,27 @@ declare const LayoutAnimation: {
      * Only supported on iOS.
      * @param onError Called on error. Only supported on iOS.
      */
-    configureNext: typeof configureNext;
-    /**
+  configureNext: typeof configureNext;
+
+  /**
      * Helper for creating a config for `configureNext`.
      */
-    create: typeof create;
-    Types: Readonly<{
-        spring: string;
-        linear: string;
-        easeInEaseOut: string;
-        easeIn: string;
-        easeOut: string;
-        keyboard: string;
-    }>;
-    Properties: Readonly<{
-        opacity: string;
-        scaleX: string;
-        scaleY: string;
-        scaleXY: string;
-    }>;
-    checkConfig(...args: unknown[]): void;
-    Presets: {
-        easeInEaseOut: LayoutAnimationConfig;
-        linear: LayoutAnimationConfig;
-        spring: {
-            duration: number;
-            create: {
-                type: string;
-                property: string;
-            };
-            update: {
-                type: string;
-                springDamping: number;
-            };
-            delete: {
-                type: string;
-                property: string;
-            };
-        };
-    };
-    easeInEaseOut: (onAnimationDidEnd?: any) => void;
-    linear: (onAnimationDidEnd?: any) => void;
-    spring: (onAnimationDidEnd?: any) => void;
+  create: typeof create;
+  Types: $TEMPORARY$Object$freeze<{
+    spring: string;
+    linear: string;
+    easeInEaseOut: string;
+    easeIn: string;
+    easeOut: string;
+    keyboard: string;
+  }>;
+  Properties: $TEMPORARY$Object$freeze<{opacity: string;scaleX: string;scaleY: string;scaleXY: string;}>;
+  checkConfig(...args: Array<unknown>): void;
+  Presets: typeof Presets;
+  easeInEaseOut: ((onAnimationDidEnd?: any) => void);
+  linear: ((onAnimationDidEnd?: any) => void);
+  spring: ((onAnimationDidEnd?: any) => void);
 };
-export default LayoutAnimation;
+export { LayoutAnimationConfig };
+
+declare module.exports: typeof LayoutAnimation

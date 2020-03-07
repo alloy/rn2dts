@@ -1,46 +1,19 @@
-declare type ExtraData = {
-    [key: string]: string;
+type ExtraData = {
+  [key: string]: string;
 };
-declare type SourceCallback = (() => string);
-declare type DebugData = {
-    extras: ExtraData;
-    files: ExtraData;
-};
-/**
- * A simple class for collecting bug report data. Components can add sources that will be queried when a bug report
- * is created via `collectExtraData`. For example, a list component might add a source that provides the list of rows
- * that are currently visible on screen. Components should also remember to call `remove()` on the object that is
- * returned by `addSource` when they are unmounted.
- */
+type SourceCallback = (() => string);
+type DebugData = {extras: ExtraData;files: ExtraData;};
+
 declare class BugReporting {
-    /**
-     * Maps a string key to a simple callback that should return a string payload to be attached
-     * to a bug report. Source callbacks are called when `collectExtraData` is called.
-     *
-     * Returns an object to remove the source when the component unmounts.
-     *
-     * Conflicts trample with a warning.
-     */
-    static addSource(key: string, callback: SourceCallback): {
-        remove: (() => void);
-    };
-    /**
-     * Maps a string key to a simple callback that should return a string payload to be attached
-     * to a bug report. Source callbacks are called when `collectExtraData` is called.
-     *
-     * Returns an object to remove the source when the component unmounts.
-     *
-     * Conflicts trample with a warning.
-     */
-    static addFileSource(key: string, callback: SourceCallback): {
-        remove: (() => void);
-    };
-    /**
-     * This can be called from a native bug reporting flow, or from JS code.
-     *
-     * If available, this will call `NativeModules.BugReporting.setExtraData(extraData)`
-     * after collecting `extraData`.
-     */
-    static collectExtraData(): DebugData;
+  addSource(key: string, callback: SourceCallback): {
+    remove: (() => void);
+
+  };
+  addFileSource(key: string, callback: SourceCallback): {
+    remove: (() => void);
+
+  };
+  collectExtraData(): DebugData;
 }
-export default BugReporting;
+
+declare module.exports: typeof BugReporting

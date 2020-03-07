@@ -1,30 +1,45 @@
 import { UniqueBranding, Stringish } from "flow-builtin-types";
-import { BlurEvent, FocusEvent, MouseEvent, PressEvent, Layout, LayoutEvent } from "../../Types/CoreEventTypes";
+import { BlurEvent } from "../../Types/CoreEventTypes";
+import { FocusEvent } from "../../Types/CoreEventTypes";
+import { MouseEvent } from "../../Types/CoreEventTypes";
+import { PressEvent } from "../../Types/CoreEventTypes";
+import { Layout } from "../../Types/CoreEventTypes";
+import { LayoutEvent } from "../../Types/CoreEventTypes";
 import { EdgeInsetsProp } from "../../StyleSheet/EdgeInsetsPropType";
 import { Node } from "react";
 import { ViewStyleProp } from "../../StyleSheet/StyleSheet";
-import { AccessibilityRole, AccessibilityState, AccessibilityValue, AccessibilityActionEvent, AccessibilityActionInfo } from "./ViewAccessibility";
-export declare type ViewLayout = Layout;
-export declare type ViewLayoutEvent = LayoutEvent;
-declare type BubblingEventProps = UniqueBranding & Readonly<{
-    onBlur?: ((event: BlurEvent) => unknown) | null | undefined;
-    onFocus?: ((event: FocusEvent) => unknown) | null | undefined;
+import { AccessibilityRole } from "./ViewAccessibility";
+import { AccessibilityState } from "./ViewAccessibility";
+import { AccessibilityValue } from "./ViewAccessibility";
+import { AccessibilityActionEvent } from "./ViewAccessibility";
+import { AccessibilityActionInfo } from "./ViewAccessibility";
+
+type ViewLayout = Layout;
+type ViewLayoutEvent = LayoutEvent;
+
+type BubblingEventProps = UniqueBranding & Readonly<{
+  onBlur?: ((event: BlurEvent) => unknown) | null | undefined;
+  onFocus?: ((event: FocusEvent) => unknown) | null | undefined;
 }>;
-declare type DirectEventProps = UniqueBranding & Readonly<{
-    /**
+
+type DirectEventProps = UniqueBranding & Readonly<{
+
+  /**
      * When `accessible` is true, the system will try to invoke this function
      * when the user performs an accessibility custom action.
      *
      */
-    onAccessibilityAction?: ((event: AccessibilityActionEvent) => unknown) | null | undefined;
-    /**
+  onAccessibilityAction?: ((event: AccessibilityActionEvent) => unknown) | null | undefined;
+
+  /**
      * When `accessible` is true, the system will try to invoke this function
      * when the user performs accessibility tap gesture.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onaccessibilitytap
+     * See https://reactnative.dev/docs/view.html#onaccessibilitytap
      */
-    onAccessibilityTap?: (() => unknown) | null | undefined;
-    /**
+  onAccessibilityTap?: (() => unknown) | null | undefined;
+
+  /**
      * Invoked on mount and layout changes with:
      *
      * `{nativeEvent: { layout: {x, y, width, height}}}`
@@ -33,65 +48,68 @@ declare type DirectEventProps = UniqueBranding & Readonly<{
      * the new layout may not yet be reflected on the screen at the time the
      * event is received, especially if a layout animation is in progress.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onlayout
+     * See https://reactnative.dev/docs/view.html#onlayout
      */
-    onLayout?: ((event: LayoutEvent) => unknown) | null | undefined;
-    /**
+  onLayout?: ((event: LayoutEvent) => unknown) | null | undefined;
+
+  /**
      * When `accessible` is `true`, the system will invoke this function when the
      * user performs the magic tap gesture.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onmagictap
+     * See https://reactnative.dev/docs/view.html#onmagictap
      */
-    onMagicTap?: (() => unknown) | null | undefined;
-    /**
+  onMagicTap?: (() => unknown) | null | undefined;
+
+  /**
      * When `accessible` is `true`, the system will invoke this function when the
      * user performs the escape gesture.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onaccessibilityescape
+     * See https://reactnative.dev/docs/view.html#onaccessibilityescape
      */
-    onAccessibilityEscape?: (() => unknown) | null | undefined;
+  onAccessibilityEscape?: (() => unknown) | null | undefined;
 }>;
-declare type MouseEventProps = UniqueBranding & Readonly<{
-    onMouseEnter?: ((event: MouseEvent) => void);
-    onMouseLeave?: ((event: MouseEvent) => void);
+
+type MouseEventProps = UniqueBranding & Readonly<{
+  onMouseEnter?: ((event: MouseEvent) => void);
+  onMouseLeave?: ((event: MouseEvent) => void);
 }>;
-declare type TouchEventProps = UniqueBranding & Readonly<{
-    onTouchCancel?: ((e: PressEvent) => void) | null | undefined;
-    onTouchCancelCapture?: ((e: PressEvent) => void) | null | undefined;
-    onTouchEnd?: ((e: PressEvent) => void) | null | undefined;
-    onTouchEndCapture?: ((e: PressEvent) => void) | null | undefined;
-    onTouchMove?: ((e: PressEvent) => void) | null | undefined;
-    onTouchMoveCapture?: ((e: PressEvent) => void) | null | undefined;
-    onTouchStart?: ((e: PressEvent) => void) | null | undefined;
-    onTouchStartCapture?: ((e: PressEvent) => void) | null | undefined;
+
+type TouchEventProps = UniqueBranding & Readonly<{
+  onTouchCancel?: ((e: PressEvent) => void) | null | undefined;
+  onTouchCancelCapture?: ((e: PressEvent) => void) | null | undefined;
+  onTouchEnd?: ((e: PressEvent) => void) | null | undefined;
+  onTouchEndCapture?: ((e: PressEvent) => void) | null | undefined;
+  onTouchMove?: ((e: PressEvent) => void) | null | undefined;
+  onTouchMoveCapture?: ((e: PressEvent) => void) | null | undefined;
+  onTouchStart?: ((e: PressEvent) => void) | null | undefined;
+  onTouchStartCapture?: ((e: PressEvent) => void) | null | undefined;
 }>;
-/**
- * For most touch interactions, you'll simply want to wrap your component in
- * `TouchableHighlight` or `TouchableOpacity`. Check out `Touchable.js`,
- * `ScrollResponder.js` and `ResponderEventPlugin.js` for more discussion.
- */
-declare type GestureResponderEventProps = UniqueBranding & Readonly<{
-    /**
+
+type GestureResponderEventProps = UniqueBranding & Readonly<{
+
+  /**
      * Does this view want to "claim" touch responsiveness? This is called for
      * every touch move on the `View` when it is not the responder.
      *
      * `View.props.onMoveShouldSetResponder: (event) => [true | false]`, where
      * `event` is a synthetic touch event as described above.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onmoveshouldsetresponder
+     * See https://reactnative.dev/docs/view.html#onmoveshouldsetresponder
      */
-    onMoveShouldSetResponder?: ((e: PressEvent) => boolean) | null | undefined;
-    /**
+  onMoveShouldSetResponder?: ((e: PressEvent) => boolean) | null | undefined;
+
+  /**
      * If a parent `View` wants to prevent a child `View` from becoming responder
      * on a move, it should have this handler which returns `true`.
      *
      * `View.props.onMoveShouldSetResponderCapture: (event) => [true | false]`,
      * where `event` is a synthetic touch event as described above.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onMoveShouldsetrespondercapture
+     * See https://reactnative.dev/docs/view.html#onMoveShouldsetrespondercapture
      */
-    onMoveShouldSetResponderCapture?: ((e: PressEvent) => boolean) | null | undefined;
-    /**
+  onMoveShouldSetResponderCapture?: ((e: PressEvent) => boolean) | null | undefined;
+
+  /**
      * The View is now responding for touch events. This is the time to highlight
      * and show the user what is happening.
      *
@@ -101,40 +119,44 @@ declare type GestureResponderEventProps = UniqueBranding & Readonly<{
      * PanResponder includes a note `// TODO: t7467124 investigate if this can be removed` that
      * should help fixing this return type.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onrespondergrant
+     * See https://reactnative.dev/docs/view.html#onrespondergrant
      */
-    onResponderGrant?: ((e: PressEvent) => void | boolean) | null | undefined;
-    /**
+  onResponderGrant?: ((e: PressEvent) => void | boolean) | null | undefined;
+
+  /**
      * The user is moving their finger.
      *
      * `View.props.onResponderMove: (event) => {}`, where `event` is a synthetic
      * touch event as described above.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onrespondermove
+     * See https://reactnative.dev/docs/view.html#onrespondermove
      */
-    onResponderMove?: ((e: PressEvent) => void) | null | undefined;
-    /**
+  onResponderMove?: ((e: PressEvent) => void) | null | undefined;
+
+  /**
      * Another responder is already active and will not release it to that `View`
      * asking to be the responder.
      *
      * `View.props.onResponderReject: (event) => {}`, where `event` is a
      * synthetic touch event as described above.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onresponderreject
+     * See https://reactnative.dev/docs/view.html#onresponderreject
      */
-    onResponderReject?: ((e: PressEvent) => void) | null | undefined;
-    /**
+  onResponderReject?: ((e: PressEvent) => void) | null | undefined;
+
+  /**
      * Fired at the end of the touch.
      *
      * `View.props.onResponderRelease: (event) => {}`, where `event` is a
      * synthetic touch event as described above.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onresponderrelease
+     * See https://reactnative.dev/docs/view.html#onresponderrelease
      */
-    onResponderRelease?: ((e: PressEvent) => void) | null | undefined;
-    onResponderStart?: ((e: PressEvent) => void) | null | undefined;
-    onResponderEnd?: ((e: PressEvent) => void) | null | undefined;
-    /**
+  onResponderRelease?: ((e: PressEvent) => void) | null | undefined;
+  onResponderStart?: ((e: PressEvent) => void) | null | undefined;
+  onResponderEnd?: ((e: PressEvent) => void) | null | undefined;
+
+  /**
      * The responder has been taken from the `View`. Might be taken by other
      * views after a call to `onResponderTerminationRequest`, or might be taken
      * by the OS without asking (e.g., happens with control center/ notification
@@ -143,62 +165,64 @@ declare type GestureResponderEventProps = UniqueBranding & Readonly<{
      * `View.props.onResponderTerminate: (event) => {}`, where `event` is a
      * synthetic touch event as described above.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onresponderterminate
+     * See https://reactnative.dev/docs/view.html#onresponderterminate
      */
-    onResponderTerminate?: ((e: PressEvent) => void) | null | undefined;
-    /**
+  onResponderTerminate?: ((e: PressEvent) => void) | null | undefined;
+
+  /**
      * Some other `View` wants to become responder and is asking this `View` to
      * release its responder. Returning `true` allows its release.
      *
      * `View.props.onResponderTerminationRequest: (event) => {}`, where `event`
      * is a synthetic touch event as described above.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onresponderterminationrequest
+     * See https://reactnative.dev/docs/view.html#onresponderterminationrequest
      */
-    onResponderTerminationRequest?: ((e: PressEvent) => boolean) | null | undefined;
-    /**
+  onResponderTerminationRequest?: ((e: PressEvent) => boolean) | null | undefined;
+
+  /**
      * Does this view want to become responder on the start of a touch?
      *
      * `View.props.onStartShouldSetResponder: (event) => [true | false]`, where
      * `event` is a synthetic touch event as described above.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onstartshouldsetresponder
+     * See https://reactnative.dev/docs/view.html#onstartshouldsetresponder
      */
-    onStartShouldSetResponder?: ((e: PressEvent) => boolean) | null | undefined;
-    /**
+  onStartShouldSetResponder?: ((e: PressEvent) => boolean) | null | undefined;
+
+  /**
      * If a parent `View` wants to prevent a child `View` from becoming responder
      * on a touch start, it should have this handler which returns `true`.
      *
      * `View.props.onStartShouldSetResponderCapture: (event) => [true | false]`,
      * where `event` is a synthetic touch event as described above.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#onstartshouldsetrespondercapture
+     * See https://reactnative.dev/docs/view.html#onstartshouldsetrespondercapture
      */
-    onStartShouldSetResponderCapture?: ((e: PressEvent) => boolean) | null | undefined;
+  onStartShouldSetResponderCapture?: ((e: PressEvent) => boolean) | null | undefined;
 }>;
-declare type AndroidDrawableThemeAttr = UniqueBranding & Readonly<{
-    type: "ThemeAttrAndroid";
-    attribute: string;
-}>;
-declare type AndroidDrawableRipple = UniqueBranding & Readonly<{
-    type: "RippleAndroid";
-    color?: number | null | undefined;
-    borderless?: boolean | null | undefined;
-}>;
-declare type AndroidDrawable = AndroidDrawableThemeAttr | AndroidDrawableRipple;
-declare type AndroidViewProps = UniqueBranding & Readonly<{
-    nativeBackgroundAndroid?: AndroidDrawable | null | undefined;
-    nativeForegroundAndroid?: AndroidDrawable | null | undefined;
-    /**
+
+type AndroidDrawableThemeAttr = UniqueBranding & Readonly<{type: "ThemeAttrAndroid";attribute: string;}>;
+
+type AndroidDrawableRipple = UniqueBranding & Readonly<{type: "RippleAndroid";color?: number | null | undefined;borderless?: boolean | null | undefined;}>;
+
+type AndroidDrawable = AndroidDrawableThemeAttr | AndroidDrawableRipple;
+
+type AndroidViewProps = UniqueBranding & Readonly<{
+  nativeBackgroundAndroid?: AndroidDrawable | null | undefined;
+  nativeForegroundAndroid?: AndroidDrawable | null | undefined;
+
+  /**
      * Whether this `View` should render itself (and all of its children) into a
      * single hardware texture on the GPU.
      *
      * @platform android
      *
-     * See http://facebook.github.io/react-native/docs/view.html#rendertohardwaretextureandroid
+     * See https://reactnative.dev/docs/view.html#rendertohardwaretextureandroid
      */
-    renderToHardwareTextureAndroid?: boolean | null | undefined;
-    /**
+  renderToHardwareTextureAndroid?: boolean | null | undefined;
+
+  /**
      * Views that are only used to layout their children or otherwise don't draw
      * anything may be automatically removed from the native hierarchy as an
      * optimization. Set this property to `false` to disable this optimization and
@@ -206,179 +230,205 @@ declare type AndroidViewProps = UniqueBranding & Readonly<{
      *
      * @platform android
      *
-     * See http://facebook.github.io/react-native/docs/view.html#collapsable
+     * See https://reactnative.dev/docs/view.html#collapsable
      */
-    collapsable?: boolean | null | undefined;
-    /**
+  collapsable?: boolean | null | undefined;
+
+  /**
      * Whether this `View` needs to rendered offscreen and composited with an
      * alpha in order to preserve 100% correct colors and blending behavior.
      *
      * @platform android
      *
-     * See http://facebook.github.io/react-native/docs/view.html#needsoffscreenalphacompositing
+     * See https://reactnative.dev/docs/view.html#needsoffscreenalphacompositing
      */
-    needsOffscreenAlphaCompositing?: boolean | null | undefined;
-    /**
+  needsOffscreenAlphaCompositing?: boolean | null | undefined;
+
+  /**
      * Indicates to accessibility services whether the user should be notified
      * when this view changes. Works for Android API >= 19 only.
      *
      * @platform android
      *
-     * See http://facebook.github.io/react-native/docs/view.html#accessibilityliveregion
+     * See https://reactnative.dev/docs/view.html#accessibilityliveregion
      */
-    accessibilityLiveRegion?: ("none" | "polite" | "assertive") | null | undefined;
-    /**
+  accessibilityLiveRegion?: ("none" | "polite" | "assertive") | null | undefined;
+
+  /**
      * Controls how view is important for accessibility which is if it
      * fires accessibility events and if it is reported to accessibility services
      * that query the screen. Works for Android only.
      *
      * @platform android
      *
-     * See http://facebook.github.io/react-native/docs/view.html#importantforaccessibility
+     * See https://reactnative.dev/docs/view.html#importantforaccessibility
      */
-    importantForAccessibility?: ("auto" | "yes" | "no" | "no-hide-descendants") | null | undefined;
-    /**
+  importantForAccessibility?: ("auto" | "yes" | "no" | "no-hide-descendants") | null | undefined;
+
+  /**
      * Whether to force the Android TV focus engine to move focus to this view.
      *
      * @platform android
      */
-    hasTVPreferredFocus?: boolean | null | undefined;
-    /**
+  hasTVPreferredFocus?: boolean | null | undefined;
+
+  /**
      * TV next focus down (see documentation for the View component).
      *
      * @platform android
      */
-    nextFocusDown?: number | null | undefined;
-    /**
+  nextFocusDown?: number | null | undefined;
+
+  /**
      * TV next focus forward (see documentation for the View component).
      *
      * @platform android
      */
-    nextFocusForward?: number | null | undefined;
-    /**
+  nextFocusForward?: number | null | undefined;
+
+  /**
      * TV next focus left (see documentation for the View component).
      *
      * @platform android
      */
-    nextFocusLeft?: number | null | undefined;
-    /**
+  nextFocusLeft?: number | null | undefined;
+
+  /**
      * TV next focus right (see documentation for the View component).
      *
      * @platform android
      */
-    nextFocusRight?: number | null | undefined;
-    /**
+  nextFocusRight?: number | null | undefined;
+
+  /**
      * TV next focus up (see documentation for the View component).
      *
      * @platform android
      */
-    nextFocusUp?: number | null | undefined;
-    /**
+  nextFocusUp?: number | null | undefined;
+
+  /**
      * Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
      *
      * @platform android
      */
-    focusable?: boolean;
-    /**
+  focusable?: boolean;
+
+  /**
      * The action to perform when this `View` is clicked on by a non-touch click, eg. enter key on a hardware keyboard.
      *
      * @platform android
      */
-    onClick?: ((event: PressEvent) => unknown) | null | undefined;
+  onClick?: ((event: PressEvent) => unknown) | null | undefined;
 }>;
-declare type IOSViewProps = UniqueBranding & Readonly<{
-    /**
+
+type IOSViewProps = UniqueBranding & Readonly<{
+
+  /**
      * Prevents view from being inverted if set to true and color inversion is turned on.
      *
      * @platform ios
      */
-    accessibilityIgnoresInvertColors?: boolean | null | undefined;
-    /**
+  accessibilityIgnoresInvertColors?: boolean | null | undefined;
+
+  /**
      * A value indicating whether VoiceOver should ignore the elements
      * within views that are siblings of the receiver.
      * Default is `false`.
      *
      * @platform ios
      *
-     * See http://facebook.github.io/react-native/docs/view.html#accessibilityviewismodal
+     * See https://reactnative.dev/docs/view.html#accessibilityviewismodal
      */
-    accessibilityViewIsModal?: boolean | null | undefined;
-    /**
+  accessibilityViewIsModal?: boolean | null | undefined;
+
+  /**
      * A value indicating whether the accessibility elements contained within
      * this accessibility element are hidden.
      *
      * @platform ios
      *
-     * See http://facebook.github.io/react-native/docs/view.html#accessibilityElementsHidden
+     * See https://reactnative.dev/docs/view.html#accessibilityElementsHidden
      */
-    accessibilityElementsHidden?: boolean | null | undefined;
-    /**
+  accessibilityElementsHidden?: boolean | null | undefined;
+
+  /**
      * Whether this `View` should be rendered as a bitmap before compositing.
      *
      * @platform ios
      *
-     * See http://facebook.github.io/react-native/docs/view.html#shouldrasterizeios
+     * See https://reactnative.dev/docs/view.html#shouldrasterizeios
      */
-    shouldRasterizeIOS?: boolean | null | undefined;
+  shouldRasterizeIOS?: boolean | null | undefined;
 }>;
-export declare type ViewProps = UniqueBranding & Readonly<BubblingEventProps & DirectEventProps & GestureResponderEventProps & MouseEventProps & TouchEventProps & AndroidViewProps & IOSViewProps & {
-    children?: Node;
-    style?: ViewStyleProp | null | undefined;
-    /**
+
+type ViewProps = UniqueBranding & Readonly<BubblingEventProps & DirectEventProps & GestureResponderEventProps & MouseEventProps & TouchEventProps & AndroidViewProps & IOSViewProps & {
+  children?: Node;
+  style?: ViewStyleProp | null | undefined;
+
+  /**
      * When `true`, indicates that the view is an accessibility element.
      * By default, all the touchable elements are accessible.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#accessible
+     * See https://reactnative.dev/docs/view.html#accessible
      */
-    accessible?: boolean | null | undefined;
-    /**
+  accessible?: boolean | null | undefined;
+
+  /**
      * Overrides the text that's read by the screen reader when the user interacts
      * with the element. By default, the label is constructed by traversing all
      * the children and accumulating all the `Text` nodes separated by space.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#accessibilitylabel
+     * See https://reactnative.dev/docs/view.html#accessibilitylabel
      */
-    accessibilityLabel?: Stringish | null | undefined;
-    /**
+  accessibilityLabel?: Stringish | null | undefined;
+
+  /**
      * An accessibility hint helps users understand what will happen when they perform
      * an action on the accessibility element when that result is not obvious from the
      * accessibility label.
      *
      *
-     * See http://facebook.github.io/react-native/docs/view.html#accessibilityHint
+     * See https://reactnative.dev/docs/view.html#accessibilityHint
      */
-    accessibilityHint?: Stringish | null | undefined;
-    /**
+  accessibilityHint?: Stringish | null | undefined;
+
+  /**
      * Indicates to accessibility services to treat UI component like a specific role.
      */
-    accessibilityRole?: AccessibilityRole | null | undefined;
-    /**
+  accessibilityRole?: AccessibilityRole | null | undefined;
+
+  /**
      * Indicates to accessibility services that UI Component is in a specific State.
      */
-    accessibilityState?: AccessibilityState | null | undefined;
-    accessibilityValue?: AccessibilityValue | null | undefined;
-    /**
+  accessibilityState?: AccessibilityState | null | undefined;
+  accessibilityValue?: AccessibilityValue | null | undefined;
+
+  /**
      * Provides an array of custom actions available for accessibility.
      *
      */
-    accessibilityActions?: ReadonlyArray<AccessibilityActionInfo> | null | undefined;
-    /**
+  accessibilityActions?: ReadonlyArray<AccessibilityActionInfo> | null | undefined;
+
+  /**
      * Used to locate this view in end-to-end tests.
      *
      * > This disables the 'layout-only view removal' optimization for this view!
      *
-     * See http://facebook.github.io/react-native/docs/view.html#testid
+     * See https://reactnative.dev/docs/view.html#testid
      */
-    testID?: string | null | undefined;
-    /**
+  testID?: string | null | undefined;
+
+  /**
      * Used to locate this view from native classes.
      *
      * > This disables the 'layout-only view removal' optimization for this view!
      *
-     * See http://facebook.github.io/react-native/docs/view.html#nativeid
+     * See https://reactnative.dev/docs/view.html#nativeid
      */
-    nativeID?: string | null | undefined;
-    /**
+  nativeID?: string | null | undefined;
+
+  /**
      * This defines how far a touch event can start away from the view.
      * Typical interface guidelines recommend touch targets that are at least
      * 30 - 40 points/density-independent pixels.
@@ -387,16 +437,18 @@ export declare type ViewProps = UniqueBranding & Readonly<BubblingEventProps & D
      * > of sibling views always takes precedence if a touch hits two overlapping
      * > views.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#hitslop
+     * See https://reactnative.dev/docs/view.html#hitslop
      */
-    hitSlop?: EdgeInsetsProp | null | undefined;
-    /**
+  hitSlop?: EdgeInsetsProp | null | undefined;
+
+  /**
      * Controls whether the `View` can be the target of touch events.
      *
-     * See http://facebook.github.io/react-native/docs/view.html#pointerevents
+     * See https://reactnative.dev/docs/view.html#pointerevents
      */
-    pointerEvents?: ("auto" | "box-none" | "box-only" | "none") | null | undefined;
-    /**
+  pointerEvents?: ("auto" | "box-none" | "box-only" | "none") | null | undefined;
+
+  /**
      * This is a special performance property exposed by `RCTView` and is useful
      * for scrolling content when there are many subviews, most of which are
      * offscreen. For this property to be effective, it must be applied to a
@@ -404,8 +456,11 @@ export declare type ViewProps = UniqueBranding & Readonly<BubblingEventProps & D
      * subviews must also have `overflow: hidden`, as should the containing view
      * (or one of its superviews).
      *
-     * See http://facebook.github.io/react-native/docs/view.html#removeclippedsubviews
+     * See https://reactnative.dev/docs/view.html#removeclippedsubviews
      */
-    removeClippedSubviews?: boolean | null | undefined;
+  removeClippedSubviews?: boolean | null | undefined;
 }>;
-export {};
+export { ViewLayout };
+export { ViewLayoutEvent };
+
+export { ViewProps };

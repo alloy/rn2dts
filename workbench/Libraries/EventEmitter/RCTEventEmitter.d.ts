@@ -1,4 +1,3 @@
-declare const RCTEventEmitter: {
-    register(eventEmitter: any): void;
-};
-export default RCTEventEmitter;
+declare var RCTEventEmitter: {register(eventEmitter: any): void;};
+
+declare module.exports: typeof RCTEventEmitter

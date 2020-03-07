@@ -1,13 +1,17 @@
 import { UniqueBranding } from "flow-builtin-types";
-import { BlurEvent, FocusEvent, PressEvent } from "../../Types/CoreEventTypes";
-declare type TVTouchableConfig = UniqueBranding & Readonly<{
-    getDisabled: (() => boolean);
-    onBlur: ((event: BlurEvent) => unknown);
-    onFocus: ((event: FocusEvent) => unknown);
-    onPress: ((event: PressEvent) => unknown);
+import { BlurEvent } from "../../Types/CoreEventTypes";
+import { FocusEvent } from "../../Types/CoreEventTypes";
+import { PressEvent } from "../../Types/CoreEventTypes";
+
+type TVTouchableConfig = UniqueBranding & Readonly<{
+  getDisabled: (() => boolean);
+  onBlur: ((event: BlurEvent) => unknown);
+  onFocus: ((event: FocusEvent) => unknown);
+  onPress: ((event: PressEvent) => unknown);
 }>;
-export default class TVTouchable {
-    constructor(component: any, config: TVTouchableConfig);
-    destroy(): void;
+
+declare class TVTouchable {
+  constructor(component: any, config: TVTouchableConfig): void;
+  destroy(): void;
 }
-export {};
+export { TVTouchable as default };

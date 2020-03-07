@@ -1,4 +1,3 @@
-declare const BridgeSpyStallHandler: {
-    register: () => void;
-};
-export default BridgeSpyStallHandler;
+declare var BridgeSpyStallHandler: {register: (() => void);};
+
+declare module.exports: typeof BridgeSpyStallHandler

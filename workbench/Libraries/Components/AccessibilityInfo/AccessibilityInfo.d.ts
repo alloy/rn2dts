@@ -1,74 +1,83 @@
-/**
- * Sometimes it's useful to know whether or not the device has a screen reader
- * that is currently active. The `AccessibilityInfo` API is designed for this
- * purpose. You can use it to query the current state of the screen reader as
- * well as to register to be notified when the state of the screen reader
- * changes.
- *
- * See http://facebook.github.io/react-native/docs/accessibilityinfo.html
- */
-declare const AccessibilityInfo: {
-    /**
+import { $FlowFixMe } from "flow-builtin-types";
+import { $Keys } from "utility-types";
+const Promise = require("../../Promise");
+
+type ChangeEventName = $Keys<{
+  announcementFinished: string;
+  boldTextChanged: string;
+  change: string;
+  grayscaleChanged: string;
+  invertColorsChanged: string;
+  reduceMotionChanged: string;
+  reduceTransparencyChanged: string;
+  screenReaderChanged: string;
+
+}>;
+
+declare var AccessibilityInfo: {
+
+  /**
      * Query whether bold text is currently enabled.
      *
      * Returns a promise which resolves to a boolean.
      * The result is `true` when bold text is enabled and `false` otherwise.
      *
-     * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#isBoldTextEnabled
+     * See https://reactnative.dev/docs/accessibilityinfo.html#isBoldTextEnabled
      */
-    isBoldTextEnabled: () => any;
-    /**
+  isBoldTextEnabled: (() => Promise<boolean>);
+
+  /**
      * Query whether grayscale is currently enabled.
      *
      * Returns a promise which resolves to a boolean.
      * The result is `true` when grayscale is enabled and `false` otherwise.
      *
-     * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#isGrayscaleEnabled
+     * See https://reactnative.dev/docs/accessibilityinfo.html#isGrayscaleEnabled
      */
-    isGrayscaleEnabled: () => any;
-    /**
+  isGrayscaleEnabled: (() => Promise<boolean>);
+
+  /**
      * Query whether inverted colors are currently enabled.
      *
      * Returns a promise which resolves to a boolean.
      * The result is `true` when invert color is enabled and `false` otherwise.
      *
-     * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#isInvertColorsEnabled
+     * See https://reactnative.dev/docs/accessibilityinfo.html#isInvertColorsEnabled
      */
-    isInvertColorsEnabled: () => any;
-    /**
+  isInvertColorsEnabled: (() => Promise<boolean>);
+
+  /**
      * Query whether reduced motion is currently enabled.
      *
      * Returns a promise which resolves to a boolean.
      * The result is `true` when a reduce motion is enabled and `false` otherwise.
      *
-     * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#isReduceMotionEnabled
+     * See https://reactnative.dev/docs/accessibilityinfo.html#isReduceMotionEnabled
      */
-    isReduceMotionEnabled: () => any;
-    /**
+  isReduceMotionEnabled: (() => Promise<boolean>);
+
+  /**
      * Query whether reduced transparency is currently enabled.
      *
      * Returns a promise which resolves to a boolean.
      * The result is `true` when a reduce transparency is enabled and `false` otherwise.
      *
-     * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#isReduceTransparencyEnabled
+     * See https://reactnative.dev/docs/accessibilityinfo.html#isReduceTransparencyEnabled
      */
-    isReduceTransparencyEnabled: () => any;
-    /**
+  isReduceTransparencyEnabled: (() => Promise<boolean>);
+
+  /**
      * Query whether a screen reader is currently enabled.
      *
      * Returns a promise which resolves to a boolean.
      * The result is `true` when a screen reader is enabled and `false` otherwise.
      *
-     * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#isScreenReaderEnabled
+     * See https://reactnative.dev/docs/accessibilityinfo.html#isScreenReaderEnabled
      */
-    isScreenReaderEnabled: () => any;
-    /**
-     * Deprecated
-     *
-     * Same as `isScreenReaderEnabled`
-     */
-    readonly fetch: any;
-    /**
+  isScreenReaderEnabled: (() => Promise<boolean>);
+  fetch(): $FlowFixMe;
+
+  /**
      * Add an event handler. Supported events:
      *
      * - `boldTextChanged`: iOS-only event. Fires when the state of the bold text toggle changes.
@@ -97,26 +106,30 @@ declare const AccessibilityInfo: {
      *     - `success`: A boolean indicating whether the announcement was
      *       successfully made.
      *
-     * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#addeventlistener
+     * See https://reactnative.dev/docs/accessibilityinfo.html#addeventlistener
      */
-    addEventListener: (eventName: "change" | "announcementFinished" | "boldTextChanged" | "grayscaleChanged" | "invertColorsChanged" | "reduceMotionChanged" | "reduceTransparencyChanged" | "screenReaderChanged", handler: (...args: any) => any) => any;
-    /**
+  addEventListener: ((eventName: ChangeEventName, handler: ((...args: any) => any)) => any);
+
+  /**
      * Set accessibility focus to a react component.
      *
-     * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#setaccessibilityfocus
+     * See https://reactnative.dev/docs/accessibilityinfo.html#setaccessibilityfocus
      */
-    setAccessibilityFocus: (reactTag: number) => void;
-    /**
+  setAccessibilityFocus: ((reactTag: number) => void);
+
+  /**
      * Post a string to be announced by the screen reader.
      *
-     * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#announceforaccessibility
+     * See https://reactnative.dev/docs/accessibilityinfo.html#announceforaccessibility
      */
-    announceForAccessibility: (announcement: string) => void;
-    /**
+  announceForAccessibility: ((announcement: string) => void);
+
+  /**
      * Remove an event handler.
      *
-     * See http://facebook.github.io/react-native/docs/accessibilityinfo.html#removeeventlistener
+     * See https://reactnative.dev/docs/accessibilityinfo.html#removeeventlistener
      */
-    removeEventListener: (eventName: "change" | "announcementFinished" | "boldTextChanged" | "grayscaleChanged" | "invertColorsChanged" | "reduceMotionChanged" | "reduceTransparencyChanged" | "screenReaderChanged", handler: (...args: any) => any) => void;
+  removeEventListener: ((eventName: ChangeEventName, handler: ((...args: any) => any)) => void);
 };
-export default AccessibilityInfo;
+
+declare module.exports: typeof AccessibilityInfo

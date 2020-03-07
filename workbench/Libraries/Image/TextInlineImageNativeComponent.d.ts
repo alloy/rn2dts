@@ -1,3 +1,5 @@
 import { HostComponent } from "../Renderer/shims/ReactNativeTypes";
-declare const TextInlineImage: HostComponent<unknown>;
-export default TextInlineImage;
+
+declare var TextInlineImage: HostComponent<unknown>;
+
+declare module.exports: typeof TextInlineImage
